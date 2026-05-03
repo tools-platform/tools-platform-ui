@@ -42,6 +42,7 @@ export function NetSalaryColombiaCalculator() {
   const [year, setYear] = useState(currentPayrollYear);
   const [isYearEditable, setIsYearEditable] = useState(false);
   const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(true);
+  const [showSolidarityFund, setShowSolidarityFund] = useState(true);
   const [otherDeductions, setOtherDeductions] = useState("0");
   const [result, setResult] = useState<NetSalaryData | null>(null);
   const [error, setError] = useState("");
@@ -169,6 +170,18 @@ export function NetSalaryColombiaCalculator() {
           </span>
         </label>
 
+        <label className="toggle-field toggle-field--compact">
+          <input
+            checked={showSolidarityFund}
+            onChange={(event) => setShowSolidarityFund(event.target.checked)}
+            type="checkbox"
+          />
+          <span>
+            <strong>Mostrar Fondo de Solidaridad</strong>
+            <small>Solo cambia si ves el detalle. Si aplica por ley, seguirá incluido en el total.</small>
+          </span>
+        </label>
+
         {previewSalary > 0 ? (
           <div className="calculator-hint">
             <Info size={16} strokeWidth={2.1} />
@@ -198,7 +211,9 @@ export function NetSalaryColombiaCalculator() {
               <ResultItem label="Auxilio transporte" value={result.result.transportationAllowance} />
               <ResultItem label="Salud 4%" value={result.result.healthContribution} />
               <ResultItem label="Pensión 4%" value={result.result.pensionContribution} />
-              <ResultItem label="Fondo de solidaridad" value={result.result.solidarityPensionFundContribution} />
+              {showSolidarityFund ? (
+                <ResultItem label="Fondo de solidaridad" value={result.result.solidarityPensionFundContribution} />
+              ) : null}
               <ResultItem label="Total descuentos" value={result.result.totalDeductions} strong />
             </div>
 
@@ -215,17 +230,21 @@ export function NetSalaryColombiaCalculator() {
               <span>Cumple límite legal: {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}</span>
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
-              <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
+              {showSolidarityFund ? (
+                <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
+              ) : null}
             </div>
 
-            <div className="explain-note">
-              <Info size={18} strokeWidth={2.1} />
-              <p>
-                <strong>¿Qué es el Fondo de Solidaridad Pensional?</strong>
-                Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más.
-                Si tu salario no llega a ese rango, este valor queda en cero.
-              </p>
-            </div>
+            {showSolidarityFund ? (
+              <div className="explain-note">
+                <Info size={18} strokeWidth={2.1} />
+                <p>
+                  <strong>¿Qué es el Fondo de Solidaridad Pensional?</strong>
+                  Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más.
+                  Si tu salario no llega a ese rango, este valor queda en cero.
+                </p>
+              </div>
+            ) : null}
 
             <p className="disclaimer">
               Este resultado es una estimación para un empleado dependiente en Colombia.

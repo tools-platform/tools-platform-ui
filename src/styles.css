@@ -723,6 +723,11 @@ input {
   accent-color: var(--primary);
 }
 
+.toggle-field--compact {
+  margin-top: 12px;
+  padding: 14px 16px;
+}
+
 .calculator-hint {
   display: flex;
   align-items: center;
