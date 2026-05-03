@@ -23,6 +23,13 @@ function todayDate() {
   return toDateKey(new Date());
 }
 
+function oneYearAgoDate() {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() - 1);
+
+  return toDateKey(date);
+}
+
 function formatNumber(value: number) {
   return numberFormatter.format(value);
 }
@@ -42,7 +49,7 @@ function formatDate(value: string) {
 }
 
 export function ExactAgeCalculator() {
-  const [birthDate, setBirthDate] = useState("");
+  const [birthDate, setBirthDate] = useState(oneYearAgoDate());
   const [referenceDate, setReferenceDate] = useState(todayDate());
   const [result, setResult] = useState<ExactAgeData | null>(null);
   const [error, setError] = useState("");
@@ -81,7 +88,7 @@ export function ExactAgeCalculator() {
   }
 
   function handleReset() {
-    setBirthDate("");
+    setBirthDate(oneYearAgoDate());
     setReferenceDate(todayDate());
     setResult(null);
     setError("");
