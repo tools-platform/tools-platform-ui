@@ -192,8 +192,8 @@ export function EmploymentSettlementColombiaCalculator() {
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">
-                  Solo cambia el cálculo ordinario si empezaste dentro del periodo que se liquida. Si venías de antes,
-                  usamos el inicio legal del periodo.
+                  La usamos para calcular tu antigüedad si el contrato indefinido termina sin justa causa. Esa
+                  antigüedad define los días de indemnización.
                 </span>
               </span>
             </span>
