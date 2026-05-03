@@ -66,9 +66,16 @@ export function SiteHeader() {
             <div className="nav-category__tools">
               {category.tools.slice(0, 5).map((tool) => (
                 <a
+                  aria-disabled={tool.status === "draft" ? true : undefined}
                   className={tool.status === "draft" ? "nav-tool is-draft" : "nav-tool"}
                   href={tool.status === "published" ? `/tools/${tool.slug}` : "/#tools"}
                   key={tool.id}
+                  onClick={(event) => {
+                    if (tool.status === "draft") {
+                      event.preventDefault();
+                    }
+                  }}
+                  tabIndex={tool.status === "draft" ? -1 : undefined}
                 >
                   <tool.Icon size={14} strokeWidth={2.05} />
                   <span>{tool.name}</span>

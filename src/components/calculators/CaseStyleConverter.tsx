@@ -10,8 +10,6 @@ type CaseResult = {
   value: string;
 };
 
-const sampleText = "nombre del usuario";
-
 function normalizeWords(value: string) {
   const cleanValue = value
     .normalize("NFD")
@@ -110,7 +108,7 @@ function countWords(value: string) {
 }
 
 export function CaseStyleConverter() {
-  const [inputText, setInputText] = useState(sampleText);
+  const [inputText, setInputText] = useState("");
   const [results, setResults] = useState<CaseResult[] | null>(null);
   const [appliedText, setAppliedText] = useState("");
   const [error, setError] = useState("");
@@ -142,7 +140,7 @@ export function CaseStyleConverter() {
   }
 
   function handleReset() {
-    setInputText(sampleText);
+    setInputText("");
     setResults(null);
     setAppliedText("");
     setError("");
