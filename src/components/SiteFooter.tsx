@@ -9,8 +9,8 @@ export function SiteFooter() {
           <span>Tools Platforms</span>
         </div>
         <div className="footer-links">
-          <a href="/privacidad">Privacidad</a>
-          <a href="/terminos">Términos</a>
+          <a href="/privacy">Privacidad</a>
+          <a href="/terms">Términos</a>
           <a href="mailto:contacto@toolsplatforms.com">Contacto</a>
         </div>
       </div>

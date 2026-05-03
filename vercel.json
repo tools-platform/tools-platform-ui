@@ -1,4 +1,91 @@
 {
+  "redirects": [
+    {
+      "source": "/tools/calculadora-salario-neto-colombia",
+      "destination": "/tools/colombia-net-salary-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-liquidacion-colombia",
+      "destination": "/tools/colombia-employment-settlement-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-intereses-credito",
+      "destination": "/tools/credit-interest-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-cuota-prestamo",
+      "destination": "/tools/loan-payment-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/conversor-cop-usd",
+      "destination": "/tools/cop-to-usd-converter",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-horas-trabajadas",
+      "destination": "/tools/worked-hours-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-cuanto-cobrar-freelance",
+      "destination": "/tools/freelance-rate-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/contador-dias-entre-fechas",
+      "destination": "/tools/days-between-dates-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-edad-exacta",
+      "destination": "/tools/exact-age-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/conversor-de-unidades",
+      "destination": "/tools/unit-converter",
+      "permanent": true
+    },
+    {
+      "source": "/tools/convertidor-mayusculas-minusculas",
+      "destination": "/tools/text-case-converter",
+      "permanent": true
+    },
+    {
+      "source": "/tools/formateador-json",
+      "destination": "/tools/json-formatter",
+      "permanent": true
+    },
+    {
+      "source": "/tools/generador-uuid",
+      "destination": "/tools/uuid-generator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/generador-hash",
+      "destination": "/tools/hash-generator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculadora-aumento-salarial",
+      "destination": "/tools/salary-increase-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/privacidad",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terminos",
+      "destination": "/terms",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

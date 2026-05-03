@@ -13,11 +13,11 @@ export function App() {
       return { type: "tool" as const, slug: toolMatch[1] };
     }
 
-    if (window.location.pathname === "/privacidad") {
+    if (window.location.pathname === "/privacy") {
       return { type: "legal" as const, page: "privacy" as LegalPageType };
     }
 
-    if (window.location.pathname === "/terminos") {
+    if (window.location.pathname === "/terms") {
       return { type: "legal" as const, page: "terms" as LegalPageType };
     }
 

@@ -75,7 +75,7 @@ export const categories: Category[] = [
 export const tools: ToolSummary[] = [
   {
     id: "net-salary-colombia",
-    slug: "calculadora-salario-neto-colombia",
+    slug: "colombia-net-salary-calculator",
     name: "Calculadora de salario neto (Colombia)",
     description: "Cuánto recibes después de salud y pensión.",
     categoryId: "finance",
@@ -84,7 +84,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "employment-settlement-colombia",
-    slug: "calculadora-liquidacion-colombia",
+    slug: "colombia-employment-settlement-calculator",
     name: "Calculadora de liquidación (Colombia)",
     description: "Cesantías, prima y vacaciones al salir del trabajo.",
     categoryId: "finance",
@@ -93,7 +93,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "credit-interest",
-    slug: "calculadora-intereses-credito",
+    slug: "credit-interest-calculator",
     name: "Intereses de crédito",
     description: "Cuánto pagas en total por un préstamo.",
     categoryId: "finance",
@@ -102,7 +102,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "loan-payment",
-    slug: "calculadora-cuota-prestamo",
+    slug: "loan-payment-calculator",
     name: "Cuota de préstamo",
     description: "Valor de la cuota mensual de un crédito.",
     categoryId: "finance",
@@ -111,7 +111,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "cop-usd",
-    slug: "conversor-cop-usd",
+    slug: "cop-to-usd-converter",
     name: "Conversor COP a USD",
     description: "Convierte pesos colombianos a dólares de forma rápida.",
     categoryId: "finance",
@@ -120,7 +120,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "worked-hours",
-    slug: "calculadora-horas-trabajadas",
+    slug: "worked-hours-calculator",
     name: "Calculadora de horas trabajadas",
     description: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
     categoryId: "work",
@@ -129,7 +129,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "freelance-rate",
-    slug: "calculadora-cuanto-cobrar-freelance",
+    slug: "freelance-rate-calculator",
     name: "Calculadora de cuánto cobrar freelance",
     description: "Sugiere una tarifa a partir de ingresos deseados, gastos y tiempo.",
     categoryId: "work",
@@ -138,7 +138,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "days-between-dates",
-    slug: "contador-dias-entre-fechas",
+    slug: "days-between-dates-calculator",
     name: "Contador de días entre fechas",
     description: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
     categoryId: "time",
@@ -147,7 +147,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "exact-age",
-    slug: "calculadora-edad-exacta",
+    slug: "exact-age-calculator",
     name: "Calculadora de edad exacta",
     description: "Calcula edad en años, meses y días.",
     categoryId: "time",
@@ -156,7 +156,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "unit-converter",
-    slug: "conversor-de-unidades",
+    slug: "unit-converter",
     name: "Conversor de unidades",
     description: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
     categoryId: "utilities",
@@ -165,7 +165,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "text-case-converter",
-    slug: "convertidor-mayusculas-minusculas",
+    slug: "text-case-converter",
     name: "Convertidor de mayúsculas y minúsculas",
     description: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
     categoryId: "utilities",
@@ -174,7 +174,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "json-formatter",
-    slug: "formateador-json",
+    slug: "json-formatter",
     name: "Formateador JSON",
     description: "Organiza JSON para hacerlo legible y fácil de revisar.",
     categoryId: "development",
@@ -183,7 +183,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "uuid-generator",
-    slug: "generador-uuid",
+    slug: "uuid-generator",
     name: "Generador UUID",
     description: "Crea identificadores únicos para sistemas y pruebas.",
     categoryId: "development",
@@ -192,7 +192,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "hash-generator",
-    slug: "generador-hash",
+    slug: "hash-generator",
     name: "Generador hash",
     description: "Genera hashes como MD5 o SHA para desarrollo y seguridad.",
     categoryId: "development",
@@ -201,7 +201,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "salary-increase",
-    slug: "calculadora-aumento-salarial",
+    slug: "salary-increase-calculator",
     name: "Calculadora de aumento salarial",
     description: "Calcula cómo queda un salario después de un aumento porcentual.",
     categoryId: "finance",
