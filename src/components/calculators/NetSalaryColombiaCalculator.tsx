@@ -156,7 +156,7 @@ export function NetSalaryColombiaCalculator() {
           />
           <span>
             <strong>Incluir auxilio de transporte si aplica</strong>
-            <small>El backend valida si el salario cumple el límite legal del año seleccionado.</small>
+            <small>Validaremos si tu salario cumple el límite legal para recibirlo.</small>
           </span>
         </label>
 
