@@ -466,14 +466,11 @@ export function EmploymentSettlementColombiaCalculator() {
               ) : null}
             </div>
 
-            <div className="result-alert">
-              <Info size={18} strokeWidth={2.1} />
-              <p>
-                Este cálculo se basa en reglas generales y en los datos que ingresaste. Tu caso puede variar por
-                acuerdos laborales, salario variable, pagos no reportados, retención en la fuente, sanciones,
-                convenciones o revisiones legales específicas.
-              </p>
-            </div>
+            <p className="disclaimer">
+              Este resultado es una estimación para un empleado dependiente en Colombia.
+              No incluye retención en la fuente, acuerdos especiales, salario variable,
+              sanciones ni ajustes internos del empleador.
+            </p>
           </>
         ) : (
           <div className="result-empty">

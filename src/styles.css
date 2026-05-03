@@ -1281,21 +1281,9 @@ select {
   margin: 12px 0 0;
 }
 
-.result-alert {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-  align-items: start;
+.disclaimer {
   margin: 18px 22px 24px;
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  background: var(--muted);
   color: var(--muted-foreground);
-  padding: 14px;
-}
-
-.result-alert p {
-  margin: 0;
   font-size: 12px;
   line-height: 1.6;
 }
