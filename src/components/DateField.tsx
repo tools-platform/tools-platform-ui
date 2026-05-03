@@ -15,7 +15,7 @@ const monthFormatter = new Intl.DateTimeFormat("es-CO", {
 
 const displayFormatter = new Intl.DateTimeFormat("es-CO", {
   day: "2-digit",
-  month: "short",
+  month: "2-digit",
   year: "numeric"
 });
 
@@ -56,7 +56,7 @@ function buildCalendarDays(monthDate: Date) {
   });
 }
 
-export function DateField({ ariaLabel, onChange, placeholder = "Selecciona una fecha", value }: DateFieldProps) {
+export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", value }: DateFieldProps) {
   const selectedDate = useMemo(() => fromDateKey(value), [value]);
   const [isOpen, setIsOpen] = useState(false);
   const [visibleMonth, setVisibleMonth] = useState(() => startOfMonth(selectedDate ?? new Date()));
