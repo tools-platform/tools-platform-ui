@@ -11,6 +11,7 @@ import {
   FileJson,
   HandCoins,
   Hash,
+  KeyRound,
   Landmark,
   LetterText,
   Repeat2,
@@ -171,6 +172,15 @@ export const tools: ToolSummary[] = [
     categoryId: "utilities",
     status: "published",
     Icon: LetterText
+  },
+  {
+    id: "secure-password-generator",
+    slug: "secure-password-generator",
+    name: "Generador de contraseñas seguras",
+    description: "Crea contraseñas aleatorias y seguras en tu navegador.",
+    categoryId: "utilities",
+    status: "published",
+    Icon: KeyRound
   },
   {
     id: "json-formatter",

@@ -8,6 +8,7 @@ import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
+import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
@@ -80,6 +81,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <UnitConverter />
       ) : tool.id === "text-case-converter" ? (
         <TextCaseConverter />
+      ) : tool.id === "secure-password-generator" ? (
+        <SecurePasswordGenerator />
       ) : tool.id === "case-style-converter" ? (
         <CaseStyleConverter />
       ) : (

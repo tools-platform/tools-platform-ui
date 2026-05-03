@@ -1139,6 +1139,18 @@ select {
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 92%);
 }
 
+.range-input {
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.password-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
 .work-entry-list {
   display: grid;
   gap: 14px;
@@ -1646,6 +1658,57 @@ select {
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 90%);
 }
 
+.password-display {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
+  font-size: clamp(22px, 4vw, 38px) !important;
+}
+
+.password-strength {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 0 8px;
+}
+
+.password-strength span {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--muted);
+  overflow: hidden;
+}
+
+.password-strength span::before {
+  display: block;
+  width: 62%;
+  height: 100%;
+  border-radius: inherit;
+  background: oklch(0.66 0.18 70);
+  content: "";
+}
+
+.password-strength strong {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.password-strength.is-strong span::before {
+  width: 82%;
+  background: oklch(0.62 0.16 150);
+}
+
+.password-strength.is-very-strong span::before {
+  width: 100%;
+  background: oklch(0.54 0.14 150);
+}
+
+.password-strength.is-strong strong,
+.password-strength.is-very-strong strong {
+  color: oklch(0.42 0.13 150);
+}
+
 .result-breakdown {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2050,6 +2113,7 @@ select {
 
   .form-grid,
   .case-mode-grid,
+  .password-option-grid,
   .result-breakdown,
   .rules-grid {
     grid-template-columns: 1fr;
