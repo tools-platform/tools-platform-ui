@@ -1,0 +1,54 @@
+import { ArrowLeft, Clock3 } from "lucide-react";
+import { categories, tools } from "../data/catalog";
+
+type ToolPageProps = {
+  slug: string;
+};
+
+export function ToolPage({ slug }: ToolPageProps) {
+  const tool = tools.find((item) => item.slug === slug);
+  const category = categories.find((item) => item.id === tool?.categoryId);
+
+  if (!tool) {
+    return (
+      <section className="tool-page">
+        <a className="back-link" href="/">
+          <ArrowLeft size={17} />
+          Todas las herramientas
+        </a>
+
+        <div className="empty-state">
+          <h1>Herramienta no encontrada</h1>
+          <p>Esta URL todavia no existe en el catalogo.</p>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="tool-page">
+      <a className="back-link" href="/">
+        <ArrowLeft size={17} />
+        Todas las herramientas
+      </a>
+
+      <header className="tool-page__header">
+        <div className="tool-page__icon">
+          <tool.Icon size={28} strokeWidth={2.1} />
+        </div>
+        <p>{category?.name}</p>
+        <h1>{tool.name}</h1>
+        <span>{tool.description}</span>
+      </header>
+
+      <div className="tool-placeholder">
+        <Clock3 size={28} strokeWidth={2.05} />
+        <h2>Pagina preparada</h2>
+        <p>
+          Aqui montaremos el formulario, boton de calculo, resultados y texto SEO
+          cuando activemos esta herramienta.
+        </p>
+      </div>
+    </section>
+  );
+}
