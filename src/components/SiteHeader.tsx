@@ -10,9 +10,8 @@ export function SiteHeader() {
         </a>
 
         <nav className="site-nav" aria-label="Principal">
-          <a href="#tools">Herramientas</a>
           <a href="#categories">Categorias</a>
-          <a href="#about">Acerca</a>
+          <a href="#tools">Herramientas</a>
         </nav>
 
         <a className="quick-search" href="#catalog">
