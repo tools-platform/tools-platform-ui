@@ -150,6 +150,10 @@ export function NetSalaryColombiaCalculator() {
                 value={otherDeductions}
               />
             </div>
+            <small>
+              Valores extra que te descuentan en nómina, como libranzas, préstamos,
+              anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.
+            </small>
           </label>
         </div>
 
