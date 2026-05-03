@@ -23,6 +23,11 @@ function parseMoney(value: string) {
   return normalized.length > 0 ? Number(normalized) : 0;
 }
 
+function formatMoneyInput(value: string) {
+  const normalized = value.replace(/[^\d]/g, "");
+  return normalized.length > 0 ? numberFormatter.format(Number(normalized)) : "";
+}
+
 function formatMoney(value: number) {
   return currencyFormatter.format(value);
 }
@@ -33,7 +38,7 @@ function formatRate(value: number) {
 
 export function NetSalaryColombiaCalculator() {
   const currentPayrollYear = Math.max(new Date().getFullYear(), 2026).toString();
-  const [monthlySalary, setMonthlySalary] = useState("2500000");
+  const [monthlySalary, setMonthlySalary] = useState("2.500.000");
   const [year, setYear] = useState(currentPayrollYear);
   const [isYearEditable, setIsYearEditable] = useState(false);
   const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(true);
@@ -99,7 +104,7 @@ export function NetSalaryColombiaCalculator() {
             <span>$</span>
             <input
               inputMode="numeric"
-              onChange={(event) => setMonthlySalary(event.target.value)}
+              onChange={(event) => setMonthlySalary(formatMoneyInput(event.target.value))}
               placeholder="2.500.000"
               required
               type="text"
@@ -139,7 +144,7 @@ export function NetSalaryColombiaCalculator() {
               <span>$</span>
               <input
                 inputMode="numeric"
-                onChange={(event) => setOtherDeductions(event.target.value)}
+                onChange={(event) => setOtherDeductions(formatMoneyInput(event.target.value))}
                 placeholder="0"
                 type="text"
                 value={otherDeductions}
