@@ -2,6 +2,7 @@ const DEFAULT_API_BASE_URL = import.meta.env.DEV ? "http://localhost:4000/api/v1
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/$/, "");
 
 export type WorkedHoursRounding = "none" | "nearest_15_minutes" | "nearest_30_minutes";
+export type WorkCurrency = "COP" | "USD";
 
 export type WorkedHoursEntryRequest = {
   date: string;
@@ -41,6 +42,42 @@ export type WorkedHoursResponse = {
   };
 };
 
+export type FreelanceRateRequest = {
+  desiredMonthlyIncome: number;
+  workDaysPerWeek: number;
+  hoursPerDay: number;
+  safetyMarginPercentage?: number;
+  currency?: WorkCurrency;
+};
+
+export type FreelanceRateResponse = {
+  success: true;
+  data: {
+    currency: WorkCurrency;
+    input: {
+      desiredMonthlyIncome: number;
+      workDaysPerWeek: number;
+      hoursPerDay: number;
+      safetyMarginPercentage: number;
+    };
+    result: {
+      weeklyWorkingHours: number;
+      monthlyWorkingHours: number;
+      minimumHourlyRate: number;
+      safetyMarginAmount: number;
+      targetMonthlyRevenue: number;
+      suggestedHourlyRate: number;
+      suggestedDailyRate: number;
+      suggestedWeeklyRate: number;
+    };
+    rules: {
+      weeksPerMonth: number;
+      rateRounding: "up_to_nearest_100";
+    };
+    disclaimer: string;
+  };
+};
+
 type ApiErrorResponse = {
   success: false;
   error: {
@@ -65,6 +102,27 @@ export async function calculateWorkedHours(
 
   if (!response.ok || !payload.success) {
     const message = !payload.success ? payload.error.message : "No se pudieron calcular las horas.";
+    throw new Error(message);
+  }
+
+  return payload.data;
+}
+
+export async function calculateFreelanceRate(
+  request: FreelanceRateRequest
+): Promise<FreelanceRateResponse["data"]> {
+  const response = await fetch(`${API_BASE_URL}/work/freelance-rate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(request)
+  });
+
+  const payload = (await response.json()) as FreelanceRateResponse | ApiErrorResponse;
+
+  if (!response.ok || !payload.success) {
+    const message = !payload.success ? payload.error.message : "No se pudo calcular la tarifa freelance.";
     throw new Error(message);
   }
 

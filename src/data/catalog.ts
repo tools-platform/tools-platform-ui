@@ -131,9 +131,9 @@ export const tools: ToolSummary[] = [
     id: "freelance-rate",
     slug: "freelance-rate-calculator",
     name: "Calculadora de cuánto cobrar freelance",
-    description: "Sugiere una tarifa a partir de ingresos deseados, gastos y tiempo.",
+    description: "Sugiere una tarifa según tu meta mensual y horas de trabajo.",
     categoryId: "work",
-    status: "draft",
+    status: "published",
     Icon: BriefcaseBusiness
   },
   {

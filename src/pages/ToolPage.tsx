@@ -2,6 +2,7 @@ import { ArrowLeft, Clock3 } from "lucide-react";
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
+import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
@@ -64,6 +65,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <CopUsdConverter />
       ) : tool.id === "worked-hours" ? (
         <WorkedHoursCalculator />
+      ) : tool.id === "freelance-rate" ? (
+        <FreelanceRateCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />
