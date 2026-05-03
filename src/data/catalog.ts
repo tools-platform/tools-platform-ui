@@ -183,15 +183,6 @@ export const tools: ToolSummary[] = [
     Icon: KeyRound
   },
   {
-    id: "json-formatter",
-    slug: "json-formatter",
-    name: "Formateador JSON",
-    description: "Organiza JSON para hacerlo legible y fácil de revisar.",
-    categoryId: "development",
-    status: "draft",
-    Icon: FileJson
-  },
-  {
     id: "case-style-converter",
     slug: "case-style-converter",
     name: "Convertidor de estilos de texto para código",
@@ -199,6 +190,15 @@ export const tools: ToolSummary[] = [
     categoryId: "development",
     status: "published",
     Icon: Code2
+  },
+  {
+    id: "json-formatter",
+    slug: "json-formatter",
+    name: "Formateador JSON",
+    description: "Organiza JSON para hacerlo legible y fácil de revisar.",
+    categoryId: "development",
+    status: "draft",
+    Icon: FileJson
   },
   {
     id: "uuid-generator",
