@@ -680,14 +680,15 @@ select {
 }
 
 .plain-select {
-  margin-top: 8px;
-  padding-right: 44px;
+  margin-top: 0;
+  padding-right: 48px;
   background: var(--background);
 }
 
 .select-control {
   position: relative;
   display: block;
+  margin-top: 8px;
   color: inherit;
   font-size: inherit;
   font-weight: 400;
@@ -695,8 +696,8 @@ select {
 
 .select-control svg {
   position: absolute;
-  top: calc(50% + 4px);
-  right: 15px;
+  top: 50%;
+  right: 16px;
   color: var(--muted-foreground);
   pointer-events: none;
   transform: translateY(-50%);
