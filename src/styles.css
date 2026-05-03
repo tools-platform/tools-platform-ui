@@ -762,7 +762,7 @@ select {
 }
 
 .date-field__trigger svg {
-  color: var(--primary);
+  color: var(--muted-foreground);
 }
 
 .date-field__trigger:hover,
