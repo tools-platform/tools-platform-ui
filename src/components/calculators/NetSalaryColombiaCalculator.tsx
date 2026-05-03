@@ -63,8 +63,8 @@ export function NetSalaryColombiaCalculator() {
       return;
     }
 
-    if (!Number.isInteger(yearValue) || yearValue < 2025 || yearValue > currentPayrollYear) {
-      setError(`Ingresa un año entre 2025 y ${currentPayrollYear}.`);
+    if (!Number.isInteger(yearValue) || yearValue < 2024 || yearValue > currentPayrollYear) {
+      setError(`Ingresa un año entre 2024 y ${currentPayrollYear}.`);
       return;
     }
 
@@ -131,7 +131,7 @@ export function NetSalaryColombiaCalculator() {
             <div className="year-input">
               <input
                 disabled={!isYearEditable}
-                min="2025"
+                min="2024"
                 max={currentPayrollYear}
                 onChange={(event) => setYear(event.target.value)}
                 required
