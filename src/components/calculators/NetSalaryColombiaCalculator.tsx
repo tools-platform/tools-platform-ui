@@ -208,7 +208,7 @@ export function NetSalaryColombiaCalculator() {
             </div>
 
             <div className="rules-grid">
-              <span>Aplica auxilio: {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}</span>
+              <span>Cumple límite legal: {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}</span>
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
               <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
