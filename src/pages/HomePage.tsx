@@ -28,7 +28,7 @@ export function HomePage() {
         <div className="hero__inner">
           <div className="eyebrow">
             <span className="eyebrow__dot" />
-            Mas de 50 herramientas proximamente
+            Más de 50 herramientas próximamente
           </div>
 
           <h1>
@@ -36,8 +36,8 @@ export function HomePage() {
           </h1>
 
           <p className="hero__copy">
-            Calculadoras, conversores y utilidades rapidas para resolver tareas
-            practicas sin vueltas.
+            Calculadoras, conversores y utilidades rápidas para resolver tareas
+            prácticas sin vueltas.
           </p>
 
           <SearchBox value={query} onChange={setQuery} />
@@ -67,7 +67,7 @@ export function HomePage() {
               <Boxes size={28} strokeWidth={2.05} />
             </div>
             <h2>No encontramos esa herramienta</h2>
-            <p>Cambia la busqueda o selecciona otra categoria.</p>
+            <p>Cambia la búsqueda o selecciona otra categoría.</p>
           </div>
         )}
       </section>
@@ -78,14 +78,14 @@ export function HomePage() {
             <p className="section__kicker">Acerca de</p>
             <h2>Herramientas simples para personas que necesitan respuestas claras.</h2>
             <p>
-              Nuestro proposito es ayudar a la gente que llega buscando una solucion
-              concreta: calcular un salario, entender una liquidacion, convertir una
-              medida o resolver una duda practica sin tener que aprender prompts,
+              Nuestro propósito es ayudar a la gente que llega buscando una solución
+              concreta: calcular un salario, entender una liquidación, convertir una
+              medida o resolver una duda práctica sin tener que aprender prompts,
               modelos de IA o procesos complicados.
             </p>
             <p>
               Queremos que cada herramienta explique lo necesario, pida pocos datos y
-              entregue un resultado facil de entender. La tecnologia queda detras; la
+              entregue un resultado fácil de entender. La tecnología queda detrás; la
               utilidad queda al frente.
             </p>
           </div>
@@ -104,7 +104,7 @@ export function HomePage() {
                 <CheckCircle2 size={20} strokeWidth={2.1} />
               </span>
               <h3>Resultados claros</h3>
-              <p>Cada calculo debe mostrar que se uso y que significa el resultado.</p>
+              <p>Cada cálculo debe mostrar qué se usó y qué significa el resultado.</p>
             </article>
 
             <article className="about-feature about-feature--wide">
@@ -114,7 +114,7 @@ export function HomePage() {
               <h3>Sin saber usar IA</h3>
               <p>
                 Convertimos preguntas comunes en herramientas directas para quien solo
-                necesita resolver algo practico.
+                necesita resolver algo práctico.
               </p>
             </article>
           </div>

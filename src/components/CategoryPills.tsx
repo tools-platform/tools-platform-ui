@@ -8,7 +8,7 @@ type CategoryPillsProps = {
 
 export function CategoryPills({ activeCategory, categories, onChange }: CategoryPillsProps) {
   return (
-    <div className="category-filter" aria-label="Filtrar categorias">
+    <div className="category-filter" aria-label="Filtrar categorías">
       <button
         className={activeCategory === "all" ? "is-active" : ""}
         onClick={() => onChange("all")}

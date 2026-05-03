@@ -43,7 +43,7 @@ export const categories: Category[] = [
   {
     id: "finance",
     name: "Finanzas",
-    description: "Calculadoras para salario, creditos, prestaciones y conversiones.",
+    description: "Calculadoras para salario, créditos, prestaciones y conversiones.",
     Icon: Calculator
   },
   {
@@ -76,8 +76,8 @@ export const tools: ToolSummary[] = [
   {
     id: "net-salary-colombia",
     slug: "calculadora-salario-neto-colombia",
-    name: "Calculadora salario neto Colombia",
-    description: "Cuanto recibes despues de salud y pension.",
+    name: "Calculadora de salario neto Colombia",
+    description: "Cuánto recibes después de salud y pensión.",
     categoryId: "finance",
     status: "published",
     Icon: Banknote
@@ -85,8 +85,8 @@ export const tools: ToolSummary[] = [
   {
     id: "employment-settlement-colombia",
     slug: "calculadora-liquidacion-colombia",
-    name: "Calculadora de liquidacion",
-    description: "Cesantias, prima y vacaciones al salir del trabajo.",
+    name: "Calculadora de liquidación",
+    description: "Cesantías, prima y vacaciones al salir del trabajo.",
     categoryId: "finance",
     status: "draft",
     Icon: HandCoins
@@ -94,8 +94,8 @@ export const tools: ToolSummary[] = [
   {
     id: "credit-interest",
     slug: "calculadora-intereses-credito",
-    name: "Intereses de credito",
-    description: "Cuanto pagas en total por un prestamo.",
+    name: "Intereses de crédito",
+    description: "Cuánto pagas en total por un préstamo.",
     categoryId: "finance",
     status: "draft",
     Icon: Landmark
@@ -103,8 +103,8 @@ export const tools: ToolSummary[] = [
   {
     id: "loan-payment",
     slug: "calculadora-cuota-prestamo",
-    name: "Cuota de prestamo",
-    description: "Valor de la cuota mensual de un credito.",
+    name: "Cuota de préstamo",
+    description: "Valor de la cuota mensual de un crédito.",
     categoryId: "finance",
     status: "draft",
     Icon: BadgeDollarSign
@@ -113,7 +113,7 @@ export const tools: ToolSummary[] = [
     id: "cop-usd",
     slug: "conversor-cop-usd",
     name: "Conversor COP a USD",
-    description: "Convierte pesos colombianos a dolares de forma rapida.",
+    description: "Convierte pesos colombianos a dólares de forma rápida.",
     categoryId: "finance",
     status: "draft",
     Icon: Coins
@@ -121,7 +121,7 @@ export const tools: ToolSummary[] = [
   {
     id: "worked-hours",
     slug: "calculadora-horas-trabajadas",
-    name: "Calculadora horas trabajadas",
+    name: "Calculadora de horas trabajadas",
     description: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
     categoryId: "work",
     status: "draft",
@@ -130,7 +130,7 @@ export const tools: ToolSummary[] = [
   {
     id: "freelance-rate",
     slug: "calculadora-cuanto-cobrar-freelance",
-    name: "Calculadora cuanto cobrar freelance",
+    name: "Calculadora de cuánto cobrar freelance",
     description: "Sugiere una tarifa a partir de ingresos deseados, gastos y tiempo.",
     categoryId: "work",
     status: "draft",
@@ -139,8 +139,8 @@ export const tools: ToolSummary[] = [
   {
     id: "days-between-dates",
     slug: "contador-dias-entre-fechas",
-    name: "Contador dias entre fechas",
-    description: "Cuenta cuantos dias hay entre dos fechas para tramites o planeacion.",
+    name: "Contador de días entre fechas",
+    description: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
     categoryId: "time",
     status: "draft",
     Icon: CalendarDays
@@ -148,8 +148,8 @@ export const tools: ToolSummary[] = [
   {
     id: "exact-age",
     slug: "calculadora-edad-exacta",
-    name: "Calculadora edad exacta",
-    description: "Calcula edad en anos, meses y dias.",
+    name: "Calculadora de edad exacta",
+    description: "Calcula edad en años, meses y días.",
     categoryId: "time",
     status: "draft",
     Icon: Clock3
@@ -158,7 +158,7 @@ export const tools: ToolSummary[] = [
     id: "unit-converter",
     slug: "conversor-de-unidades",
     name: "Conversor de unidades",
-    description: "Convierte kilometros, millas, kilos, libras y mas unidades comunes.",
+    description: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
     categoryId: "utilities",
     status: "draft",
     Icon: Ruler
@@ -166,8 +166,8 @@ export const tools: ToolSummary[] = [
   {
     id: "text-case-converter",
     slug: "convertidor-mayusculas-minusculas",
-    name: "Convertidor mayusculas minusculas",
-    description: "Transforma texto a mayusculas, minusculas o capitalizado.",
+    name: "Convertidor de mayúsculas y minúsculas",
+    description: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
     categoryId: "utilities",
     status: "draft",
     Icon: LetterText
@@ -176,7 +176,7 @@ export const tools: ToolSummary[] = [
     id: "json-formatter",
     slug: "formateador-json",
     name: "Formateador JSON",
-    description: "Organiza JSON para hacerlo legible y facil de revisar.",
+    description: "Organiza JSON para hacerlo legible y fácil de revisar.",
     categoryId: "development",
     status: "draft",
     Icon: FileJson
@@ -185,7 +185,7 @@ export const tools: ToolSummary[] = [
     id: "uuid-generator",
     slug: "generador-uuid",
     name: "Generador UUID",
-    description: "Crea identificadores unicos para sistemas y pruebas.",
+    description: "Crea identificadores únicos para sistemas y pruebas.",
     categoryId: "development",
     status: "draft",
     Icon: Binary
@@ -202,8 +202,8 @@ export const tools: ToolSummary[] = [
   {
     id: "salary-increase",
     slug: "calculadora-aumento-salarial",
-    name: "Calculadora aumento salarial",
-    description: "Calcula como queda un salario despues de un aumento porcentual.",
+    name: "Calculadora de aumento salarial",
+    description: "Calcula cómo queda un salario después de un aumento porcentual.",
     categoryId: "finance",
     status: "draft",
     Icon: Repeat2

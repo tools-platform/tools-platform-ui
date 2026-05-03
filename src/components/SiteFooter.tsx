@@ -8,7 +8,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <a href="/">Privacidad</a>
-          <a href="/">Terminos</a>
+          <a href="/">Términos</a>
           <a href="/">Contacto</a>
         </div>
       </div>

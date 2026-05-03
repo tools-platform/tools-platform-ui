@@ -56,7 +56,7 @@ export function NetSalaryColombiaCalculator() {
     }
 
     if (!Number.isInteger(yearValue) || yearValue < 2026) {
-      setError("Ingresa un ano valido desde 2026.");
+      setError("Ingresa un año válido desde 2026.");
       return;
     }
 
@@ -105,12 +105,12 @@ export function NetSalaryColombiaCalculator() {
             />
             <strong>COP</strong>
           </div>
-          <small>Es el salario antes de descuentos de salud, pension y otros.</small>
+          <small>Es el salario antes de descuentos de salud, pensión y otros.</small>
         </label>
 
         <div className="form-grid">
           <label className="field">
-            <span>Ano de reglas</span>
+            <span>Año de reglas</span>
             <input
               min="2026"
               onChange={(event) => setYear(event.target.value)}
@@ -143,7 +143,7 @@ export function NetSalaryColombiaCalculator() {
           />
           <span>
             <strong>Incluir auxilio de transporte si aplica</strong>
-            <small>El backend valida si el salario cumple el limite legal del ano seleccionado.</small>
+            <small>El backend valida si el salario cumple el límite legal del año seleccionado.</small>
           </span>
         </label>
 
@@ -175,25 +175,25 @@ export function NetSalaryColombiaCalculator() {
               <ResultItem label="Salario bruto" value={result.result.grossSalary} />
               <ResultItem label="Auxilio transporte" value={result.result.transportationAllowance} />
               <ResultItem label="Salud 4%" value={result.result.healthContribution} />
-              <ResultItem label="Pension 4%" value={result.result.pensionContribution} />
-              <ResultItem label="Fondo solidaridad" value={result.result.solidarityPensionFundContribution} />
+              <ResultItem label="Pensión 4%" value={result.result.pensionContribution} />
+              <ResultItem label="Fondo de solidaridad" value={result.result.solidarityPensionFundContribution} />
               <ResultItem label="Total descuentos" value={result.result.totalDeductions} strong />
             </div>
 
             <div className="rules-note">
               <CheckCircle2 size={18} strokeWidth={2.1} />
               <p>
-                Usa salario minimo {formatMoney(result.rules.minimumMonthlyWage)}, auxilio de transporte{" "}
-                {formatMoney(result.rules.transportationAllowanceValue)} y limite{" "}
+                Usa salario mínimo {formatMoney(result.rules.minimumMonthlyWage)}, auxilio de transporte{" "}
+                {formatMoney(result.rules.transportationAllowanceValue)} y límite{" "}
                 {formatMoney(result.rules.transportationAllowanceSalaryLimit)} para {result.year}.
               </p>
             </div>
 
             <div className="rules-grid">
-              <span>Aplica auxilio: {result.rules.qualifiesForTransportationAllowance ? "Si" : "No"}</span>
+              <span>Aplica auxilio: {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}</span>
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
-              <span>Pension: {formatRate(result.rules.employeePensionRate)}</span>
-              <span>Solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
+              <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
+              <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
             </div>
 
             <p className="disclaimer">{result.disclaimer}</p>
@@ -201,7 +201,7 @@ export function NetSalaryColombiaCalculator() {
         ) : (
           <div className="result-empty">
             <CircleDollarSign size={30} strokeWidth={2.05} />
-            <h2>Tu resultado aparecera aqui</h2>
+            <h2>Tu resultado aparecerá aquí</h2>
             <p>
               Completa los datos del salario y calcula para ver el neto mensual,
               quincenal y el detalle de descuentos.

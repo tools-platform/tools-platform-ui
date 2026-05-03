@@ -21,7 +21,7 @@ export function ToolCard({ category, tool }: ToolCardProps) {
       <p>{tool.description}</p>
 
       <a aria-disabled={tool.status === "draft"} href={`/tools/${tool.slug}`}>
-        {tool.status === "published" ? "Abrir herramienta" : "Proximamente"}
+        {tool.status === "published" ? "Abrir herramienta" : "Próximamente"}
         {tool.status === "published" ? <ArrowRight size={16} strokeWidth={2.25} /> : null}
       </a>
     </article>

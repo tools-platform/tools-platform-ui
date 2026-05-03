@@ -20,7 +20,7 @@ export function ToolPage({ slug }: ToolPageProps) {
 
         <div className="empty-state">
           <h1>Herramienta no encontrada</h1>
-          <p>Esta URL todavia no existe en el catalogo.</p>
+          <p>Esta URL todavía no existe en el catálogo.</p>
         </div>
       </section>
     );
@@ -49,7 +49,7 @@ export function ToolPage({ slug }: ToolPageProps) {
           <Clock3 size={28} strokeWidth={2.05} />
           <h2>Pagina preparada</h2>
           <p>
-            Aqui montaremos el formulario, boton de calculo, resultados y texto SEO
+            Aquí montaremos el formulario, botón de cálculo, resultados y texto SEO
             cuando activemos esta herramienta.
           </p>
         </div>
