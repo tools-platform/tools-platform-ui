@@ -303,17 +303,6 @@ export function EmploymentSettlementColombiaCalculator() {
 
         <div className="form-grid">
           <label className="field">
-            <span>Días de vacaciones pendientes</span>
-            <input
-              min="0"
-              onChange={(event) => setPendingVacationDays(event.target.value)}
-              step="0.01"
-              type="number"
-              value={pendingVacationDays}
-            />
-          </label>
-
-          <label className="field">
             <span>Pagos adicionales</span>
             <div className="money-input money-input--compact">
               <span>$</span>
@@ -326,20 +315,31 @@ export function EmploymentSettlementColombiaCalculator() {
               />
             </div>
           </label>
+
+          <label className="field">
+            <span>Deducciones de nómina</span>
+            <div className="money-input money-input--compact">
+              <span>$</span>
+              <input
+                inputMode="numeric"
+                onChange={(event) => setOtherDeductions(formatMoneyInput(event.target.value))}
+                placeholder="0"
+                type="text"
+                value={otherDeductions}
+              />
+            </div>
+          </label>
         </div>
 
         <label className="field">
-          <span>Deducciones de nómina</span>
-          <div className="money-input money-input--compact">
-            <span>$</span>
-            <input
-              inputMode="numeric"
-              onChange={(event) => setOtherDeductions(formatMoneyInput(event.target.value))}
-              placeholder="0"
-              type="text"
-              value={otherDeductions}
-            />
-          </div>
+          <span>Días de vacaciones pendientes</span>
+          <input
+            min="0"
+            onChange={(event) => setPendingVacationDays(event.target.value)}
+            step="0.01"
+            type="number"
+            value={pendingVacationDays}
+          />
         </label>
 
         <label className="toggle-field">
