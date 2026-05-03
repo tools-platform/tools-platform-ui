@@ -124,7 +124,7 @@ export const tools: ToolSummary[] = [
     name: "Calculadora de horas trabajadas",
     description: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
     categoryId: "work",
-    status: "draft",
+    status: "published",
     Icon: Timer
   },
   {

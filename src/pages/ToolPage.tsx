@@ -4,6 +4,7 @@ import { CreditInterestCalculator } from "../components/calculators/CreditIntere
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
+import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
 import { categories, tools } from "../data/catalog";
 
 type ToolPageProps = {
@@ -61,6 +62,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <LoanPaymentCalculator />
       ) : tool.id === "cop-usd" ? (
         <CopUsdConverter />
+      ) : tool.id === "worked-hours" ? (
+        <WorkedHoursCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

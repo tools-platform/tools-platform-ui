@@ -786,6 +786,42 @@ select {
   color: var(--muted-foreground);
 }
 
+.time-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--background);
+  padding: 0 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.time-field svg {
+  color: var(--muted-foreground);
+}
+
+.time-field input {
+  min-height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.time-field input::-webkit-calendar-picker-indicator {
+  display: none;
+  opacity: 0;
+}
+
+.time-field:focus-within {
+  border-color: color-mix(in oklch, var(--primary), transparent 42%);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 90%);
+}
+
 .date-field__trigger:hover,
 .date-field__trigger:focus {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);
@@ -1039,6 +1075,107 @@ select {
   color: var(--accent-foreground);
 }
 
+.work-entry-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.work-entry {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in oklch, var(--muted), transparent 54%);
+  padding: 10px;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.work-entry.is-open {
+  border-color: color-mix(in oklch, var(--primary), transparent 72%);
+  background: color-mix(in oklch, var(--muted), transparent 40%);
+}
+
+.work-entry__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.work-entry__toggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  padding: 8px;
+  text-align: left;
+}
+
+.work-entry__toggle:hover {
+  background: color-mix(in oklch, var(--background), transparent 22%);
+}
+
+.work-entry__toggle strong {
+  display: block;
+  font-size: 14px;
+}
+
+.work-entry__toggle small {
+  display: block;
+  max-width: 100%;
+  margin-top: 3px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.work-entry__toggle svg {
+  color: var(--muted-foreground);
+  transition: transform 160ms ease;
+}
+
+.work-entry.is-open .work-entry__toggle svg {
+  transform: rotate(180deg);
+}
+
+.work-entry__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.work-entry__body {
+  padding: 6px;
+}
+
+.icon-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.icon-action:hover {
+  border-color: color-mix(in oklch, var(--destructive), transparent 58%);
+  background: color-mix(in oklch, var(--destructive), transparent 92%);
+  color: var(--destructive);
+}
+
 .money-input {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -1200,6 +1337,7 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   width: 100%;
   min-height: 48px;
   margin-top: 10px;
@@ -1216,6 +1354,10 @@ select {
   border-color: color-mix(in oklch, var(--foreground), transparent 78%);
   background: color-mix(in oklch, var(--muted), var(--foreground) 4%);
   color: var(--foreground);
+}
+
+.secondary-action--compact {
+  min-height: 44px;
 }
 
 .spin {
@@ -1349,6 +1491,40 @@ select {
 
 .result-item--strong {
   background: color-mix(in oklch, var(--accent), transparent 54%);
+}
+
+.entry-summary {
+  display: grid;
+  gap: 10px;
+  margin: 18px 22px 0;
+}
+
+.entry-summary__item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.entry-summary__item span,
+.entry-summary__item small {
+  color: var(--muted-foreground);
+}
+
+.entry-summary__item span {
+  font-size: 12px;
+}
+
+.entry-summary__item small {
+  grid-column: 1 / -1;
+  font-size: 12px;
+}
+
+.entry-summary__item strong {
+  font-size: 14px;
 }
 
 .rules-note {
