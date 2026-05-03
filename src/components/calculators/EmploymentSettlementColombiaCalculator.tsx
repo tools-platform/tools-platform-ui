@@ -167,7 +167,9 @@ export function EmploymentSettlementColombiaCalculator() {
         </div>
 
         <label className="field">
-          <span>Salario mensual base</span>
+          <span>
+            Salario mensual base <span className="required-mark">*</span>
+          </span>
           <div className="money-input">
             <span>$</span>
             <input
@@ -186,6 +188,7 @@ export function EmploymentSettlementColombiaCalculator() {
           <label className="field">
             <span className="field-label">
               Fecha de inicio
+              <span className="required-mark">*</span>
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">
@@ -198,14 +201,18 @@ export function EmploymentSettlementColombiaCalculator() {
           </label>
 
           <label className="field">
-            <span>Fecha de finalización</span>
+            <span>
+              Fecha de finalización <span className="required-mark">*</span>
+            </span>
             <DateField ariaLabel="Seleccionar fecha de finalización" onChange={setEndDate} value={endDate} />
           </label>
         </div>
 
         <div className="form-grid">
           <label className="field">
-            <span>Tipo de contrato</span>
+            <span>
+              Tipo de contrato <span className="required-mark">*</span>
+            </span>
             <span className="select-control">
               <select
                 className="plain-select"
@@ -223,7 +230,9 @@ export function EmploymentSettlementColombiaCalculator() {
           </label>
 
           <label className="field">
-            <span>Motivo de terminación</span>
+            <span>
+              Motivo de terminación <span className="required-mark">*</span>
+            </span>
             <span className="select-control">
               <select
                 className="plain-select"
@@ -243,7 +252,9 @@ export function EmploymentSettlementColombiaCalculator() {
 
         {requiresFixedTermEndDate ? (
           <label className="field">
-            <span>Fecha pactada de terminación</span>
+            <span>
+              Fecha pactada de terminación <span className="required-mark">*</span>
+            </span>
             <DateField
               ariaLabel="Seleccionar fecha pactada de terminación"
               onChange={setFixedTermEndDate}
@@ -255,7 +266,9 @@ export function EmploymentSettlementColombiaCalculator() {
 
         {requiresRemainingWorkDays ? (
           <label className="field">
-            <span>Días pendientes de obra o labor</span>
+            <span>
+              Días pendientes de obra o labor <span className="required-mark">*</span>
+            </span>
             <input
               min="1"
               onChange={(event) => setRemainingWorkDays(event.target.value)}
@@ -271,6 +284,7 @@ export function EmploymentSettlementColombiaCalculator() {
           <label className="field">
             <span className="field-label">
               Año de reglas
+              <span className="required-mark">*</span>
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">

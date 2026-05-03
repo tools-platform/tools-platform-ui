@@ -118,7 +118,9 @@ export function NetSalaryColombiaCalculator() {
         </div>
 
         <label className="field">
-          <span>Salario mensual bruto</span>
+          <span>
+            Salario mensual bruto <span className="required-mark">*</span>
+          </span>
           <div className="money-input">
             <span>$</span>
             <input
@@ -138,6 +140,7 @@ export function NetSalaryColombiaCalculator() {
           <label className="field">
             <span className="field-label">
               Año de reglas
+              <span className="required-mark">*</span>
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">
