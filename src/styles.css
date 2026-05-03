@@ -677,11 +677,12 @@ select {
 .field select {
   appearance: none;
   cursor: pointer;
+  font-weight: 400;
 }
 
 .plain-select {
   margin-top: 0;
-  padding-right: 70px;
+  padding-right: 82px;
   background: var(--background);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -697,10 +698,14 @@ select {
   font-weight: 400;
 }
 
+.field > .select-control {
+  font-weight: 400;
+}
+
 .select-control svg {
   position: absolute;
   top: 50%;
-  right: 18px;
+  right: 20px;
   color: var(--muted-foreground);
   pointer-events: none;
   transform: translateY(-50%);
@@ -711,7 +716,7 @@ select {
   top: 1px;
   right: 1px;
   bottom: 1px;
-  width: 54px;
+  width: 66px;
   border-radius: 0 12px 12px 0;
   background: linear-gradient(90deg, transparent, var(--background) 32%);
   content: "";
@@ -915,7 +920,11 @@ select {
 }
 
 .year-input select {
-  padding-right: 36px;
+  padding-right: 58px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .year-input input:disabled,
