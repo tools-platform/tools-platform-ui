@@ -1,9 +1,11 @@
+import { BrandLogo } from "./BrandLogo";
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
         <div className="footer-brand">
-          <span className="footer-brand__mark" aria-hidden="true" />
+          <BrandLogo compact />
           <span>Tools Platforms</span>
         </div>
         <div className="footer-links">

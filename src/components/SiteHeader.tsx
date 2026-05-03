@@ -1,11 +1,12 @@
 import { Search } from "lucide-react";
+import { BrandLogo } from "./BrandLogo";
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
         <a className="brand" href="/" aria-label="Tools Platforms">
-          <span className="brand__mark" aria-hidden="true" />
+          <BrandLogo />
           <span className="brand__name">Tools Platforms</span>
         </a>
 
