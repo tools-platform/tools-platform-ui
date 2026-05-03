@@ -528,7 +528,7 @@ function ResultItem({
         {label}
         {tooltip ? (
           <span className="info-tooltip">
-            <Info size={12} strokeWidth={2.1} />
+            <Info size={10} strokeWidth={2.1} />
             <span role="tooltip">{tooltip}</span>
           </span>
         ) : null}
