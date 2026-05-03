@@ -10,14 +10,15 @@ export function SiteHeader() {
         </a>
 
         <nav className="site-nav" aria-label="Principal">
+          <a href="#tools">Herramientas</a>
           <a href="#categories">Categorias</a>
-          <a href="#catalog">Herramientas</a>
-          <a href="#status">Estado</a>
+          <a href="/">Acerca</a>
         </nav>
 
         <a className="quick-search" href="#catalog">
           <Search size={15} strokeWidth={2.25} />
           <span>Buscar</span>
+          <kbd>⌘K</kbd>
         </a>
       </div>
     </header>

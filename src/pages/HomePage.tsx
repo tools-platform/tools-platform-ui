@@ -1,6 +1,5 @@
 import { Boxes } from "lucide-react";
 import { useMemo, useState } from "react";
-import { CategoryCard } from "../components/CategoryCard";
 import { CategoryPills } from "../components/CategoryPills";
 import { SearchBox } from "../components/SearchBox";
 import { ToolCard } from "../components/ToolCard";
@@ -29,59 +28,31 @@ export function HomePage() {
         <div className="hero__inner">
           <div className="eyebrow">
             <span className="eyebrow__dot" />
-            Plataforma SEO de herramientas practicas
+            Mas de 50 herramientas proximamente
           </div>
 
-          <h1>Herramientas utiles para resolver calculos en segundos.</h1>
+          <h1>
+            Herramientas que <em>simplemente funcionan</em>.
+          </h1>
 
           <p className="hero__copy">
-            Calculadoras, conversores y utilidades simples para dinero, trabajo,
-            tiempo y tareas del dia a dia.
+            Calculadoras, conversores y utilidades. Sin registro, sin anuncios,
+            sin distracciones.
           </p>
 
           <SearchBox value={query} onChange={setQuery} />
         </div>
       </section>
 
-      <section className="section" id="categories">
-        <div className="section__header">
-          <div>
-            <p className="section__kicker">Categorias</p>
-            <h2>Encuentra una herramienta por necesidad</h2>
-          </div>
-          <p>
-            El inicio queda listo para crecer por paginas SEO. Cada card apunta a
-            una URL propia aunque la herramienta aun no este implementada.
-          </p>
-        </div>
-
+      <section className="catalog-section" id="categories">
         <CategoryPills
           activeCategory={activeCategory}
           categories={categories}
           onChange={setActiveCategory}
         />
 
-        <div className="category-grid">
-          {categories.map((category) => (
-            <CategoryCard category={category} key={category.id} />
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="tools">
-        <div className="section__header">
-          <div>
-            <p className="section__kicker">Herramientas</p>
-            <h2>Catalogo inicial MVP</h2>
-          </div>
-          <p>
-            Las primeras herramientas aparecen como fichas navegables. Iremos
-            activando cada pagina cuando conectemos su calculadora real.
-          </p>
-        </div>
-
         {filteredTools.length > 0 ? (
-          <div className="tool-grid">
+          <div className="tool-grid" id="tools">
             {filteredTools.map((tool) => (
               <ToolCard
                 category={categories.find((category) => category.id === tool.categoryId)}

@@ -1,4 +1,4 @@
-import { ArrowRight, LockKeyhole } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Category, ToolSummary } from "../data/catalog";
 
 type ToolCardProps = {
@@ -8,10 +8,9 @@ type ToolCardProps = {
 
 export function ToolCard({ category, tool }: ToolCardProps) {
   return (
-    <article className="tool-card">
+    <article className={tool.status === "draft" ? "tool-card is-muted" : "tool-card"}>
       <div className="tool-card__topline">
         <span>{category?.name}</span>
-        {tool.status === "draft" ? <LockKeyhole size={15} strokeWidth={2.1} /> : null}
       </div>
 
       <div className="tool-card__icon">
@@ -22,8 +21,8 @@ export function ToolCard({ category, tool }: ToolCardProps) {
       <p>{tool.description}</p>
 
       <a aria-disabled={tool.status === "draft"} href={`/tools/${tool.slug}`}>
-        {tool.status === "published" ? "Abrir herramienta" : "Preparar pagina"}
-        <ArrowRight size={16} strokeWidth={2.25} />
+        {tool.status === "published" ? "Abrir herramienta" : "Proximamente"}
+        {tool.status === "published" ? <ArrowRight size={16} strokeWidth={2.25} /> : null}
       </a>
     </article>
   );

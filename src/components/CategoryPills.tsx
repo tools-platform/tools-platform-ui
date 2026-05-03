@@ -23,6 +23,7 @@ export function CategoryPills({ activeCategory, categories, onChange }: Category
           onClick={() => onChange(category.id)}
           type="button"
         >
+          <category.Icon size={15} strokeWidth={2.1} />
           {category.name}
         </button>
       ))}

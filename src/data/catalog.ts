@@ -77,16 +77,16 @@ export const tools: ToolSummary[] = [
     id: "net-salary-colombia",
     slug: "calculadora-salario-neto-colombia",
     name: "Calculadora salario neto Colombia",
-    description: "Calcula cuanto recibes despues de salud, pension y descuentos basicos.",
+    description: "Cuanto recibes despues de salud y pension.",
     categoryId: "finance",
-    status: "draft",
+    status: "published",
     Icon: Banknote
   },
   {
     id: "employment-settlement-colombia",
     slug: "calculadora-liquidacion-colombia",
-    name: "Calculadora liquidacion Colombia",
-    description: "Estima cesantias, intereses, prima, vacaciones e indemnizacion si aplica.",
+    name: "Calculadora de liquidacion",
+    description: "Cesantias, prima y vacaciones al salir del trabajo.",
     categoryId: "finance",
     status: "draft",
     Icon: HandCoins
@@ -94,8 +94,8 @@ export const tools: ToolSummary[] = [
   {
     id: "credit-interest",
     slug: "calculadora-intereses-credito",
-    name: "Calculadora intereses credito",
-    description: "Revisa cuanto pagarias en total segun monto, tasa y plazo.",
+    name: "Intereses de credito",
+    description: "Cuanto pagas en total por un prestamo.",
     categoryId: "finance",
     status: "draft",
     Icon: Landmark
@@ -103,8 +103,8 @@ export const tools: ToolSummary[] = [
   {
     id: "loan-payment",
     slug: "calculadora-cuota-prestamo",
-    name: "Calculadora cuota prestamo",
-    description: "Calcula el valor aproximado de una cuota mensual antes de endeudarte.",
+    name: "Cuota de prestamo",
+    description: "Valor de la cuota mensual de un credito.",
     categoryId: "finance",
     status: "draft",
     Icon: BadgeDollarSign
