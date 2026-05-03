@@ -269,10 +269,12 @@ export function NetSalaryColombiaCalculator() {
             </div>
 
             <div className="rules-grid">
-              <span>
-                Cumple límite legal para auxilio:{" "}
-                {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}
-              </span>
+              {result.input.includeTransportationAllowance ? (
+                <span>
+                  Cumple límite legal para auxilio:{" "}
+                  {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}
+                </span>
+              ) : null}
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
               {showSolidarityFund ? (
