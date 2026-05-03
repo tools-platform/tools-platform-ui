@@ -94,10 +94,10 @@ export const tools: ToolSummary[] = [
   {
     id: "credit-interest",
     slug: "credit-interest-calculator",
-    name: "Intereses de crédito",
+    name: "Calculadora de intereses de crédito",
     description: "Cuánto pagas en total por un préstamo.",
     categoryId: "finance",
-    status: "draft",
+    status: "published",
     Icon: Landmark
   },
   {

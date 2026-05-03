@@ -45,6 +45,45 @@ export type NetSalaryColombiaResponse = {
   };
 };
 
+export type CreditInterestType = "simple" | "compound";
+export type CompoundingFrequency = "monthly" | "annually";
+export type CreditInterestCurrency = "COP" | "USD";
+
+export type CreditInterestRequest = {
+  loanAmount: number;
+  annualInterestRate: number;
+  termMonths: number;
+  interestType?: CreditInterestType;
+  compoundingFrequency?: CompoundingFrequency;
+  currency?: CreditInterestCurrency;
+};
+
+export type CreditInterestResponse = {
+  success: true;
+  data: {
+    currency: CreditInterestCurrency;
+    input: {
+      loanAmount: number;
+      annualInterestRate: number;
+      termMonths: number;
+      interestType: CreditInterestType;
+      compoundingFrequency: CompoundingFrequency;
+    };
+    result: {
+      monthlyRate: number;
+      effectiveAnnualRate: number;
+      totalInterest: number;
+      totalToPay: number;
+      estimatedMonthlyAverage: number;
+    };
+    calculation: {
+      formula: "simple_interest" | "compound_interest";
+      periods: number;
+    };
+    disclaimer: string;
+  };
+};
+
 export type EmploymentContractType = "fixed_term" | "indefinite" | "work_or_labor";
 export type TerminationReason =
   | "mutual_agreement"
@@ -160,6 +199,27 @@ export async function calculateNetSalaryColombia(
 
   if (!response.ok || !payload.success) {
     const message = !payload.success ? payload.error.message : "No se pudo calcular el salario.";
+    throw new Error(message);
+  }
+
+  return payload.data;
+}
+
+export async function calculateCreditInterest(
+  request: CreditInterestRequest
+): Promise<CreditInterestResponse["data"]> {
+  const response = await fetch(`${API_BASE_URL}/finance/credit-interest`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(request)
+  });
+
+  const payload = (await response.json()) as CreditInterestResponse | ApiErrorResponse;
+
+  if (!response.ok || !payload.success) {
+    const message = !payload.success ? payload.error.message : "No se pudo calcular el interés.";
     throw new Error(message);
   }
 
