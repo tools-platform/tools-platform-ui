@@ -606,6 +606,10 @@ input {
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
+.field > input {
+  margin-top: 8px;
+}
+
 .field input:focus,
 .money-input:focus-within {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);

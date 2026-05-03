@@ -121,7 +121,7 @@ export function NetSalaryColombiaCalculator() {
           </label>
 
           <label className="field">
-            <span>Otros descuentos</span>
+            <span>Descuentos adicionales de nómina</span>
             <div className="money-input money-input--compact">
               <span>$</span>
               <input
