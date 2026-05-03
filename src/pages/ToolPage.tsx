@@ -3,6 +3,7 @@ import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetweenDatesCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
+import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
@@ -70,6 +71,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <FreelanceRateCalculator />
       ) : tool.id === "days-between-dates" ? (
         <DaysBetweenDatesCalculator />
+      ) : tool.id === "exact-age" ? (
+        <ExactAgeCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

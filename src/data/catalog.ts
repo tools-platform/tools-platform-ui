@@ -151,7 +151,7 @@ export const tools: ToolSummary[] = [
     name: "Calculadora de edad exacta",
     description: "Calcula edad en años, meses y días.",
     categoryId: "time",
-    status: "draft",
+    status: "published",
     Icon: Clock3
   },
   {

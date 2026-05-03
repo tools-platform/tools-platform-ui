@@ -1,6 +1,7 @@
 import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2 } from "lucide-react";
 import type { FormEvent } from "react";
 import { useState } from "react";
+import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import {
   calculateLoanPayment,
   type LoanPaymentRateType,
@@ -64,6 +65,7 @@ export function LoanPaymentCalculator() {
   const [result, setResult] = useState<LoanPaymentData | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -99,6 +101,7 @@ export function LoanPaymentCalculator() {
         currency: "COP"
       });
       setResult(data);
+      scrollToResultOnMobile();
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "No se pudo calcular la cuota.");
       setResult(null);
@@ -252,7 +255,7 @@ export function LoanPaymentCalculator() {
       </form>
 
       {result ? (
-        <aside className="result-panel">
+        <aside className="result-panel" ref={resultRef}>
           <div className="result-panel__hero">
             <p>Cuota mensual estimada</p>
             <strong>{formatMoney(result.result.monthlyPayment)}</strong>
@@ -301,7 +304,7 @@ export function LoanPaymentCalculator() {
           </p>
         </aside>
       ) : (
-        <aside className="result-panel result-panel--empty">
+        <aside className="result-panel result-panel--empty" ref={resultRef}>
           <div className="result-empty">
             <CircleDollarSign size={34} strokeWidth={2.1} />
             <h2>Resultado de la cuota</h2>

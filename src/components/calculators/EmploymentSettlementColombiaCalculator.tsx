@@ -2,6 +2,7 @@ import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2,
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
+import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import {
   calculateEmploymentSettlementColombia,
   type EmploymentContractType,
@@ -66,7 +67,7 @@ export function EmploymentSettlementColombiaCalculator() {
   const currentPayrollYear = new Date().getFullYear();
   const payrollYears = useMemo(() => buildPayrollYears(currentPayrollYear), [currentPayrollYear]);
   const [monthlySalary, setMonthlySalary] = useState("2.500.000");
-  const [employmentStartDate, setEmploymentStartDate] = useState("");
+  const [employmentStartDate, setEmploymentStartDate] = useState(todayDate());
   const [endDate, setEndDate] = useState(todayDate());
   const [contractType, setContractType] = useState<EmploymentContractType>("indefinite");
   const [terminationReason, setTerminationReason] = useState<TerminationReason>("voluntary_resignation");
@@ -83,6 +84,7 @@ export function EmploymentSettlementColombiaCalculator() {
   const [result, setResult] = useState<SettlementData | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   const requiresFixedTermEndDate = contractType === "fixed_term" && terminationReason === "without_just_cause";
   const requiresRemainingWorkDays = contractType === "work_or_labor" && terminationReason === "without_just_cause";
@@ -147,6 +149,7 @@ export function EmploymentSettlementColombiaCalculator() {
         otherDeductions: parseMoney(otherDeductions)
       });
       setResult(data);
+      scrollToResultOnMobile();
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "No se pudo calcular la liquidación.");
       setResult(null);
@@ -157,7 +160,7 @@ export function EmploymentSettlementColombiaCalculator() {
 
   function handleReset() {
     setMonthlySalary("2.500.000");
-    setEmploymentStartDate("");
+    setEmploymentStartDate(todayDate());
     setEndDate(todayDate());
     setContractType("indefinite");
     setTerminationReason("voluntary_resignation");
@@ -440,7 +443,7 @@ export function EmploymentSettlementColombiaCalculator() {
         </button>
       </form>
 
-      <section className={result ? "result-panel" : "result-panel result-panel--empty"}>
+      <section className={result ? "result-panel" : "result-panel result-panel--empty"} ref={resultRef}>
         {result ? (
           <>
             <div className="result-panel__hero">

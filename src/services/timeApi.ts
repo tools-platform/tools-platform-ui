@@ -27,6 +27,32 @@ export type DaysBetweenDatesResponse = {
   };
 };
 
+export type ExactAgeRequest = {
+  birthDate: string;
+  referenceDate?: string;
+};
+
+export type ExactAgeResponse = {
+  success: true;
+  data: {
+    input: {
+      birthDate: string;
+      referenceDate: string;
+    };
+    result: {
+      years: number;
+      months: number;
+      days: number;
+      totalMonths: number;
+      totalDays: number;
+      nextBirthdayDate: string;
+      daysUntilNextBirthday: number;
+      isBirthdayToday: boolean;
+    };
+    disclaimer: string;
+  };
+};
+
 type ApiErrorResponse = {
   success: false;
   error: {
@@ -51,6 +77,25 @@ export async function calculateDaysBetweenDates(
 
   if (!response.ok || !payload.success) {
     const message = !payload.success ? payload.error.message : "No se pudieron contar los días.";
+    throw new Error(message);
+  }
+
+  return payload.data;
+}
+
+export async function calculateExactAge(request: ExactAgeRequest): Promise<ExactAgeResponse["data"]> {
+  const response = await fetch(`${API_BASE_URL}/time/exact-age`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(request)
+  });
+
+  const payload = (await response.json()) as ExactAgeResponse | ApiErrorResponse;
+
+  if (!response.ok || !payload.success) {
+    const message = !payload.success ? payload.error.message : "No se pudo calcular la edad.";
     throw new Error(message);
   }
 

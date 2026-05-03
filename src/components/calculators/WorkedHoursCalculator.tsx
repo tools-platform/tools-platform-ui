@@ -2,6 +2,7 @@ import { BriefcaseBusiness, CheckCircle2, ChevronDown, Clock3, Info, Loader2, Pl
 import type { FormEvent } from "react";
 import { useState } from "react";
 import { DateField } from "../DateField";
+import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import {
   calculateWorkedHours,
   type WorkedHoursResponse,
@@ -63,6 +64,7 @@ export function WorkedHoursCalculator() {
   const [result, setResult] = useState<WorkedHoursData | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   function updateEntry<Field extends keyof Omit<WorkEntryForm, "id">>(
     id: string,
@@ -141,6 +143,7 @@ export function WorkedHoursCalculator() {
         rounding
       });
       setResult(data);
+      scrollToResultOnMobile();
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "No se pudieron calcular las horas.");
       setResult(null);
@@ -286,7 +289,7 @@ export function WorkedHoursCalculator() {
       </form>
 
       {result ? (
-        <aside className="result-panel">
+        <aside className="result-panel" ref={resultRef}>
           <div className="result-panel__hero">
             <p>Total trabajado</p>
             <strong>{result.result.formattedTotal}</strong>
@@ -340,7 +343,7 @@ export function WorkedHoursCalculator() {
           </p>
         </aside>
       ) : (
-        <aside className="result-panel result-panel--empty">
+        <aside className="result-panel result-panel--empty" ref={resultRef}>
           <div className="result-empty">
             <Clock3 size={34} strokeWidth={2.1} />
             <h2>Resultado de horas</h2>

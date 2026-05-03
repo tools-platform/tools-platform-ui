@@ -1,6 +1,7 @@
 import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
+import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import {
   calculateNetSalaryColombia,
   type NetSalaryColombiaResponse
@@ -63,6 +64,7 @@ export function NetSalaryColombiaCalculator() {
   const [resultViewOptions, setResultViewOptions] = useState<CalculationViewOptions | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   const previewSalary = useMemo(() => parseMoney(monthlySalary), [monthlySalary]);
 
@@ -95,6 +97,7 @@ export function NetSalaryColombiaCalculator() {
       });
       setResult(data);
       setResultViewOptions({ showSolidarityFund });
+      scrollToResultOnMobile();
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "No se pudo calcular el salario.");
       setResult(null);
@@ -262,7 +265,7 @@ export function NetSalaryColombiaCalculator() {
         </button>
       </form>
 
-      <section className={result ? "result-panel" : "result-panel result-panel--empty"}>
+      <section className={result ? "result-panel" : "result-panel result-panel--empty"} ref={resultRef}>
         {result ? (
           <>
             <div className="result-panel__hero">
