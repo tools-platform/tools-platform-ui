@@ -184,7 +184,16 @@ export function EmploymentSettlementColombiaCalculator() {
 
         <div className="form-grid">
           <label className="field">
-            <span>Fecha de inicio</span>
+            <span className="field-label">
+              Fecha de inicio
+              <span className="info-tooltip">
+                <Info size={15} strokeWidth={2.1} />
+                <span role="tooltip">
+                  Solo cambia el cálculo ordinario si empezaste dentro del periodo que se liquida. Si venías de antes,
+                  usamos el inicio legal del periodo.
+                </span>
+              </span>
+            </span>
             <DateField ariaLabel="Seleccionar fecha de inicio" onChange={setEmploymentStartDate} value={employmentStartDate} />
           </label>
 
