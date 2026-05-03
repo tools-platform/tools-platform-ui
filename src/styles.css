@@ -676,13 +676,13 @@ select {
 
 .field select {
   appearance: none;
+  cursor: pointer;
 }
 
 .plain-select {
   margin-top: 8px;
   padding-right: 44px;
   background: var(--background);
-  cursor: pointer;
 }
 
 .select-control {
