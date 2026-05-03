@@ -1,4 +1,4 @@
-import { Boxes } from "lucide-react";
+import { Boxes, BrainCircuit, CheckCircle2, MousePointerClick } from "lucide-react";
 import { useMemo, useState } from "react";
 import { CategoryPills } from "../components/CategoryPills";
 import { SearchBox } from "../components/SearchBox";
@@ -73,20 +73,51 @@ export function HomePage() {
       </section>
 
       <section className="about-section" id="about">
-        <div className="about-section__content">
-          <p className="section__kicker">Acerca de Tools Platforms</p>
-          <h2>Herramientas simples para personas que necesitan respuestas claras.</h2>
-          <p>
-            Nuestro proposito es ayudar a la gente que llega buscando una solucion
-            concreta: calcular un salario, entender una liquidacion, convertir una
-            medida o resolver una duda practica sin tener que aprender prompts,
-            modelos de IA o procesos complicados.
-          </p>
-          <p>
-            Queremos que cada herramienta explique lo necesario, pida pocos datos y
-            entregue un resultado facil de entender. La tecnologia queda detras; la
-            utilidad queda al frente.
-          </p>
+        <div className="about-section__panel">
+          <div className="about-section__content">
+            <p className="section__kicker">Acerca de</p>
+            <h2>Herramientas simples para personas que necesitan respuestas claras.</h2>
+            <p>
+              Nuestro proposito es ayudar a la gente que llega buscando una solucion
+              concreta: calcular un salario, entender una liquidacion, convertir una
+              medida o resolver una duda practica sin tener que aprender prompts,
+              modelos de IA o procesos complicados.
+            </p>
+            <p>
+              Queremos que cada herramienta explique lo necesario, pida pocos datos y
+              entregue un resultado facil de entender. La tecnologia queda detras; la
+              utilidad queda al frente.
+            </p>
+          </div>
+
+          <div className="about-feature-grid" aria-label="Principios de Tools Platforms">
+            <article className="about-feature">
+              <span>
+                <MousePointerClick size={20} strokeWidth={2.1} />
+              </span>
+              <h3>Usar en segundos</h3>
+              <p>Entrar, llenar lo justo y ver el resultado sin pasos innecesarios.</p>
+            </article>
+
+            <article className="about-feature">
+              <span>
+                <CheckCircle2 size={20} strokeWidth={2.1} />
+              </span>
+              <h3>Resultados claros</h3>
+              <p>Cada calculo debe mostrar que se uso y que significa el resultado.</p>
+            </article>
+
+            <article className="about-feature about-feature--wide">
+              <span>
+                <BrainCircuit size={20} strokeWidth={2.1} />
+              </span>
+              <h3>Sin saber usar IA</h3>
+              <p>
+                Convertimos preguntas comunes en herramientas directas para quien solo
+                necesita resolver algo practico.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
     </>
