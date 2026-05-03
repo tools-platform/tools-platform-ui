@@ -75,6 +75,7 @@ export function EmploymentSettlementColombiaCalculator() {
   const [year, setYear] = useState(currentPayrollYear.toString());
   const [isYearEditable, setIsYearEditable] = useState(false);
   const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(false);
+  const [includeServiceBonus, setIncludeServiceBonus] = useState(true);
   const [pendingSalaryDays, setPendingSalaryDays] = useState("0");
   const [pendingVacationDays, setPendingVacationDays] = useState("0");
   const [otherEarnings, setOtherEarnings] = useState("0");
@@ -139,6 +140,7 @@ export function EmploymentSettlementColombiaCalculator() {
         remainingWorkDays: requiresRemainingWorkDays ? remainingWorkDaysValue : undefined,
         year: yearValue,
         includeTransportationAllowance,
+        includeServiceBonus,
         pendingSalaryDays: pendingSalaryDaysValue,
         pendingVacationDays: pendingVacationDaysValue,
         otherEarnings: parseMoney(otherEarnings),
@@ -385,6 +387,18 @@ export function EmploymentSettlementColombiaCalculator() {
 
         <label className="toggle-field">
           <input
+            checked={includeServiceBonus}
+            onChange={(event) => setIncludeServiceBonus(event.target.checked)}
+            type="checkbox"
+          />
+          <span>
+            <strong>Incluir prima de servicios</strong>
+            <small>Desmárcalo si esa prima ya fue pagada o no quieres incluirla en este cálculo.</small>
+          </span>
+        </label>
+
+        <label className="toggle-field toggle-field--compact">
+          <input
             checked={includeTransportationAllowance}
             onChange={(event) => setIncludeTransportationAllowance(event.target.checked)}
             type="checkbox"
@@ -419,7 +433,7 @@ export function EmploymentSettlementColombiaCalculator() {
             <div className="result-breakdown">
               <ResultItem label="Cesantías" value={result.result.severancePay} />
               <ResultItem label="Intereses de cesantías" value={result.result.severanceInterest} />
-              <ResultItem label="Prima de servicios" value={result.result.serviceBonus} />
+              {result.input.includeServiceBonus ? <ResultItem label="Prima de servicios" value={result.result.serviceBonus} /> : null}
               <ResultItem label="Vacaciones pendientes" value={result.result.vacationPay} />
               <ResultItem label="Salario pendiente" value={result.result.pendingSalary} />
               {result.input.includeTransportationAllowance ? (
@@ -436,9 +450,9 @@ export function EmploymentSettlementColombiaCalculator() {
             <div className="rules-note">
               <CheckCircle2 size={18} strokeWidth={2.1} />
               <p>
-                Se calcularon {result.period.severanceDays} días para cesantías,{" "}
-                {result.period.serviceBonusDays} días para prima y {result.period.totalEmploymentDays} días
-                totales de relación laboral.
+                Se calcularon {result.period.severanceDays} días para cesantías
+                {result.input.includeServiceBonus ? `, ${result.period.serviceBonusDays} días para prima` : ""} y{" "}
+                {result.period.totalEmploymentDays} días totales de relación laboral.
               </p>
             </div>
 

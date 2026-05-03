@@ -62,6 +62,7 @@ export type EmploymentSettlementColombiaRequest = {
   remainingWorkDays?: number;
   year?: number;
   includeTransportationAllowance?: boolean;
+  includeServiceBonus?: boolean;
   pendingSalaryDays?: number;
   pendingVacationDays?: number;
   otherEarnings?: number;
@@ -75,6 +76,7 @@ export type EmploymentSettlementColombiaResponse = {
     year: number;
     input: EmploymentSettlementColombiaRequest & {
       includeTransportationAllowance: boolean;
+      includeServiceBonus: boolean;
       pendingSalaryDays: number;
       pendingVacationDays: number;
       otherEarnings: number;
