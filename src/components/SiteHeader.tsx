@@ -12,13 +12,13 @@ export function SiteHeader() {
         <nav className="site-nav" aria-label="Principal">
           <a href="#tools">Herramientas</a>
           <a href="#categories">Categorias</a>
-          <a href="/">Acerca</a>
+          <a href="#about">Acerca</a>
         </nav>
 
         <a className="quick-search" href="#catalog">
           <Search size={15} strokeWidth={2.25} />
           <span>Buscar</span>
-          <kbd>⌘K</kbd>
+          <kbd>Ctrl K</kbd>
         </a>
       </div>
     </header>

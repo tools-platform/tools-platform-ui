@@ -36,8 +36,8 @@ export function HomePage() {
           </h1>
 
           <p className="hero__copy">
-            Calculadoras, conversores y utilidades. Sin registro, sin anuncios,
-            sin distracciones.
+            Calculadoras, conversores y utilidades rapidas para resolver tareas
+            practicas sin vueltas.
           </p>
 
           <SearchBox value={query} onChange={setQuery} />
@@ -70,6 +70,24 @@ export function HomePage() {
             <p>Cambia la busqueda o selecciona otra categoria.</p>
           </div>
         )}
+      </section>
+
+      <section className="about-section" id="about">
+        <div className="about-section__content">
+          <p className="section__kicker">Acerca de Tools Platforms</p>
+          <h2>Herramientas simples para personas que necesitan respuestas claras.</h2>
+          <p>
+            Nuestro proposito es ayudar a la gente que llega buscando una solucion
+            concreta: calcular un salario, entender una liquidacion, convertir una
+            medida o resolver una duda practica sin tener que aprender prompts,
+            modelos de IA o procesos complicados.
+          </p>
+          <p>
+            Queremos que cada herramienta explique lo necesario, pida pocos datos y
+            entregue un resultado facil de entender. La tecnologia queda detras; la
+            utilidad queda al frente.
+          </p>
+        </div>
       </section>
     </>
   );
