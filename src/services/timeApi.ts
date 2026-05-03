@@ -1,5 +1,4 @@
-const DEFAULT_API_BASE_URL = import.meta.env.DEV ? "http://localhost:4000/api/v1" : "/api/v1";
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/$/, "");
+import { postJson } from "./apiClient";
 
 export type DaysBetweenDatesRequest = {
   startDate: string;
@@ -53,51 +52,12 @@ export type ExactAgeResponse = {
   };
 };
 
-type ApiErrorResponse = {
-  success: false;
-  error: {
-    code: string;
-    message: string;
-    details?: unknown;
-  };
-};
-
-export async function calculateDaysBetweenDates(
+export function calculateDaysBetweenDates(
   request: DaysBetweenDatesRequest
 ): Promise<DaysBetweenDatesResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/time/days-between-dates`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as DaysBetweenDatesResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudieron contar los días.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+  return postJson("/time/days-between-dates", request, "No se pudieron contar los días.");
 }
 
-export async function calculateExactAge(request: ExactAgeRequest): Promise<ExactAgeResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/time/exact-age`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as ExactAgeResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo calcular la edad.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+export function calculateExactAge(request: ExactAgeRequest): Promise<ExactAgeResponse["data"]> {
+  return postJson("/time/exact-age", request, "No se pudo calcular la edad.");
 }

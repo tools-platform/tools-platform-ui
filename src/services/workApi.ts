@@ -1,5 +1,4 @@
-const DEFAULT_API_BASE_URL = import.meta.env.DEV ? "http://localhost:4000/api/v1" : "/api/v1";
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/$/, "");
+import { postJson } from "./apiClient";
 
 export type WorkedHoursRounding = "none" | "nearest_15_minutes" | "nearest_30_minutes";
 export type WorkCurrency = "COP" | "USD";
@@ -78,53 +77,10 @@ export type FreelanceRateResponse = {
   };
 };
 
-type ApiErrorResponse = {
-  success: false;
-  error: {
-    code: string;
-    message: string;
-    details?: unknown;
-  };
-};
-
-export async function calculateWorkedHours(
-  request: WorkedHoursRequest
-): Promise<WorkedHoursResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/work/worked-hours`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as WorkedHoursResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudieron calcular las horas.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+export function calculateWorkedHours(request: WorkedHoursRequest): Promise<WorkedHoursResponse["data"]> {
+  return postJson("/work/worked-hours", request, "No se pudieron calcular las horas.");
 }
 
-export async function calculateFreelanceRate(
-  request: FreelanceRateRequest
-): Promise<FreelanceRateResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/work/freelance-rate`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as FreelanceRateResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo calcular la tarifa freelance.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+export function calculateFreelanceRate(request: FreelanceRateRequest): Promise<FreelanceRateResponse["data"]> {
+  return postJson("/work/freelance-rate", request, "No se pudo calcular la tarifa freelance.");
 }

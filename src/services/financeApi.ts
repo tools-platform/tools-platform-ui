@@ -1,5 +1,4 @@
-const DEFAULT_API_BASE_URL = import.meta.env.DEV ? "http://localhost:4000/api/v1" : "/api/v1";
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/$/, "");
+import { postJson } from "./apiClient";
 
 export type NetSalaryColombiaRequest = {
   monthlySalary: number;
@@ -247,116 +246,26 @@ export type EmploymentSettlementColombiaResponse = {
   };
 };
 
-type ApiErrorResponse = {
-  success: false;
-  error: {
-    code: string;
-    message: string;
-    details?: unknown;
-  };
-};
-
-export async function calculateNetSalaryColombia(
+export function calculateNetSalaryColombia(
   request: NetSalaryColombiaRequest
 ): Promise<NetSalaryColombiaResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/finance/net-salary-colombia`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as NetSalaryColombiaResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo calcular el salario.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+  return postJson("/finance/net-salary-colombia", request, "No se pudo calcular el salario.");
 }
 
-export async function calculateCreditInterest(
-  request: CreditInterestRequest
-): Promise<CreditInterestResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/finance/credit-interest`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as CreditInterestResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo calcular el interés.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+export function calculateCreditInterest(request: CreditInterestRequest): Promise<CreditInterestResponse["data"]> {
+  return postJson("/finance/credit-interest", request, "No se pudo calcular el interés.");
 }
 
-export async function calculateLoanPayment(
-  request: LoanPaymentRequest
-): Promise<LoanPaymentResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/finance/loan-payment`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as LoanPaymentResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo calcular la cuota.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+export function calculateLoanPayment(request: LoanPaymentRequest): Promise<LoanPaymentResponse["data"]> {
+  return postJson("/finance/loan-payment", request, "No se pudo calcular la cuota.");
 }
 
-export async function convertCopUsd(
-  request: CopUsdConverterRequest
-): Promise<CopUsdConverterResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/finance/cop-usd-converter`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as CopUsdConverterResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo convertir la moneda.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+export function convertCopUsd(request: CopUsdConverterRequest): Promise<CopUsdConverterResponse["data"]> {
+  return postJson("/finance/cop-usd-converter", request, "No se pudo convertir la moneda.");
 }
 
-export async function calculateEmploymentSettlementColombia(
+export function calculateEmploymentSettlementColombia(
   request: EmploymentSettlementColombiaRequest
 ): Promise<EmploymentSettlementColombiaResponse["data"]> {
-  const response = await fetch(`${API_BASE_URL}/finance/employment-settlement-colombia`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(request)
-  });
-
-  const payload = (await response.json()) as EmploymentSettlementColombiaResponse | ApiErrorResponse;
-
-  if (!response.ok || !payload.success) {
-    const message = !payload.success ? payload.error.message : "No se pudo calcular la liquidación.";
-    throw new Error(message);
-  }
-
-  return payload.data;
+  return postJson("/finance/employment-settlement-colombia", request, "No se pudo calcular la liquidación.");
 }

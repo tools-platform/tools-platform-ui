@@ -226,5 +226,68 @@ export const tools: ToolSummary[] = [
     categoryId: "finance",
     status: "draft",
     Icon: Repeat2
+  },
+  {
+    id: "hourly-salary",
+    slug: "hourly-salary-calculator",
+    name: "Calculadora de salario por horas",
+    description: "Convierte un salario mensual en valor por hora para comparar ingresos.",
+    categoryId: "finance",
+    status: "draft",
+    Icon: Clock3
+  },
+  {
+    id: "annual-salary",
+    slug: "annual-salary-calculator",
+    name: "Calculadora de salario anual",
+    description: "Calcula cuánto ganas en un año completo según tu salario mensual.",
+    categoryId: "finance",
+    status: "draft",
+    Icon: Banknote
+  },
+  {
+    id: "social-benefits-colombia",
+    slug: "colombia-social-benefits-calculator",
+    name: "Calculadora de prestaciones sociales",
+    description: "Desglosa beneficios como cesantías, prima y vacaciones.",
+    categoryId: "finance",
+    status: "draft",
+    Icon: HandCoins
+  },
+  {
+    id: "productivity",
+    slug: "productivity-calculator",
+    name: "Calculadora de productividad",
+    description: "Mide cuánto produces en cierto tiempo para análisis laboral.",
+    categoryId: "work",
+    status: "draft",
+    Icon: Timer
+  },
+  {
+    id: "hourly-cost",
+    slug: "hourly-cost-calculator",
+    name: "Calculadora de costo por hora",
+    description: "Calcula cuánto cuesta realmente una hora de trabajo incluyendo gastos.",
+    categoryId: "work",
+    status: "draft",
+    Icon: BriefcaseBusiness
+  },
+  {
+    id: "days-until-date",
+    slug: "days-until-date-calculator",
+    name: "Cuántos días faltan para una fecha",
+    description: "Cuenta los días restantes para eventos importantes o entregas.",
+    categoryId: "time",
+    status: "draft",
+    Icon: CalendarDays
+  },
+  {
+    id: "weeks-between-dates",
+    slug: "weeks-between-dates-calculator",
+    name: "Calculadora de semanas entre fechas",
+    description: "Convierte el tiempo entre dos fechas a semanas y días.",
+    categoryId: "time",
+    status: "draft",
+    Icon: Clock3
   }
 ];
