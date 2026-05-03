@@ -1,4 +1,5 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
+import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { categories, tools } from "../data/catalog";
 
 type ToolPageProps = {
@@ -41,14 +42,18 @@ export function ToolPage({ slug }: ToolPageProps) {
         <span>{tool.description}</span>
       </header>
 
-      <div className="tool-placeholder">
-        <Clock3 size={28} strokeWidth={2.05} />
-        <h2>Pagina preparada</h2>
-        <p>
-          Aqui montaremos el formulario, boton de calculo, resultados y texto SEO
-          cuando activemos esta herramienta.
-        </p>
-      </div>
+      {tool.id === "net-salary-colombia" ? (
+        <NetSalaryColombiaCalculator />
+      ) : (
+        <div className="tool-placeholder">
+          <Clock3 size={28} strokeWidth={2.05} />
+          <h2>Pagina preparada</h2>
+          <p>
+            Aqui montaremos el formulario, boton de calculo, resultados y texto SEO
+            cuando activemos esta herramienta.
+          </p>
+        </div>
+      )}
     </section>
   );
 }
