@@ -337,7 +337,16 @@ export function EmploymentSettlementColombiaCalculator() {
 
         <div className="form-grid">
           <label className="field">
-            <span>Pagos adicionales</span>
+            <span className="field-label">
+              Pagos adicionales
+              <span className="info-tooltip">
+                <Info size={15} strokeWidth={2.1} />
+                <span role="tooltip">
+                  Úsalo si te deben sumar valores extra no calculados aquí, como bonificaciones pendientes,
+                  comisiones aprobadas, recargos, horas extra o ajustes acordados.
+                </span>
+              </span>
+            </span>
             <div className="money-input money-input--compact">
               <span>$</span>
               <input
