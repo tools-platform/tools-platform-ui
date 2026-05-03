@@ -676,6 +676,19 @@ select {
   appearance: none;
 }
 
+.plain-select {
+  margin-top: 8px;
+  padding-right: 38px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 50%,
+    calc(100% - 14px) 50%;
+  background-repeat: no-repeat;
+  background-size: 7px 7px, 7px 7px;
+}
+
 .field > input {
   margin-top: 8px;
 }
@@ -789,6 +802,14 @@ select {
   grid-template-columns: 0.72fr 1fr;
   gap: 14px;
   margin-top: 20px;
+}
+
+.settlement-card > .field {
+  margin-top: 20px;
+}
+
+.settlement-card > .calculator-card__header + .field {
+  margin-top: 0;
 }
 
 .toggle-field {

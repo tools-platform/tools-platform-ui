@@ -1,4 +1,5 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
+import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { categories, tools } from "../data/catalog";
 
@@ -49,6 +50,8 @@ export function ToolPage({ slug }: ToolPageProps) {
 
       {tool.id === "net-salary-colombia" ? (
         <NetSalaryColombiaCalculator />
+      ) : tool.id === "employment-settlement-colombia" ? (
+        <EmploymentSettlementColombiaCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

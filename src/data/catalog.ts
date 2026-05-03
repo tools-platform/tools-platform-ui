@@ -88,7 +88,7 @@ export const tools: ToolSummary[] = [
     name: "Calculadora de liquidación (Colombia)",
     description: "Cesantías, prima y vacaciones al salir del trabajo.",
     categoryId: "finance",
-    status: "draft",
+    status: "published",
     Icon: HandCoins
   },
   {
