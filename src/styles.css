@@ -404,13 +404,23 @@ select {
 }
 
 .tool-card.is-muted {
-  border-color: color-mix(in oklch, var(--primary), transparent 78%);
+  border-color: color-mix(in oklch, var(--border), transparent 28%);
+  background: color-mix(in oklch, var(--card), transparent 42%);
+  box-shadow: none;
+  opacity: 0.66;
 }
 
 .tool-card.is-muted h3,
 .tool-card.is-muted p,
 .tool-card.is-muted .tool-card__icon {
-  opacity: 0.58;
+  opacity: 0.62;
+}
+
+.tool-card.is-muted:hover {
+  border-color: color-mix(in oklch, var(--border), transparent 12%);
+  box-shadow: var(--shadow-soft);
+  opacity: 0.78;
+  transform: none;
 }
 
 .tool-card__topline {
@@ -1898,6 +1908,100 @@ select {
   line-height: 1.6;
 }
 
+.tool-seo-content {
+  display: grid;
+  gap: 26px;
+  margin-top: 58px;
+}
+
+.tool-seo-content__intro {
+  max-width: 760px;
+}
+
+.tool-seo-content__intro h2,
+.tool-faq h2 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.14;
+}
+
+.tool-seo-content__intro p:not(.section__kicker) {
+  margin: 14px 0 0;
+  color: var(--muted-foreground);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.tool-seo-content__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.tool-seo-card,
+.tool-faq {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: color-mix(in oklch, var(--card), transparent 4%);
+  box-shadow: var(--shadow-soft);
+}
+
+.tool-seo-card {
+  padding: 24px;
+}
+
+.tool-seo-card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.tool-seo-card p {
+  margin: 12px 0 0;
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.tool-faq {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 26px;
+}
+
+.tool-faq__list {
+  display: grid;
+  gap: 10px;
+}
+
+.tool-faq details {
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--background);
+  padding: 0;
+}
+
+.tool-faq summary {
+  cursor: pointer;
+  font-weight: 800;
+  line-height: 1.4;
+  list-style-position: outside;
+  padding: 15px 16px;
+}
+
+.tool-faq details[open] summary {
+  color: var(--primary);
+}
+
+.tool-faq details p {
+  margin: 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.7;
+  padding: 0 16px 15px;
+}
+
 .legal-page {
   width: min(920px, calc(100% - 48px));
   margin: 0 auto;
@@ -2115,7 +2219,9 @@ select {
   .case-mode-grid,
   .password-option-grid,
   .result-breakdown,
-  .rules-grid {
+  .rules-grid,
+  .tool-seo-content__grid,
+  .tool-faq {
     grid-template-columns: 1fr;
   }
 

@@ -12,7 +12,9 @@ import { SecurePasswordGenerator } from "../components/calculators/SecurePasswor
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
+import { ToolSeoContent } from "../components/ToolSeoContent";
 import { categories, tools } from "../data/catalog";
+import { toolContentById } from "../data/toolContent";
 
 type ToolPageProps = {
   slug: string;
@@ -37,6 +39,8 @@ export function ToolPage({ slug }: ToolPageProps) {
       </section>
     );
   }
+
+  const seoContent = toolContentById[tool.id];
 
   return (
     <section className="tool-page">
@@ -95,6 +99,8 @@ export function ToolPage({ slug }: ToolPageProps) {
           </p>
         </div>
       )}
+
+      {seoContent ? <ToolSeoContent content={seoContent} /> : null}
     </section>
   );
 }
