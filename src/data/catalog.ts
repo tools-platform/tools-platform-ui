@@ -160,7 +160,7 @@ export const tools: ToolSummary[] = [
     name: "Conversor de unidades",
     description: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
     categoryId: "utilities",
-    status: "draft",
+    status: "published",
     Icon: Ruler
   },
   {

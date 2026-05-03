@@ -7,6 +7,7 @@ import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
+import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
 import { categories, tools } from "../data/catalog";
 
@@ -73,6 +74,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <DaysBetweenDatesCalculator />
       ) : tool.id === "exact-age" ? (
         <ExactAgeCalculator />
+      ) : tool.id === "unit-converter" ? (
+        <UnitConverter />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />
