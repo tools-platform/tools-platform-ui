@@ -182,10 +182,21 @@ export function NetSalaryColombiaCalculator() {
             type="checkbox"
           />
           <span>
-            <strong>Mostrar Fondo de Solidaridad</strong>
-            <small>Solo cambia si ves el detalle. Si aplica por ley, seguirá incluido en el total.</small>
+            <strong>Ver Fondo de Solidaridad</strong>
+            <small>
+              Esto solo muestra u oculta el detalle. Ocultarlo no elimina el aporte si aplica por ley.
+            </small>
           </span>
         </label>
+
+        <div className="explain-note explain-note--form">
+          <Info size={18} strokeWidth={2.1} />
+          <p>
+            <strong>¿Qué es el Fondo de Solidaridad Pensional?</strong>
+            Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más.
+            Si tu salario no llega a ese rango, este valor queda en cero.
+          </p>
+        </div>
 
         {previewSalary > 0 ? (
           <div className="calculator-hint">
@@ -239,17 +250,6 @@ export function NetSalaryColombiaCalculator() {
                 <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
               ) : null}
             </div>
-
-            {showSolidarityFund ? (
-              <div className="explain-note">
-                <Info size={18} strokeWidth={2.1} />
-                <p>
-                  <strong>¿Qué es el Fondo de Solidaridad Pensional?</strong>
-                  Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más.
-                  Si tu salario no llega a ese rango, este valor queda en cero.
-                </p>
-              </div>
-            ) : null}
 
             <p className="disclaimer">
               Este resultado es una estimación para un empleado dependiente en Colombia.

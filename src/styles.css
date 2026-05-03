@@ -979,6 +979,10 @@ input {
   color: var(--foreground);
 }
 
+.explain-note--form {
+  margin: 12px 0 0;
+}
+
 .disclaimer {
   margin: 18px 22px 24px;
   color: var(--muted-foreground);
