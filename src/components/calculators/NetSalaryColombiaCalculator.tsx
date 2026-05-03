@@ -8,6 +8,10 @@ import {
 
 type NetSalaryData = NetSalaryColombiaResponse["data"];
 
+type CalculationViewOptions = {
+  showSolidarityFund: boolean;
+};
+
 const currencyFormatter = new Intl.NumberFormat("es-CO", {
   style: "currency",
   currency: "COP",
@@ -56,6 +60,7 @@ export function NetSalaryColombiaCalculator() {
   const [showSolidarityFund, setShowSolidarityFund] = useState(false);
   const [otherDeductions, setOtherDeductions] = useState("0");
   const [result, setResult] = useState<NetSalaryData | null>(null);
+  const [resultViewOptions, setResultViewOptions] = useState<CalculationViewOptions | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -89,9 +94,11 @@ export function NetSalaryColombiaCalculator() {
         otherDeductions: deductionsValue
       });
       setResult(data);
+      setResultViewOptions({ showSolidarityFund });
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "No se pudo calcular el salario.");
       setResult(null);
+      setResultViewOptions(null);
     } finally {
       setIsLoading(false);
     }
@@ -253,7 +260,7 @@ export function NetSalaryColombiaCalculator() {
               ) : null}
               <ResultItem label="Salud 4%" value={result.result.healthContribution} />
               <ResultItem label="Pensión 4%" value={result.result.pensionContribution} />
-              {showSolidarityFund ? (
+              {resultViewOptions?.showSolidarityFund ? (
                 <ResultItem label="Fondo de solidaridad" value={result.result.solidarityPensionFundContribution} />
               ) : null}
               <ResultItem label="Total descuentos" value={result.result.totalDeductions} strong />
@@ -281,7 +288,7 @@ export function NetSalaryColombiaCalculator() {
               ) : null}
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
-              {showSolidarityFund ? (
+              {resultViewOptions?.showSolidarityFund ? (
                 <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
               ) : null}
             </div>
