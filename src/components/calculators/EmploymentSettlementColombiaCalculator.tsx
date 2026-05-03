@@ -324,6 +324,17 @@ export function EmploymentSettlementColombiaCalculator() {
           </label>
         </div>
 
+        <label className="field">
+          <span>Días de vacaciones pendientes</span>
+          <input
+            min="0"
+            onChange={(event) => setPendingVacationDays(event.target.value)}
+            step="0.01"
+            type="number"
+            value={pendingVacationDays}
+          />
+        </label>
+
         <div className="form-grid">
           <label className="field">
             <span>Pagos adicionales</span>
@@ -362,17 +373,6 @@ export function EmploymentSettlementColombiaCalculator() {
             </div>
           </label>
         </div>
-
-        <label className="field">
-          <span>Días de vacaciones pendientes</span>
-          <input
-            min="0"
-            onChange={(event) => setPendingVacationDays(event.target.value)}
-            step="0.01"
-            type="number"
-            value={pendingVacationDays}
-          />
-        </label>
 
         <label className="toggle-field">
           <input
