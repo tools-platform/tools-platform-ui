@@ -248,7 +248,9 @@ export function NetSalaryColombiaCalculator() {
 
             <div className="result-breakdown">
               <ResultItem label="Salario bruto" value={result.result.grossSalary} />
-              <ResultItem label="Auxilio transporte" value={result.result.transportationAllowance} />
+              {result.result.transportationAllowance > 0 ? (
+                <ResultItem label="Auxilio transporte" value={result.result.transportationAllowance} />
+              ) : null}
               <ResultItem label="Salud 4%" value={result.result.healthContribution} />
               <ResultItem label="Pensión 4%" value={result.result.pensionContribution} />
               {showSolidarityFund ? (
@@ -267,7 +269,10 @@ export function NetSalaryColombiaCalculator() {
             </div>
 
             <div className="rules-grid">
-              <span>Cumple límite legal: {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}</span>
+              <span>
+                Cumple límite legal para auxilio:{" "}
+                {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}
+              </span>
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
               {showSolidarityFund ? (
