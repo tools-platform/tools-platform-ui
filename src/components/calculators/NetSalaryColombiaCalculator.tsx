@@ -265,11 +265,15 @@ export function NetSalaryColombiaCalculator() {
 
             <div className="rules-note">
               <CheckCircle2 size={18} strokeWidth={2.1} />
-              <p>
-                Usa salario mínimo {formatMoney(result.rules.minimumMonthlyWage)}, auxilio de transporte{" "}
-                {formatMoney(result.rules.transportationAllowanceValue)} y límite{" "}
-                {formatMoney(result.rules.transportationAllowanceSalaryLimit)} para {result.year}.
-              </p>
+              {hasTransportationAllowance ? (
+                <p>
+                  Usa salario mínimo {formatMoney(result.rules.minimumMonthlyWage)}, auxilio de transporte{" "}
+                  {formatMoney(result.rules.transportationAllowanceValue)} y límite{" "}
+                  {formatMoney(result.rules.transportationAllowanceSalaryLimit)} para {result.year}.
+                </p>
+              ) : (
+                <p>Usa salario mínimo {formatMoney(result.rules.minimumMonthlyWage)} para {result.year}.</p>
+              )}
             </div>
 
             <div className="rules-grid">
