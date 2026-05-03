@@ -796,10 +796,24 @@ select {
   gap: 8px;
 }
 
-.date-picker__header strong {
+.date-picker__jump {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 78px;
+  gap: 6px;
+}
+
+.date-picker__jump select {
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--background);
   color: var(--foreground);
-  font-size: 14px;
-  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  padding: 0 8px;
   text-transform: capitalize;
 }
 

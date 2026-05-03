@@ -9,8 +9,7 @@ type DateFieldProps = {
 };
 
 const monthFormatter = new Intl.DateTimeFormat("es-CO", {
-  month: "long",
-  year: "numeric"
+  month: "long"
 });
 
 const displayFormatter = new Intl.DateTimeFormat("es-CO", {
@@ -20,6 +19,13 @@ const displayFormatter = new Intl.DateTimeFormat("es-CO", {
 });
 
 const weekDays = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+
+const months = Array.from({ length: 12 }, (_, monthIndex) => ({
+  label: monthFormatter.format(new Date(2026, monthIndex, 1)),
+  value: monthIndex
+}));
+
+const years = Array.from({ length: new Date().getFullYear() - 1948 }, (_, index) => new Date().getFullYear() + 1 - index);
 
 function toDateKey(date: Date) {
   const year = date.getFullYear();
@@ -101,6 +107,14 @@ export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", val
     setVisibleMonth((currentMonth) => new Date(currentMonth.getFullYear(), currentMonth.getMonth() + offset, 1));
   }
 
+  function selectVisibleMonth(month: number) {
+    setVisibleMonth((currentMonth) => new Date(currentMonth.getFullYear(), month, 1));
+  }
+
+  function selectVisibleYear(year: number) {
+    setVisibleMonth((currentMonth) => new Date(year, currentMonth.getMonth(), 1));
+  }
+
   function selectDate(date: Date) {
     onChange(toDateKey(date));
     setIsOpen(false);
@@ -134,7 +148,30 @@ export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", val
             <button aria-label="Mes anterior" onClick={() => moveMonth(-1)} type="button">
               <ChevronLeft size={17} strokeWidth={2.1} />
             </button>
-            <strong>{monthFormatter.format(visibleMonth)}</strong>
+            <div className="date-picker__jump">
+              <select
+                aria-label="Seleccionar mes"
+                onChange={(event) => selectVisibleMonth(Number(event.target.value))}
+                value={visibleMonth.getMonth()}
+              >
+                {months.map((month) => (
+                  <option key={month.value} value={month.value}>
+                    {month.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                aria-label="Seleccionar año"
+                onChange={(event) => selectVisibleYear(Number(event.target.value))}
+                value={visibleMonth.getFullYear()}
+              >
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
             <button aria-label="Mes siguiente" onClick={() => moveMonth(1)} type="button">
               <ChevronRight size={17} strokeWidth={2.1} />
             </button>
