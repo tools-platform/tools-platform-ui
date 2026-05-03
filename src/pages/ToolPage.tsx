@@ -1,6 +1,7 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
+import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetweenDatesCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
@@ -67,6 +68,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <WorkedHoursCalculator />
       ) : tool.id === "freelance-rate" ? (
         <FreelanceRateCalculator />
+      ) : tool.id === "days-between-dates" ? (
+        <DaysBetweenDatesCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

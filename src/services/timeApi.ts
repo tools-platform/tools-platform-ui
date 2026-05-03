@@ -1,0 +1,58 @@
+const DEFAULT_API_BASE_URL = import.meta.env.DEV ? "http://localhost:4000/api/v1" : "/api/v1";
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/$/, "");
+
+export type DaysBetweenDatesRequest = {
+  startDate: string;
+  endDate: string;
+  includeEndDate?: boolean;
+};
+
+export type DaysBetweenDatesResponse = {
+  success: true;
+  data: {
+    input: {
+      startDate: string;
+      endDate: string;
+      includeEndDate: boolean;
+    };
+    result: {
+      days: number;
+      weeks: number;
+      fullWeeks: number;
+      remainingDays: number;
+      calendarDaysDifference: number;
+      isSameDate: boolean;
+    };
+    disclaimer: string;
+  };
+};
+
+type ApiErrorResponse = {
+  success: false;
+  error: {
+    code: string;
+    message: string;
+    details?: unknown;
+  };
+};
+
+export async function calculateDaysBetweenDates(
+  request: DaysBetweenDatesRequest
+): Promise<DaysBetweenDatesResponse["data"]> {
+  const response = await fetch(`${API_BASE_URL}/time/days-between-dates`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(request)
+  });
+
+  const payload = (await response.json()) as DaysBetweenDatesResponse | ApiErrorResponse;
+
+  if (!response.ok || !payload.success) {
+    const message = !payload.success ? payload.error.message : "No se pudieron contar los días.";
+    throw new Error(message);
+  }
+
+  return payload.data;
+}

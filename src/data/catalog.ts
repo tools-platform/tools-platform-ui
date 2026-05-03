@@ -142,7 +142,7 @@ export const tools: ToolSummary[] = [
     name: "Contador de días entre fechas",
     description: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
     categoryId: "time",
-    status: "draft",
+    status: "published",
     Icon: CalendarDays
   },
   {
