@@ -775,8 +775,9 @@ input {
   gap: 9px;
   margin-top: 18px;
   border-radius: 14px;
-  background: var(--accent);
-  color: var(--accent-foreground);
+  border: 1px solid var(--border);
+  background: var(--muted);
+  color: var(--muted-foreground);
   font-size: 13px;
   padding: 12px 14px;
 }
