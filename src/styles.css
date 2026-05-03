@@ -610,6 +610,38 @@ input {
   margin-top: 8px;
 }
 
+.year-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.year-input input:disabled {
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+.year-input button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  min-height: 50px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.year-input button:hover {
+  border-color: color-mix(in oklch, var(--primary), transparent 42%);
+  color: var(--foreground);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 90%);
+}
+
 .field input:focus,
 .money-input:focus-within {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);

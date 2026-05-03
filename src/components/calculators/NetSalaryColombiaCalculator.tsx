@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2 } from "lucide-react";
+import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import {
@@ -32,8 +32,10 @@ function formatRate(value: number) {
 }
 
 export function NetSalaryColombiaCalculator() {
+  const currentPayrollYear = Math.max(new Date().getFullYear(), 2026).toString();
   const [monthlySalary, setMonthlySalary] = useState("2500000");
-  const [year, setYear] = useState("2026");
+  const [year, setYear] = useState(currentPayrollYear);
+  const [isYearEditable, setIsYearEditable] = useState(false);
   const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(true);
   const [otherDeductions, setOtherDeductions] = useState("0");
   const [result, setResult] = useState<NetSalaryData | null>(null);
@@ -111,13 +113,24 @@ export function NetSalaryColombiaCalculator() {
         <div className="form-grid">
           <label className="field">
             <span>Año de reglas</span>
-            <input
-              min="2026"
-              onChange={(event) => setYear(event.target.value)}
-              required
-              type="number"
-              value={year}
-            />
+            <div className="year-input">
+              <input
+                disabled={!isYearEditable}
+                min="2026"
+                onChange={(event) => setYear(event.target.value)}
+                required
+                type="number"
+                value={year}
+              />
+              <button
+                aria-label="Editar año de reglas"
+                onClick={() => setIsYearEditable((isEditable) => !isEditable)}
+                title="Editar año"
+                type="button"
+              >
+                <Pencil size={15} strokeWidth={2.1} />
+              </button>
+            </div>
           </label>
 
           <label className="field">
