@@ -60,10 +60,6 @@ export function NetSalaryColombiaCalculator() {
   const [isLoading, setIsLoading] = useState(false);
 
   const previewSalary = useMemo(() => parseMoney(monthlySalary), [monthlySalary]);
-  const hasTransportationAllowance = result ? result.result.transportationAllowance > 0 : false;
-  const hasSolidarityFund = result
-    ? result.result.solidarityPensionFundContribution > 0 || result.rules.solidarityPensionFundRate > 0
-    : false;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -252,12 +248,12 @@ export function NetSalaryColombiaCalculator() {
 
             <div className="result-breakdown">
               <ResultItem label="Salario bruto" value={result.result.grossSalary} />
-              {hasTransportationAllowance ? (
+              {result.input.includeTransportationAllowance ? (
                 <ResultItem label="Auxilio transporte" value={result.result.transportationAllowance} />
               ) : null}
               <ResultItem label="Salud 4%" value={result.result.healthContribution} />
               <ResultItem label="Pensión 4%" value={result.result.pensionContribution} />
-              {showSolidarityFund && hasSolidarityFund ? (
+              {showSolidarityFund ? (
                 <ResultItem label="Fondo de solidaridad" value={result.result.solidarityPensionFundContribution} />
               ) : null}
               <ResultItem label="Total descuentos" value={result.result.totalDeductions} strong />
@@ -265,7 +261,7 @@ export function NetSalaryColombiaCalculator() {
 
             <div className="rules-note">
               <CheckCircle2 size={18} strokeWidth={2.1} />
-              {hasTransportationAllowance ? (
+              {result.input.includeTransportationAllowance ? (
                 <p>
                   Usa salario mínimo {formatMoney(result.rules.minimumMonthlyWage)}, auxilio de transporte{" "}
                   {formatMoney(result.rules.transportationAllowanceValue)} y límite{" "}
@@ -277,7 +273,7 @@ export function NetSalaryColombiaCalculator() {
             </div>
 
             <div className="rules-grid">
-              {hasTransportationAllowance ? (
+              {result.input.includeTransportationAllowance ? (
                 <span>
                   Cumple límite legal para auxilio:{" "}
                   {result.rules.qualifiesForTransportationAllowance ? "Sí" : "No"}
@@ -285,7 +281,7 @@ export function NetSalaryColombiaCalculator() {
               ) : null}
               <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
-              {showSolidarityFund && hasSolidarityFund ? (
+              {showSolidarityFund ? (
                 <span>Fondo de solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
               ) : null}
             </div>
