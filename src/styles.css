@@ -804,7 +804,7 @@ select {
 
 .date-picker__jump select {
   width: 100%;
-  height: 36px;
+  height: 32px;
   border: 1px solid var(--border);
   border-radius: 11px;
   background: var(--background);
