@@ -104,6 +104,18 @@ export function NetSalaryColombiaCalculator() {
     }
   }
 
+  function handleReset() {
+    setMonthlySalary("2.500.000");
+    setYear(currentPayrollYear.toString());
+    setIsYearEditable(false);
+    setIncludeTransportationAllowance(false);
+    setShowSolidarityFund(false);
+    setOtherDeductions("0");
+    setResult(null);
+    setResultViewOptions(null);
+    setError("");
+  }
+
   return (
     <div className="calculator-layout">
       <form className="calculator-card" onSubmit={handleSubmit}>
@@ -244,6 +256,9 @@ export function NetSalaryColombiaCalculator() {
         <button className="primary-action" disabled={isLoading} type="submit">
           {isLoading ? <Loader2 className="spin" size={18} /> : <CircleDollarSign size={18} />}
           Calcular salario neto
+        </button>
+        <button className="secondary-action" onClick={handleReset} type="button">
+          Restablecer
         </button>
       </form>
 

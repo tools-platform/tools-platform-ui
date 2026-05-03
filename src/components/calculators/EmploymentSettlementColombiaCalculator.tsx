@@ -155,6 +155,26 @@ export function EmploymentSettlementColombiaCalculator() {
     }
   }
 
+  function handleReset() {
+    setMonthlySalary("2.500.000");
+    setEmploymentStartDate("");
+    setEndDate(todayDate());
+    setContractType("indefinite");
+    setTerminationReason("voluntary_resignation");
+    setFixedTermEndDate("");
+    setRemainingWorkDays("");
+    setYear(currentPayrollYear.toString());
+    setIsYearEditable(false);
+    setIncludeTransportationAllowance(false);
+    setIncludeServiceBonus(true);
+    setPendingSalaryDays("0");
+    setPendingVacationDays("0");
+    setOtherEarnings("0");
+    setOtherDeductions("0");
+    setResult(null);
+    setError("");
+  }
+
   return (
     <div className="calculator-layout calculator-layout--wide">
       <form className="calculator-card settlement-card" onSubmit={handleSubmit}>
@@ -414,6 +434,9 @@ export function EmploymentSettlementColombiaCalculator() {
         <button className="primary-action" disabled={isLoading} type="submit">
           {isLoading ? <Loader2 className="spin" size={18} /> : <CircleDollarSign size={18} />}
           Calcular liquidación
+        </button>
+        <button className="secondary-action" onClick={handleReset} type="button">
+          Restablecer
         </button>
       </form>
 

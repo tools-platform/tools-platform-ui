@@ -1111,6 +1111,28 @@ select {
   opacity: 0.75;
 }
 
+.secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-weight: 700;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.secondary-action:hover {
+  border-color: color-mix(in oklch, var(--foreground), transparent 78%);
+  background: color-mix(in oklch, var(--muted), var(--foreground) 4%);
+  color: var(--foreground);
+}
+
 .spin {
   animation: spin 900ms linear infinite;
 }
