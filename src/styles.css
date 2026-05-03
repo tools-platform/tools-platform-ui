@@ -939,6 +939,7 @@ select {
 
 .plain-select {
   margin-top: 0;
+  min-height: 56px;
   padding-right: 82px;
   background: var(--background);
   overflow: hidden;
