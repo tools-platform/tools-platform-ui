@@ -1,6 +1,7 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
+import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { categories, tools } from "../data/catalog";
 
@@ -55,6 +56,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <EmploymentSettlementColombiaCalculator />
       ) : tool.id === "credit-interest" ? (
         <CreditInterestCalculator />
+      ) : tool.id === "loan-payment" ? (
+        <LoanPaymentCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

@@ -106,7 +106,7 @@ export const tools: ToolSummary[] = [
     name: "Cuota de préstamo",
     description: "Valor de la cuota mensual de un crédito.",
     categoryId: "finance",
-    status: "draft",
+    status: "published",
     Icon: BadgeDollarSign
   },
   {

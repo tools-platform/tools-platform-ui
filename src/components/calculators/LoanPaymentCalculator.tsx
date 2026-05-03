@@ -2,13 +2,12 @@ import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2 
 import type { FormEvent } from "react";
 import { useState } from "react";
 import {
-  calculateCreditInterest,
-  type CompoundingFrequency,
-  type CreditInterestResponse,
-  type CreditInterestType
+  calculateLoanPayment,
+  type LoanPaymentRateType,
+  type LoanPaymentResponse
 } from "../../services/financeApi";
 
-type CreditInterestData = CreditInterestResponse["data"];
+type LoanPaymentData = LoanPaymentResponse["data"];
 
 const numberFormatter = new Intl.NumberFormat("es-CO", {
   maximumFractionDigits: 0
@@ -53,21 +52,16 @@ function formatRate(value: number) {
   })}%`;
 }
 
-function getInterestTypeLabel(type: CreditInterestType) {
-  return type === "simple" ? "Interés simple" : "Interés compuesto";
+function getRateTypeLabel(rateType: LoanPaymentRateType) {
+  return rateType === "effective_annual" ? "Efectiva anual" : "Mensual";
 }
 
-function getFrequencyLabel(frequency: CompoundingFrequency) {
-  return frequency === "monthly" ? "Capitalización mensual" : "Capitalización anual";
-}
-
-export function CreditInterestCalculator() {
+export function LoanPaymentCalculator() {
   const [loanAmount, setLoanAmount] = useState("5.000.000");
-  const [annualInterestRate, setAnnualInterestRate] = useState("24");
+  const [interestRate, setInterestRate] = useState("24");
+  const [rateType, setRateType] = useState<LoanPaymentRateType>("effective_annual");
   const [termMonths, setTermMonths] = useState("12");
-  const [interestType, setInterestType] = useState<CreditInterestType>("compound");
-  const [compoundingFrequency, setCompoundingFrequency] = useState<CompoundingFrequency>("monthly");
-  const [result, setResult] = useState<CreditInterestData | null>(null);
+  const [result, setResult] = useState<LoanPaymentData | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -76,7 +70,7 @@ export function CreditInterestCalculator() {
     setError("");
 
     const loanAmountValue = parseMoney(loanAmount);
-    const annualInterestRateValue = parseRate(annualInterestRate);
+    const interestRateValue = parseRate(interestRate);
     const termMonthsValue = Number(termMonths);
 
     if (loanAmountValue <= 0) {
@@ -84,8 +78,8 @@ export function CreditInterestCalculator() {
       return;
     }
 
-    if (annualInterestRateValue < 0 || annualInterestRateValue > 1000) {
-      setError("Ingresa una tasa anual entre 0% y 1000%.");
+    if (interestRateValue < 0 || interestRateValue > 1000) {
+      setError("Ingresa una tasa entre 0% y 1000%.");
       return;
     }
 
@@ -97,17 +91,16 @@ export function CreditInterestCalculator() {
     setIsLoading(true);
 
     try {
-      const data = await calculateCreditInterest({
+      const data = await calculateLoanPayment({
         loanAmount: loanAmountValue,
-        annualInterestRate: annualInterestRateValue,
+        interestRate: interestRateValue,
+        rateType,
         termMonths: termMonthsValue,
-        interestType,
-        compoundingFrequency,
         currency: "COP"
       });
       setResult(data);
     } catch (requestError) {
-      setError(requestError instanceof Error ? requestError.message : "No se pudo calcular el interés.");
+      setError(requestError instanceof Error ? requestError.message : "No se pudo calcular la cuota.");
       setResult(null);
     } finally {
       setIsLoading(false);
@@ -116,10 +109,9 @@ export function CreditInterestCalculator() {
 
   function handleReset() {
     setLoanAmount("5.000.000");
-    setAnnualInterestRate("24");
+    setInterestRate("24");
+    setRateType("effective_annual");
     setTermMonths("12");
-    setInterestType("compound");
-    setCompoundingFrequency("monthly");
     setResult(null);
     setError("");
   }
@@ -130,7 +122,7 @@ export function CreditInterestCalculator() {
         <div className="calculator-card__header">
           <div>
             <p className="section__kicker">Calculadora</p>
-            <h2>Datos del crédito</h2>
+            <h2>Datos del préstamo</h2>
           </div>
           <span>
             <Calculator size={20} strokeWidth={2.1} />
@@ -153,84 +145,58 @@ export function CreditInterestCalculator() {
             />
             <strong>COP</strong>
           </div>
-          <small>Es el dinero que recibes o piensas solicitar antes de intereses y cargos.</small>
+          <small>Es el dinero que piensas solicitar antes de intereses y cargos.</small>
         </label>
 
-        <div className="form-grid form-grid--single">
+        <div className="form-grid">
           <label className="field">
             <span className="field-label">
-              Tasa anual <span className="required-mark">*</span>
+              {rateType === "effective_annual" ? "Tasa anual" : "Tasa mensual"}{" "}
+              <span className="required-mark">*</span>
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">
-                  Usa la tasa anual del crédito. Si tu entidad te dio una tasa mensual, conviértela antes
-                  de usar esta calculadora para que el resultado no quede inflado o incompleto.
+                  Escribe el porcentaje según el tipo de tasa elegido. Si seleccionas efectiva anual,
+                  usa la tasa del año completo. Si seleccionas mensual, usa la tasa que se aplica cada mes.
                 </span>
               </span>
             </span>
             <div className="rate-input">
               <input
                 inputMode="decimal"
-                onChange={(event) => setAnnualInterestRate(event.target.value)}
+                onChange={(event) => setInterestRate(event.target.value)}
                 placeholder="24"
                 required
                 type="text"
-                value={annualInterestRate}
+                value={interestRate}
               />
               <strong>%</strong>
             </div>
           </label>
-        </div>
 
-        <div className={interestType === "compound" ? "form-grid" : "form-grid form-grid--single"}>
           <label className="field">
             <span className="field-label">
-              Tipo de interés <span className="required-mark">*</span>
+              Tipo de tasa <span className="required-mark">*</span>
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">
-                  Simple: calcula el interés sobre el dinero inicial usando la tasa anual. Compuesto:
-                  acumula intereses según la capitalización elegida, también usando la tasa anual.
+                  Efectiva anual: tasa para todo el año, por ejemplo 24% EA. Mensual: tasa que se aplica
+                  cada mes, por ejemplo 2% mensual.
                 </span>
               </span>
             </span>
             <span className="select-control">
               <select
                 className="plain-select"
-                onChange={(event) => setInterestType(event.target.value as CreditInterestType)}
-                value={interestType}
+                onChange={(event) => setRateType(event.target.value as LoanPaymentRateType)}
+                value={rateType}
               >
-                <option value="compound">Interés compuesto</option>
-                <option value="simple">Interés simple</option>
+                <option value="effective_annual">Efectiva anual</option>
+                <option value="monthly">Mensual</option>
               </select>
               <ChevronDown size={18} strokeWidth={2.1} />
             </span>
           </label>
-
-          {interestType === "compound" ? (
-            <label className="field">
-              <span className="field-label">
-                Capitalización
-                <span className="info-tooltip">
-                  <Info size={15} strokeWidth={2.1} />
-                  <span role="tooltip">
-                    Indica cada cuánto se acumula el interés compuesto.
-                  </span>
-                </span>
-              </span>
-              <span className="select-control">
-                <select
-                  className="plain-select"
-                  onChange={(event) => setCompoundingFrequency(event.target.value as CompoundingFrequency)}
-                  value={compoundingFrequency}
-                >
-                  <option value="monthly">Mensual</option>
-                  <option value="annually">Anual</option>
-                </select>
-                <ChevronDown size={18} strokeWidth={2.1} />
-              </span>
-            </label>
-          ) : null}
         </div>
 
         <label className="field field--spaced">
@@ -269,7 +235,7 @@ export function CreditInterestCalculator() {
         <div className="calculator-hint">
           <Info size={16} strokeWidth={2.1} />
           <span>
-            Este cálculo estima intereses totales. No calcula una cuota fija amortizada.
+            Esta cuota es una estimación fija. No incluye seguros, comisiones ni cargos de la entidad.
           </span>
         </div>
 
@@ -277,7 +243,7 @@ export function CreditInterestCalculator() {
 
         <button className="primary-action" disabled={isLoading} type="submit">
           {isLoading ? <Loader2 className="spin" size={18} /> : <CircleDollarSign size={18} />}
-          Calcular intereses
+          Calcular cuota
         </button>
 
         <button className="secondary-action" onClick={handleReset} type="button">
@@ -288,61 +254,59 @@ export function CreditInterestCalculator() {
       {result ? (
         <aside className="result-panel">
           <div className="result-panel__hero">
-            <p>Total estimado a pagar</p>
-            <strong>{formatMoney(result.result.totalToPay)}</strong>
+            <p>Cuota mensual estimada</p>
+            <strong>{formatMoney(result.result.monthlyPayment)}</strong>
             <span>
-              Intereses estimados: {formatMoney(result.result.totalInterest)}
+              Total a pagar: {formatMoney(result.result.totalToPay)}
             </span>
           </div>
 
           <div className="result-breakdown">
             <div className="result-item">
+              <span>Cuota mensual</span>
+              <strong>{formatMoney(result.result.monthlyPayment)}</strong>
+            </div>
+            <div className="result-item">
               <span>Intereses totales</span>
               <strong>{formatMoney(result.result.totalInterest)}</strong>
             </div>
             <div className="result-item">
-              <span>Promedio mensual</span>
-              <strong>{formatMoney(result.result.estimatedMonthlyAverage)}</strong>
+              <span>Total a pagar</span>
+              <strong>{formatMoney(result.result.totalToPay)}</strong>
             </div>
             <div className="result-item">
-              <span>Tasa mensual estimada</span>
+              <span>Tasa mensual usada</span>
               <strong>{formatRate(result.result.monthlyRate)}</strong>
             </div>
             <div className="result-item">
-              <span>Tasa anual efectiva</span>
-              <strong>{formatRate(result.result.effectiveAnnualRate)}</strong>
-            </div>
-            <div className="result-item">
-              <span>Tipo de interés</span>
-              <strong>{getInterestTypeLabel(result.input.interestType)}</strong>
+              <span>Tipo de tasa</span>
+              <strong>{getRateTypeLabel(result.input.rateType)}</strong>
             </div>
             <div className="result-item result-item--strong">
-              <span>Fórmula usada</span>
-              <strong>
-                {result.calculation.formula === "simple_interest" ? "Interés simple" : "Interés compuesto"}
-              </strong>
+              <span>Plazo</span>
+              <strong>{result.input.termMonths} meses</strong>
             </div>
           </div>
 
           <div className="rules-note">
             <CheckCircle2 size={18} strokeWidth={2.1} />
             <p>
-              Se calcularon {result.calculation.periods} periodos con {getFrequencyLabel(result.input.compoundingFrequency).toLowerCase()}.
+              Se calcularon {result.calculation.periods} cuotas fijas con tasa efectiva anual de {formatRate(result.result.effectiveAnnualRate)}.
             </p>
           </div>
 
           <p className="disclaimer">
             Resultado estimado. No incluye seguros, comisiones, impuestos, cargos administrativos,
-            mora ni condiciones específicas de una entidad financiera.
+            mora, tasas variables ni condiciones específicas de una entidad financiera.
           </p>
         </aside>
       ) : (
         <aside className="result-panel result-panel--empty">
           <div className="result-empty">
             <CircleDollarSign size={34} strokeWidth={2.1} />
-            <h2>Resultado del crédito</h2>
+            <h2>Resultado de la cuota</h2>
             <p>
-              Ingresa el monto, tasa y plazo para ver cuánto pagarías en intereses y el total estimado.
+              Ingresa monto, tasa y plazo para estimar cuánto pagarías cada mes.
             </p>
           </div>
         </aside>

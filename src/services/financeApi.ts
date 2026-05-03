@@ -84,6 +84,41 @@ export type CreditInterestResponse = {
   };
 };
 
+export type LoanPaymentRateType = "effective_annual" | "monthly";
+
+export type LoanPaymentRequest = {
+  loanAmount: number;
+  interestRate: number;
+  rateType?: LoanPaymentRateType;
+  termMonths: number;
+  currency?: CreditInterestCurrency;
+};
+
+export type LoanPaymentResponse = {
+  success: true;
+  data: {
+    currency: CreditInterestCurrency;
+    input: {
+      loanAmount: number;
+      interestRate: number;
+      rateType: LoanPaymentRateType;
+      termMonths: number;
+    };
+    result: {
+      monthlyRate: number;
+      effectiveAnnualRate: number;
+      monthlyPayment: number;
+      totalInterest: number;
+      totalToPay: number;
+    };
+    calculation: {
+      formula: "fixed_payment_amortization";
+      periods: number;
+    };
+    disclaimer: string;
+  };
+};
+
 export type EmploymentContractType = "fixed_term" | "indefinite" | "work_or_labor";
 export type TerminationReason =
   | "mutual_agreement"
@@ -220,6 +255,27 @@ export async function calculateCreditInterest(
 
   if (!response.ok || !payload.success) {
     const message = !payload.success ? payload.error.message : "No se pudo calcular el interés.";
+    throw new Error(message);
+  }
+
+  return payload.data;
+}
+
+export async function calculateLoanPayment(
+  request: LoanPaymentRequest
+): Promise<LoanPaymentResponse["data"]> {
+  const response = await fetch(`${API_BASE_URL}/finance/loan-payment`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(request)
+  });
+
+  const payload = (await response.json()) as LoanPaymentResponse | ApiErrorResponse;
+
+  if (!response.ok || !payload.success) {
+    const message = !payload.success ? payload.error.message : "No se pudo calcular la cuota.";
     throw new Error(message);
   }
 

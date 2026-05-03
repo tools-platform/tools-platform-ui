@@ -996,7 +996,8 @@ select {
 
 .field input:focus,
 .field select:focus,
-.money-input:focus-within {
+.money-input:focus-within,
+.rate-input:focus-within {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 88%);
 }
@@ -1072,6 +1073,37 @@ select {
 }
 
 .money-input input:focus {
+  box-shadow: none;
+}
+
+.rate-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  min-height: 56px;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--background);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rate-input strong {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.rate-input input {
+  min-height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 0 18px;
+  box-shadow: none;
+}
+
+.rate-input input:focus {
   box-shadow: none;
 }
 
