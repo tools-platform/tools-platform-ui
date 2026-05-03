@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
@@ -197,32 +197,38 @@ export function EmploymentSettlementColombiaCalculator() {
         <div className="form-grid">
           <label className="field">
             <span>Tipo de contrato</span>
-            <select
-              className="plain-select"
-              onChange={(event) => setContractType(event.target.value as EmploymentContractType)}
-              value={contractType}
-            >
-              {contractTypes.map((item) => (
-                <option key={item.value} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
+            <span className="select-control">
+              <select
+                className="plain-select"
+                onChange={(event) => setContractType(event.target.value as EmploymentContractType)}
+                value={contractType}
+              >
+                {contractTypes.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown aria-hidden="true" size={19} strokeWidth={2.1} />
+            </span>
           </label>
 
           <label className="field">
             <span>Motivo de terminación</span>
-            <select
-              className="plain-select"
-              onChange={(event) => setTerminationReason(event.target.value as TerminationReason)}
-              value={terminationReason}
-            >
-              {terminationReasons.map((item) => (
-                <option key={item.value} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
+            <span className="select-control">
+              <select
+                className="plain-select"
+                onChange={(event) => setTerminationReason(event.target.value as TerminationReason)}
+                value={terminationReason}
+              >
+                {terminationReasons.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown aria-hidden="true" size={19} strokeWidth={2.1} />
+            </span>
           </label>
         </div>
 
