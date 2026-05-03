@@ -681,8 +681,11 @@ select {
 
 .plain-select {
   margin-top: 0;
-  padding-right: 48px;
+  padding-right: 70px;
   background: var(--background);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .select-control {
@@ -697,10 +700,26 @@ select {
 .select-control svg {
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 18px;
   color: var(--muted-foreground);
   pointer-events: none;
   transform: translateY(-50%);
+}
+
+.select-control::after {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 54px;
+  border-radius: 0 12px 12px 0;
+  background: linear-gradient(90deg, transparent, var(--background) 32%);
+  content: "";
+  pointer-events: none;
+}
+
+.select-control svg {
+  z-index: 1;
 }
 
 .field > input {
