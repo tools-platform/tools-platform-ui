@@ -595,6 +595,47 @@ input {
   font-weight: 700;
 }
 
+.field > .field-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.info-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+  cursor: help;
+}
+
+.info-tooltip > span {
+  position: absolute;
+  right: 50%;
+  bottom: calc(100% + 10px);
+  z-index: 30;
+  width: min(280px, 78vw);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  opacity: 0;
+  padding: 10px 12px;
+  pointer-events: none;
+  transform: translateX(50%) translateY(4px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.info-tooltip:hover > span,
+.info-tooltip:focus-within > span {
+  opacity: 1;
+  transform: translateX(50%) translateY(0);
+}
+
 .field input {
   width: 100%;
   min-height: 50px;

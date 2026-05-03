@@ -140,7 +140,16 @@ export function NetSalaryColombiaCalculator() {
           </label>
 
           <label className="field">
-            <span>Deducciones de nómina</span>
+            <span className="field-label">
+              Deducciones de nómina
+              <span className="info-tooltip">
+                <Info size={15} strokeWidth={2.1} />
+                <span role="tooltip">
+                  Valores extra que te descuentan en nómina, como libranzas, préstamos,
+                  anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.
+                </span>
+              </span>
+            </span>
             <div className="money-input money-input--compact">
               <span>$</span>
               <input
@@ -151,10 +160,6 @@ export function NetSalaryColombiaCalculator() {
                 value={otherDeductions}
               />
             </div>
-            <small>
-              Valores extra que te descuentan en nómina, como libranzas, préstamos,
-              anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.
-            </small>
           </label>
         </div>
 
