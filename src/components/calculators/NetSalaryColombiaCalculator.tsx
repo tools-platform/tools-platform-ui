@@ -37,9 +37,9 @@ function formatRate(value: number) {
 }
 
 export function NetSalaryColombiaCalculator() {
-  const currentPayrollYear = Math.max(new Date().getFullYear(), 2026).toString();
+  const currentPayrollYear = new Date().getFullYear();
   const [monthlySalary, setMonthlySalary] = useState("2.500.000");
-  const [year, setYear] = useState(currentPayrollYear);
+  const [year, setYear] = useState(currentPayrollYear.toString());
   const [isYearEditable, setIsYearEditable] = useState(false);
   const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(false);
   const [showSolidarityFund, setShowSolidarityFund] = useState(false);
@@ -63,8 +63,8 @@ export function NetSalaryColombiaCalculator() {
       return;
     }
 
-    if (!Number.isInteger(yearValue) || yearValue < 2026) {
-      setError("Ingresa un año válido desde 2026.");
+    if (!Number.isInteger(yearValue) || yearValue < 2026 || yearValue > currentPayrollYear) {
+      setError(`Ingresa un año entre 2026 y ${currentPayrollYear}.`);
       return;
     }
 
@@ -132,6 +132,7 @@ export function NetSalaryColombiaCalculator() {
               <input
                 disabled={!isYearEditable}
                 min="2026"
+                max={currentPayrollYear}
                 onChange={(event) => setYear(event.target.value)}
                 required
                 type="number"
