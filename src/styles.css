@@ -1207,6 +1207,12 @@ select {
   font-size: 12px;
 }
 
+.result-item__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .result-item strong {
   display: block;
   margin-top: 6px;

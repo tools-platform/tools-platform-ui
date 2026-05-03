@@ -442,7 +442,11 @@ export function EmploymentSettlementColombiaCalculator() {
               {result.result.otherEarnings > 0 ? <ResultItem label="Pagos adicionales" value={result.result.otherEarnings} /> : null}
               {result.result.otherDeductions > 0 ? <ResultItem label="Deducciones" value={result.result.otherDeductions} /> : null}
               {result.compensation.applies ? (
-                <ResultItem label="Indemnización" value={result.result.dismissalCompensation} />
+                <ResultItem
+                  label="Indemnización"
+                  tooltip="Nace cuando el contrato termina sin justa causa. No es una prestación ordinaria: compensa la terminación anticipada y se calcula según el tipo de contrato, salario y tiempo faltante o antigüedad."
+                  value={result.result.dismissalCompensation}
+                />
               ) : null}
               <ResultItem label="Liquidación ordinaria" value={result.result.ordinarySettlement} strong />
             </div>
@@ -484,10 +488,28 @@ export function EmploymentSettlementColombiaCalculator() {
   );
 }
 
-function ResultItem({ label, value, strong = false }: { label: string; value: number; strong?: boolean }) {
+function ResultItem({
+  label,
+  tooltip,
+  value,
+  strong = false
+}: {
+  label: string;
+  tooltip?: string;
+  value: number;
+  strong?: boolean;
+}) {
   return (
     <div className={strong ? "result-item result-item--strong" : "result-item"}>
-      <span>{label}</span>
+      <span className={tooltip ? "result-item__label" : ""}>
+        {label}
+        {tooltip ? (
+          <span className="info-tooltip">
+            <Info size={14} strokeWidth={2.1} />
+            <span role="tooltip">{tooltip}</span>
+          </span>
+        ) : null}
+      </span>
       <strong>{formatMoney(value)}</strong>
     </div>
   );
