@@ -1,4 +1,5 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
+import { CaseStyleConverter } from "../components/calculators/CaseStyleConverter";
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetweenDatesCalculator";
@@ -7,6 +8,7 @@ import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
+import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
 import { categories, tools } from "../data/catalog";
@@ -76,6 +78,10 @@ export function ToolPage({ slug }: ToolPageProps) {
         <ExactAgeCalculator />
       ) : tool.id === "unit-converter" ? (
         <UnitConverter />
+      ) : tool.id === "text-case-converter" ? (
+        <TextCaseConverter />
+      ) : tool.id === "case-style-converter" ? (
+        <CaseStyleConverter />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

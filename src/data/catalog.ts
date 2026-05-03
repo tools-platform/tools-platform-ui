@@ -169,7 +169,7 @@ export const tools: ToolSummary[] = [
     name: "Convertidor de mayúsculas y minúsculas",
     description: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
     categoryId: "utilities",
-    status: "draft",
+    status: "published",
     Icon: LetterText
   },
   {
@@ -180,6 +180,15 @@ export const tools: ToolSummary[] = [
     categoryId: "development",
     status: "draft",
     Icon: FileJson
+  },
+  {
+    id: "case-style-converter",
+    slug: "case-style-converter",
+    name: "Convertidor de estilos de texto para código",
+    description: "Convierte frases a camelCase, PascalCase, snake_case, kebab-case y más formatos.",
+    categoryId: "development",
+    status: "published",
+    Icon: Code2
   },
   {
     id: "uuid-generator",

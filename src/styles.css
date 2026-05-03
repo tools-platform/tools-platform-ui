@@ -687,7 +687,8 @@ select {
 }
 
 .field input,
-.field select {
+.field select,
+.field textarea {
   width: 100%;
   min-height: 50px;
   border: 1px solid var(--border);
@@ -698,6 +699,15 @@ select {
   font-size: 16px;
   padding: 0 14px;
   transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field textarea {
+  height: 190px;
+  min-height: 190px;
+  margin-top: 8px;
+  padding: 14px;
+  line-height: 1.6;
+  resize: vertical;
 }
 
 .field select {
@@ -1032,6 +1042,7 @@ select {
 
 .field input:focus,
 .field select:focus,
+.field textarea:focus,
 .money-input:focus-within,
 .rate-input:focus-within {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);
@@ -1073,6 +1084,59 @@ select {
   border-color: color-mix(in oklch, var(--primary), transparent 58%);
   background: var(--accent);
   color: var(--accent-foreground);
+}
+
+.case-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.case-mode {
+  min-height: 78px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 12px 14px;
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.case-mode strong,
+.case-mode span,
+.case-mode small {
+  display: block;
+}
+
+.case-mode strong {
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.case-mode span {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.case-mode small {
+  margin-top: 4px;
+  color: color-mix(in oklch, var(--muted-foreground), transparent 16%);
+  font-size: 11px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.case-mode:hover,
+.case-mode.is-active {
+  border-color: color-mix(in oklch, var(--primary), transparent 48%);
+  background: color-mix(in oklch, var(--primary), transparent 93%);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 92%);
 }
 
 .work-entry-list {
@@ -1442,6 +1506,146 @@ select {
   word-break: break-word;
 }
 
+.result-panel__hero--compact strong {
+  font-family: var(--font-sans);
+  font-size: clamp(26px, 4vw, 42px);
+}
+
+.text-result {
+  padding: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.text-result__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.text-result__header span {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.text-result__header button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 12px;
+  transition: border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.text-result__header button:hover {
+  border-color: color-mix(in oklch, var(--primary), transparent 42%);
+  color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 90%);
+}
+
+.text-result textarea {
+  width: 100%;
+  height: 190px;
+  min-height: 190px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  line-height: 1.65;
+  padding: 14px;
+  resize: vertical;
+}
+
+.text-result p {
+  margin: 10px 0 0;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.case-result-list {
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding: 22px;
+}
+
+.case-result-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--background);
+  padding: 14px;
+}
+
+.case-result-item span,
+.case-result-item small,
+.case-result-item strong {
+  display: block;
+  min-width: 0;
+}
+
+.case-result-item span {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.case-result-item small {
+  margin-top: 3px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.case-result-item strong {
+  margin-top: 7px;
+  color: var(--foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 15px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.case-result-item button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 12px;
+  transition: border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.case-result-item button:hover {
+  border-color: color-mix(in oklch, var(--primary), transparent 42%);
+  color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 90%);
+}
+
 .result-breakdown {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1550,6 +1754,10 @@ select {
   border-color: var(--border);
   background: var(--muted);
   color: var(--muted-foreground);
+}
+
+.rules-note--form {
+  margin: 20px 0 0;
 }
 
 .rules-grid {
@@ -1841,6 +2049,7 @@ select {
   }
 
   .form-grid,
+  .case-mode-grid,
   .result-breakdown,
   .rules-grid {
     grid-template-columns: 1fr;
@@ -1848,5 +2057,13 @@ select {
 
   .result-item {
     border-right: 0;
+  }
+
+  .case-result-item {
+    grid-template-columns: 1fr;
+  }
+
+  .case-result-item button {
+    width: 100%;
   }
 }
