@@ -115,7 +115,7 @@ export const tools: ToolSummary[] = [
     name: "Conversor COP a USD",
     description: "Convierte pesos colombianos a dólares de forma rápida.",
     categoryId: "finance",
-    status: "draft",
+    status: "published",
     Icon: Coins
   },
   {

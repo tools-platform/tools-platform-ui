@@ -1,4 +1,5 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
+import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
@@ -58,6 +59,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <CreditInterestCalculator />
       ) : tool.id === "loan-payment" ? (
         <LoanPaymentCalculator />
+      ) : tool.id === "cop-usd" ? (
+        <CopUsdConverter />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

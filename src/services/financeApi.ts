@@ -119,6 +119,43 @@ export type LoanPaymentResponse = {
   };
 };
 
+export type CopUsdDirection = "COP_TO_USD" | "USD_TO_COP";
+
+export type CopUsdConverterRequest = {
+  amount: number;
+  direction?: CopUsdDirection;
+};
+
+export type CopUsdConverterResponse = {
+  success: true;
+  data: {
+    input: {
+      amount: number;
+      direction: CopUsdDirection;
+    };
+    result: {
+      sourceAmount: number;
+      targetAmount: number;
+      sourceCurrency: "COP" | "USD";
+      targetCurrency: "COP" | "USD";
+      exchangeRate: number;
+    };
+    rate: {
+      name: "TRM";
+      pair: "USD_COP";
+      value: number;
+      unit: "COP";
+      validFrom: string;
+      validTo: string;
+      fetchedAt: string;
+      source: string;
+      sourceUrl: string;
+      isStale: boolean;
+    };
+    disclaimer: string;
+  };
+};
+
 export type EmploymentContractType = "fixed_term" | "indefinite" | "work_or_labor";
 export type TerminationReason =
   | "mutual_agreement"
@@ -276,6 +313,27 @@ export async function calculateLoanPayment(
 
   if (!response.ok || !payload.success) {
     const message = !payload.success ? payload.error.message : "No se pudo calcular la cuota.";
+    throw new Error(message);
+  }
+
+  return payload.data;
+}
+
+export async function convertCopUsd(
+  request: CopUsdConverterRequest
+): Promise<CopUsdConverterResponse["data"]> {
+  const response = await fetch(`${API_BASE_URL}/finance/cop-usd-converter`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(request)
+  });
+
+  const payload = (await response.json()) as CopUsdConverterResponse | ApiErrorResponse;
+
+  if (!response.ok || !payload.success) {
+    const message = !payload.success ? payload.error.message : "No se pudo convertir la moneda.";
     throw new Error(message);
   }
 
