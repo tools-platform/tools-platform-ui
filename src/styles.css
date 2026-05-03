@@ -373,6 +373,7 @@ select {
 }
 
 .tool-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 22px;
@@ -396,10 +397,12 @@ select {
 }
 
 .tool-card__topline {
+  position: absolute;
+  top: 30px;
+  right: 30px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  min-height: 20px;
   color: var(--muted-foreground);
 }
 
@@ -409,7 +412,6 @@ select {
   justify-content: center;
   width: 44px;
   height: 44px;
-  margin-top: -2px;
   border-radius: 12px;
   background: var(--accent);
   color: var(--accent-foreground);
