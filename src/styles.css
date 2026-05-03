@@ -670,7 +670,7 @@ select {
 .year-input::after {
   position: absolute;
   top: 50%;
-  right: 84px;
+  right: 74px;
   width: 8px;
   height: 8px;
   border-right: 2px solid var(--muted-foreground);

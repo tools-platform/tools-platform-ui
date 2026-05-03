@@ -76,7 +76,7 @@ export const tools: ToolSummary[] = [
   {
     id: "net-salary-colombia",
     slug: "calculadora-salario-neto-colombia",
-    name: "Calculadora de salario neto Colombia",
+    name: "Calculadora de salario neto (Colombia)",
     description: "Cuánto recibes después de salud y pensión.",
     categoryId: "finance",
     status: "published",
@@ -85,7 +85,7 @@ export const tools: ToolSummary[] = [
   {
     id: "employment-settlement-colombia",
     slug: "calculadora-liquidacion-colombia",
-    name: "Calculadora de liquidación",
+    name: "Calculadora de liquidación (Colombia)",
     description: "Cesantías, prima y vacaciones al salir del trabajo.",
     categoryId: "finance",
     status: "draft",
