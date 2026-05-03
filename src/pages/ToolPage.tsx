@@ -28,16 +28,21 @@ export function ToolPage({ slug }: ToolPageProps) {
 
   return (
     <section className="tool-page">
-      <a className="back-link" href="/">
-        <ArrowLeft size={17} />
-        Todas las herramientas
-      </a>
+      <div className="tool-page__topbar">
+        <a className="back-link" href="/">
+          <ArrowLeft size={17} />
+          Todas las herramientas
+        </a>
+
+        {category ? (
+          <div className="tool-page__category-pill">
+            <category.Icon size={16} strokeWidth={2.1} />
+            {category.name}
+          </div>
+        ) : null}
+      </div>
 
       <header className="tool-page__header">
-        <div className="tool-page__icon">
-          <tool.Icon size={28} strokeWidth={2.1} />
-        </div>
-        <p>{category?.name}</p>
         <h1>{tool.name}</h1>
         <span>{tool.description}</span>
       </header>

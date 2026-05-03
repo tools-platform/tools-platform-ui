@@ -485,6 +485,13 @@ select {
   padding: 52px 0 80px;
 }
 
+.tool-page__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -496,6 +503,20 @@ select {
 
 .back-link:hover {
   color: var(--foreground);
+}
+
+.tool-page__category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 0 13px;
 }
 
 .tool-page__header {
@@ -1183,6 +1204,11 @@ select {
 
   .tool-page {
     width: min(100% - 32px, 1080px);
+  }
+
+  .tool-page__topbar {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .calculator-layout {
