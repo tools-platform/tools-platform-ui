@@ -1,6 +1,7 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { applySeo, getToolSeo, homeSeo, legalSeo } from "./data/seo";
 import { HomePage } from "./pages/HomePage";
 import { LegalPage, type LegalPageType } from "./pages/LegalPage";
 import { ToolPage } from "./pages/ToolPage";
@@ -23,6 +24,20 @@ export function App() {
 
     return { type: "home" as const };
   }, []);
+
+  useEffect(() => {
+    if (route.type === "tool") {
+      applySeo(getToolSeo(route.slug));
+      return;
+    }
+
+    if (route.type === "legal") {
+      applySeo(legalSeo[route.page]);
+      return;
+    }
+
+    applySeo(homeSeo);
+  }, [route]);
 
   return (
     <div className="app-shell">
