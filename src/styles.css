@@ -688,6 +688,9 @@ select {
 .select-control {
   position: relative;
   display: block;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 400;
 }
 
 .select-control svg {
