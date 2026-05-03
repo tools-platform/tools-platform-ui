@@ -938,6 +938,8 @@ select {
 }
 
 .plain-select {
+  display: block;
+  height: 56px;
   margin-top: 0;
   min-height: 56px;
   padding-right: 82px;
@@ -986,6 +988,7 @@ select {
 }
 
 .field > input {
+  height: 56px;
   margin-top: 8px;
 }
 
@@ -1478,6 +1481,7 @@ select {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  height: 56px;
   min-height: 56px;
   margin-top: 8px;
   border: 1px solid var(--border);
@@ -1488,6 +1492,7 @@ select {
 
 .money-input--compact {
   grid-template-columns: auto 1fr;
+  height: 50px;
   min-height: 50px;
 }
 
@@ -1515,6 +1520,7 @@ select {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
+  height: 56px;
   min-height: 56px;
   margin-top: 8px;
   border: 1px solid var(--border);
