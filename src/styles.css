@@ -1230,9 +1230,13 @@ select {
 }
 
 .result-item__label {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   gap: 6px;
+}
+
+.result-item__label .info-tooltip > span {
+  color: var(--background);
 }
 
 .result-item strong {
