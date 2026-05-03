@@ -118,7 +118,16 @@ export function NetSalaryColombiaCalculator() {
 
         <div className="form-grid">
           <label className="field">
-            <span>Año de reglas</span>
+            <span className="field-label">
+              Año de reglas
+              <span className="info-tooltip">
+                <Info size={15} strokeWidth={2.1} />
+                <span role="tooltip">
+                  Lo usamos para aplicar el salario mínimo, auxilio de transporte y límites legales
+                  vigentes de ese año.
+                </span>
+              </span>
+            </span>
             <div className="year-input">
               <input
                 disabled={!isYearEditable}
