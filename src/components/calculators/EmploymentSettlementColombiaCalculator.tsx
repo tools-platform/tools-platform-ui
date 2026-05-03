@@ -1,6 +1,7 @@
 import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
+import { DateField } from "../DateField";
 import {
   calculateEmploymentSettlementColombia,
   type EmploymentContractType,
@@ -184,17 +185,12 @@ export function EmploymentSettlementColombiaCalculator() {
         <div className="form-grid">
           <label className="field">
             <span>Fecha de inicio</span>
-            <input
-              onChange={(event) => setEmploymentStartDate(event.target.value)}
-              required
-              type="date"
-              value={employmentStartDate}
-            />
+            <DateField ariaLabel="Seleccionar fecha de inicio" onChange={setEmploymentStartDate} value={employmentStartDate} />
           </label>
 
           <label className="field">
             <span>Fecha de finalización</span>
-            <input onChange={(event) => setEndDate(event.target.value)} required type="date" value={endDate} />
+            <DateField ariaLabel="Seleccionar fecha de finalización" onChange={setEndDate} value={endDate} />
           </label>
         </div>
 
@@ -233,7 +229,11 @@ export function EmploymentSettlementColombiaCalculator() {
         {requiresFixedTermEndDate ? (
           <label className="field">
             <span>Fecha pactada de terminación</span>
-            <input onChange={(event) => setFixedTermEndDate(event.target.value)} required type="date" value={fixedTermEndDate} />
+            <DateField
+              ariaLabel="Seleccionar fecha pactada de terminación"
+              onChange={setFixedTermEndDate}
+              value={fixedTermEndDate}
+            />
             <small>Solo se pide para contrato fijo terminado sin justa causa.</small>
           </label>
         ) : null}
