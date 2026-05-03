@@ -49,7 +49,8 @@ a {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -636,7 +637,8 @@ input {
   transform: translateX(50%) translateY(0);
 }
 
-.field input {
+.field input,
+.field select {
   width: 100%;
   min-height: 50px;
   border: 1px solid var(--border);
@@ -647,6 +649,10 @@ input {
   font-size: 16px;
   padding: 0 14px;
   transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field select {
+  appearance: none;
 }
 
 .field > input {
@@ -660,7 +666,8 @@ input {
   margin-top: 8px;
 }
 
-.year-input input:disabled {
+.year-input input:disabled,
+.year-input select:disabled {
   color: var(--muted-foreground);
   cursor: not-allowed;
 }
@@ -686,6 +693,7 @@ input {
 }
 
 .field input:focus,
+.field select:focus,
 .money-input:focus-within {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 88%);

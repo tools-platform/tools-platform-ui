@@ -36,8 +36,19 @@ function formatRate(value: number) {
   return `${numberFormatter.format(value * 100)}%`;
 }
 
+function buildPayrollYears(currentYear: number) {
+  const years: number[] = [];
+
+  for (let year = currentYear; year >= 2024; year -= 1) {
+    years.push(year);
+  }
+
+  return years;
+}
+
 export function NetSalaryColombiaCalculator() {
   const currentPayrollYear = new Date().getFullYear();
+  const payrollYears = useMemo(() => buildPayrollYears(currentPayrollYear), [currentPayrollYear]);
   const [monthlySalary, setMonthlySalary] = useState("2.500.000");
   const [year, setYear] = useState(currentPayrollYear.toString());
   const [isYearEditable, setIsYearEditable] = useState(false);
@@ -129,15 +140,18 @@ export function NetSalaryColombiaCalculator() {
               </span>
             </span>
             <div className="year-input">
-              <input
+              <select
                 disabled={!isYearEditable}
-                min="2024"
-                max={currentPayrollYear}
                 onChange={(event) => setYear(event.target.value)}
                 required
-                type="number"
                 value={year}
-              />
+              >
+                {payrollYears.map((payrollYear) => (
+                  <option key={payrollYear} value={payrollYear}>
+                    {payrollYear}
+                  </option>
+                ))}
+              </select>
               <button
                 aria-label="Editar año de reglas"
                 onClick={() => setIsYearEditable((isEditable) => !isEditable)}
