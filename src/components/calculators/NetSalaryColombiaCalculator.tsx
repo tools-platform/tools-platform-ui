@@ -41,8 +41,8 @@ export function NetSalaryColombiaCalculator() {
   const [monthlySalary, setMonthlySalary] = useState("2.500.000");
   const [year, setYear] = useState(currentPayrollYear);
   const [isYearEditable, setIsYearEditable] = useState(false);
-  const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(true);
-  const [showSolidarityFund, setShowSolidarityFund] = useState(true);
+  const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(false);
+  const [showSolidarityFund, setShowSolidarityFund] = useState(false);
   const [otherDeductions, setOtherDeductions] = useState("0");
   const [result, setResult] = useState<NetSalaryData | null>(null);
   const [error, setError] = useState("");
