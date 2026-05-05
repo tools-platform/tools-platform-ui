@@ -3,6 +3,7 @@ import { CaseStyleConverter } from "../components/calculators/CaseStyleConverter
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetweenDatesCalculator";
+import { EmployeeSalaryEquivalentCalculator } from "../components/calculators/EmployeeSalaryEquivalentCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
@@ -78,6 +79,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <CopUsdConverter />
       ) : tool.id === "worked-hours" ? (
         <WorkedHoursCalculator />
+      ) : tool.id === "employee-salary-equivalent" ? (
+        <EmployeeSalaryEquivalentCalculator />
       ) : tool.id === "freelance-rate" ? (
         <FreelanceRateCalculator />
       ) : tool.id === "days-between-dates" ? (

@@ -21,6 +21,11 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
     description:
       "Convierte un salario mensual en valor por hora en Colombia usando la jornada legal vigente o una jornada semanal personalizada."
   },
+  "employee-salary-equivalent": {
+    title: "Calculadora de sueldo de empleado para independientes | Tools Platforms",
+    description:
+      "Convierte lo que cobras por hora como independiente en sueldo semanal, quincenal y mensual como empleado, con neto estimado en Colombia."
+  },
   "employment-settlement-colombia": {
     title: "Calculadora de liquidación Colombia 2026 | Tools Platforms",
     description:

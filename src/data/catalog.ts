@@ -138,6 +138,15 @@ export const tools: ToolSummary[] = [
     Icon: Clock3
   },
   {
+    id: "employee-salary-equivalent",
+    slug: "employee-salary-for-independents-calculator",
+    name: "Calculadora de sueldo de empleado para independientes",
+    description: "Convierte lo que cobras por hora en sueldo quincenal y mensual como empleado.",
+    categoryId: "work",
+    status: "published",
+    Icon: BriefcaseBusiness
+  },
+  {
     id: "freelance-rate",
     slug: "freelance-rate-calculator",
     name: "Calculadora de cuánto cobrar freelance",

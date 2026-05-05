@@ -77,10 +77,60 @@ export type FreelanceRateResponse = {
   };
 };
 
+export type EmployeeSalaryEquivalentRequest = {
+  hourlyRate: number;
+  weeklyHours: number;
+};
+
+export type EmployeeSalaryEquivalentResponse = {
+  success: true;
+  data: {
+    currency: "COP";
+    year: number;
+    input: {
+      hourlyRate: number;
+      weeklyHours: number;
+    };
+    result: {
+      weeklyIndependentIncome: number;
+      grossBiweeklyEquivalentSalary: number;
+      grossMonthlyEquivalentSalary: number;
+      netBiweeklyEquivalentSalary: number;
+      netMonthlyEquivalentSalary: number;
+      grossAnnualEquivalentSalary: number;
+      monthlyWorkingHours: number;
+    };
+    deductions: {
+      healthContribution: number;
+      pensionContribution: number;
+      solidarityPensionFundContribution: number;
+      totalDeductions: number;
+    };
+    rules: {
+      weeksPerMonth: number;
+      employeeHealthRate: number;
+      employeePensionRate: number;
+      solidarityPensionFundRate: number;
+      sources: string[];
+    };
+    disclaimer: string;
+  };
+};
+
 export function calculateWorkedHours(request: WorkedHoursRequest): Promise<WorkedHoursResponse["data"]> {
   return postJson("/work/worked-hours", request, "No se pudieron calcular las horas.");
 }
 
 export function calculateFreelanceRate(request: FreelanceRateRequest): Promise<FreelanceRateResponse["data"]> {
   return postJson("/work/freelance-rate", request, "No se pudo calcular la tarifa freelance.");
+}
+
+export function calculateEmployeeSalaryEquivalent(
+  request: EmployeeSalaryEquivalentRequest
+): Promise<EmployeeSalaryEquivalentResponse["data"]> {
+  return postJson(
+    "/work/employee-salary-equivalent",
+    request,
+    "No se pudo calcular el sueldo equivalente."
+  );
 }

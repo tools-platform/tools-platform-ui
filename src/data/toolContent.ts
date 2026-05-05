@@ -75,6 +75,38 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "employee-salary-equivalent": {
+    intro:
+      "Esta calculadora ayuda a convertir lo que cobras por hora como independiente en un sueldo equivalente como empleado.",
+    sections: [
+      {
+        title: "Qué calcula",
+        body: [
+          "Toma tu tarifa por hora y las horas que trabajas por semana para proyectar un ingreso semanal y un sueldo equivalente quincenal, mensual y anual.",
+          "También estima el neto mensual y quincenal como empleado dependiente en Colombia, descontando salud, pensión y Fondo de Solidaridad Pensional cuando aplica."
+        ]
+      },
+      {
+        title: "Cómo usarla",
+        body: [
+          "Ingresa cuánto cobras por hora y cuántas horas trabajas por semana con ese ritmo real de trabajo.",
+          "La herramienta te mostrará el equivalente como sueldo de empleado para que compares mejor ofertas, contratos o expectativas de ingreso."
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: "¿Esto calcula exactamente lo que me pagarían como empleado?",
+        answer:
+          "No. Es una equivalencia estimada. Sirve para comparar ingresos, pero no incluye retención en la fuente, recargos, auxilios, horas extra ni condiciones especiales del contrato."
+      },
+      {
+        question: "¿Por qué muestra bruto y neto?",
+        answer:
+          "Porque como empleado normalmente existe un salario bruto y luego descuentos de nómina. El neto te ayuda a entender mejor cuánto podría quedarte realmente."
+      }
+    ]
+  },
   "employment-settlement-colombia": {
     intro:
       "Esta herramienta estima la liquidación laboral en Colombia cuando termina una relación de trabajo.",
