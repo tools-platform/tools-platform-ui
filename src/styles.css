@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap");
 
 :root {
   color-scheme: light;
@@ -913,7 +913,7 @@ select {
 .field select,
 .field textarea {
   width: 100%;
-  min-height: 50px;
+  min-height: 56px;
   border: 1px solid var(--border);
   border-radius: 13px;
   outline: none;
@@ -937,6 +937,29 @@ select {
   appearance: none;
   cursor: pointer;
   font-weight: 400;
+}
+
+.field input:disabled,
+.field select:disabled,
+.field textarea:disabled {
+  opacity: 0.58;
+  color: var(--muted-foreground);
+  border-color: color-mix(in oklch, var(--border), white 22%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--card), white 20%),
+      color-mix(in oklch, var(--background), white 14%)
+    );
+  cursor: not-allowed;
+  -webkit-text-fill-color: var(--muted-foreground);
+}
+
+.field input:disabled::placeholder,
+.field select:disabled::placeholder,
+.field textarea:disabled::placeholder {
+  color: var(--muted-foreground);
+  -webkit-text-fill-color: var(--muted-foreground);
 }
 
 .plain-select {
@@ -994,6 +1017,11 @@ select {
   margin-top: 8px;
 }
 
+.field > input.input--compact {
+  height: 56px;
+  min-height: 56px;
+}
+
 .date-field {
   position: relative;
   margin-top: 8px;
@@ -1005,7 +1033,7 @@ select {
   align-items: center;
   gap: 10px;
   width: 100%;
-  min-height: 50px;
+  min-height: 56px;
   border: 1px solid var(--border);
   border-radius: 13px;
   background:
@@ -1028,7 +1056,7 @@ select {
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 10px;
-  min-height: 50px;
+  min-height: 56px;
   margin-top: 8px;
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -1247,8 +1275,8 @@ select {
 
 .year-input input,
 .year-input select {
-  height: 50px;
-  min-height: 50px;
+  height: 56px;
+  min-height: 56px;
 }
 
 .year-input input:disabled,
@@ -1261,8 +1289,8 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  min-height: 50px;
+  width: 56px;
+  min-height: 56px;
   border: 1px solid var(--border);
   border-radius: 13px;
   background: var(--card);
@@ -1504,8 +1532,8 @@ select {
 
 .money-input--compact {
   grid-template-columns: auto 1fr;
-  height: 50px;
-  min-height: 50px;
+  height: 56px;
+  min-height: 56px;
 }
 
 .money-input span,
@@ -1569,6 +1597,10 @@ select {
 
 .form-grid--single {
   grid-template-columns: 1fr;
+}
+
+.form-grid--compact {
+  margin-top: 0;
 }
 
 .settlement-card > .field {
@@ -2529,3 +2561,4 @@ select {
     width: 100%;
   }
 }
+

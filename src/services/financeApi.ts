@@ -13,6 +13,7 @@ export type HourlySalaryColombiaRequest = {
   monthlySalary: number;
   salaryType?: HourlySalaryType;
   weeklyHours?: number;
+  year?: number;
 };
 
 export type NetSalaryColombiaResponse = {
@@ -61,6 +62,7 @@ export type HourlySalaryColombiaResponse = {
       monthlySalary: number;
       salaryType: HourlySalaryType;
       weeklyHours: number;
+      year: number;
     };
     result: {
       baseMonthlySalary: number;

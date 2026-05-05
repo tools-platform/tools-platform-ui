@@ -80,6 +80,7 @@ export type FreelanceRateResponse = {
 export type EmployeeSalaryEquivalentRequest = {
   hourlyRate: number;
   weeklyHours: number;
+  year?: number;
 };
 
 export type EmployeeSalaryEquivalentResponse = {
@@ -90,6 +91,7 @@ export type EmployeeSalaryEquivalentResponse = {
     input: {
       hourlyRate: number;
       weeklyHours: number;
+      year: number;
     };
     result: {
       weeklyIndependentIncome: number;

@@ -17,12 +17,12 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       "Calcula tu salario neto en Colombia después de salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones de nómina."
   },
   "hourly-salary": {
-    title: "Calculadora de salario por hora Colombia | Tools Platforms",
+    title: "Calculadora de salario por horas (Colombia) | Tools Platforms",
     description:
       "Convierte un salario mensual en valor por hora en Colombia usando la jornada legal vigente o una jornada semanal personalizada."
   },
   "employee-salary-equivalent": {
-    title: "Calculadora de sueldo de empleado para independientes | Tools Platforms",
+    title: "Calculadora de sueldo de empleado para independientes (Colombia) | Tools Platforms",
     description:
       "Convierte lo que cobras por hora como independiente en sueldo semanal, quincenal y mensual como empleado, con neto estimado en Colombia."
   },

@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2 } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -45,8 +45,22 @@ function formatRate(value: number) {
   return `${numberFormatter.format(value * 100)}%`;
 }
 
+function buildPayrollYears(currentYear: number) {
+  const years: number[] = [];
+
+  for (let year = currentYear; year >= 2024; year -= 1) {
+    years.push(year);
+  }
+
+  return years;
+}
+
 export function EmployeeSalaryEquivalentCalculator() {
+  const currentPayrollYear = new Date().getFullYear();
+  const payrollYears = useMemo(() => buildPayrollYears(currentPayrollYear), [currentPayrollYear]);
   const [hourlyRate, setHourlyRate] = useState("40.000");
+  const [year, setYear] = useState(currentPayrollYear.toString());
+  const [isYearEditable, setIsYearEditable] = useState(false);
   const [weeklyHours, setWeeklyHours] = useState("30");
   const [result, setResult] = useState<EmployeeSalaryEquivalentData | null>(null);
   const [error, setError] = useState("");
@@ -60,10 +74,16 @@ export function EmployeeSalaryEquivalentCalculator() {
     setError("");
 
     const hourlyRateValue = parseMoney(hourlyRate);
+    const yearValue = Number(year);
     const weeklyHoursValue = Number(weeklyHours);
 
     if (hourlyRateValue <= 0) {
       setError("Ingresa cuánto cobras por hora.");
+      return;
+    }
+
+    if (!Number.isInteger(yearValue) || yearValue < 2024 || yearValue > currentPayrollYear) {
+      setError(`Ingresa un año entre 2024 y ${currentPayrollYear}.`);
       return;
     }
 
@@ -77,7 +97,8 @@ export function EmployeeSalaryEquivalentCalculator() {
     try {
       const data = await calculateEmployeeSalaryEquivalent({
         hourlyRate: hourlyRateValue,
-        weeklyHours: weeklyHoursValue
+        weeklyHours: weeklyHoursValue,
+        year: yearValue
       });
 
       setResult(data);
@@ -96,6 +117,8 @@ export function EmployeeSalaryEquivalentCalculator() {
 
   function handleReset() {
     setHourlyRate("40.000");
+    setYear(currentPayrollYear.toString());
+    setIsYearEditable(false);
     setWeeklyHours("30");
     setResult(null);
     setError("");
@@ -133,10 +156,45 @@ export function EmployeeSalaryEquivalentCalculator() {
           <small>Es el valor que facturas o cobras por cada hora de trabajo independiente.</small>
         </label>
 
-        <label className="field field--spaced">
-          <span className="field-label">
-            Horas por semana <span className="required-mark">*</span>
-            <span className="info-tooltip">
+        <div className="form-grid">
+          <label className="field field--spaced">
+            <span className="field-label">
+              Año de reglas <span className="required-mark">*</span>
+              <span className="info-tooltip">
+                <Info size={15} strokeWidth={2.1} />
+                <span role="tooltip">
+                  Lo usamos para aplicar los descuentos y umbrales legales vigentes de ese año en Colombia.
+                </span>
+              </span>
+            </span>
+            <div className="year-input">
+              <select
+                disabled={!isYearEditable}
+                onChange={(event) => setYear(event.target.value)}
+                required
+                value={year}
+              >
+                {payrollYears.map((payrollYear) => (
+                  <option key={payrollYear} value={payrollYear}>
+                    {payrollYear}
+                  </option>
+                ))}
+              </select>
+              <button
+                aria-label="Editar año de reglas"
+                onClick={() => setIsYearEditable((isEditable) => !isEditable)}
+                title="Editar año"
+                type="button"
+              >
+                <Pencil size={15} strokeWidth={2.1} />
+              </button>
+            </div>
+          </label>
+
+          <label className="field field--spaced">
+            <span className="field-label">
+              Horas por semana <span className="required-mark">*</span>
+              <span className="info-tooltip">
               <Info size={15} strokeWidth={2.1} />
               <span role="tooltip">
                 Usa las horas reales que sí trabajas y cobras cada semana. Con eso proyectamos el
@@ -145,6 +203,7 @@ export function EmployeeSalaryEquivalentCalculator() {
             </span>
           </span>
           <input
+            className="input--compact"
             inputMode="decimal"
             max={168}
             min={1}
@@ -153,14 +212,15 @@ export function EmployeeSalaryEquivalentCalculator() {
             type="number"
             value={weeklyHours}
           />
-        </label>
+          </label>
+        </div>
 
         {previewHourlyRate > 0 ? (
           <div className="calculator-hint">
             <Info size={16} strokeWidth={2.1} />
             <span>
               Tomamos {formatMoney(previewHourlyRate)} por hora y {weeklyHours} horas semanales para
-              proyectarlo como sueldo de empleado en Colombia.
+              proyectarlo como sueldo de empleado en Colombia con reglas de {year}.
             </span>
           </div>
         ) : null}
@@ -215,8 +275,8 @@ export function EmployeeSalaryEquivalentCalculator() {
           <div className="rules-note">
             <CheckCircle2 size={18} strokeWidth={2.1} />
             <p>
-              Se usaron {formatDecimal(result.input.weeklyHours)} horas por semana y{" "}
-              {formatDecimal(result.result.monthlyWorkingHours)} horas promedio al mes.
+              Se usaron {formatDecimal(result.input.weeklyHours)} horas por semana,{" "}
+              {formatDecimal(result.result.monthlyWorkingHours)} horas promedio al mes y reglas de {result.year}.
             </p>
           </div>
 

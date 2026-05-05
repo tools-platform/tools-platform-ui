@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+﻿import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -78,10 +78,24 @@ function getSalaryTypeLabel(salaryType: HourlySalaryType) {
   return salaryType === "gross" ? "Bruto" : "Neto";
 }
 
+function buildPayrollYears(currentYear: number) {
+  const years: number[] = [];
+
+  for (let year = currentYear; year >= 2024; year -= 1) {
+    years.push(year);
+  }
+
+  return years;
+}
+
 export function HourlySalaryColombiaCalculator() {
   const currentColombiaDate = useMemo(() => getCurrentColombiaDate(), []);
+  const currentPayrollYear = Number(currentColombiaDate.slice(0, 4));
+  const payrollYears = useMemo(() => buildPayrollYears(currentPayrollYear), [currentPayrollYear]);
   const defaultLegalWeeklyHours = useMemo(() => getLegalWeeklyHours(currentColombiaDate), [currentColombiaDate]);
   const [monthlySalary, setMonthlySalary] = useState("2.500.000");
+  const [year, setYear] = useState(currentPayrollYear.toString());
+  const [isYearEditable, setIsYearEditable] = useState(false);
   const [salaryType, setSalaryType] = useState<HourlySalaryType>("gross");
   const [weeklyHours, setWeeklyHours] = useState(defaultLegalWeeklyHours.toString());
   const [isWeeklyHoursEditable, setIsWeeklyHoursEditable] = useState(false);
@@ -97,10 +111,16 @@ export function HourlySalaryColombiaCalculator() {
     setError("");
 
     const salaryValue = parseMoney(monthlySalary);
+    const yearValue = Number(year);
     const weeklyHoursValue = Number(weeklyHours);
 
     if (salaryValue <= 0) {
       setError("Ingresa un salario mensual mayor a cero.");
+      return;
+    }
+
+    if (!Number.isInteger(yearValue) || yearValue < 2024 || yearValue > currentPayrollYear) {
+      setError(`Ingresa un año entre 2024 y ${currentPayrollYear}.`);
       return;
     }
 
@@ -115,7 +135,8 @@ export function HourlySalaryColombiaCalculator() {
       const data = await calculateHourlySalaryColombia({
         monthlySalary: salaryValue,
         salaryType,
-        weeklyHours: weeklyHoursValue
+        weeklyHours: weeklyHoursValue,
+        year: yearValue
       });
 
       setResult(data);
@@ -142,6 +163,8 @@ export function HourlySalaryColombiaCalculator() {
 
   function handleReset() {
     setMonthlySalary("2.500.000");
+    setYear(currentPayrollYear.toString());
+    setIsYearEditable(false);
     setSalaryType("gross");
     setWeeklyHours(defaultLegalWeeklyHours.toString());
     setIsWeeklyHoursEditable(false);
@@ -181,15 +204,83 @@ export function HourlySalaryColombiaCalculator() {
           <small>Es el salario mensual que quieres convertir a valor por hora.</small>
         </label>
 
-        <div className="form-grid">
+        <div className="form-grid form-grid--single">
+          <div className="form-grid form-grid--compact">
+            <label className="field">
+              <span className="field-label">
+                Año de reglas <span className="required-mark">*</span>
+                <span className="info-tooltip">
+                  <Info size={15} strokeWidth={2.1} />
+                  <span role="tooltip">
+                    Lo usamos para aplicar la jornada legal y los límites laborales vigentes de ese año en Colombia.
+                  </span>
+                </span>
+              </span>
+              <div className="year-input">
+                <select
+                  disabled={!isYearEditable}
+                  onChange={(event) => setYear(event.target.value)}
+                  required
+                  value={year}
+                >
+                  {payrollYears.map((payrollYear) => (
+                    <option key={payrollYear} value={payrollYear}>
+                      {payrollYear}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  aria-label="Editar año de reglas"
+                  onClick={() => setIsYearEditable((isEditable) => !isEditable)}
+                  title="Editar año"
+                  type="button"
+                >
+                  <Pencil size={15} strokeWidth={2.1} />
+                </button>
+              </div>
+            </label>
+
+            <label className="field">
+              <span className="field-label">
+                Horas semanales <span className="required-mark">*</span>
+                <span className="info-tooltip">
+                  <Info size={15} strokeWidth={2.1} />
+                  <span role="tooltip">
+                    Por defecto usamos la jornada legal vigente hoy en Colombia. Puedes editarla si tu horario real es
+                    distinto.
+                  </span>
+                </span>
+              </span>
+              <div className="year-input year-input--manual">
+                <input
+                  disabled={!isWeeklyHoursEditable}
+                  inputMode="numeric"
+                  min={1}
+                  onChange={(event) => setWeeklyHours(event.target.value)}
+                  required
+                  type="number"
+                  value={weeklyHours}
+                />
+                <button
+                  aria-label="Editar horas semanales"
+                  onClick={handleWeeklyHoursEditToggle}
+                  title="Editar horas"
+                  type="button"
+                >
+                  <Pencil size={15} strokeWidth={2.1} />
+                </button>
+              </div>
+            </label>
+          </div>
+
           <label className="field">
             <span className="field-label">
               Tipo de cálculo <span className="required-mark">*</span>
               <span className="info-tooltip">
                 <Info size={15} strokeWidth={2.1} />
                 <span role="tooltip">
-                  Bruto divide el salario sin descuentos. Neto descuenta salud, pensión y Fondo de
-                  Solidaridad Pensional cuando aplica.
+                  Bruto divide el salario sin descuentos. Neto descuenta salud, pensión y Fondo de Solidaridad
+                  Pensional cuando aplica.
                 </span>
               </span>
             </span>
@@ -204,54 +295,16 @@ export function HourlySalaryColombiaCalculator() {
               <ChevronDown size={18} strokeWidth={2.1} />
             </span>
           </label>
-
-          <label className="field">
-            <span className="field-label">
-              Horas semanales <span className="required-mark">*</span>
-              <span className="info-tooltip">
-                <Info size={15} strokeWidth={2.1} />
-                <span role="tooltip">
-                  Por defecto usamos la jornada legal vigente hoy en Colombia. Puedes editarla si tu
-                  horario real es distinto.
-                </span>
-              </span>
-            </span>
-            <div className="year-input year-input--manual">
-              <input
-                disabled={!isWeeklyHoursEditable}
-                inputMode="numeric"
-                min={1}
-                onChange={(event) => setWeeklyHours(event.target.value)}
-                required
-                type="number"
-                value={weeklyHours}
-              />
-              <button
-                aria-label="Editar horas semanales"
-                onClick={handleWeeklyHoursEditToggle}
-                title="Editar horas"
-                type="button"
-              >
-                <Pencil size={15} strokeWidth={2.1} />
-              </button>
-            </div>
-          </label>
-        </div>
-
-        <div className="calculator-hint calculator-hint--primary">
-          <Info size={16} strokeWidth={2.1} />
-          <span>
-            {salaryType === "net"
-              ? "El valor neto por hora estima descuentos de salud, pensión y solidaridad cuando aplique."
-              : "El valor bruto por hora divide el salario mensual sin descontar aportes de nómina."}
-          </span>
         </div>
 
         {previewSalary > 0 ? (
           <div className="calculator-hint">
             <Info size={16} strokeWidth={2.1} />
             <span>
-              Vas a calcular sobre {formatMoney(previewSalary)} al mes con {weeklyHours} horas semanales.
+              Vas a calcular sobre {formatMoney(previewSalary)} al mes con {weeklyHours} horas semanales y reglas de {year}.{" "}
+              {salaryType === "net"
+                ? "El neto estima descuentos legales."
+                : "El bruto no descuenta nómina."}
             </span>
           </div>
         ) : null}
@@ -304,8 +357,8 @@ export function HourlySalaryColombiaCalculator() {
               <CheckCircle2 size={18} strokeWidth={2.1} />
               <p>
                 {result.rules.usedCustomWeeklyHours
-                  ? `Usa ${result.result.weeklyHours} horas semanales personalizadas. La referencia legal de hoy en Colombia es ${result.rules.legalWeeklyHours} horas.`
-                  : `Usa la jornada legal vigente hoy en Colombia: ${result.rules.legalWeeklyHours} horas semanales.`}
+                  ? `Usa ${result.result.weeklyHours} horas semanales personalizadas. La referencia legal para ${result.year} es ${result.rules.legalWeeklyHours} horas.`
+                  : `Usa la jornada legal de referencia para ${result.year}: ${result.rules.legalWeeklyHours} horas semanales.`}
               </p>
             </div>
 
@@ -352,3 +405,4 @@ function ResultTextItem({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+

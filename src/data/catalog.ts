@@ -131,7 +131,7 @@ export const tools: ToolSummary[] = [
   {
     id: "hourly-salary",
     slug: "hourly-salary-calculator",
-    name: "Calculadora de salario por horas",
+    name: "Calculadora de salario por horas (Colombia)",
     description: "Convierte un salario mensual en valor por hora para comparar ingresos.",
     categoryId: "work",
     status: "published",
@@ -140,7 +140,7 @@ export const tools: ToolSummary[] = [
   {
     id: "employee-salary-equivalent",
     slug: "employee-salary-for-independents-calculator",
-    name: "Calculadora de sueldo de empleado para independientes",
+    name: "Calculadora de sueldo de empleado para independientes (Colombia)",
     description: "Convierte lo que cobras por hora en sueldo quincenal y mensual como empleado.",
     categoryId: "work",
     status: "published",
