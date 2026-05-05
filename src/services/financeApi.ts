@@ -7,6 +7,14 @@ export type NetSalaryColombiaRequest = {
   otherDeductions?: number;
 };
 
+export type HourlySalaryType = "gross" | "net";
+
+export type HourlySalaryColombiaRequest = {
+  monthlySalary: number;
+  salaryType?: HourlySalaryType;
+  weeklyHours?: number;
+};
+
 export type NetSalaryColombiaResponse = {
   success: true;
   data: {
@@ -35,6 +43,44 @@ export type NetSalaryColombiaResponse = {
       transportationAllowanceValue: number;
       transportationAllowanceSalaryLimit: number;
       qualifiesForTransportationAllowance: boolean;
+      employeeHealthRate: number;
+      employeePensionRate: number;
+      solidarityPensionFundRate: number;
+      sources: string[];
+    };
+    disclaimer: string;
+  };
+};
+
+export type HourlySalaryColombiaResponse = {
+  success: true;
+  data: {
+    currency: "COP";
+    year: number;
+    input: {
+      monthlySalary: number;
+      salaryType: HourlySalaryType;
+      weeklyHours: number;
+    };
+    result: {
+      baseMonthlySalary: number;
+      monthlySalaryUsed: number;
+      hourlySalary: number;
+      dailySalary: number;
+      weeklyHours: number;
+      monthlyHours: number;
+    };
+    deductions: {
+      applies: boolean;
+      healthContribution: number;
+      pensionContribution: number;
+      solidarityPensionFundContribution: number;
+      totalDeductions: number;
+    };
+    rules: {
+      currentDate: string;
+      legalWeeklyHours: number;
+      usedCustomWeeklyHours: boolean;
       employeeHealthRate: number;
       employeePensionRate: number;
       solidarityPensionFundRate: number;
@@ -250,6 +296,12 @@ export function calculateNetSalaryColombia(
   request: NetSalaryColombiaRequest
 ): Promise<NetSalaryColombiaResponse["data"]> {
   return postJson("/finance/net-salary-colombia", request, "No se pudo calcular el salario.");
+}
+
+export function calculateHourlySalaryColombia(
+  request: HourlySalaryColombiaRequest
+): Promise<HourlySalaryColombiaResponse["data"]> {
+  return postJson("/work/hourly-salary", request, "No se pudo calcular el salario por hora.");
 }
 
 export function calculateCreditInterest(request: CreditInterestRequest): Promise<CreditInterestResponse["data"]> {

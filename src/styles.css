@@ -1233,12 +1233,22 @@ select {
   transform: translateY(-65%) rotate(45deg);
 }
 
+.year-input--manual::after {
+  display: none;
+}
+
 .year-input select {
   padding-right: 58px;
   font-weight: 400;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.year-input input,
+.year-input select {
+  height: 50px;
+  min-height: 50px;
 }
 
 .year-input input:disabled,
@@ -1605,6 +1615,17 @@ select {
   color: var(--muted-foreground);
   font-size: 13px;
   padding: 12px 14px;
+}
+
+.calculator-hint svg {
+  color: inherit;
+  flex: 0 0 auto;
+}
+
+.calculator-hint--primary {
+  border-color: color-mix(in oklch, var(--primary), transparent 74%);
+  background: color-mix(in oklch, var(--primary), white 90%);
+  color: color-mix(in oklch, var(--primary), black 30%);
 }
 
 .form-error {

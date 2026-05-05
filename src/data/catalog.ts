@@ -129,6 +129,15 @@ export const tools: ToolSummary[] = [
     Icon: Timer
   },
   {
+    id: "hourly-salary",
+    slug: "hourly-salary-calculator",
+    name: "Calculadora de salario por horas",
+    description: "Convierte un salario mensual en valor por hora para comparar ingresos.",
+    categoryId: "work",
+    status: "published",
+    Icon: Clock3
+  },
+  {
     id: "freelance-rate",
     slug: "freelance-rate-calculator",
     name: "Calculadora de cuánto cobrar freelance",
@@ -226,15 +235,6 @@ export const tools: ToolSummary[] = [
     categoryId: "finance",
     status: "draft",
     Icon: Repeat2
-  },
-  {
-    id: "hourly-salary",
-    slug: "hourly-salary-calculator",
-    name: "Calculadora de salario por horas",
-    description: "Convierte un salario mensual en valor por hora para comparar ingresos.",
-    categoryId: "finance",
-    status: "draft",
-    Icon: Clock3
   },
   {
     id: "annual-salary",

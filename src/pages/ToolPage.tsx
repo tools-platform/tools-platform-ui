@@ -6,6 +6,7 @@ import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetwee
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
+import { HourlySalaryColombiaCalculator } from "../components/calculators/HourlySalaryColombiaCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
@@ -65,6 +66,8 @@ export function ToolPage({ slug }: ToolPageProps) {
 
       {tool.id === "net-salary-colombia" ? (
         <NetSalaryColombiaCalculator />
+      ) : tool.id === "hourly-salary" ? (
+        <HourlySalaryColombiaCalculator />
       ) : tool.id === "employment-settlement-colombia" ? (
         <EmploymentSettlementColombiaCalculator />
       ) : tool.id === "credit-interest" ? (

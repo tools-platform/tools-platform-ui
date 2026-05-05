@@ -43,6 +43,38 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "hourly-salary": {
+    intro:
+      "Esta calculadora convierte un salario mensual en valor por hora usando la jornada legal vigente en Colombia o una jornada personalizada.",
+    sections: [
+      {
+        title: "Qué calcula",
+        body: [
+          "Transforma un salario mensual en valor por hora y por día laboral para ayudarte a comparar ofertas, presupuestos o cambios de jornada.",
+          "Puedes calcular el valor bruto por hora o el valor neto estimado después de salud, pensión y Fondo de Solidaridad Pensional cuando aplica."
+        ]
+      },
+      {
+        title: "Cómo usarla",
+        body: [
+          "Ingresa el salario mensual, elige si quieres ver el resultado bruto o neto y revisa las horas semanales legales que aparecen por defecto.",
+          "Si tu horario real es distinto al legal, usa el lápiz para editar las horas semanales y recalcular con tu jornada personalizada."
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: "¿La herramienta usa las horas legales de Colombia?",
+        answer:
+          "Sí. Por defecto toma la jornada legal vigente en Colombia según la fecha actual. Aun así puedes editarla si tu contrato o acuerdo usa otra cantidad de horas."
+      },
+      {
+        question: "¿El cálculo neto incluye todos los descuentos posibles?",
+        answer:
+          "No. Estima salud, pensión y Fondo de Solidaridad Pensional cuando aplica. No incluye retención en la fuente, horas extra, recargos, auxilio de transporte ni descuentos especiales de nómina."
+      }
+    ]
+  },
   "employment-settlement-colombia": {
     intro:
       "Esta herramienta estima la liquidación laboral en Colombia cuando termina una relación de trabajo.",
