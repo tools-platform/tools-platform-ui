@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+﻿import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -156,63 +156,64 @@ export function EmployeeSalaryEquivalentCalculator() {
           <small>Es el valor que facturas o cobras por cada hora de trabajo independiente.</small>
         </label>
 
-        <div className="form-grid">
-          <label className="field field--spaced">
-            <span className="field-label">
-              Año de reglas <span className="required-mark">*</span>
-              <span className="info-tooltip">
-                <Info size={15} strokeWidth={2.1} />
-                <span role="tooltip">
-                  Lo usamos para aplicar los descuentos y umbrales legales vigentes de ese año en Colombia.
+        <div className="form-grid form-grid--single">
+          <div className="form-grid form-grid--compact">
+            <label className="field">
+              <span className="field-label">
+                Año de reglas <span className="required-mark">*</span>
+                <span className="info-tooltip">
+                  <Info size={15} strokeWidth={2.1} />
+                  <span role="tooltip">
+                    Lo usamos para aplicar los descuentos y umbrales legales vigentes de ese año en Colombia.
+                  </span>
                 </span>
               </span>
-            </span>
-            <div className="year-input">
-              <select
-                disabled={!isYearEditable}
-                onChange={(event) => setYear(event.target.value)}
-                required
-                value={year}
-              >
-                {payrollYears.map((payrollYear) => (
-                  <option key={payrollYear} value={payrollYear}>
-                    {payrollYear}
-                  </option>
-                ))}
-              </select>
-              <button
-                aria-label="Editar año de reglas"
-                onClick={() => setIsYearEditable((isEditable) => !isEditable)}
-                title="Editar año"
-                type="button"
-              >
-                <Pencil size={15} strokeWidth={2.1} />
-              </button>
-            </div>
-          </label>
+              <div className="year-input">
+                <select
+                  disabled={!isYearEditable}
+                  onChange={(event) => setYear(event.target.value)}
+                  required
+                  value={year}
+                >
+                  {payrollYears.map((payrollYear) => (
+                    <option key={payrollYear} value={payrollYear}>
+                      {payrollYear}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  aria-label="Editar año de reglas"
+                  onClick={() => setIsYearEditable((isEditable) => !isEditable)}
+                  title="Editar año"
+                  type="button"
+                >
+                  <Pencil size={15} strokeWidth={2.1} />
+                </button>
+              </div>
+            </label>
 
-          <label className="field field--spaced">
-            <span className="field-label">
-              Horas por semana <span className="required-mark">*</span>
-              <span className="info-tooltip">
-              <Info size={15} strokeWidth={2.1} />
-              <span role="tooltip">
-                Usa las horas reales que sí trabajas y cobras cada semana. Con eso proyectamos el
-                equivalente como sueldo de empleado.
+            <label className="field">
+              <span className="field-label">
+                Horas por semana <span className="required-mark">*</span>
+                <span className="info-tooltip">
+                  <Info size={15} strokeWidth={2.1} />
+                  <span role="tooltip">
+                    Usa las horas reales que sí trabajas y cobras cada semana. Con eso proyectamos el equivalente como sueldo de empleado.
+                  </span>
+                </span>
               </span>
-            </span>
-          </span>
-          <input
-            className="input--compact"
-            inputMode="decimal"
-            max={168}
-            min={1}
-            onChange={(event) => setWeeklyHours(event.target.value)}
-            required
-            type="number"
-            value={weeklyHours}
-          />
-          </label>
+              <input
+                className="input--compact"
+                inputMode="decimal"
+                max={168}
+                min={1}
+                onChange={(event) => setWeeklyHours(event.target.value)}
+                required
+                type="number"
+                value={weeklyHours}
+              />
+            </label>
+          </div>
         </div>
 
         {previewHourlyRate > 0 ? (
@@ -303,3 +304,4 @@ export function EmployeeSalaryEquivalentCalculator() {
     </div>
   );
 }
+

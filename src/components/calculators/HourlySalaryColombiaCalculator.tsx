@@ -273,7 +273,7 @@ export function HourlySalaryColombiaCalculator() {
             </label>
           </div>
 
-          <label className="field">
+          <label className="field field--spaced">
             <span className="field-label">
               Tipo de cálculo <span className="required-mark">*</span>
               <span className="info-tooltip">
@@ -405,4 +405,5 @@ function ResultTextItem({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
 
