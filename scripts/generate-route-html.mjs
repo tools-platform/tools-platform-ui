@@ -64,6 +64,18 @@ const pages = [
       "Suma horas trabajadas por jornadas con fecha, hora de inicio y hora de finalización para empleados, freelancers y turnos."
   },
   {
+    path: "/tools/hourly-salary-calculator",
+    title: "Calculadora de salario por horas (Colombia) | Tools Platforms",
+    description:
+      "Convierte un salario mensual en valor por hora en Colombia usando la jornada legal vigente o una jornada semanal personalizada."
+  },
+  {
+    path: "/tools/employee-salary-for-independents-calculator",
+    title: "Calculadora de sueldo de empleado para independientes (Colombia) | Tools Platforms",
+    description:
+      "Convierte lo que cobras por hora como independiente en sueldo semanal, quincenal y mensual como empleado, con neto estimado en Colombia."
+  },
+  {
     path: "/tools/freelance-rate-calculator",
     title: "Calculadora de cuánto cobrar freelance | Tools Platforms",
     description:
