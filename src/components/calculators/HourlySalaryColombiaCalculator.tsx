@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+﻿import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -50,50 +50,52 @@ const copy = {
     title: "Salario por hora",
     monthlySalary: "Salario mensual",
     monthlySalaryHelp: "Es el salario mensual que quieres convertir a valor por hora.",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar la jornada legal y los límites laborales vigentes de ese año en Colombia.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
+    payrollYear: "AÃ±o de reglas",
+    payrollYearHelp: "Lo usamos para aplicar la jornada legal y los lÃ­mites laborales vigentes de ese aÃ±o en Colombia.",
+    editYearAria: "Editar aÃ±o de reglas",
+    editYearTitle: "Editar aÃ±o",
     weeklyHours: "Horas semanales",
     weeklyHoursHelp: "Por defecto usamos la jornada legal vigente hoy en Colombia. Puedes editarla si tu horario real es distinto.",
     editWeeklyHoursAria: "Editar horas semanales",
     editWeeklyHoursTitle: "Editar horas",
-    salaryType: "Tipo de cálculo",
-    salaryTypeHelp: "Bruto divide el salario sin descuentos. Neto descuenta salud, pensión y Fondo de Solidaridad Pensional cuando aplica.",
+    salaryType: "Tipo de cÃ¡lculo",
+    salaryTypeHelp: "Bruto divide el salario sin descuentos. Neto descuenta salud, pensiÃ³n y Fondo de Solidaridad Pensional cuando aplica.",
     gross: "Bruto",
     net: "Neto",
     salaryRequired: "Ingresa un salario mensual mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
+    yearRange: (currentYear: number) => `Ingresa un aÃ±o entre 2024 y ${currentYear}.`,
     weeklyHoursRange: "Ingresa horas semanales entre 1 y 168.",
     requestError: "No se pudo calcular el salario por hora.",
     preview: (salary: string, weeklyHours: string, year: string, salaryType: HourlySalaryType) =>
       `Vas a calcular sobre ${salary} al mes con ${weeklyHours} horas semanales y reglas de ${year}. ${
-        salaryType === "net" ? "El neto estima descuentos legales." : "El bruto no descuenta nómina."
+        salaryType === "net" ? "El neto estima descuentos legales." : "El bruto no descuenta nÃ³mina."
       }`,
     submit: "Calcular salario por hora",
     reset: "Restablecer",
     heroGross: "Valor bruto por hora",
     heroNet: "Valor neto por hora",
-    dailyValue: "Por día laboral",
+    dailyValue: "Por dÃ­a laboral",
     baseMonthlySalary: "Salario mensual base",
     usedMonthlySalary: "Salario mensual usado",
     weeklyHoursResult: "Horas semanales",
     monthlyHoursResult: "Horas mensuales",
     health: "Salud 4%",
     pension: "Pensión 4%",
+    healthRate: "Salud",
+    pensionRate: "Pensión",
     solidarityFund: "Fondo de solidaridad",
     totalDeductions: "Total descuentos",
-    dailyValueLabel: "Valor por día laboral",
+    dailyValueLabel: "Valor por dÃ­a laboral",
     customRulesNote: (weeklyHours: number, year: number, legalWeeklyHours: number) =>
       `Usa ${weeklyHours} horas semanales personalizadas. La referencia legal para ${year} es ${legalWeeklyHours} horas.`,
     legalRulesNote: (year: number, legalWeeklyHours: number) =>
       `Usa la jornada legal de referencia para ${year}: ${legalWeeklyHours} horas semanales.`,
-    salaryTypeResult: "Tipo de cálculo",
+    salaryTypeResult: "Tipo de cÃ¡lculo",
     solidarityRate: "Solidaridad",
     disclaimer:
-      "Estimación del valor por hora para un empleado dependiente en Colombia. El cálculo neto descuenta salud, pensión y Fondo de Solidaridad Pensional cuando aplica. No incluye horas extra, recargos, impuestos ni acuerdos especiales.",
-    emptyTitle: "Tu valor por hora aparecerá aquí",
-    emptyDescription: "Ingresa el salario mensual, elige si quieres ver bruto o neto y calcula para obtener la conversión por hora."
+      "EstimaciÃ³n del valor por hora para un empleado dependiente en Colombia. El cÃ¡lculo neto descuenta salud, pensiÃ³n y Fondo de Solidaridad Pensional cuando aplica. No incluye horas extra, recargos, impuestos ni acuerdos especiales.",
+    emptyTitle: "Tu valor por hora aparecerÃ¡ aquÃ­",
+    emptyDescription: "Ingresa el salario mensual, elige si quieres ver bruto o neto y calcula para obtener la conversiÃ³n por hora."
   },
   en: {
     kicker: "Calculator",
@@ -131,6 +133,8 @@ const copy = {
     monthlyHoursResult: "Monthly hours",
     health: "Health 4%",
     pension: "Pension 4%",
+    healthRate: "Health",
+    pensionRate: "Pension",
     solidarityFund: "Solidarity fund",
     totalDeductions: "Total deductions",
     dailyValueLabel: "Per workday value",
@@ -386,8 +390,8 @@ export function HourlySalaryColombiaCalculator() {
 
             <div className="rules-grid">
               <span>{text.salaryTypeResult}: {salaryTypeLabel}</span>
-              <span>{text.health}: {formatRate(result.rules.employeeHealthRate)}</span>
-              <span>{text.pension}: {formatRate(result.rules.employeePensionRate)}</span>
+              <span>{text.healthRate}: {formatRate(result.rules.employeeHealthRate)}</span>
+              <span>{text.pensionRate}: {formatRate(result.rules.employeePensionRate)}</span>
               {result.deductions.applies ? <span>{text.solidarityRate}: {formatRate(result.rules.solidarityPensionFundRate)}</span> : null}
             </div>
 
@@ -422,3 +426,5 @@ function ResultTextItem({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
+

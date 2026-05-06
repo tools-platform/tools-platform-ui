@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+﻿import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -24,23 +24,23 @@ const copy = {
     kicker: "Calculadora",
     title: "Datos del salario",
     monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos de salud, pensión y otros.",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar el salario mínimo, auxilio de transporte y límites legales vigentes de ese año.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    payrollDeductions: "Deducciones de nómina",
+    monthlySalaryHelp: "Es el salario antes de descuentos de salud, pensiÃ³n y otros.",
+    payrollYear: "AÃ±o de reglas",
+    payrollYearHelp: "Lo usamos para aplicar el salario mÃ­nimo, auxilio de transporte y lÃ­mites legales vigentes de ese aÃ±o.",
+    editYearAria: "Editar aÃ±o de reglas",
+    editYearTitle: "Editar aÃ±o",
+    payrollDeductions: "Deducciones de nÃ³mina",
     payrollDeductionsHelp:
-      "Valores extra que te descuentan en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
+      "Valores extra que te descuentan en nÃ³mina, como libranzas, prÃ©stamos, anticipos, embargos o aportes voluntarios. Si no tienes, dÃ©jalo en 0.",
     transportationAllowance: "Incluir auxilio de transporte si aplica",
-    transportationAllowanceHelp: "Validaremos si tu salario cumple el límite legal para recibirlo.",
+    transportationAllowanceHelp: "Validaremos si tu salario cumple el lÃ­mite legal para recibirlo.",
     showSolidarityFund: "Ver Fondo de Solidaridad",
     showSolidarityFundHelp: "Esto solo muestra u oculta el detalle. Ocultarlo no elimina el aporte si aplica por ley.",
-    solidarityExplanationTitle: "¿Qué es el Fondo de Solidaridad Pensional?",
+    solidarityExplanationTitle: "Â¿QuÃ© es el Fondo de Solidaridad Pensional?",
     solidarityExplanation:
-      "Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más. Si tu salario no llega a ese rango, este valor queda en cero.",
+      "Es un aporte adicional que aplica cuando el salario es de 4 salarios mÃ­nimos o mÃ¡s. Si tu salario no llega a ese rango, este valor queda en cero.",
     salaryRequired: "Ingresa un salario mensual mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
+    yearRange: (currentYear: number) => `Ingresa un aÃ±o entre 2024 y ${currentYear}.`,
     requestError: "No se pudo calcular el salario.",
     preview: (salary: string) => `Vas a calcular sobre ${salary} mensuales.`,
     submit: "Calcular salario neto",
@@ -51,17 +51,19 @@ const copy = {
     transportationAllowanceResult: "Auxilio transporte",
     health: "Salud 4%",
     pension: "Pensión 4%",
+    healthRate: "Salud",
+    pensionRate: "Pensión",
     solidarityFund: "Fondo de solidaridad",
     totalDeductions: "Total descuentos",
     rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Usa salario mínimo ${minWage}, auxilio de transporte ${allowance} y límite ${limit} para ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Usa salario mínimo ${minWage} para ${year}.`,
-    qualifiesForAllowance: "Cumple límite legal para auxilio",
-    yes: "Sí",
+      `Usa salario mÃ­nimo ${minWage}, auxilio de transporte ${allowance} y lÃ­mite ${limit} para ${year}.`,
+    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Usa salario mÃ­nimo ${minWage} para ${year}.`,
+    qualifiesForAllowance: "Cumple lÃ­mite legal para auxilio",
+    yes: "SÃ­",
     no: "No",
     disclaimer:
-      "Este resultado es una estimación para un empleado dependiente en Colombia. No incluye retención en la fuente, pagos no salariales, prestaciones, costos del empleador ni acuerdos especiales de nómina.",
-    emptyTitle: "Tu resultado aparecerá aquí",
+      "Este resultado es una estimaciÃ³n para un empleado dependiente en Colombia. No incluye retenciÃ³n en la fuente, pagos no salariales, prestaciones, costos del empleador ni acuerdos especiales de nÃ³mina.",
+    emptyTitle: "Tu resultado aparecerÃ¡ aquÃ­",
     emptyDescription: "Completa los datos del salario y calcula para ver el neto mensual, quincenal y el detalle de descuentos."
   },
   en: {
@@ -95,6 +97,8 @@ const copy = {
     transportationAllowanceResult: "Transportation allowance",
     health: "Health 4%",
     pension: "Pension 4%",
+    healthRate: "Health",
+    pensionRate: "Pension",
     solidarityFund: "Solidarity fund",
     totalDeductions: "Total deductions",
     rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
@@ -324,8 +328,8 @@ export function NetSalaryColombiaCalculator() {
               {result.input.includeTransportationAllowance ? (
                 <span>{text.qualifiesForAllowance}: {result.rules.qualifiesForTransportationAllowance ? text.yes : text.no}</span>
               ) : null}
-              <span>{text.health}: {formatRate(result.rules.employeeHealthRate)}</span>
-              <span>{text.pension}: {formatRate(result.rules.employeePensionRate)}</span>
+              <span>{text.healthRate}: {formatRate(result.rules.employeeHealthRate)}</span>
+              <span>{text.pensionRate}: {formatRate(result.rules.employeePensionRate)}</span>
               {resultViewOptions?.showSolidarityFund ? <span>{text.solidarityFund}: {formatRate(result.rules.solidarityPensionFundRate)}</span> : null}
             </div>
 
@@ -351,3 +355,5 @@ function ResultItem({ label, value, strong = false, formatMoney }: { label: stri
     </div>
   );
 }
+
+
