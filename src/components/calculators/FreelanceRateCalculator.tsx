@@ -1,49 +1,60 @@
-import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2 } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2 } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
-import { calculateFreelanceRate, type FreelanceRateResponse } from "../../services/workApi";
+import {
+  calculateFreelanceRate,
+  type FreelanceRateResponse,
+  type WorkCurrency
+} from "../../services/workApi";
 
 type FreelanceRateData = FreelanceRateResponse["data"];
 
 const copy = {
   es: {
     kicker: "Calculadora",
-    title: "Cuánto cobrar por hora",
-    desiredMonthlyIncome: "Cuánto quieres ganar al mes",
+    title: "Cuanto cobrar por hora",
+    currency: "Moneda",
+    currencyHelp: "Elige si quieres hacer la proyeccion en pesos colombianos o en dolares.",
+    desiredMonthlyIncome: "Cuanto quieres ganar al mes",
     desiredMonthlyIncomeHelp: "Es la meta mensual que quieres lograr con tu trabajo independiente.",
-    workDaysPerWeek: "Días por semana",
-    hoursPerDay: "Horas por día",
+    workDaysPerWeek: "Dias por semana",
+    hoursPerDay: "Horas por dia",
     safetyMargin: "Margen de seguridad",
     safetyMarginHelp:
-      "Es un extra sobre tu meta mensual para cubrir imprevistos, semanas flojas, ajustes o negociación con clientes.",
+      "Es un extra sobre tu meta mensual para cubrir imprevistos, semanas flojas, ajustes o negociacion con clientes.",
     hint: "La tarifa por hora se calcula con las horas que realmente quieres trabajar y cobrar.",
-    submit: "Calcular cuánto cobrar",
+    submit: "Calcular cuanto cobrar",
     reset: "Restablecer",
-    monthlyGoalError: "Ingresa cuánto quieres ganar al mes.",
-    workDaysError: "Elige entre 1 y 7 días de trabajo por semana.",
-    hoursError: "Ingresa horas por día entre 1 y 24.",
+    monthlyGoalError: "Ingresa cuanto quieres ganar al mes.",
+    workDaysError: "Elige entre 1 y 7 dias de trabajo por semana.",
+    hoursError: "Ingresa horas por dia entre 1 y 24.",
     marginError: "El margen debe estar entre 0% y 300%.",
     requestError: "No se pudo calcular la tarifa freelance.",
     heroTitle: "Tarifa sugerida por hora",
     targetWithMargin: "Meta mensual con margen",
-    minimumHourlyRate: "Tarifa mínima por hora",
+    minimumHourlyRate: "Tarifa minima por hora",
     suggestedDailyRate: "Tarifa diaria sugerida",
     suggestedWeeklyRate: "Tarifa semanal sugerida",
     monthlyHours: "Horas al mes",
     weeklyHours: "Horas por semana",
     addedMargin: "Margen agregado",
+    currencyResult: "Moneda usada",
+    cop: "Peso colombiano (COP)",
+    usd: "Dolar estadounidense (USD)",
     rulesNote: (days: number, hours: string, weeksPerMonth: number) =>
-      `Se usaron ${days} días por semana, ${hours} horas al día y ${weeksPerMonth} semanas promedio por mes.`,
+      `Se usaron ${days} dias por semana, ${hours} horas por dia y ${weeksPerMonth} semanas promedio por mes.`,
     disclaimer:
-      "Resultado estimado. No incluye impuestos, comisiones de plataformas, riesgo del cliente, cambios de alcance ni asesoría contable o legal.",
+      "Resultado estimado. No incluye impuestos, comisiones de plataformas, riesgo del cliente, cambios de alcance ni asesoria contable o legal.",
     emptyTitle: "Resultado freelance",
-    emptyDescription: "Ingresa tu meta mensual y tu ritmo de trabajo para ver cuánto cobrar por hora."
+    emptyDescription: "Ingresa tu meta mensual y tu ritmo de trabajo para ver cuanto cobrar por hora."
   },
   en: {
     kicker: "Calculator",
     title: "How much to charge per hour",
+    currency: "Currency",
+    currencyHelp: "Choose whether you want the estimate in Colombian pesos or US dollars.",
     desiredMonthlyIncome: "How much you want to earn per month",
     desiredMonthlyIncomeHelp: "This is the monthly goal you want to reach with your independent work.",
     workDaysPerWeek: "Days per week",
@@ -67,6 +78,9 @@ const copy = {
     monthlyHours: "Monthly hours",
     weeklyHours: "Weekly hours",
     addedMargin: "Added margin",
+    currencyResult: "Currency used",
+    cop: "Colombian peso (COP)",
+    usd: "US dollar (USD)",
     rulesNote: (days: number, hours: string, weeksPerMonth: number) =>
       `Used ${days} days per week, ${hours} hours per day, and ${weeksPerMonth} average weeks per month.`,
     disclaimer:
@@ -86,16 +100,23 @@ function parseNumber(value: string) {
   return normalized.length > 0 ? Number(normalized) : 0;
 }
 
+function formatCurrencyDisplay(value: number, currency: WorkCurrency, localeCode: string) {
+  const formatter = new Intl.NumberFormat(localeCode, {
+    minimumFractionDigits: currency === "USD" ? 2 : 0,
+    maximumFractionDigits: currency === "USD" ? 2 : 0
+  });
+
+  const amount = formatter.format(value);
+  return currency === "USD" ? `$ ${amount}` : `COP ${amount}`;
+}
+
 export function FreelanceRateCalculator() {
   const { locale } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
+  const [currency, setCurrency] = useState<WorkCurrency>("COP");
   const numberFormatter = useMemo(() => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 0 }), [localeCode]);
   const decimalFormatter = useMemo(() => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 2 }), [localeCode]);
-  const currencyFormatter = useMemo(
-    () => new Intl.NumberFormat(localeCode, { style: "currency", currency: "COP", maximumFractionDigits: 0 }),
-    [localeCode]
-  );
   const [desiredMonthlyIncome, setDesiredMonthlyIncome] = useState("5.000.000");
   const [workDaysPerWeek, setWorkDaysPerWeek] = useState("5");
   const [hoursPerDay, setHoursPerDay] = useState("6");
@@ -105,13 +126,17 @@ export function FreelanceRateCalculator() {
   const [isLoading, setIsLoading] = useState(false);
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
+  function getDefaultDesiredMonthlyIncome(nextCurrency: WorkCurrency) {
+    return nextCurrency === "USD" ? numberFormatter.format(5000) : numberFormatter.format(5000000);
+  }
+
   function formatMoneyInput(value: string) {
     const normalized = value.replace(/[^\d]/g, "");
     return normalized.length > 0 ? numberFormatter.format(Number(normalized)) : "";
   }
 
   function formatMoney(value: number) {
-    return currencyFormatter.format(value);
+    return formatCurrencyDisplay(value, result?.currency ?? currency, localeCode);
   }
 
   function formatDecimal(value: number) {
@@ -151,7 +176,7 @@ export function FreelanceRateCalculator() {
         workDaysPerWeek: workDaysPerWeekValue,
         hoursPerDay: hoursPerDayValue,
         safetyMarginPercentage: safetyMarginPercentageValue,
-        currency: "COP"
+        currency
       });
       setResult(data);
       scrollToResultOnMobile();
@@ -163,14 +188,24 @@ export function FreelanceRateCalculator() {
     }
   }
 
-  function handleReset() {
-    setDesiredMonthlyIncome("5.000.000");
-    setWorkDaysPerWeek("5");
-    setHoursPerDay("6");
-    setSafetyMarginPercentage("20");
+  function handleCurrencyChange(nextCurrency: WorkCurrency) {
+    setCurrency(nextCurrency);
+    setDesiredMonthlyIncome(getDefaultDesiredMonthlyIncome(nextCurrency));
     setResult(null);
     setError("");
   }
+
+  function handleReset() {
+    setDesiredMonthlyIncome(getDefaultDesiredMonthlyIncome("COP"));
+    setWorkDaysPerWeek("5");
+    setHoursPerDay("6");
+    setSafetyMarginPercentage("20");
+    setCurrency("COP");
+    setResult(null);
+    setError("");
+  }
+
+  const activeCurrency = result?.currency ?? currency;
 
   return (
     <div className="calculator-layout">
@@ -186,18 +221,39 @@ export function FreelanceRateCalculator() {
         </div>
 
         <label className="field">
+          <span className="field-label">
+            {text.currency}
+            <span className="info-tooltip">
+              <Info size={15} strokeWidth={2.1} />
+              <span role="tooltip">{text.currencyHelp}</span>
+            </span>
+          </span>
+          <span className="select-control">
+            <select
+              className="plain-select"
+              onChange={(event) => handleCurrencyChange(event.target.value as WorkCurrency)}
+              value={currency}
+            >
+              <option value="COP">{text.cop}</option>
+              <option value="USD">{text.usd}</option>
+            </select>
+            <ChevronDown size={18} strokeWidth={2.1} />
+          </span>
+        </label>
+
+        <label className="field field--spaced">
           <span>{text.desiredMonthlyIncome} <span className="required-mark">*</span></span>
           <div className="money-input">
             <span>$</span>
             <input
               inputMode="numeric"
               onChange={(event) => setDesiredMonthlyIncome(formatMoneyInput(event.target.value))}
-              placeholder="5.000.000"
+              placeholder={currency === "USD" ? "5,000" : "5.000.000"}
               required
               type="text"
               value={desiredMonthlyIncome}
             />
-            <strong>COP</strong>
+            <strong>{currency}</strong>
           </div>
           <small>{text.desiredMonthlyIncomeHelp}</small>
         </label>
@@ -272,6 +328,10 @@ export function FreelanceRateCalculator() {
             <div className="result-item">
               <span>{text.weeklyHours}</span>
               <strong>{formatDecimal(result.result.weeklyWorkingHours)}</strong>
+            </div>
+            <div className="result-item">
+              <span>{text.currencyResult}</span>
+              <strong>{activeCurrency === "USD" ? "$" : "COP"}</strong>
             </div>
             <div className="result-item result-item--strong">
               <span>{text.addedMargin}</span>

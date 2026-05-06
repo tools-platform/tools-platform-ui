@@ -6,6 +6,7 @@ import { useLocale } from "../../i18n";
 import {
   calculateCreditInterest,
   type CompoundingFrequency,
+  type CreditInterestCurrency,
   type CreditInterestResponse,
   type CreditInterestType
 } from "../../services/financeApi";
@@ -16,6 +17,8 @@ const copy = {
   es: {
     kicker: "Calculadora",
     title: "Datos del crédito",
+    currency: "Moneda",
+    currencyHelp: "Elige si quieres hacer la proyección en pesos colombianos o en dólares.",
     loanAmount: "Monto del préstamo",
     loanAmountHelp: "Es el dinero que recibes o piensas solicitar antes de intereses y cargos.",
     annualRate: "Tasa anual",
@@ -30,6 +33,8 @@ const copy = {
     compoundingHelp: "Indica cada cuánto se acumula el interés compuesto.",
     monthly: "Mensual",
     annually: "Anual",
+    cop: "Peso colombiano (COP)",
+    usd: "Dólar estadounidense (USD)",
     termMonths: "Plazo en meses",
     termMonthsHelp: "Si tienes el plazo en años, multiplícalo por 12. Por ejemplo, 3 años son 36 meses.",
     hint: "Este cálculo estima intereses totales. No calcula una cuota fija amortizada.",
@@ -46,6 +51,7 @@ const copy = {
     monthlyRate: "Tasa mensual estimada",
     effectiveAnnualRate: "Tasa anual efectiva",
     formulaUsed: "Fórmula usada",
+    currencyResult: "Moneda usada",
     rulesNote: (periods: number, frequency: string) =>
       `Se calcularon ${periods} periodos con ${frequency.toLowerCase()}.`,
     disclaimer:
@@ -61,6 +67,8 @@ const copy = {
   en: {
     kicker: "Calculator",
     title: "Credit details",
+    currency: "Currency",
+    currencyHelp: "Choose whether you want the estimate in Colombian pesos or US dollars.",
     loanAmount: "Loan amount",
     loanAmountHelp: "This is the money you receive or plan to borrow before interest and fees.",
     annualRate: "Annual rate",
@@ -75,6 +83,8 @@ const copy = {
     compoundingHelp: "Choose how often compound interest is added.",
     monthly: "Monthly",
     annually: "Annual",
+    cop: "Colombian peso (COP)",
+    usd: "US dollar (USD)",
     termMonths: "Term in months",
     termMonthsHelp: "If you have the term in years, multiply it by 12. For example, 3 years are 36 months.",
     hint: "This calculation estimates total interest. It does not calculate a fixed amortized payment.",
@@ -91,6 +101,7 @@ const copy = {
     monthlyRate: "Estimated monthly rate",
     effectiveAnnualRate: "Effective annual rate",
     formulaUsed: "Formula used",
+    currencyResult: "Currency used",
     rulesNote: (periods: number, frequency: string) =>
       `Calculated across ${periods} periods with ${frequency.toLowerCase()}.`,
     disclaimer:
@@ -128,16 +139,23 @@ function getFrequencyLabel(frequency: CompoundingFrequency, locale: "es" | "en")
   return frequency === "monthly" ? copy[locale].monthly : copy[locale].annually;
 }
 
+function formatCurrencyDisplay(value: number, currency: CreditInterestCurrency, localeCode: string) {
+  const formatter = new Intl.NumberFormat(localeCode, {
+    minimumFractionDigits: currency === "USD" ? 2 : 0,
+    maximumFractionDigits: currency === "USD" ? 2 : 0
+  });
+
+  const amount = formatter.format(value);
+  return currency === "USD" ? `$ ${amount}` : `COP ${amount}`;
+}
+
 export function CreditInterestCalculator() {
   const { locale } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
+  const [currency, setCurrency] = useState<CreditInterestCurrency>("COP");
   const numberFormatter = useMemo(
     () => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 0 }),
-    [localeCode]
-  );
-  const currencyFormatter = useMemo(
-    () => new Intl.NumberFormat(localeCode, { style: "currency", currency: "COP", maximumFractionDigits: 0 }),
     [localeCode]
   );
 
@@ -151,8 +169,8 @@ export function CreditInterestCalculator() {
   const [isLoading, setIsLoading] = useState(false);
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
-  function formatMoney(value: number) {
-    return currencyFormatter.format(value);
+  function getDefaultLoanAmount(nextCurrency: CreditInterestCurrency) {
+    return nextCurrency === "USD" ? numberFormatter.format(5000) : numberFormatter.format(5000000);
   }
 
   function formatRate(value: number) {
@@ -202,7 +220,7 @@ export function CreditInterestCalculator() {
         termMonths: termMonthsValue,
         interestType,
         compoundingFrequency,
-        currency: "COP"
+        currency
       });
       setResult(data);
       scrollToResultOnMobile();
@@ -215,13 +233,27 @@ export function CreditInterestCalculator() {
   }
 
   function handleReset() {
-    setLoanAmount("5.000.000");
+    setLoanAmount(getDefaultLoanAmount("COP"));
     setAnnualInterestRate("24");
     setTermMonths("12");
     setInterestType("compound");
     setCompoundingFrequency("monthly");
+    setCurrency("COP");
     setResult(null);
     setError("");
+  }
+
+  function handleCurrencyChange(nextCurrency: CreditInterestCurrency) {
+    setCurrency(nextCurrency);
+    setLoanAmount(getDefaultLoanAmount(nextCurrency));
+    setResult(null);
+    setError("");
+  }
+
+  const activeCurrency = result?.currency ?? currency;
+
+  function formatResultMoney(value: number) {
+    return formatCurrencyDisplay(value, activeCurrency, localeCode);
   }
 
   return (
@@ -238,6 +270,27 @@ export function CreditInterestCalculator() {
         </div>
 
         <label className="field">
+          <span className="field-label">
+            {text.currency}
+            <span className="info-tooltip">
+              <Info size={15} strokeWidth={2.1} />
+              <span role="tooltip">{text.currencyHelp}</span>
+            </span>
+          </span>
+          <span className="select-control">
+            <select
+              className="plain-select"
+              onChange={(event) => handleCurrencyChange(event.target.value as CreditInterestCurrency)}
+              value={currency}
+            >
+              <option value="COP">{text.cop}</option>
+              <option value="USD">{text.usd}</option>
+            </select>
+            <ChevronDown size={18} strokeWidth={2.1} />
+          </span>
+        </label>
+
+        <label className="field field--spaced">
           <span>
             {text.loanAmount} <span className="required-mark">*</span>
           </span>
@@ -251,7 +304,7 @@ export function CreditInterestCalculator() {
               type="text"
               value={loanAmount}
             />
-            <strong>COP</strong>
+            <strong>{currency}</strong>
           </div>
           <small>{text.loanAmountHelp}</small>
         </label>
@@ -377,18 +430,18 @@ export function CreditInterestCalculator() {
         <aside className="result-panel" ref={resultRef}>
           <div className="result-panel__hero">
             <p>{text.totalToPay}</p>
-            <strong>{formatMoney(result.result.totalToPay)}</strong>
-            <span>{text.estimatedInterest}: {formatMoney(result.result.totalInterest)}</span>
+            <strong>{formatResultMoney(result.result.totalToPay)}</strong>
+            <span>{text.estimatedInterest}: {formatResultMoney(result.result.totalInterest)}</span>
           </div>
 
           <div className="result-breakdown">
             <div className="result-item">
               <span>{text.totalInterest}</span>
-              <strong>{formatMoney(result.result.totalInterest)}</strong>
+              <strong>{formatResultMoney(result.result.totalInterest)}</strong>
             </div>
             <div className="result-item">
               <span>{text.monthlyAverage}</span>
-              <strong>{formatMoney(result.result.estimatedMonthlyAverage)}</strong>
+              <strong>{formatResultMoney(result.result.estimatedMonthlyAverage)}</strong>
             </div>
             <div className="result-item">
               <span>{text.monthlyRate}</span>
@@ -402,9 +455,13 @@ export function CreditInterestCalculator() {
               <span>{text.interestType}</span>
               <strong>{getInterestTypeLabel(result.input.interestType, locale)}</strong>
             </div>
-            <div className="result-item result-item--strong">
+            <div className="result-item">
               <span>{text.formulaUsed}</span>
               <strong>{result.calculation.formula === "simple_interest" ? text.simple : text.compound}</strong>
+            </div>
+            <div className="result-item result-item--strong">
+              <span>{text.currencyResult}</span>
+              <strong>{activeCurrency === "USD" ? "$" : "COP"}</strong>
             </div>
           </div>
 

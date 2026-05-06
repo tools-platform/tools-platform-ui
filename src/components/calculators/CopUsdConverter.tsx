@@ -206,7 +206,7 @@ export function CopUsdConverter() {
             {text.amount} <span className="required-mark">*</span>
           </span>
           <div className="money-input">
-            <span>{direction === "COP_TO_USD" ? "$" : "US$"}</span>
+            <span>$</span>
             <input
               inputMode="decimal"
               onChange={(event) => setAmount(formatAmountInput(event.target.value, direction))}

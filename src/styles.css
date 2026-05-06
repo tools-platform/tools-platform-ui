@@ -1486,9 +1486,9 @@ select {
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 90%);
 }
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus,
+.field > input:not([type="range"]):focus,
+.field > select:focus,
+.field > textarea:focus,
 .money-input:focus-within,
 .rate-input:focus-within {
   border-color: color-mix(in oklch, var(--primary), transparent 42%);
@@ -1588,6 +1588,14 @@ select {
 .range-input {
   accent-color: var(--primary);
   cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.range-input:focus,
+.range-input:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .password-option-grid {
@@ -1735,6 +1743,7 @@ select {
 
 .money-input input:focus {
   box-shadow: none;
+  outline: none;
 }
 
 .rate-input {
@@ -1767,6 +1776,7 @@ select {
 
 .rate-input input:focus {
   box-shadow: none;
+  outline: none;
 }
 
 .form-grid {

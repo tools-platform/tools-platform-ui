@@ -5,6 +5,7 @@ import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import {
   calculateLoanPayment,
+  type CreditInterestCurrency,
   type LoanPaymentRateType,
   type LoanPaymentResponse
 } from "../../services/financeApi";
@@ -14,24 +15,28 @@ type LoanPaymentData = LoanPaymentResponse["data"];
 const copy = {
   es: {
     kicker: "Calculadora",
-    title: "Datos del préstamo",
-    loanAmount: "Monto del préstamo",
+    title: "Datos del prestamo",
+    currency: "Moneda",
+    currencyHelp: "Elige si quieres hacer la proyeccion en pesos colombianos o en dolares.",
+    loanAmount: "Monto del prestamo",
     loanAmountHelp: "Es el dinero que piensas solicitar antes de intereses y cargos.",
     annualRate: "Tasa anual",
     monthlyRateTitle: "Tasa mensual",
     rateHelp:
-      "Escribe el porcentaje según el tipo de tasa elegido. Si seleccionas efectiva anual, usa la tasa del año completo. Si seleccionas mensual, usa la tasa que se aplica cada mes.",
+      "Escribe el porcentaje segun el tipo de tasa elegido. Si seleccionas efectiva anual, usa la tasa del ano completo. Si seleccionas mensual, usa la tasa que se aplica cada mes.",
     rateType: "Tipo de tasa",
     rateTypeHelp:
-      "Efectiva anual: tasa para todo el año. Mensual: tasa que se aplica cada mes.",
+      "Efectiva anual: tasa para todo el ano. Mensual: tasa que se aplica cada mes.",
     effectiveAnnual: "Efectiva anual",
     monthly: "Mensual",
+    cop: "Peso colombiano (COP)",
+    usd: "Dolar estadounidense (USD)",
     termMonths: "Plazo en meses",
-    termMonthsHelp: "Si tienes el plazo en años, multiplícalo por 12. Por ejemplo, 3 años son 36 meses.",
-    hint: "Esta cuota es una estimación fija. No incluye seguros, comisiones ni cargos de la entidad.",
+    termMonthsHelp: "Si tienes el plazo en anos, multiplicalo por 12. Por ejemplo, 3 anos son 36 meses.",
+    hint: "Esta cuota es una estimacion fija. No incluye seguros, comisiones ni cargos de la entidad.",
     submit: "Calcular cuota",
     reset: "Restablecer",
-    amountError: "Ingresa un monto de préstamo mayor a cero.",
+    amountError: "Ingresa un monto de prestamo mayor a cero.",
     rateError: "Ingresa una tasa entre 0% y 1000%.",
     termError: "Ingresa un plazo entre 1 y 600 meses.",
     requestError: "No se pudo calcular la cuota.",
@@ -40,21 +45,24 @@ const copy = {
     monthlyPayment: "Cuota mensual",
     totalInterest: "Intereses totales",
     monthlyRateUsed: "Tasa mensual usada",
+    currencyResult: "Moneda usada",
     rulesNote: (periods: number, effectiveAnnualRate: string) =>
       `Se calcularon ${periods} cuotas fijas con tasa efectiva anual de ${effectiveAnnualRate}.`,
     disclaimer:
-      "Resultado estimado. No incluye seguros, comisiones, impuestos, cargos administrativos, mora, tasas variables ni condiciones específicas de una entidad financiera.",
+      "Resultado estimado. No incluye seguros, comisiones, impuestos, cargos administrativos, mora, tasas variables ni condiciones especificas de una entidad financiera.",
     emptyTitle: "Resultado de la cuota",
-    emptyDescription: "Ingresa monto, tasa y plazo para estimar cuánto pagarías cada mes.",
+    emptyDescription: "Ingresa monto, tasa y plazo para estimar cuanto pagarias cada mes.",
     sixMonths: "6 meses",
-    oneYear: "1 año",
-    twoYears: "2 años",
-    threeYears: "3 años",
-    fiveYears: "5 años"
+    oneYear: "1 ano",
+    twoYears: "2 anos",
+    threeYears: "3 anos",
+    fiveYears: "5 anos"
   },
   en: {
     kicker: "Calculator",
     title: "Loan details",
+    currency: "Currency",
+    currencyHelp: "Choose whether you want the estimate in Colombian pesos or US dollars.",
     loanAmount: "Loan amount",
     loanAmountHelp: "This is the money you plan to borrow before interest and fees.",
     annualRate: "Annual rate",
@@ -65,6 +73,8 @@ const copy = {
     rateTypeHelp: "Effective annual: rate for the full year. Monthly: rate applied every month.",
     effectiveAnnual: "Effective annual",
     monthly: "Monthly",
+    cop: "Colombian peso (COP)",
+    usd: "US dollar (USD)",
     termMonths: "Term in months",
     termMonthsHelp: "If you have the term in years, multiply it by 12. For example, 3 years are 36 months.",
     hint: "This payment is a fixed estimate. It does not include insurance, fees, or lender charges.",
@@ -79,6 +89,7 @@ const copy = {
     monthlyPayment: "Monthly payment",
     totalInterest: "Total interest",
     monthlyRateUsed: "Monthly rate used",
+    currencyResult: "Currency used",
     rulesNote: (periods: number, effectiveAnnualRate: string) =>
       `Calculated ${periods} fixed payments with an effective annual rate of ${effectiveAnnualRate}.`,
     disclaimer:
@@ -112,16 +123,23 @@ function getRateTypeLabel(rateType: LoanPaymentRateType, locale: "es" | "en") {
   return rateType === "effective_annual" ? copy[locale].effectiveAnnual : copy[locale].monthly;
 }
 
+function formatCurrencyDisplay(value: number, currency: CreditInterestCurrency, localeCode: string) {
+  const formatter = new Intl.NumberFormat(localeCode, {
+    minimumFractionDigits: currency === "USD" ? 2 : 0,
+    maximumFractionDigits: currency === "USD" ? 2 : 0
+  });
+
+  const amount = formatter.format(value);
+  return currency === "USD" ? `$ ${amount}` : `COP ${amount}`;
+}
+
 export function LoanPaymentCalculator() {
   const { locale } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
+  const [currency, setCurrency] = useState<CreditInterestCurrency>("COP");
   const numberFormatter = useMemo(
     () => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 0 }),
-    [localeCode]
-  );
-  const currencyFormatter = useMemo(
-    () => new Intl.NumberFormat(localeCode, { style: "currency", currency: "COP", maximumFractionDigits: 0 }),
     [localeCode]
   );
 
@@ -134,8 +152,12 @@ export function LoanPaymentCalculator() {
   const [isLoading, setIsLoading] = useState(false);
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
+  function getDefaultLoanAmount(nextCurrency: CreditInterestCurrency) {
+    return nextCurrency === "USD" ? numberFormatter.format(5000) : numberFormatter.format(5000000);
+  }
+
   function formatMoney(value: number) {
-    return currencyFormatter.format(value);
+    return formatCurrencyDisplay(value, result?.currency ?? currency, localeCode);
   }
 
   function formatRate(value: number) {
@@ -184,7 +206,7 @@ export function LoanPaymentCalculator() {
         interestRate: interestRateValue,
         rateType,
         termMonths: termMonthsValue,
-        currency: "COP"
+        currency
       });
       setResult(data);
       scrollToResultOnMobile();
@@ -196,14 +218,24 @@ export function LoanPaymentCalculator() {
     }
   }
 
-  function handleReset() {
-    setLoanAmount("5.000.000");
-    setInterestRate("24");
-    setRateType("effective_annual");
-    setTermMonths("12");
+  function handleCurrencyChange(nextCurrency: CreditInterestCurrency) {
+    setCurrency(nextCurrency);
+    setLoanAmount(getDefaultLoanAmount(nextCurrency));
     setResult(null);
     setError("");
   }
+
+  function handleReset() {
+    setLoanAmount(getDefaultLoanAmount("COP"));
+    setInterestRate("24");
+    setRateType("effective_annual");
+    setTermMonths("12");
+    setCurrency("COP");
+    setResult(null);
+    setError("");
+  }
+
+  const activeCurrency = result?.currency ?? currency;
 
   return (
     <div className="calculator-layout">
@@ -219,6 +251,27 @@ export function LoanPaymentCalculator() {
         </div>
 
         <label className="field">
+          <span className="field-label">
+            {text.currency}
+            <span className="info-tooltip">
+              <Info size={15} strokeWidth={2.1} />
+              <span role="tooltip">{text.currencyHelp}</span>
+            </span>
+          </span>
+          <span className="select-control">
+            <select
+              className="plain-select"
+              onChange={(event) => handleCurrencyChange(event.target.value as CreditInterestCurrency)}
+              value={currency}
+            >
+              <option value="COP">{text.cop}</option>
+              <option value="USD">{text.usd}</option>
+            </select>
+            <ChevronDown size={18} strokeWidth={2.1} />
+          </span>
+        </label>
+
+        <label className="field field--spaced">
           <span>
             {text.loanAmount} <span className="required-mark">*</span>
           </span>
@@ -227,12 +280,12 @@ export function LoanPaymentCalculator() {
             <input
               inputMode="numeric"
               onChange={(event) => setLoanAmount(formatMoneyInput(event.target.value, numberFormatter))}
-              placeholder="5.000.000"
+              placeholder={currency === "USD" ? "5,000" : "5.000.000"}
               required
               type="text"
               value={loanAmount}
             />
-            <strong>COP</strong>
+            <strong>{currency}</strong>
           </div>
           <small>{text.loanAmountHelp}</small>
         </label>
@@ -358,6 +411,10 @@ export function LoanPaymentCalculator() {
             <div className="result-item">
               <span>{text.rateType}</span>
               <strong>{getRateTypeLabel(result.input.rateType, locale)}</strong>
+            </div>
+            <div className="result-item">
+              <span>{text.currencyResult}</span>
+              <strong>{activeCurrency === "USD" ? "$" : "COP"}</strong>
             </div>
             <div className="result-item result-item--strong">
               <span>{text.termMonths}</span>

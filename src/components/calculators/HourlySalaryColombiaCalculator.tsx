@@ -50,31 +50,31 @@ const copy = {
     title: "Salario por hora",
     monthlySalary: "Salario mensual",
     monthlySalaryHelp: "Es el salario mensual que quieres convertir a valor por hora.",
-    payrollYear: "AÃ±o de reglas",
-    payrollYearHelp: "Lo usamos para aplicar la jornada legal y los lÃ­mites laborales vigentes de ese aÃ±o en Colombia.",
-    editYearAria: "Editar aÃ±o de reglas",
-    editYearTitle: "Editar aÃ±o",
+    payrollYear: "Año de reglas",
+    payrollYearHelp: "Lo usamos para aplicar la jornada legal y los límites laborales vigentes de ese año en Colombia.",
+    editYearAria: "Editar año de reglas",
+    editYearTitle: "Editar año",
     weeklyHours: "Horas semanales",
     weeklyHoursHelp: "Por defecto usamos la jornada legal vigente hoy en Colombia. Puedes editarla si tu horario real es distinto.",
     editWeeklyHoursAria: "Editar horas semanales",
     editWeeklyHoursTitle: "Editar horas",
-    salaryType: "Tipo de cÃ¡lculo",
-    salaryTypeHelp: "Bruto divide el salario sin descuentos. Neto descuenta salud, pensiÃ³n y Fondo de Solidaridad Pensional cuando aplica.",
+    salaryType: "Tipo de cálculo",
+    salaryTypeHelp: "Bruto divide el salario sin descuentos. Neto descuenta salud, pensión y Fondo de Solidaridad Pensional cuando aplica.",
     gross: "Bruto",
     net: "Neto",
     salaryRequired: "Ingresa un salario mensual mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un aÃ±o entre 2024 y ${currentYear}.`,
+    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
     weeklyHoursRange: "Ingresa horas semanales entre 1 y 168.",
     requestError: "No se pudo calcular el salario por hora.",
     preview: (salary: string, weeklyHours: string, year: string, salaryType: HourlySalaryType) =>
       `Vas a calcular sobre ${salary} al mes con ${weeklyHours} horas semanales y reglas de ${year}. ${
-        salaryType === "net" ? "El neto estima descuentos legales." : "El bruto no descuenta nÃ³mina."
+        salaryType === "net" ? "El neto estima descuentos legales." : "El bruto no descuenta nómina."
       }`,
     submit: "Calcular salario por hora",
     reset: "Restablecer",
     heroGross: "Valor bruto por hora",
     heroNet: "Valor neto por hora",
-    dailyValue: "Por dÃ­a laboral",
+    dailyValue: "Por día laboral",
     baseMonthlySalary: "Salario mensual base",
     usedMonthlySalary: "Salario mensual usado",
     weeklyHoursResult: "Horas semanales",
@@ -85,17 +85,17 @@ const copy = {
     pensionRate: "Pensión",
     solidarityFund: "Fondo de solidaridad",
     totalDeductions: "Total descuentos",
-    dailyValueLabel: "Valor por dÃ­a laboral",
+    dailyValueLabel: "Valor por día laboral",
     customRulesNote: (weeklyHours: number, year: number, legalWeeklyHours: number) =>
       `Usa ${weeklyHours} horas semanales personalizadas. La referencia legal para ${year} es ${legalWeeklyHours} horas.`,
     legalRulesNote: (year: number, legalWeeklyHours: number) =>
       `Usa la jornada legal de referencia para ${year}: ${legalWeeklyHours} horas semanales.`,
-    salaryTypeResult: "Tipo de cÃ¡lculo",
+    salaryTypeResult: "Tipo de cálculo",
     solidarityRate: "Solidaridad",
     disclaimer:
-      "EstimaciÃ³n del valor por hora para un empleado dependiente en Colombia. El cÃ¡lculo neto descuenta salud, pensiÃ³n y Fondo de Solidaridad Pensional cuando aplica. No incluye horas extra, recargos, impuestos ni acuerdos especiales.",
-    emptyTitle: "Tu valor por hora aparecerÃ¡ aquÃ­",
-    emptyDescription: "Ingresa el salario mensual, elige si quieres ver bruto o neto y calcula para obtener la conversiÃ³n por hora."
+      "Estimación del valor por hora para un empleado dependiente en Colombia. El cálculo neto descuenta salud, pensión y Fondo de Solidaridad Pensional cuando aplica. No incluye horas extra, recargos, impuestos ni acuerdos especiales.",
+    emptyTitle: "Tu valor por hora aparecerá aquí",
+    emptyDescription: "Ingresa el salario mensual, elige si quieres ver bruto o neto y calcula para obtener la conversión por hora."
   },
   en: {
     kicker: "Calculator",
