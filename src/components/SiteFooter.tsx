@@ -1,6 +1,21 @@
+import { useLocale } from "../i18n";
 import { BrandLogo } from "./BrandLogo";
 
 export function SiteFooter() {
+  const { locale, localizePath } = useLocale();
+  const copy =
+    locale === "en"
+      ? {
+          privacy: "Privacy",
+          terms: "Terms",
+          contact: "Contact"
+        }
+      : {
+          privacy: "Privacidad",
+          terms: "Términos",
+          contact: "Contacto"
+        };
+
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
@@ -9,9 +24,9 @@ export function SiteFooter() {
           <span>Tools Platforms</span>
         </div>
         <div className="footer-links">
-          <a href="/privacy">Privacidad</a>
-          <a href="/terms">Términos</a>
-          <a href="mailto:contacto@toolsplatforms.com">Contacto</a>
+          <a href={localizePath("/privacy")}>{copy.privacy}</a>
+          <a href={localizePath("/terms")}>{copy.terms}</a>
+          <a href="mailto:contacto@toolsplatforms.com">{copy.contact}</a>
         </div>
       </div>
     </footer>

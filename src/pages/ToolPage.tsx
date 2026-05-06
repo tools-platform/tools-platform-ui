@@ -17,26 +17,46 @@ import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalc
 import { ToolSeoContent } from "../components/ToolSeoContent";
 import { categories, tools } from "../data/catalog";
 import { toolContentById } from "../data/toolContent";
+import { getLocalizedText, useLocale } from "../i18n";
 
 type ToolPageProps = {
   slug: string;
 };
 
 export function ToolPage({ slug }: ToolPageProps) {
+  const { locale, localizePath } = useLocale();
   const tool = tools.find((item) => item.slug === slug);
   const category = categories.find((item) => item.id === tool?.categoryId);
+  const copy =
+    locale === "en"
+      ? {
+          back: "All tools",
+          notFoundTitle: "Tool not found",
+          notFoundCopy: "This URL does not exist in the catalog yet.",
+          preparedTitle: "Page ready",
+          preparedCopy:
+            "We will place the form, action button, results, and SEO content here when this tool goes live."
+        }
+      : {
+          back: "Todas las herramientas",
+          notFoundTitle: "Herramienta no encontrada",
+          notFoundCopy: "Esta URL todavía no existe en el catálogo.",
+          preparedTitle: "Página preparada",
+          preparedCopy:
+            "Aquí montaremos el formulario, botón de cálculo, resultados y texto SEO cuando activemos esta herramienta."
+        };
 
   if (!tool) {
     return (
       <section className="tool-page">
-        <a className="back-link" href="/">
+        <a className="back-link" href={localizePath("/")}>
           <ArrowLeft size={17} />
-          Todas las herramientas
+          {copy.back}
         </a>
 
         <div className="empty-state">
-          <h1>Herramienta no encontrada</h1>
-          <p>Esta URL todavía no existe en el catálogo.</p>
+          <h1>{copy.notFoundTitle}</h1>
+          <p>{copy.notFoundCopy}</p>
         </div>
       </section>
     );
@@ -47,22 +67,22 @@ export function ToolPage({ slug }: ToolPageProps) {
   return (
     <section className="tool-page">
       <div className="tool-page__topbar">
-        <a className="back-link" href="/">
+        <a className="back-link" href={localizePath("/")}>
           <ArrowLeft size={17} />
-          Todas las herramientas
+          {copy.back}
         </a>
 
         {category ? (
           <div className="tool-page__category-pill">
             <category.Icon size={16} strokeWidth={2.1} />
-            {category.name}
+            {getLocalizedText(category.name, locale)}
           </div>
         ) : null}
       </div>
 
       <header className="tool-page__header">
-        <h1>{tool.name}</h1>
-        <span>{tool.description}</span>
+        <h1>{getLocalizedText(tool.name, locale)}</h1>
+        <span>{getLocalizedText(tool.description, locale)}</span>
       </header>
 
       {tool.id === "net-salary-colombia" ? (
@@ -98,11 +118,8 @@ export function ToolPage({ slug }: ToolPageProps) {
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />
-          <h2>Pagina preparada</h2>
-          <p>
-            Aquí montaremos el formulario, botón de cálculo, resultados y texto SEO
-            cuando activemos esta herramienta.
-          </p>
+          <h2>{copy.preparedTitle}</h2>
+          <p>{copy.preparedCopy}</p>
         </div>
       )}
 

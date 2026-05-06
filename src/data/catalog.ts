@@ -20,21 +20,22 @@ import {
   Wrench
 } from "lucide-react";
 import type { ComponentType } from "react";
+import type { LocalizedText } from "../i18n";
 
 export type CatalogIcon = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
 
 export type Category = {
   id: string;
-  name: string;
-  description: string;
+  name: LocalizedText;
+  description: LocalizedText;
   Icon: CatalogIcon;
 };
 
 export type ToolSummary = {
   id: string;
   slug: string;
-  name: string;
-  description: string;
+  name: LocalizedText;
+  description: LocalizedText;
   categoryId: string;
   status: "draft" | "published";
   Icon: CatalogIcon;
@@ -43,32 +44,47 @@ export type ToolSummary = {
 export const categories: Category[] = [
   {
     id: "finance",
-    name: "Finanzas",
-    description: "Calculadoras para salario, créditos, prestaciones y conversiones.",
+    name: { es: "Finanzas", en: "Finance" },
+    description: {
+      es: "Calculadoras para salario, créditos, prestaciones y conversiones.",
+      en: "Calculators for salary, loans, benefits, and currency conversion."
+    },
     Icon: Calculator
   },
   {
     id: "work",
-    name: "Trabajo",
-    description: "Herramientas para horas, tarifas freelance y productividad.",
+    name: { es: "Trabajo", en: "Work" },
+    description: {
+      es: "Herramientas para horas, tarifas freelance y productividad.",
+      en: "Tools for hours worked, freelance rates, and productivity."
+    },
     Icon: BriefcaseBusiness
   },
   {
     id: "time",
-    name: "Tiempo",
-    description: "Fechas, edades exactas, semanas y cuentas regresivas.",
+    name: { es: "Tiempo", en: "Time" },
+    description: {
+      es: "Fechas, edades exactas, semanas y cuentas regresivas.",
+      en: "Dates, exact ages, weeks, and countdowns."
+    },
     Icon: Clock3
   },
   {
     id: "utilities",
-    name: "Utilidades",
-    description: "Conversiones, texto, unidades y tareas repetitivas.",
+    name: { es: "Utilidades", en: "Utilities" },
+    description: {
+      es: "Conversiones, texto, unidades y tareas repetitivas.",
+      en: "Conversions, text tools, units, and repetitive tasks."
+    },
     Icon: Wrench
   },
   {
     id: "development",
-    name: "Desarrollo",
-    description: "JSON, UUID, hashes y utilidades para programadores.",
+    name: { es: "Desarrollo", en: "Development" },
+    description: {
+      es: "JSON, UUID, hashes y utilidades para programadores.",
+      en: "JSON, UUIDs, hashes, and developer utilities."
+    },
     Icon: Code2
   }
 ];
@@ -77,8 +93,14 @@ export const tools: ToolSummary[] = [
   {
     id: "net-salary-colombia",
     slug: "colombia-net-salary-calculator",
-    name: "Calculadora de salario neto (Colombia)",
-    description: "Cuánto recibes después de salud y pensión.",
+    name: {
+      es: "Calculadora de salario neto (Colombia)",
+      en: "Net Salary Calculator (Colombia)"
+    },
+    description: {
+      es: "Cuánto recibes después de salud y pensión.",
+      en: "See what remains after health and pension deductions."
+    },
     categoryId: "finance",
     status: "published",
     Icon: Banknote
@@ -86,8 +108,14 @@ export const tools: ToolSummary[] = [
   {
     id: "employment-settlement-colombia",
     slug: "colombia-employment-settlement-calculator",
-    name: "Calculadora de liquidación (Colombia)",
-    description: "Cesantías, prima y vacaciones al salir del trabajo.",
+    name: {
+      es: "Calculadora de liquidación (Colombia)",
+      en: "Employment Settlement Calculator (Colombia)"
+    },
+    description: {
+      es: "Cesantías, prima y vacaciones al salir del trabajo.",
+      en: "Estimate severance, service bonus, and unused vacation at the end of employment."
+    },
     categoryId: "finance",
     status: "published",
     Icon: HandCoins
@@ -95,8 +123,14 @@ export const tools: ToolSummary[] = [
   {
     id: "credit-interest",
     slug: "credit-interest-calculator",
-    name: "Calculadora de intereses de crédito",
-    description: "Cuánto pagas en total por un préstamo.",
+    name: {
+      es: "Calculadora de intereses de crédito",
+      en: "Credit Interest Calculator"
+    },
+    description: {
+      es: "Cuánto pagas en total por un préstamo.",
+      en: "Estimate total interest paid on a loan."
+    },
     categoryId: "finance",
     status: "published",
     Icon: Landmark
@@ -104,8 +138,14 @@ export const tools: ToolSummary[] = [
   {
     id: "loan-payment",
     slug: "loan-payment-calculator",
-    name: "Cuota de préstamo",
-    description: "Valor de la cuota mensual de un crédito.",
+    name: {
+      es: "Cuota de préstamo",
+      en: "Loan Payment Calculator"
+    },
+    description: {
+      es: "Valor de la cuota mensual de un crédito.",
+      en: "Estimate the monthly payment of a loan."
+    },
     categoryId: "finance",
     status: "published",
     Icon: BadgeDollarSign
@@ -113,8 +153,14 @@ export const tools: ToolSummary[] = [
   {
     id: "cop-usd",
     slug: "cop-to-usd-converter",
-    name: "Conversor COP a USD",
-    description: "Convierte pesos colombianos a dólares de forma rápida.",
+    name: {
+      es: "Conversor COP a USD",
+      en: "COP to USD Converter"
+    },
+    description: {
+      es: "Convierte pesos colombianos a dólares de forma rápida.",
+      en: "Convert Colombian pesos to US dollars quickly."
+    },
     categoryId: "finance",
     status: "published",
     Icon: Coins
@@ -122,8 +168,14 @@ export const tools: ToolSummary[] = [
   {
     id: "worked-hours",
     slug: "worked-hours-calculator",
-    name: "Calculadora de horas trabajadas",
-    description: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
+    name: {
+      es: "Calculadora de horas trabajadas",
+      en: "Worked Hours Calculator"
+    },
+    description: {
+      es: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
+      en: "Add up worked hours across dates and shifts."
+    },
     categoryId: "work",
     status: "published",
     Icon: Timer
@@ -131,8 +183,14 @@ export const tools: ToolSummary[] = [
   {
     id: "hourly-salary",
     slug: "hourly-salary-calculator",
-    name: "Calculadora de salario por horas (Colombia)",
-    description: "Convierte un salario mensual en valor por hora para comparar ingresos.",
+    name: {
+      es: "Calculadora de salario por horas (Colombia)",
+      en: "Hourly Salary Calculator (Colombia)"
+    },
+    description: {
+      es: "Convierte un salario mensual en valor por hora para comparar ingresos.",
+      en: "Convert a monthly salary into an hourly value to compare income."
+    },
     categoryId: "work",
     status: "published",
     Icon: Clock3
@@ -140,8 +198,14 @@ export const tools: ToolSummary[] = [
   {
     id: "employee-salary-equivalent",
     slug: "employee-salary-for-independents-calculator",
-    name: "Calculadora de sueldo de empleado para independientes (Colombia)",
-    description: "Convierte lo que cobras por hora en sueldo quincenal y mensual como empleado.",
+    name: {
+      es: "Calculadora de sueldo de empleado para independientes (Colombia)",
+      en: "Employee Salary Calculator for Independent Workers (Colombia)"
+    },
+    description: {
+      es: "Convierte lo que cobras por hora en sueldo quincenal y mensual como empleado.",
+      en: "Convert what you charge per hour into an equivalent biweekly and monthly employee salary."
+    },
     categoryId: "work",
     status: "published",
     Icon: BriefcaseBusiness
@@ -149,8 +213,14 @@ export const tools: ToolSummary[] = [
   {
     id: "freelance-rate",
     slug: "freelance-rate-calculator",
-    name: "Calculadora de cuánto cobrar freelance",
-    description: "Sugiere una tarifa según tu meta mensual y horas de trabajo.",
+    name: {
+      es: "Calculadora de cuánto cobrar freelance",
+      en: "Freelance Rate Calculator"
+    },
+    description: {
+      es: "Sugiere una tarifa según tu meta mensual y horas de trabajo.",
+      en: "Suggest a freelance rate based on your monthly income goal."
+    },
     categoryId: "work",
     status: "published",
     Icon: BriefcaseBusiness
@@ -158,8 +228,14 @@ export const tools: ToolSummary[] = [
   {
     id: "days-between-dates",
     slug: "days-between-dates-calculator",
-    name: "Contador de días entre fechas",
-    description: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
+    name: {
+      es: "Contador de días entre fechas",
+      en: "Days Between Dates Calculator"
+    },
+    description: {
+      es: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
+      en: "Count how many days are between two dates."
+    },
     categoryId: "time",
     status: "published",
     Icon: CalendarDays
@@ -167,8 +243,14 @@ export const tools: ToolSummary[] = [
   {
     id: "exact-age",
     slug: "exact-age-calculator",
-    name: "Calculadora de edad exacta",
-    description: "Calcula edad en años, meses y días.",
+    name: {
+      es: "Calculadora de edad exacta",
+      en: "Exact Age Calculator"
+    },
+    description: {
+      es: "Calcula edad en años, meses y días.",
+      en: "Calculate age in years, months, and days."
+    },
     categoryId: "time",
     status: "published",
     Icon: Clock3
@@ -176,8 +258,14 @@ export const tools: ToolSummary[] = [
   {
     id: "unit-converter",
     slug: "unit-converter",
-    name: "Conversor de unidades",
-    description: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
+    name: {
+      es: "Conversor de unidades",
+      en: "Unit Converter"
+    },
+    description: {
+      es: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
+      en: "Convert kilometers, miles, kilos, pounds, and other common units."
+    },
     categoryId: "utilities",
     status: "published",
     Icon: Ruler
@@ -185,8 +273,14 @@ export const tools: ToolSummary[] = [
   {
     id: "text-case-converter",
     slug: "text-case-converter",
-    name: "Convertidor de mayúsculas y minúsculas",
-    description: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
+    name: {
+      es: "Convertidor de mayúsculas y minúsculas",
+      en: "Text Case Converter"
+    },
+    description: {
+      es: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
+      en: "Transform text to uppercase, lowercase, or title case."
+    },
     categoryId: "utilities",
     status: "published",
     Icon: LetterText
@@ -194,8 +288,14 @@ export const tools: ToolSummary[] = [
   {
     id: "secure-password-generator",
     slug: "secure-password-generator",
-    name: "Generador de contraseñas seguras",
-    description: "Crea contraseñas aleatorias y seguras en tu navegador.",
+    name: {
+      es: "Generador de contraseñas seguras",
+      en: "Secure Password Generator"
+    },
+    description: {
+      es: "Crea contraseñas aleatorias y seguras en tu navegador.",
+      en: "Create random, secure passwords in your browser."
+    },
     categoryId: "utilities",
     status: "published",
     Icon: KeyRound
@@ -203,8 +303,14 @@ export const tools: ToolSummary[] = [
   {
     id: "case-style-converter",
     slug: "case-style-converter",
-    name: "Convertidor de estilos de texto para código",
-    description: "Convierte frases a camelCase, PascalCase, snake_case, kebab-case y más formatos.",
+    name: {
+      es: "Convertidor de estilos de texto para código",
+      en: "Code Case Style Converter"
+    },
+    description: {
+      es: "Convierte frases a camelCase, PascalCase, snake_case, kebab-case y más formatos.",
+      en: "Convert phrases to camelCase, PascalCase, snake_case, kebab-case, and more."
+    },
     categoryId: "development",
     status: "published",
     Icon: Code2
@@ -212,8 +318,11 @@ export const tools: ToolSummary[] = [
   {
     id: "json-formatter",
     slug: "json-formatter",
-    name: "Formateador JSON",
-    description: "Organiza JSON para hacerlo legible y fácil de revisar.",
+    name: { es: "Formateador JSON", en: "JSON Formatter" },
+    description: {
+      es: "Organiza JSON para hacerlo legible y fácil de revisar.",
+      en: "Format JSON to make it readable and easier to inspect."
+    },
     categoryId: "development",
     status: "draft",
     Icon: FileJson
@@ -221,8 +330,11 @@ export const tools: ToolSummary[] = [
   {
     id: "uuid-generator",
     slug: "uuid-generator",
-    name: "Generador UUID",
-    description: "Crea identificadores únicos para sistemas y pruebas.",
+    name: { es: "Generador UUID", en: "UUID Generator" },
+    description: {
+      es: "Crea identificadores únicos para sistemas y pruebas.",
+      en: "Generate unique identifiers for systems and tests."
+    },
     categoryId: "development",
     status: "draft",
     Icon: Binary
@@ -230,8 +342,11 @@ export const tools: ToolSummary[] = [
   {
     id: "hash-generator",
     slug: "hash-generator",
-    name: "Generador hash",
-    description: "Genera hashes como MD5 o SHA para desarrollo y seguridad.",
+    name: { es: "Generador hash", en: "Hash Generator" },
+    description: {
+      es: "Genera hashes como MD5 o SHA para desarrollo y seguridad.",
+      en: "Generate MD5, SHA, and similar hashes for development and security."
+    },
     categoryId: "development",
     status: "draft",
     Icon: Hash
@@ -239,8 +354,11 @@ export const tools: ToolSummary[] = [
   {
     id: "salary-increase",
     slug: "salary-increase-calculator",
-    name: "Calculadora de aumento salarial",
-    description: "Calcula cómo queda un salario después de un aumento porcentual.",
+    name: { es: "Calculadora de aumento salarial", en: "Salary Increase Calculator" },
+    description: {
+      es: "Calcula cómo queda un salario después de un aumento porcentual.",
+      en: "Calculate what a salary looks like after a percentage increase."
+    },
     categoryId: "finance",
     status: "draft",
     Icon: Repeat2
@@ -248,8 +366,11 @@ export const tools: ToolSummary[] = [
   {
     id: "annual-salary",
     slug: "annual-salary-calculator",
-    name: "Calculadora de salario anual",
-    description: "Calcula cuánto ganas en un año completo según tu salario mensual.",
+    name: { es: "Calculadora de salario anual", en: "Annual Salary Calculator" },
+    description: {
+      es: "Calcula cuánto ganas en un año completo según tu salario mensual.",
+      en: "Calculate your annual income from a monthly salary."
+    },
     categoryId: "finance",
     status: "draft",
     Icon: Banknote
@@ -257,8 +378,14 @@ export const tools: ToolSummary[] = [
   {
     id: "social-benefits-colombia",
     slug: "colombia-social-benefits-calculator",
-    name: "Calculadora de prestaciones sociales",
-    description: "Desglosa beneficios como cesantías, prima y vacaciones.",
+    name: {
+      es: "Calculadora de prestaciones sociales",
+      en: "Social Benefits Calculator (Colombia)"
+    },
+    description: {
+      es: "Desglosa beneficios como cesantías, prima y vacaciones.",
+      en: "Break down benefits such as severance, service bonus, and vacation."
+    },
     categoryId: "finance",
     status: "draft",
     Icon: HandCoins
@@ -266,8 +393,11 @@ export const tools: ToolSummary[] = [
   {
     id: "productivity",
     slug: "productivity-calculator",
-    name: "Calculadora de productividad",
-    description: "Mide cuánto produces en cierto tiempo para análisis laboral.",
+    name: { es: "Calculadora de productividad", en: "Productivity Calculator" },
+    description: {
+      es: "Mide cuánto produces en cierto tiempo para análisis laboral.",
+      en: "Measure output over time for work analysis."
+    },
     categoryId: "work",
     status: "draft",
     Icon: Timer
@@ -275,8 +405,11 @@ export const tools: ToolSummary[] = [
   {
     id: "hourly-cost",
     slug: "hourly-cost-calculator",
-    name: "Calculadora de costo por hora",
-    description: "Calcula cuánto cuesta realmente una hora de trabajo incluyendo gastos.",
+    name: { es: "Calculadora de costo por hora", en: "Hourly Cost Calculator" },
+    description: {
+      es: "Calcula cuánto cuesta realmente una hora de trabajo incluyendo gastos.",
+      en: "Calculate the real cost of one hour of work, including expenses."
+    },
     categoryId: "work",
     status: "draft",
     Icon: BriefcaseBusiness
@@ -284,8 +417,11 @@ export const tools: ToolSummary[] = [
   {
     id: "days-until-date",
     slug: "days-until-date-calculator",
-    name: "Cuántos días faltan para una fecha",
-    description: "Cuenta los días restantes para eventos importantes o entregas.",
+    name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator" },
+    description: {
+      es: "Cuenta los días restantes para eventos importantes o entregas.",
+      en: "Count the days left until an event or deadline."
+    },
     categoryId: "time",
     status: "draft",
     Icon: CalendarDays
@@ -293,8 +429,11 @@ export const tools: ToolSummary[] = [
   {
     id: "weeks-between-dates",
     slug: "weeks-between-dates-calculator",
-    name: "Calculadora de semanas entre fechas",
-    description: "Convierte el tiempo entre dos fechas a semanas y días.",
+    name: { es: "Calculadora de semanas entre fechas", en: "Weeks Between Dates Calculator" },
+    description: {
+      es: "Convierte el tiempo entre dos fechas a semanas y días.",
+      en: "Convert the time between two dates into weeks and days."
+    },
     categoryId: "time",
     status: "draft",
     Icon: Clock3

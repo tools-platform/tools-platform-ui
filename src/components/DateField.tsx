@@ -1,5 +1,6 @@
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocale } from "../i18n";
 
 type DateFieldProps = {
   ariaLabel: string;
@@ -7,25 +8,6 @@ type DateFieldProps = {
   placeholder?: string;
   value: string;
 };
-
-const monthFormatter = new Intl.DateTimeFormat("es-CO", {
-  month: "long"
-});
-
-const displayFormatter = new Intl.DateTimeFormat("es-CO", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric"
-});
-
-const weekDays = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
-
-const months = Array.from({ length: 12 }, (_, monthIndex) => ({
-  label: monthFormatter.format(new Date(2026, monthIndex, 1)),
-  value: monthIndex
-}));
-
-const years = Array.from({ length: new Date().getFullYear() - 1948 }, (_, index) => new Date().getFullYear() + 1 - index);
 
 function toDateKey(date: Date) {
   const year = date.getFullYear();
@@ -62,7 +44,55 @@ function buildCalendarDays(monthDate: Date) {
   });
 }
 
-export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", value }: DateFieldProps) {
+export function DateField({ ariaLabel, onChange, placeholder, value }: DateFieldProps) {
+  const { locale } = useLocale();
+  const monthFormatter = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale === "en" ? "en-US" : "es-CO", {
+        month: "long"
+      }),
+    [locale]
+  );
+  const displayFormatter = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale === "en" ? "en-CA" : "es-CO", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      }),
+    [locale]
+  );
+  const weekDays = locale === "en" ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] : ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+  const months = useMemo(
+    () =>
+      Array.from({ length: 12 }, (_, monthIndex) => ({
+        label: monthFormatter.format(new Date(2026, monthIndex, 1)),
+        value: monthIndex
+      })),
+    [monthFormatter]
+  );
+  const years = Array.from(
+    { length: new Date().getFullYear() - 1948 },
+    (_, index) => new Date().getFullYear() + 1 - index
+  );
+  const copy =
+    locale === "en"
+      ? {
+          placeholder: placeholder ?? "mm/dd/yyyy",
+          previousMonth: "Previous month",
+          selectMonth: "Select month",
+          selectYear: "Select year",
+          nextMonth: "Next month",
+          today: "Today"
+        }
+      : {
+          placeholder: placeholder ?? "dd/mm/aaaa",
+          previousMonth: "Mes anterior",
+          selectMonth: "Seleccionar mes",
+          selectYear: "Seleccionar año",
+          nextMonth: "Mes siguiente",
+          today: "Hoy"
+        };
   const selectedDate = useMemo(() => fromDateKey(value), [value]);
   const [isOpen, setIsOpen] = useState(false);
   const [visibleMonth, setVisibleMonth] = useState(() => startOfMonth(selectedDate ?? new Date()));
@@ -138,19 +168,19 @@ export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", val
       >
         <CalendarDays size={17} strokeWidth={2.1} />
         <span className={selectedDate ? "" : "date-field__placeholder"}>
-          {selectedDate ? displayFormatter.format(selectedDate) : placeholder}
+          {selectedDate ? displayFormatter.format(selectedDate) : copy.placeholder}
         </span>
       </button>
 
       {isOpen ? (
         <div className="date-picker" role="dialog">
           <div className="date-picker__header">
-            <button aria-label="Mes anterior" onClick={() => moveMonth(-1)} type="button">
+            <button aria-label={copy.previousMonth} onClick={() => moveMonth(-1)} type="button">
               <ChevronLeft size={17} strokeWidth={2.1} />
             </button>
             <div className="date-picker__jump">
               <select
-                aria-label="Seleccionar mes"
+                aria-label={copy.selectMonth}
                 onChange={(event) => selectVisibleMonth(Number(event.target.value))}
                 value={visibleMonth.getMonth()}
               >
@@ -161,7 +191,7 @@ export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", val
                 ))}
               </select>
               <select
-                aria-label="Seleccionar año"
+                aria-label={copy.selectYear}
                 onChange={(event) => selectVisibleYear(Number(event.target.value))}
                 value={visibleMonth.getFullYear()}
               >
@@ -172,7 +202,7 @@ export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", val
                 ))}
               </select>
             </div>
-            <button aria-label="Mes siguiente" onClick={() => moveMonth(1)} type="button">
+            <button aria-label={copy.nextMonth} onClick={() => moveMonth(1)} type="button">
               <ChevronRight size={17} strokeWidth={2.1} />
             </button>
           </div>
@@ -211,7 +241,7 @@ export function DateField({ ariaLabel, onChange, placeholder = "dd/mm/aaaa", val
 
           <div className="date-picker__footer">
             <button onClick={selectToday} type="button">
-              Hoy
+              {copy.today}
             </button>
           </div>
         </div>

@@ -55,9 +55,15 @@ export type ExactAgeResponse = {
 export function calculateDaysBetweenDates(
   request: DaysBetweenDatesRequest
 ): Promise<DaysBetweenDatesResponse["data"]> {
-  return postJson("/time/days-between-dates", request, "No se pudieron contar los días.");
+  return postJson("/time/days-between-dates", request, {
+    es: "No se pudieron contar los días.",
+    en: "We couldn't count the days."
+  });
 }
 
 export function calculateExactAge(request: ExactAgeRequest): Promise<ExactAgeResponse["data"]> {
-  return postJson("/time/exact-age", request, "No se pudo calcular la edad.");
+  return postJson("/time/exact-age", request, {
+    es: "No se pudo calcular la edad.",
+    en: "We couldn't calculate the exact age."
+  });
 }

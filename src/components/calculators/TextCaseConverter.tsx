@@ -1,50 +1,94 @@
-import { CheckCircle2, Clipboard, Info, LetterText, RotateCcw, Wand2 } from "lucide-react";
+﻿import { CheckCircle2, Clipboard, Info, LetterText, RotateCcw, Wand2 } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
+import { useLocale } from "../../i18n";
 
 type CaseMode = "uppercase" | "lowercase" | "capitalized" | "sentence";
 
-const caseModes: Array<{ value: CaseMode; label: string; description: string; example: string }> = [
-  {
-    value: "uppercase",
-    label: "Mayúsculas",
-    description: "Convierte todo el texto a letras grandes.",
-    example: "HOLA MUNDO"
+function countWords(value: string) {
+  const words = value.trim().match(/\S+/g);
+  return words?.length ?? 0;
+}
+
+const copy = {
+  es: {
+    modes: [
+      { value: "uppercase", label: "Mayúsculas", description: "Convierte todo el texto a letras grandes.", example: "HOLA MUNDO" },
+      { value: "lowercase", label: "Minúsculas", description: "Convierte todo el texto a letras pequeñas.", example: "hola mundo" },
+      { value: "capitalized", label: "Capitalizado", description: "Pone en mayúscula la primera letra de cada palabra.", example: "Hola Mundo" },
+      { value: "sentence", label: "Tipo oración", description: "Pone en mayúscula el inicio de cada frase.", example: "Hola mundo." }
+    ] as const,
+    kicker: "Convertidor",
+    title: "Formato de texto",
+    originalText: "Texto original",
+    originalPlaceholder: "Pega aquí el texto que quieres convertir...",
+    format: "Formato",
+    emptyError: "Escribe o pega un texto para transformarlo.",
+    hint: "El texto se transforma en tu navegador. No se envía a ningún servidor.",
+    submit: "Transformar texto",
+    reset: "Restablecer",
+    copied: "Texto copiado.",
+    copyFailed: "No se pudo copiar automáticamente.",
+    transformedText: "Texto transformado",
+    words: "Palabras",
+    characters: "Caracteres",
+    result: "Resultado",
+    copy: "Copiar",
+    appliedFormat: "Formato aplicado",
+    privacy: "Privacidad",
+    local: "Local",
+    rulesNote: "Conversión aplicada directamente en el navegador para tareas rápidas de texto.",
+    disclaimer:
+      "Resultado automático de formato. Revisa nombres propios, siglas o estilos editoriales si el texto se usará de forma profesional.",
+    emptyTitle: "Resultado de texto",
+    emptyDescription: "Elige un formato y transforma tu texto en segundos."
   },
-  {
-    value: "lowercase",
-    label: "Minúsculas",
-    description: "Convierte todo el texto a letras pequeñas.",
-    example: "hola mundo"
-  },
-  {
-    value: "capitalized",
-    label: "Capitalizado",
-    description: "Pone en mayúscula la primera letra de cada palabra.",
-    example: "Hola Mundo"
-  },
-  {
-    value: "sentence",
-    label: "Tipo oración",
-    description: "Pone en mayúscula el inicio de cada frase.",
-    example: "Hola mundo."
+  en: {
+    modes: [
+      { value: "uppercase", label: "Uppercase", description: "Turns the whole text into uppercase letters.", example: "HELLO WORLD" },
+      { value: "lowercase", label: "Lowercase", description: "Turns the whole text into lowercase letters.", example: "hello world" },
+      { value: "capitalized", label: "Capitalized", description: "Uppercases the first letter of each word.", example: "Hello World" },
+      { value: "sentence", label: "Sentence case", description: "Uppercases the beginning of each sentence.", example: "Hello world." }
+    ] as const,
+    kicker: "Converter",
+    title: "Text formatting",
+    originalText: "Original text",
+    originalPlaceholder: "Paste the text you want to transform here...",
+    format: "Format",
+    emptyError: "Type or paste text to transform it.",
+    hint: "The text is transformed in your browser. It is not sent to any server.",
+    submit: "Transform text",
+    reset: "Reset",
+    copied: "Text copied.",
+    copyFailed: "We couldn't copy it automatically.",
+    transformedText: "Transformed text",
+    words: "Words",
+    characters: "Characters",
+    result: "Result",
+    copy: "Copy",
+    appliedFormat: "Applied format",
+    privacy: "Privacy",
+    local: "Local",
+    rulesNote: "Conversion is applied directly in the browser for quick text tasks.",
+    disclaimer:
+      "Automatic formatting result. Review proper nouns, acronyms, or editorial styles if the text will be used professionally.",
+    emptyTitle: "Text result",
+    emptyDescription: "Choose a format and transform your text in seconds."
   }
-];
+} as const;
 
-function capitalizeWords(value: string) {
-  const lowerText = value.toLocaleLowerCase("es-CO");
-
-  return lowerText.replace(/(^|[\s¿¡([{'"“‘-])(\p{L})/gu, (_, prefix: string, letter: string) => {
-    return `${prefix}${letter.toLocaleUpperCase("es-CO")}`;
+function capitalizeWords(value: string, localeCode: string) {
+  const lowerText = value.toLocaleLowerCase(localeCode);
+  return lowerText.replace(/(^|[\s¿¡([{'"-])(\p{L})/gu, (_, prefix: string, letter: string) => {
+    return `${prefix}${letter.toLocaleUpperCase(localeCode)}`;
   });
 }
 
-function sentenceCase(value: string) {
-  const lowerText = value.toLocaleLowerCase("es-CO");
-
+function sentenceCase(value: string, localeCode: string) {
+  const lowerText = value.toLocaleLowerCase(localeCode);
   const formattedText = lowerText.replace(/(^|[.!?]\s+)(\p{L})/gu, (_, prefix: string, letter: string) => {
-    return `${prefix}${letter.toLocaleUpperCase("es-CO")}`;
+    return `${prefix}${letter.toLocaleUpperCase(localeCode)}`;
   });
 
   return formattedText
@@ -66,28 +110,18 @@ function sentenceCase(value: string) {
     .join("");
 }
 
-function transformText(value: string, mode: CaseMode) {
-  if (mode === "uppercase") {
-    return value.toLocaleUpperCase("es-CO");
-  }
-
-  if (mode === "lowercase") {
-    return value.toLocaleLowerCase("es-CO");
-  }
-
-  if (mode === "capitalized") {
-    return capitalizeWords(value);
-  }
-
-  return sentenceCase(value);
-}
-
-function countWords(value: string) {
-  const words = value.trim().match(/\S+/g);
-  return words?.length ?? 0;
+function transformText(value: string, mode: CaseMode, localeCode: string) {
+  if (mode === "uppercase") return value.toLocaleUpperCase(localeCode);
+  if (mode === "lowercase") return value.toLocaleLowerCase(localeCode);
+  if (mode === "capitalized") return capitalizeWords(value, localeCode);
+  return sentenceCase(value, localeCode);
 }
 
 export function TextCaseConverter() {
+  const { locale } = useLocale();
+  const localeCode = locale === "es" ? "es-CO" : "en-US";
+  const text = copy[locale];
+  const caseModes = text.modes;
   const [inputText, setInputText] = useState("");
   const [mode, setMode] = useState<CaseMode>("uppercase");
   const [appliedMode, setAppliedMode] = useState<CaseMode>("uppercase");
@@ -96,10 +130,7 @@ export function TextCaseConverter() {
   const [copyStatus, setCopyStatus] = useState("");
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
-  const resultMode = useMemo(() => {
-    return caseModes.find((caseMode) => caseMode.value === appliedMode) ?? caseModes[0];
-  }, [appliedMode]);
-
+  const resultMode = useMemo(() => caseModes.find((caseMode) => caseMode.value === appliedMode) ?? caseModes[0], [appliedMode, caseModes]);
   const characterCount = result.length;
   const wordCount = countWords(result);
 
@@ -109,12 +140,12 @@ export function TextCaseConverter() {
     setCopyStatus("");
 
     if (!inputText.trim()) {
-      setError("Escribe o pega un texto para transformarlo.");
+      setError(text.emptyError);
       setResult("");
       return;
     }
 
-    setResult(transformText(inputText, mode));
+    setResult(transformText(inputText, mode, localeCode));
     setAppliedMode(mode);
     scrollToResultOnMobile();
   }
@@ -129,15 +160,12 @@ export function TextCaseConverter() {
   }
 
   async function handleCopy() {
-    if (!result) {
-      return;
-    }
-
+    if (!result) return;
     try {
       await navigator.clipboard.writeText(result);
-      setCopyStatus("Texto copiado.");
+      setCopyStatus(text.copied);
     } catch {
-      setCopyStatus("No se pudo copiar automáticamente.");
+      setCopyStatus(text.copyFailed);
     }
   }
 
@@ -146,8 +174,8 @@ export function TextCaseConverter() {
       <form className="calculator-card" onSubmit={handleSubmit}>
         <div className="calculator-card__header">
           <div>
-            <p className="section__kicker">Convertidor</p>
-            <h2>Formato de texto</h2>
+            <p className="section__kicker">{text.kicker}</p>
+            <h2>{text.title}</h2>
           </div>
           <span>
             <LetterText size={20} strokeWidth={2.1} />
@@ -155,23 +183,21 @@ export function TextCaseConverter() {
         </div>
 
         <label className="field">
-          <span>
-            Texto original <span className="required-mark">*</span>
-          </span>
+          <span>{text.originalText} <span className="required-mark">*</span></span>
           <textarea
             className="text-tool-textarea"
             onChange={(event) => {
               setInputText(event.target.value);
               setCopyStatus("");
             }}
-            placeholder="Pega aquí el texto que quieres convertir..."
+            placeholder={text.originalPlaceholder}
             rows={8}
             value={inputText}
           />
         </label>
 
         <div className="field field--spaced">
-          <span>Formato</span>
+          <span>{text.format}</span>
           <div className="case-mode-grid">
             {caseModes.map((caseMode) => (
               <button
@@ -195,34 +221,34 @@ export function TextCaseConverter() {
 
         <div className="calculator-hint">
           <Info size={16} strokeWidth={2.1} />
-          <span>El texto se transforma en tu navegador. No se envía a ningún servidor.</span>
+          <span>{text.hint}</span>
         </div>
 
         <button className="primary-action" type="submit">
           <Wand2 size={18} />
-          Transformar texto
+          {text.submit}
         </button>
 
         <button className="secondary-action" onClick={handleReset} type="button">
           <RotateCcw size={18} />
-          Restablecer
+          {text.reset}
         </button>
       </form>
 
       {result ? (
         <aside className="result-panel" ref={resultRef}>
           <div className="result-panel__hero result-panel__hero--compact">
-            <p>Texto transformado</p>
+            <p>{text.transformedText}</p>
             <strong>{resultMode.label}</strong>
-            <span>{wordCount} palabras · {characterCount} caracteres</span>
+            <span>{wordCount} {text.words} · {characterCount} {text.characters}</span>
           </div>
 
           <div className="text-result">
             <div className="text-result__header">
-              <span>Resultado</span>
+              <span>{text.result}</span>
               <button onClick={handleCopy} type="button">
                 <Clipboard size={16} strokeWidth={2.1} />
-                Copiar
+                {text.copy}
               </button>
             </div>
             <textarea readOnly rows={10} value={result} />
@@ -231,39 +257,36 @@ export function TextCaseConverter() {
 
           <div className="result-breakdown">
             <div className="result-item">
-              <span>Formato aplicado</span>
+              <span>{text.appliedFormat}</span>
               <strong>{resultMode.label}</strong>
             </div>
             <div className="result-item">
-              <span>Palabras</span>
+              <span>{text.words}</span>
               <strong>{wordCount}</strong>
             </div>
             <div className="result-item">
-              <span>Caracteres</span>
+              <span>{text.characters}</span>
               <strong>{characterCount}</strong>
             </div>
             <div className="result-item result-item--strong">
-              <span>Privacidad</span>
-              <strong>Local</strong>
+              <span>{text.privacy}</span>
+              <strong>{text.local}</strong>
             </div>
           </div>
 
           <div className="rules-note">
             <CheckCircle2 size={18} strokeWidth={2.1} />
-            <p>Conversión aplicada directamente en el navegador para tareas rápidas de texto.</p>
+            <p>{text.rulesNote}</p>
           </div>
 
-          <p className="disclaimer">
-            Resultado automático de formato. Revisa nombres propios, siglas o estilos editoriales si el texto se usará
-            de forma profesional.
-          </p>
+          <p className="disclaimer">{text.disclaimer}</p>
         </aside>
       ) : (
         <aside className="result-panel result-panel--empty" ref={resultRef}>
           <div className="result-empty">
             <LetterText size={34} strokeWidth={2.1} />
-            <h2>Resultado de texto</h2>
-            <p>Elige un formato y transforma tu texto en segundos.</p>
+            <h2>{text.emptyTitle}</h2>
+            <p>{text.emptyDescription}</p>
           </div>
         </aside>
       )}

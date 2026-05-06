@@ -297,29 +297,47 @@ export type EmploymentSettlementColombiaResponse = {
 export function calculateNetSalaryColombia(
   request: NetSalaryColombiaRequest
 ): Promise<NetSalaryColombiaResponse["data"]> {
-  return postJson("/finance/net-salary-colombia", request, "No se pudo calcular el salario.");
+  return postJson("/finance/net-salary-colombia", request, {
+    es: "No se pudo calcular el salario.",
+    en: "We couldn't calculate the net salary."
+  });
 }
 
 export function calculateHourlySalaryColombia(
   request: HourlySalaryColombiaRequest
 ): Promise<HourlySalaryColombiaResponse["data"]> {
-  return postJson("/work/hourly-salary", request, "No se pudo calcular el salario por hora.");
+  return postJson("/work/hourly-salary", request, {
+    es: "No se pudo calcular el salario por hora.",
+    en: "We couldn't calculate the hourly salary."
+  });
 }
 
 export function calculateCreditInterest(request: CreditInterestRequest): Promise<CreditInterestResponse["data"]> {
-  return postJson("/finance/credit-interest", request, "No se pudo calcular el interés.");
+  return postJson("/finance/credit-interest", request, {
+    es: "No se pudo calcular el interés.",
+    en: "We couldn't calculate the credit interest."
+  });
 }
 
 export function calculateLoanPayment(request: LoanPaymentRequest): Promise<LoanPaymentResponse["data"]> {
-  return postJson("/finance/loan-payment", request, "No se pudo calcular la cuota.");
+  return postJson("/finance/loan-payment", request, {
+    es: "No se pudo calcular la cuota.",
+    en: "We couldn't calculate the monthly payment."
+  });
 }
 
 export function convertCopUsd(request: CopUsdConverterRequest): Promise<CopUsdConverterResponse["data"]> {
-  return postJson("/finance/cop-usd-converter", request, "No se pudo convertir la moneda.");
+  return postJson("/finance/cop-usd-converter", request, {
+    es: "No se pudo convertir la moneda.",
+    en: "We couldn't convert the currency."
+  });
 }
 
 export function calculateEmploymentSettlementColombia(
   request: EmploymentSettlementColombiaRequest
 ): Promise<EmploymentSettlementColombiaResponse["data"]> {
-  return postJson("/finance/employment-settlement-colombia", request, "No se pudo calcular la liquidación.");
+  return postJson("/finance/employment-settlement-colombia", request, {
+    es: "No se pudo calcular la liquidación.",
+    en: "We couldn't calculate the employment settlement."
+  });
 }

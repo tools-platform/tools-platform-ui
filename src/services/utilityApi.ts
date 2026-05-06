@@ -48,5 +48,8 @@ export type UnitConverterResponse = {
 };
 
 export function convertUnits(request: UnitConverterRequest): Promise<UnitConverterResponse["data"]> {
-  return postJson("/utility/unit-converter", request, "No se pudo convertir la unidad.");
+  return postJson("/utility/unit-converter", request, {
+    es: "No se pudo convertir la unidad.",
+    en: "We couldn't convert the unit."
+  });
 }

@@ -1,7 +1,8 @@
-﻿import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
+import { useLocale } from "../../i18n";
 import {
   calculateEmployeeSalaryEquivalent,
   type EmployeeSalaryEquivalentResponse
@@ -9,53 +10,128 @@ import {
 
 type EmployeeSalaryEquivalentData = EmployeeSalaryEquivalentResponse["data"];
 
-const numberFormatter = new Intl.NumberFormat("es-CO", {
-  maximumFractionDigits: 0
-});
-
-const decimalFormatter = new Intl.NumberFormat("es-CO", {
-  maximumFractionDigits: 2
-});
-
-const currencyFormatter = new Intl.NumberFormat("es-CO", {
-  style: "currency",
-  currency: "COP",
-  maximumFractionDigits: 0
-});
-
 function parseMoney(value: string) {
   const normalized = value.replace(/[^\d]/g, "");
   return normalized.length > 0 ? Number(normalized) : 0;
 }
 
-function formatMoneyInput(value: string) {
-  const normalized = value.replace(/[^\d]/g, "");
-  return normalized.length > 0 ? numberFormatter.format(Number(normalized)) : "";
-}
-
-function formatMoney(value: number) {
-  return currencyFormatter.format(value);
-}
-
-function formatDecimal(value: number) {
-  return decimalFormatter.format(value);
-}
-
-function formatRate(value: number) {
-  return `${numberFormatter.format(value * 100)}%`;
-}
-
 function buildPayrollYears(currentYear: number) {
   const years: number[] = [];
-
-  for (let year = currentYear; year >= 2024; year -= 1) {
-    years.push(year);
-  }
-
+  for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
 
+const copy = {
+  es: {
+    kicker: "Calculadora",
+    title: "Sueldo equivalente",
+    hourlyRate: "Cuánto cobras por hora",
+    hourlyRateHelp: "Es el valor que facturas o cobras por cada hora de trabajo independiente.",
+    payrollYear: "Año de reglas",
+    payrollYearHelp: "Lo usamos para aplicar los descuentos y umbrales legales vigentes de ese año en Colombia.",
+    editYearAria: "Editar año de reglas",
+    editYearTitle: "Editar año",
+    weeklyHours: "Horas por semana",
+    weeklyHoursHelp: "Usa las horas reales que sí trabajas y cobras cada semana. Con eso proyectamos el equivalente como sueldo de empleado.",
+    hourlyRateRequired: "Ingresa cuánto cobras por hora.",
+    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
+    weeklyHoursRange: "Ingresa horas por semana entre 1 y 168.",
+    requestError: "No se pudo calcular el sueldo equivalente.",
+    preview: (hourlyRate: string, weeklyHours: string, year: string) =>
+      `Tomamos ${hourlyRate} por hora y ${weeklyHours} horas semanales para proyectarlo como sueldo de empleado en Colombia con reglas de ${year}.`,
+    submit: "Calcular sueldo equivalente",
+    reset: "Restablecer",
+    heroTitle: "Neto mensual estimado como empleado",
+    grossMonthlyEquivalent: "Bruto mensual equivalente",
+    weeklyIndependentIncome: "Ingreso semanal actual",
+    grossBiweeklyEquivalentSalary: "Sueldo quincenal bruto",
+    netBiweeklyEquivalentSalary: "Sueldo quincenal neto",
+    grossAnnualEquivalentSalary: "Sueldo anual bruto",
+    monthlyWorkingHours: "Horas mensuales equivalentes",
+    totalDeductions: "Descuentos mensuales estimados",
+    rulesNote: (hours: string) =>
+      `El cálculo usa ${hours} horas equivalentes al mes y los descuentos laborales vigentes para ese año.`,
+    health: "Salud",
+    pension: "Pensión",
+    solidarity: "Solidaridad",
+    disclaimer:
+      "Estimación para comparar lo que cobras como independiente frente a un sueldo de empleado en Colombia. No reemplaza una oferta laboral real ni incluye prestaciones, impuestos, recargos o pactos especiales.",
+    emptyTitle: "Tu sueldo equivalente aparecerá aquí",
+    emptyDescription: "Ingresa lo que cobras por hora y tus horas semanales para ver una referencia mensual y quincenal como empleado."
+  },
+  en: {
+    kicker: "Calculator",
+    title: "Equivalent salary",
+    hourlyRate: "How much you charge per hour",
+    hourlyRateHelp: "This is what you bill or charge for each hour of independent work.",
+    payrollYear: "Rule year",
+    payrollYearHelp: "We use it to apply the legal deductions and thresholds in force for that year in Colombia.",
+    editYearAria: "Edit rule year",
+    editYearTitle: "Edit year",
+    weeklyHours: "Hours per week",
+    weeklyHoursHelp: "Use the real hours you actually work and charge each week. We use that to project the equivalent employee salary.",
+    hourlyRateRequired: "Enter how much you charge per hour.",
+    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
+    weeklyHoursRange: "Enter weekly hours between 1 and 168.",
+    requestError: "We couldn't calculate the equivalent salary.",
+    preview: (hourlyRate: string, weeklyHours: string, year: string) =>
+      `We use ${hourlyRate} per hour and ${weeklyHours} weekly hours to project it as an employee salary in Colombia using ${year} rules.`,
+    submit: "Calculate equivalent salary",
+    reset: "Reset",
+    heroTitle: "Estimated monthly net as employee",
+    grossMonthlyEquivalent: "Gross monthly equivalent",
+    weeklyIndependentIncome: "Current weekly income",
+    grossBiweeklyEquivalentSalary: "Gross biweekly salary",
+    netBiweeklyEquivalentSalary: "Net biweekly salary",
+    grossAnnualEquivalentSalary: "Gross annual salary",
+    monthlyWorkingHours: "Equivalent monthly hours",
+    totalDeductions: "Estimated monthly deductions",
+    rulesNote: (hours: string) =>
+      `This calculation uses ${hours} equivalent monthly hours and the labor deductions in force for that year.`,
+    health: "Health",
+    pension: "Pension",
+    solidarity: "Solidarity",
+    disclaimer:
+      "Estimate to compare what you charge as an independent worker against an employee salary in Colombia. It does not replace a real job offer and does not include benefits, taxes, surcharges, or special agreements.",
+    emptyTitle: "Your equivalent salary will appear here",
+    emptyDescription: "Enter what you charge per hour and your weekly hours to see a monthly and biweekly employee reference."
+  }
+} as const;
+
 export function EmployeeSalaryEquivalentCalculator() {
+  const { locale } = useLocale();
+  const text = copy[locale];
+  const localeCode = locale === "es" ? "es-CO" : "en-US";
+  const currencyFormatter = useMemo(
+    () => new Intl.NumberFormat(localeCode, { style: "currency", currency: "COP", maximumFractionDigits: 0 }),
+    [localeCode]
+  );
+  const numberFormatter = useMemo(
+    () => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 0 }),
+    [localeCode]
+  );
+  const decimalFormatter = useMemo(
+    () => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 2 }),
+    [localeCode]
+  );
+
+  function formatMoneyInput(value: string) {
+    const normalized = value.replace(/[^\d]/g, "");
+    return normalized.length > 0 ? numberFormatter.format(Number(normalized)) : "";
+  }
+
+  function formatMoney(value: number) {
+    return currencyFormatter.format(value);
+  }
+
+  function formatDecimal(value: number) {
+    return decimalFormatter.format(value);
+  }
+
+  function formatRate(value: number) {
+    return `${numberFormatter.format(value * 100)}%`;
+  }
+
   const currentPayrollYear = new Date().getFullYear();
   const payrollYears = useMemo(() => buildPayrollYears(currentPayrollYear), [currentPayrollYear]);
   const [hourlyRate, setHourlyRate] = useState("40.000");
@@ -78,37 +154,29 @@ export function EmployeeSalaryEquivalentCalculator() {
     const weeklyHoursValue = Number(weeklyHours);
 
     if (hourlyRateValue <= 0) {
-      setError("Ingresa cuánto cobras por hora.");
+      setError(text.hourlyRateRequired);
       return;
     }
-
     if (!Number.isInteger(yearValue) || yearValue < 2024 || yearValue > currentPayrollYear) {
-      setError(`Ingresa un año entre 2024 y ${currentPayrollYear}.`);
+      setError(text.yearRange(currentPayrollYear));
       return;
     }
-
     if (!Number.isFinite(weeklyHoursValue) || weeklyHoursValue <= 0 || weeklyHoursValue > 168) {
-      setError("Ingresa horas por semana entre 1 y 168.");
+      setError(text.weeklyHoursRange);
       return;
     }
 
     setIsLoading(true);
-
     try {
       const data = await calculateEmployeeSalaryEquivalent({
         hourlyRate: hourlyRateValue,
         weeklyHours: weeklyHoursValue,
         year: yearValue
       });
-
       setResult(data);
       scrollToResultOnMobile();
     } catch (requestError) {
-      setError(
-        requestError instanceof Error
-          ? requestError.message
-          : "No se pudo calcular el sueldo equivalente."
-      );
+      setError(requestError instanceof Error ? requestError.message : text.requestError);
       setResult(null);
     } finally {
       setIsLoading(false);
@@ -129,8 +197,8 @@ export function EmployeeSalaryEquivalentCalculator() {
       <form className="calculator-card" onSubmit={handleSubmit}>
         <div className="calculator-card__header">
           <div>
-            <p className="section__kicker">Calculadora</p>
-            <h2>Sueldo equivalente</h2>
+            <p className="section__kicker">{text.kicker}</p>
+            <h2>{text.title}</h2>
           </div>
           <span>
             <BriefcaseBusiness size={20} strokeWidth={2.1} />
@@ -138,55 +206,32 @@ export function EmployeeSalaryEquivalentCalculator() {
         </div>
 
         <label className="field">
-          <span>
-            Cuánto cobras por hora <span className="required-mark">*</span>
-          </span>
+          <span>{text.hourlyRate} <span className="required-mark">*</span></span>
           <div className="money-input">
             <span>$</span>
-            <input
-              inputMode="numeric"
-              onChange={(event) => setHourlyRate(formatMoneyInput(event.target.value))}
-              placeholder="40.000"
-              required
-              type="text"
-              value={hourlyRate}
-            />
+            <input inputMode="numeric" onChange={(event) => setHourlyRate(formatMoneyInput(event.target.value))} placeholder="40.000" required type="text" value={hourlyRate} />
             <strong>COP</strong>
           </div>
-          <small>Es el valor que facturas o cobras por cada hora de trabajo independiente.</small>
+          <small>{text.hourlyRateHelp}</small>
         </label>
 
         <div className="form-grid form-grid--single">
           <div className="form-grid form-grid--compact">
             <label className="field">
               <span className="field-label">
-                Año de reglas <span className="required-mark">*</span>
+                {text.payrollYear} <span className="required-mark">*</span>
                 <span className="info-tooltip">
                   <Info size={15} strokeWidth={2.1} />
-                  <span role="tooltip">
-                    Lo usamos para aplicar los descuentos y umbrales legales vigentes de ese año en Colombia.
-                  </span>
+                  <span role="tooltip">{text.payrollYearHelp}</span>
                 </span>
               </span>
               <div className="year-input">
-                <select
-                  disabled={!isYearEditable}
-                  onChange={(event) => setYear(event.target.value)}
-                  required
-                  value={year}
-                >
+                <select disabled={!isYearEditable} onChange={(event) => setYear(event.target.value)} required value={year}>
                   {payrollYears.map((payrollYear) => (
-                    <option key={payrollYear} value={payrollYear}>
-                      {payrollYear}
-                    </option>
+                    <option key={payrollYear} value={payrollYear}>{payrollYear}</option>
                   ))}
                 </select>
-                <button
-                  aria-label="Editar año de reglas"
-                  onClick={() => setIsYearEditable((isEditable) => !isEditable)}
-                  title="Editar año"
-                  type="button"
-                >
+                <button aria-label={text.editYearAria} onClick={() => setIsYearEditable((isEditable) => !isEditable)} title={text.editYearTitle} type="button">
                   <Pencil size={15} strokeWidth={2.1} />
                 </button>
               </div>
@@ -194,24 +239,13 @@ export function EmployeeSalaryEquivalentCalculator() {
 
             <label className="field">
               <span className="field-label">
-                Horas por semana <span className="required-mark">*</span>
+                {text.weeklyHours} <span className="required-mark">*</span>
                 <span className="info-tooltip">
                   <Info size={15} strokeWidth={2.1} />
-                  <span role="tooltip">
-                    Usa las horas reales que sí trabajas y cobras cada semana. Con eso proyectamos el equivalente como sueldo de empleado.
-                  </span>
+                  <span role="tooltip">{text.weeklyHoursHelp}</span>
                 </span>
               </span>
-              <input
-                className="input--compact"
-                inputMode="decimal"
-                max={168}
-                min={1}
-                onChange={(event) => setWeeklyHours(event.target.value)}
-                required
-                type="number"
-                value={weeklyHours}
-              />
+              <input className="input--compact" inputMode="decimal" max={168} min={1} onChange={(event) => setWeeklyHours(event.target.value)} required type="number" value={weeklyHours} />
             </label>
           </div>
         </div>
@@ -219,10 +253,7 @@ export function EmployeeSalaryEquivalentCalculator() {
         {previewHourlyRate > 0 ? (
           <div className="calculator-hint">
             <Info size={16} strokeWidth={2.1} />
-            <span>
-              Tomamos {formatMoney(previewHourlyRate)} por hora y {weeklyHours} horas semanales para
-              proyectarlo como sueldo de empleado en Colombia con reglas de {year}.
-            </span>
+            <span>{text.preview(formatMoney(previewHourlyRate), weeklyHours, year)}</span>
           </div>
         ) : null}
 
@@ -230,78 +261,71 @@ export function EmployeeSalaryEquivalentCalculator() {
 
         <button className="primary-action" disabled={isLoading} type="submit">
           {isLoading ? <Loader2 className="spin" size={18} /> : <CircleDollarSign size={18} />}
-          Calcular sueldo equivalente
+          {text.submit}
         </button>
 
         <button className="secondary-action" onClick={handleReset} type="button">
-          Restablecer
+          {text.reset}
         </button>
       </form>
 
       {result ? (
         <aside className="result-panel" ref={resultRef}>
           <div className="result-panel__hero">
-            <p>Neto mensual estimado como empleado</p>
+            <p>{text.heroTitle}</p>
             <strong>{formatMoney(result.result.netMonthlyEquivalentSalary)}</strong>
-            <span>Bruto mensual equivalente: {formatMoney(result.result.grossMonthlyEquivalentSalary)}</span>
+            <span>{text.grossMonthlyEquivalent}: {formatMoney(result.result.grossMonthlyEquivalentSalary)}</span>
           </div>
 
           <div className="result-breakdown">
             <div className="result-item">
-              <span>Ingreso semanal actual</span>
+              <span>{text.weeklyIndependentIncome}</span>
               <strong>{formatMoney(result.result.weeklyIndependentIncome)}</strong>
             </div>
             <div className="result-item">
-              <span>Sueldo quincenal bruto</span>
+              <span>{text.grossBiweeklyEquivalentSalary}</span>
               <strong>{formatMoney(result.result.grossBiweeklyEquivalentSalary)}</strong>
             </div>
             <div className="result-item">
-              <span>Sueldo quincenal neto</span>
+              <span>{text.netBiweeklyEquivalentSalary}</span>
               <strong>{formatMoney(result.result.netBiweeklyEquivalentSalary)}</strong>
             </div>
             <div className="result-item">
-              <span>Sueldo mensual bruto</span>
-              <strong>{formatMoney(result.result.grossMonthlyEquivalentSalary)}</strong>
-            </div>
-            <div className="result-item">
-              <span>Sueldo anual bruto</span>
+              <span>{text.grossAnnualEquivalentSalary}</span>
               <strong>{formatMoney(result.result.grossAnnualEquivalentSalary)}</strong>
             </div>
+            <div className="result-item">
+              <span>{text.monthlyWorkingHours}</span>
+              <strong>{formatDecimal(result.result.monthlyWorkingHours)}</strong>
+            </div>
             <div className="result-item result-item--strong">
-              <span>Total descuentos de empleado</span>
+              <span>{text.totalDeductions}</span>
               <strong>{formatMoney(result.deductions.totalDeductions)}</strong>
             </div>
           </div>
 
           <div className="rules-note">
             <CheckCircle2 size={18} strokeWidth={2.1} />
-            <p>
-              Se usaron {formatDecimal(result.input.weeklyHours)} horas por semana,{" "}
-              {formatDecimal(result.result.monthlyWorkingHours)} horas promedio al mes y reglas de {result.year}.
-            </p>
+            <p>{text.rulesNote(formatDecimal(result.result.monthlyWorkingHours))}</p>
           </div>
 
           <div className="rules-grid">
-            <span>Salud: {formatRate(result.rules.employeeHealthRate)}</span>
-            <span>Pensión: {formatRate(result.rules.employeePensionRate)}</span>
-            <span>Solidaridad: {formatRate(result.rules.solidarityPensionFundRate)}</span>
+            <span>{text.health}: {formatRate(result.rules.employeeHealthRate)}</span>
+            <span>{text.pension}: {formatRate(result.rules.employeePensionRate)}</span>
+            <span>{text.solidarity}: {formatRate(result.rules.solidarityPensionFundRate)}</span>
           </div>
 
-          <p className="disclaimer">{result.disclaimer}</p>
+          <p className="disclaimer">{text.disclaimer}</p>
         </aside>
       ) : (
         <aside className="result-panel result-panel--empty" ref={resultRef}>
           <div className="result-empty">
             <BriefcaseBusiness size={34} strokeWidth={2.1} />
-            <h2>Tu equivalencia aparecerá aquí</h2>
-            <p>
-              Ingresa tu tarifa por hora y tus horas semanales para ver cuánto equivaldría como
-              sueldo de empleado.
-            </p>
+            <h2>{text.emptyTitle}</h2>
+            <p>{text.emptyDescription}</p>
           </div>
         </aside>
       )}
     </div>
   );
 }
-

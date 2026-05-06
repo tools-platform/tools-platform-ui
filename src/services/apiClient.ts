@@ -1,3 +1,5 @@
+import { getLocaleFromPathname, type Locale } from "../i18n";
+
 const DEFAULT_API_BASE_URL = import.meta.env.DEV ? "http://localhost:4000/api/v1" : "/api/v1";
 
 export const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/$/, "");
@@ -16,26 +18,47 @@ type ApiSuccessResponse<T> = {
   data: T;
 };
 
-const GENERIC_CONNECTION_ERROR =
-  "No pudimos conectar con la API. Revisa tu conexión e intenta de nuevo en unos segundos.";
+const fallbackMessages: Record<
+  Locale,
+  { connection: string; generic: string; notAllowed: string; notFound: string; temporary: string }
+> = {
+  es: {
+    connection: "No pudimos conectar con la API. Revisa tu conexión e intenta de nuevo en unos segundos.",
+    generic: "No pudimos completar el cálculo. Intenta de nuevo en unos segundos.",
+    notAllowed: "No tienes permiso para consultar esta herramienta desde este origen.",
+    notFound: "No encontramos el servicio de esta herramienta. Intenta de nuevo más tarde.",
+    temporary: "La API tuvo un problema temporal. Intenta de nuevo en unos segundos."
+  },
+  en: {
+    connection: "We couldn't connect to the API. Check your connection and try again in a few seconds.",
+    generic: "We couldn't complete the calculation. Try again in a few seconds.",
+    notAllowed: "You don't have permission to use this tool from this origin.",
+    notFound: "We couldn't find the service for this tool. Please try again later.",
+    temporary: "The API had a temporary problem. Try again in a few seconds."
+  }
+};
 
-const GENERIC_API_ERROR = "No pudimos completar el cálculo. Intenta de nuevo en unos segundos.";
+function getCurrentLocale() {
+  return getLocaleFromPathname(window.location.pathname);
+}
 
-function getFriendlyStatusMessage(status: number, fallbackMessage: string) {
+function getFriendlyStatusMessage(locale: Locale, status: number, fallbackMessage: string) {
+  const messages = fallbackMessages[locale];
+
   if (status === 400 || status === 422) {
     return fallbackMessage;
   }
 
   if (status === 401 || status === 403) {
-    return "No tienes permiso para consultar esta herramienta desde este origen.";
+    return messages.notAllowed;
   }
 
   if (status === 404) {
-    return "No encontramos el servicio de esta herramienta. Intenta de nuevo más tarde.";
+    return messages.notFound;
   }
 
   if (status >= 500) {
-    return "La API tuvo un problema temporal. Intenta de nuevo en unos segundos.";
+    return messages.temporary;
   }
 
   return fallbackMessage;
@@ -44,8 +67,17 @@ function getFriendlyStatusMessage(status: number, fallbackMessage: string) {
 export async function postJson<TData, TRequest>(
   path: string,
   request: TRequest,
-  fallbackMessage = GENERIC_API_ERROR
+  localizedFallbackMessage?: string | Partial<Record<Locale, string>>
 ): Promise<TData> {
+  const locale = getCurrentLocale();
+  const messages = fallbackMessages[locale];
+  const fallbackMessage =
+    typeof localizedFallbackMessage === "string"
+      ? locale === "es"
+        ? localizedFallbackMessage
+        : messages.generic
+      : localizedFallbackMessage?.[locale] ?? messages.generic;
+
   let response: Response;
 
   try {
@@ -57,7 +89,7 @@ export async function postJson<TData, TRequest>(
       body: JSON.stringify(request)
     });
   } catch {
-    throw new Error(GENERIC_CONNECTION_ERROR);
+    throw new Error(messages.connection);
   }
 
   let payload: ApiSuccessResponse<TData> | ApiErrorResponse | null = null;
@@ -66,16 +98,14 @@ export async function postJson<TData, TRequest>(
     payload = (await response.json()) as ApiSuccessResponse<TData> | ApiErrorResponse;
   } catch {
     if (!response.ok) {
-      throw new Error(getFriendlyStatusMessage(response.status, fallbackMessage));
+      throw new Error(getFriendlyStatusMessage(locale, response.status, fallbackMessage));
     }
 
-    throw new Error(GENERIC_API_ERROR);
+    throw new Error(messages.generic);
   }
 
   if (!response.ok || !payload.success) {
-    const backendMessage = !payload.success ? payload.error.message : undefined;
-    const message = backendMessage || fallbackMessage;
-    throw new Error(getFriendlyStatusMessage(response.status, message));
+    throw new Error(getFriendlyStatusMessage(locale, response.status, fallbackMessage));
   }
 
   return payload.data;

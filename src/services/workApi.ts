@@ -120,19 +120,24 @@ export type EmployeeSalaryEquivalentResponse = {
 };
 
 export function calculateWorkedHours(request: WorkedHoursRequest): Promise<WorkedHoursResponse["data"]> {
-  return postJson("/work/worked-hours", request, "No se pudieron calcular las horas.");
+  return postJson("/work/worked-hours", request, {
+    es: "No se pudieron calcular las horas.",
+    en: "We couldn't calculate the worked hours."
+  });
 }
 
 export function calculateFreelanceRate(request: FreelanceRateRequest): Promise<FreelanceRateResponse["data"]> {
-  return postJson("/work/freelance-rate", request, "No se pudo calcular la tarifa freelance.");
+  return postJson("/work/freelance-rate", request, {
+    es: "No se pudo calcular la tarifa freelance.",
+    en: "We couldn't calculate the freelance rate."
+  });
 }
 
 export function calculateEmployeeSalaryEquivalent(
   request: EmployeeSalaryEquivalentRequest
 ): Promise<EmployeeSalaryEquivalentResponse["data"]> {
-  return postJson(
-    "/work/employee-salary-equivalent",
-    request,
-    "No se pudo calcular el sueldo equivalente."
-  );
+  return postJson("/work/employee-salary-equivalent", request, {
+    es: "No se pudo calcular el sueldo equivalente.",
+    en: "We couldn't calculate the equivalent employee salary."
+  });
 }
