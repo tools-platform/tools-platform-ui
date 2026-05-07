@@ -7,6 +7,8 @@ const projectRoot = path.resolve(__dirname, "..");
 const distRoot = path.join(projectRoot, "dist");
 const siteUrl = "https://toolsplatforms.com";
 const siteName = "Tools Platforms";
+const supportedLocales = ["es", "en"];
+const sitemapLastModified = "2026-05-06";
 
 const localizedPages = [
   {
@@ -253,11 +255,33 @@ function getLocalizedPath(pathname, locale) {
   return pathname;
 }
 
+function getAbsoluteUrl(pathname, locale) {
+  return `${siteUrl}${getLocalizedPath(pathname, locale)}`;
+}
+
+function renderAlternateLinks(pathname) {
+  const spanishUrl = getAbsoluteUrl(pathname, "es");
+  const englishUrl = getAbsoluteUrl(pathname, "en");
+
+  return [
+    `<link rel="alternate" hreflang="es" href="${escapeHtml(spanishUrl)}" />`,
+    `<link rel="alternate" hreflang="en" href="${escapeHtml(englishUrl)}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(spanishUrl)}" />`
+  ].join("\n    ");
+}
+
+function setAlternateLinks(html, pathname) {
+  const alternateLinks = renderAlternateLinks(pathname);
+  const cleanedHtml = html.replace(/\n\s*<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]*"\s*\/?>/g, "");
+
+  return cleanedHtml.replace(/(\n\s*<link\s+rel="icon")/, `\n    ${alternateLinks}$1`);
+}
+
 function renderPageHtml(baseHtml, page, locale) {
   const localizedPath = getLocalizedPath(page.path, locale);
   const canonicalUrl = `${siteUrl}${localizedPath}`;
 
-  return [
+  const html = [
     ["lang", "content", locale],
     ["title", "content", page.title[locale]],
     ["meta-description", "content", page.description[locale]],
@@ -268,6 +292,8 @@ function renderPageHtml(baseHtml, page, locale) {
     ["og:url", "content", canonicalUrl],
     ["og:site_name", "content", siteName]
   ].reduce((html, [selector, attribute, value]) => setTagAttribute(html, selector, attribute, value), baseHtml);
+
+  return setAlternateLinks(html, page.path);
 }
 
 async function writeRouteHtml(baseHtml, page, locale) {
@@ -287,7 +313,56 @@ async function writeRouteHtml(baseHtml, page, locale) {
 const baseHtml = await readFile(path.join(distRoot, "index.html"), "utf8");
 
 await Promise.all(
-  localizedPages.flatMap((page) => ["es", "en"].map((locale) => writeRouteHtml(baseHtml, page, locale)))
+  localizedPages.flatMap((page) => supportedLocales.map((locale) => writeRouteHtml(baseHtml, page, locale)))
 );
 
-console.log(`Generated static SEO HTML for ${localizedPages.length * 2} routes.`);
+function renderSitemapAlternateLinks(page) {
+  const spanishUrl = getAbsoluteUrl(page.path, "es");
+  const englishUrl = getAbsoluteUrl(page.path, "en");
+
+  return [
+    `    <xhtml:link rel="alternate" hreflang="es" href="${escapeHtml(spanishUrl)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${escapeHtml(englishUrl)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(spanishUrl)}" />`
+  ].join("\n");
+}
+
+function renderSitemapUrl(page, locale) {
+  const loc = getAbsoluteUrl(page.path, locale);
+  const changeFrequency =
+    page.path === "/tools/cop-to-usd-converter"
+      ? "daily"
+      : page.path === "/"
+        ? "weekly"
+        : page.path === "/privacy" || page.path === "/terms"
+          ? "yearly"
+          : "monthly";
+  const priority = page.path === "/" ? "1.0" : page.path.startsWith("/tools/") ? "0.8" : "0.3";
+
+  return [
+    "  <url>",
+    `    <loc>${escapeHtml(loc)}</loc>`,
+    renderSitemapAlternateLinks(page),
+    `    <lastmod>${sitemapLastModified}</lastmod>`,
+    `    <changefreq>${changeFrequency}</changefreq>`,
+    `    <priority>${priority}</priority>`,
+    "  </url>"
+  ].join("\n");
+}
+
+function renderSitemap() {
+  const urls = localizedPages.flatMap((page) => supportedLocales.map((locale) => renderSitemapUrl(page, locale)));
+
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    urls.join("\n"),
+    "</urlset>",
+    ""
+  ].join("\n");
+}
+
+await writeFile(path.join(distRoot, "sitemap.xml"), renderSitemap(), "utf8");
+
+console.log(`Generated static SEO HTML for ${localizedPages.length * supportedLocales.length} routes.`);
+console.log(`Generated localized sitemap for ${localizedPages.length * supportedLocales.length} URLs.`);

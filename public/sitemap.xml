@@ -1,111 +1,327 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://toolsplatforms.com/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/" />
+    <lastmod>2026-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/colombia-net-salary-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/colombia-employment-settlement-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/credit-interest-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/loan-payment-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/cop-to-usd-converter</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/worked-hours-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/hourly-salary-calculator</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/employee-salary-for-independents-calculator</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/freelance-rate-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/days-between-dates-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/exact-age-calculator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/unit-converter</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/text-case-converter</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/secure-password-generator</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/case-style-converter</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://toolsplatforms.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://toolsplatforms.com/privacy</loc>
-    <lastmod>2026-05-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/privacy" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/privacy" />
+    <lastmod>2026-05-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://toolsplatforms.com/terms</loc>
-    <lastmod>2026-05-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/terms" />
+    <lastmod>2026-05-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/terms" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/colombia-net-salary-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/colombia-net-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/colombia-net-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/colombia-net-salary-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/colombia-net-salary-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/colombia-net-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/colombia-net-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/colombia-net-salary-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/colombia-employment-settlement-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/colombia-employment-settlement-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/colombia-employment-settlement-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/colombia-employment-settlement-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/colombia-employment-settlement-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/colombia-employment-settlement-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/colombia-employment-settlement-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/colombia-employment-settlement-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/credit-interest-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/credit-interest-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/credit-interest-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/credit-interest-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/credit-interest-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/credit-interest-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/credit-interest-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/credit-interest-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/loan-payment-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/loan-payment-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/loan-payment-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/loan-payment-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/loan-payment-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/loan-payment-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/loan-payment-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/loan-payment-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/cop-to-usd-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/cop-to-usd-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/cop-to-usd-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/cop-to-usd-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/cop-to-usd-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/cop-to-usd-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/cop-to-usd-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/cop-to-usd-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/worked-hours-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/worked-hours-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/worked-hours-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/worked-hours-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/worked-hours-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/worked-hours-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/worked-hours-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/worked-hours-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/hourly-salary-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/hourly-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/hourly-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/hourly-salary-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/hourly-salary-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/hourly-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/hourly-salary-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/hourly-salary-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/employee-salary-for-independents-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/employee-salary-for-independents-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/employee-salary-for-independents-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/employee-salary-for-independents-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/employee-salary-for-independents-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/employee-salary-for-independents-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/employee-salary-for-independents-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/employee-salary-for-independents-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/freelance-rate-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/freelance-rate-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/freelance-rate-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/freelance-rate-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/freelance-rate-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/freelance-rate-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/freelance-rate-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/freelance-rate-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/days-between-dates-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/days-between-dates-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/days-between-dates-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/days-between-dates-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/days-between-dates-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/days-between-dates-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/days-between-dates-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/days-between-dates-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/exact-age-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/exact-age-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/exact-age-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/exact-age-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/exact-age-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/exact-age-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/exact-age-calculator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/exact-age-calculator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/unit-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/unit-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/unit-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/unit-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/unit-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/unit-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/unit-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/unit-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/text-case-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/text-case-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/text-case-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/text-case-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/text-case-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/text-case-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/text-case-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/text-case-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/secure-password-generator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/secure-password-generator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/secure-password-generator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/secure-password-generator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/secure-password-generator</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/secure-password-generator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/secure-password-generator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/secure-password-generator" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/case-style-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/case-style-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/case-style-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/case-style-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/case-style-converter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/case-style-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/case-style-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/case-style-converter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
