@@ -1,7 +1,7 @@
-﻿import { ChevronDown, Languages, LayoutGrid } from "lucide-react";
+import { ChevronDown, Languages, LayoutGrid } from "lucide-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { categories, tools } from "../data/catalog";
-import { getLocalizedText, stripLocalePrefix, useLocale, type Locale } from "../i18n";
+import { getLocalizedText, setStoredLocalePreference, stripLocalePrefix, useLocale, type Locale } from "../i18n";
 import { BrandLogo } from "./BrandLogo";
 
 type LanguageOption = {
@@ -108,6 +108,10 @@ export function SiteHeader() {
     setIsLanguageOpen((current) => !current);
   };
 
+  const handleLocaleSelection = (targetLocale: Locale) => {
+    setStoredLocalePreference(targetLocale);
+  };
+
   const handleHomeClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (stripLocalePrefix(window.location.pathname) === "/") {
       event.preventDefault();
@@ -182,6 +186,7 @@ export function SiteHeader() {
           className={option.value === locale ? "language-menu__option is-active" : "language-menu__option"}
           href={switchLocalePath(option.value)}
           key={option.value}
+          onClick={() => handleLocaleSelection(option.value)}
         >
           <span>
             <strong>{option.nativeLabel}</strong>

@@ -8,6 +8,8 @@ export type LocalizedText = {
   en: string;
 };
 
+export const LOCALE_PREFERENCE_KEY = "tools-platforms-locale";
+
 type LocaleContextValue = {
   locale: Locale;
   localizePath: (path: string) => string;
@@ -34,6 +36,34 @@ export function stripLocalePrefix(pathname: string) {
 
 export function getLocalizedText(value: LocalizedText | string, locale: Locale) {
   return typeof value === "string" ? value : value[locale];
+}
+
+export function getStoredLocalePreference(): Locale | null {
+  try {
+    const storedLocale = window.localStorage.getItem(LOCALE_PREFERENCE_KEY);
+    return storedLocale === "es" || storedLocale === "en" ? storedLocale : null;
+  } catch {
+    return null;
+  }
+}
+
+export function setStoredLocalePreference(locale: Locale) {
+  try {
+    window.localStorage.setItem(LOCALE_PREFERENCE_KEY, locale);
+  } catch {
+    // Ignore storage issues and fall back to URL-based locale.
+  }
+}
+
+export function detectBrowserLocale(): Locale {
+  const preferredLocales =
+    typeof navigator === "undefined"
+      ? []
+      : navigator.languages?.length
+        ? navigator.languages
+        : [navigator.language];
+
+  return preferredLocales.some((entry) => entry.toLowerCase().startsWith("en")) ? "en" : "es";
 }
 
 export function localizePath(path: string, locale: Locale) {
