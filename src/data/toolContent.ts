@@ -183,8 +183,8 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "employment-settlement-colombia": {
     intro: {
-      es: "Esta herramienta estima la liquidación laboral en Colombia cuando termina una relación de trabajo.",
-      en: "This tool estimates an employment settlement in Colombia when a work relationship ends."
+      es: "Esta calculadora de liquidación laboral en Colombia estima cuánto podría corresponderte cuando termina una relación de trabajo.",
+      en: "This Colombia employment settlement calculator estimates what may be owed when a work relationship ends."
     },
     sections: [
       {
@@ -193,6 +193,10 @@ export const toolContentById: Record<string, ToolContent> = {
           {
             es: "Calcula cesantías, intereses de cesantías, prima de servicios, vacaciones pendientes, salario pendiente y otros pagos o deducciones que ingreses.",
             en: "It calculates severance, severance interest, service bonus, unused vacation, pending salary, and any extra earnings or deductions you enter."
+          },
+          {
+            es: "También sirve para preguntas comunes como calcular liquidación laboral, liquidación 2025 o cuánto equivale la liquidación al salir de un empleo.",
+            en: "It also helps with common questions such as calculating an employment settlement, estimating a past-year settlement, or understanding what a final payout may represent."
           },
           {
             es: "Cuando eliges terminación sin justa causa, también puede estimar una indemnización según el tipo de contrato.",
@@ -210,6 +214,19 @@ export const toolContentById: Record<string, ToolContent> = {
           {
             es: "El cálculo puede variar por salario variable, pactos internos, sanciones, retenciones, pagos pendientes o interpretación legal del caso.",
             en: "The estimate may vary because of variable salary, internal agreements, sanctions, withholdings, pending payments, or legal interpretation of the case."
+          }
+        ]
+      },
+      {
+        title: { es: "Cómo leer el resultado", en: "How to read the result" },
+        body: [
+          {
+            es: "El total separa la liquidación ordinaria de una posible indemnización. Esto ayuda a entender qué parte corresponde a prestaciones y qué parte nace por terminación sin justa causa.",
+            en: "The total separates the ordinary settlement from possible dismissal compensation. This helps distinguish benefits owed from compensation tied to termination without just cause."
+          },
+          {
+            es: "Si tu contrato tiene salario variable, comisiones, pagos no salariales o acuerdos especiales, usa el resultado como referencia y revisa tu caso con soporte laboral.",
+            en: "If your contract includes variable pay, commissions, non-salary payments, or special agreements, use the result as a reference and review your specific case with labor support."
           }
         ]
       }
@@ -234,13 +251,23 @@ export const toolContentById: Record<string, ToolContent> = {
           es: "No necesariamente. Es una estimación con reglas generales y puede cambiar según documentos, contrato y condiciones particulares.",
           en: "Not necessarily. It is an estimate based on general rules and may change depending on documents, the contract, and specific conditions."
         }
+      },
+      {
+        question: {
+          es: "¿Puedo calcular una liquidación de 2025?",
+          en: "Can I calculate a 2025 employment settlement?"
+        },
+        answer: {
+          es: "Sí, puedes elegir el año de reglas disponible. La herramienta usa ese año para valores legales como salario mínimo y auxilio de transporte cuando aplican.",
+          en: "Yes, you can choose an available rule year. The tool uses that year for legal values such as minimum wage and transport allowance when they apply."
+        }
       }
     ]
   },
   "credit-interest": {
     intro: {
       es: "Esta calculadora estima cuánto pagarías en intereses por un crédito antes de tomar una decisión de endeudamiento.",
-      en: "This calculator estimates how much you would pay in interest on a loan before you take on debt."
+      en: "This calculator estimates how much you would pay in interest on a loan before taking on debt."
     },
     sections: [
       {
@@ -251,8 +278,8 @@ export const toolContentById: Record<string, ToolContent> = {
             en: "It uses the loan amount, annual rate, term in months, and interest type to estimate total interest and the total amount paid."
           },
           {
-            es: "Es útil para comparar escenarios simples antes de pedir un crédito o aceptar una oferta.",
-            en: "It is useful for comparing simple scenarios before requesting a loan or accepting an offer."
+            es: "Es útil para comparar escenarios simples antes de pedir un crédito, aceptar una oferta o revisar si una tasa te conviene.",
+            en: "It is useful for comparing simple scenarios before requesting a loan, accepting an offer, or checking whether a rate makes sense."
           }
         ]
       },
@@ -286,6 +313,16 @@ export const toolContentById: Record<string, ToolContent> = {
         answer: {
           es: "No. En el simple los intereses no generan nuevos intereses. En el compuesto, los intereses se acumulan según la capitalización.",
           en: "No. With simple interest, interest does not generate additional interest. With compound interest, interest accumulates according to the compounding frequency."
+        }
+      },
+      {
+        question: {
+          es: "¿Esta calculadora me dice la cuota mensual?",
+          en: "Does this calculator show the monthly payment?"
+        },
+        answer: {
+          es: "No. Esta calcula intereses totales. Para una cuota fija mensual usa la calculadora de cuota de préstamo.",
+          en: "No. This one calculates total interest. For a fixed monthly payment, use the loan payment calculator."
         }
       }
     ]
@@ -392,20 +429,20 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "worked-hours": {
     intro: {
-      es: "Esta herramienta suma horas trabajadas por jornada para empleados, freelancers o turnos independientes.",
-      en: "This tool adds up worked hours by shift for employees, freelancers, or independent workers."
+      es: "Esta calculadora de horas trabajadas suma jornadas por día para saber cuánto tiempo trabajaste en total.",
+      en: "This worked hours calculator adds daily work entries so you can see the total time worked."
     },
     sections: [
       {
         title: { es: "Qué puedes calcular", en: "What you can calculate" },
         body: [
           {
-            es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización.",
-            en: "Add one or more work entries with date, start time, and end time."
+            es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización para sumar horas trabajadas sin hacer cuentas manuales.",
+            en: "Add one or more work entries with date, start time, and end time to add worked hours without manual math."
           },
           {
-            es: "La herramienta suma los minutos y los presenta como horas totales y tiempo trabajado por rango.",
-            en: "The tool sums the minutes and presents them as total hours and worked time per entry."
+            es: "La herramienta suma los minutos y los presenta como horas totales, minutos totales y tiempo trabajado por cada jornada.",
+            en: "The tool totals the minutes and shows total hours, total minutes, and worked time for each entry."
           }
         ]
       },
@@ -413,12 +450,25 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Para qué sirve", en: "What it is for" },
         body: [
           {
-            es: "Es útil para reportes, cobros por hora, control personal de tiempo y revisión de jornadas.",
-            en: "It is useful for reports, hourly billing, personal time tracking, and shift reviews."
+            es: "Es útil para calcular mis horas de trabajo, reportes, cobros por hora, control personal de tiempo y revisión de jornadas laborales.",
+            en: "It is useful for calculating my work hours, reports, hourly billing, personal time tracking, and work shift reviews."
           },
           {
             es: "No evalúa recargos, horas extra legales, festivos ni reglas laborales especiales.",
             en: "It does not evaluate surcharges, legal overtime, holidays, or special labor rules."
+          }
+        ]
+      },
+      {
+        title: { es: "Ejemplo de uso", en: "Example use" },
+        body: [
+          {
+            es: "Si trabajaste de 8:00 a. m. a 5:00 p. m., agrega esa jornada y la herramienta calcula las horas de trabajo del día.",
+            en: "If you worked from 8:00 a.m. to 5:00 p.m., add that entry and the tool calculates the work hours for that day."
+          },
+          {
+            es: "Si tienes varios días, crea una jornada por cada fecha para obtener el total acumulado.",
+            en: "If you have several days, create one entry for each date to get the accumulated total."
           }
         ]
       }
@@ -436,6 +486,13 @@ export const toolContentById: Record<string, ToolContent> = {
         answer: {
           es: "No. Solo suma tiempo trabajado; los recargos dependen de reglas laborales y acuerdos específicos.",
           en: "No. It only adds worked time; overtime surcharges depend on labor rules and specific agreements."
+        }
+      },
+      {
+        question: { es: "¿Cómo contar las horas de trabajo diarias?", en: "How do I count daily work hours?" },
+        answer: {
+          es: "Selecciona la fecha, escribe la hora de inicio y la hora de finalización. La calculadora resta esos tiempos y suma el resultado con las demás jornadas.",
+          en: "Choose the date, enter the start time and end time. The calculator subtracts those times and adds the result to the other entries."
         }
       }
     ]
@@ -492,8 +549,8 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "days-between-dates": {
     intro: {
-      es: "Cuenta cuántos días hay entre dos fechas para trámites, viajes, entregas o planeación.",
-      en: "Count how many days there are between two dates for paperwork, trips, deliveries, or planning."
+      es: "Cuenta cuántos días calendario hay entre dos fechas para trámites, viajes, entregas o planeación.",
+      en: "Count how many calendar days there are between two dates for paperwork, trips, deliveries, or planning."
     },
     sections: [
       {
@@ -504,8 +561,8 @@ export const toolContentById: Record<string, ToolContent> = {
             en: "It returns the total number of days, full weeks, and remaining days between the start and end dates."
           },
           {
-            es: "Puedes elegir si quieres incluir la fecha final en el conteo.",
-            en: "You can choose whether to include the end date in the count."
+            es: "Puedes elegir si quieres incluir la fecha final en el conteo, algo útil cuando necesitas contar ambos días.",
+            en: "You can choose whether to include the end date in the count, which is useful when both dates should count."
           }
         ]
       },
@@ -513,8 +570,8 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Usos comunes", en: "Common uses" },
         body: [
           {
-            es: "Sirve para calcular plazos personales, duración de viajes, periodos entre eventos o tiempo restante para una entrega.",
-            en: "It is useful for personal deadlines, trip duration, time between events, or the time left until a delivery."
+            es: "Sirve para calcular plazos personales, duración de viajes, periodos entre eventos, días calendario en Colombia o tiempo restante para una entrega.",
+            en: "It is useful for personal deadlines, trip duration, time between events, calendar day counts, or the time left until a delivery."
           },
           {
             es: "No interpreta días hábiles, festivos, vencimientos legales ni reglas de entidades.",
@@ -537,6 +594,13 @@ export const toolContentById: Record<string, ToolContent> = {
           es: "Suma un día adicional cuando quieres contar tanto el día inicial como el día final.",
           en: "It adds one more day when you want to count both the first day and the final day."
         }
+      },
+      {
+        question: { es: "¿Sirve como calculador de días para trámites?", en: "Can I use it as a day counter for paperwork?" },
+        answer: {
+          es: "Sí, sirve como referencia de días calendario. Si el trámite depende de días hábiles, festivos o reglas legales, revisa la norma específica.",
+          en: "Yes, it works as a calendar day reference. If paperwork depends on business days, holidays, or legal rules, check the specific rule."
+        }
       }
     ]
   },
@@ -554,8 +618,8 @@ export const toolContentById: Record<string, ToolContent> = {
             en: "It shows exact age, total months, total days, and how long until the next birthday."
           },
           {
-            es: "Puedes cambiar la fecha de cálculo si necesitas saber la edad en una fecha específica.",
-            en: "You can change the calculation date if you need the age on a specific date."
+            es: "Puedes cambiar la fecha de cálculo si necesitas saber la edad en una fecha específica, no solo al día de hoy.",
+            en: "You can change the calculation date if you need the age on a specific date, not only today."
           }
         ]
       },
@@ -563,8 +627,8 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Cuándo sirve", en: "When it helps" },
         body: [
           {
-            es: "Es útil para formularios, trámites, requisitos de edad, documentos o simple curiosidad.",
-            en: "It is useful for forms, paperwork, age requirements, documents, or simple curiosity."
+            es: "Es útil para formularios, trámites, requisitos de edad, documentos, colegios, viajes o simple curiosidad.",
+            en: "It is useful for forms, paperwork, age requirements, documents, school, travel, or simple curiosity."
           },
           {
             es: "El resultado es calendario y puede variar frente a reglas administrativas específicas.",
@@ -590,13 +654,20 @@ export const toolContentById: Record<string, ToolContent> = {
           es: "No. El cálculo trabaja por fechas calendario.",
           en: "No. The calculation works with calendar dates only."
         }
+      },
+      {
+        question: { es: "¿Qué fecha debo poner?", en: "Which date should I enter?" },
+        answer: {
+          es: "Pon la fecha de nacimiento de la persona y, si necesitas una edad para otro momento, cambia la fecha de cálculo.",
+          en: "Enter the person's birth date and, if you need the age for another moment, change the calculation date."
+        }
       }
     ]
   },
   "unit-converter": {
     intro: {
       es: "Convierte unidades comunes de longitud, peso, masa y temperatura de forma rápida.",
-      en: "Convert common length, mass, and temperature units quickly."
+      en: "Convert common length, mass, weight, and temperature units quickly."
     },
     sections: [
       {
@@ -616,8 +687,8 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Cuándo usarlo", en: "When to use it" },
         body: [
           {
-            es: "Sirve para tareas, compras, medidas de cocina, viajes, trabajo técnico o conversiones rápidas.",
-            en: "Use it for homework, shopping, cooking measurements, trips, technical work, or quick conversions."
+            es: "Sirve para tareas, compras, medidas de cocina, viajes, trabajo técnico o conversiones rápidas como kilos a libras, kilómetros a millas o grados Celsius a Fahrenheit.",
+            en: "Use it for homework, shopping, cooking measurements, trips, technical work, or quick conversions such as kilograms to pounds, kilometers to miles, or Celsius to Fahrenheit."
           },
           {
             es: "Usa factores estándar; algunas industrias pueden usar factores o tolerancias específicas.",
@@ -640,25 +711,32 @@ export const toolContentById: Record<string, ToolContent> = {
           es: "Para factores estándar sí es una conversión matemática. Puede variar si una industria usa reglas propias.",
           en: "For standard factors, yes, it is a mathematical conversion. It may vary if an industry uses its own rules."
         }
+      },
+      {
+        question: { es: "¿Qué unidades puedo convertir?", en: "Which units can I convert?" },
+        answer: {
+          es: "Puedes convertir unidades comunes de longitud, peso, masa y temperatura, con decimales ajustables según la precisión que necesites.",
+          en: "You can convert common length, mass, weight, and temperature units, with adjustable decimals depending on the precision you need."
+        }
       }
     ]
   },
   "text-case-converter": {
     intro: {
-      es: "Transforma texto a mayúsculas, minúsculas, capitalizado o tipo oración sin enviarlo a ningún servidor.",
-      en: "Transform text to uppercase, lowercase, title case, or sentence case without sending it to any server."
+      es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración sin enviarlo a ningún servidor.",
+      en: "Convert text to uppercase, lowercase, title case, or sentence case without sending it to any server."
     },
     sections: [
       {
         title: { es: "Formatos disponibles", en: "Available formats" },
         body: [
           {
-            es: "Puedes convertir todo el texto a letras grandes, letras pequeñas, capitalizar palabras o ajustar frases tipo oración.",
-            en: "You can convert all text to uppercase, lowercase, title case, or sentence case."
+            es: "Puedes convertir texto a mayúsculas, pasar mayúscula a minúscula, capitalizar palabras o ajustar frases tipo oración.",
+            en: "You can convert text to uppercase, change uppercase to lowercase, title case words, or format sentences."
           },
           {
-            es: "Es útil para títulos, documentos, formularios, correos y tareas repetitivas de edición.",
-            en: "It is useful for titles, documents, forms, emails, and repetitive editing tasks."
+            es: "Es útil para títulos, documentos, formularios, correos, publicaciones y tareas repetitivas de edición.",
+            en: "It is useful for titles, documents, forms, emails, posts, and repetitive editing tasks."
           }
         ]
       },
@@ -672,6 +750,19 @@ export const toolContentById: Record<string, ToolContent> = {
           {
             es: "Aun así, evita pegar información sensible si no es necesario.",
             en: "Even so, avoid pasting sensitive information unless you truly need to."
+          }
+        ]
+      },
+      {
+        title: { es: "Cuándo usar cada formato", en: "When to use each format" },
+        body: [
+          {
+            es: "Mayúsculas sirve para textos que deben resaltar. Minúsculas ayuda cuando recibes un texto desordenado o escrito completo en letras grandes.",
+            en: "Uppercase helps text stand out. Lowercase helps when you receive messy text or text written fully in capital letters."
+          },
+          {
+            es: "Capitalizado funciona para nombres y títulos cortos. Tipo oración funciona mejor para párrafos o frases normales.",
+            en: "Title case works for names and short headings. Sentence case works better for normal phrases or paragraphs."
           }
         ]
       }
@@ -689,6 +780,13 @@ export const toolContentById: Record<string, ToolContent> = {
         answer: {
           es: "Sí, cuando una frase termina en letra o número y no tiene signo final, agrega punto para cerrar la oración.",
           en: "Yes. When a sentence ends in a letter or number and lacks ending punctuation, it adds a period."
+        }
+      },
+      {
+        question: { es: "¿Puedo convertir mayúsculas a minúsculas?", en: "Can I convert uppercase to lowercase?" },
+        answer: {
+          es: "Sí. Elige minúsculas, pega tu texto y pulsa convertir para transformar todo el contenido.",
+          en: "Yes. Choose lowercase, paste your text, and press convert to transform all content."
         }
       }
     ]

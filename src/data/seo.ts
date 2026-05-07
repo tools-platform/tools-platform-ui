@@ -44,32 +44,32 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   },
   "employment-settlement-colombia": {
     title: {
-      es: "Calculadora de liquidación Colombia 2026 | Tools Platforms",
-      en: "Employment Settlement Calculator (Colombia) 2026 | Tools Platforms"
+      es: "Calculadora de liquidación laboral Colombia 2026 | Tools Platforms",
+      en: "Colombia Employment Settlement Calculator 2026 | Tools Platforms"
     },
     description: {
-      es: "Calcula una estimación de liquidación laboral en Colombia con cesantías, intereses, prima, vacaciones, salario pendiente e indemnización si aplica.",
-      en: "Estimate an employment settlement in Colombia including severance, severance interest, service bonus, vacation, pending salary, and dismissal compensation when applicable."
+      es: "Calcula una liquidación laboral en Colombia con cesantías, prima, vacaciones, salario pendiente e indemnización si aplica.",
+      en: "Estimate a Colombia employment settlement with severance, service bonus, vacation, pending salary, and dismissal compensation when applicable."
     }
   },
   "credit-interest": {
     title: {
-      es: "Calculadora de intereses de crédito | Tools Platforms",
-      en: "Credit Interest Calculator | Tools Platforms"
+      es: "Calculadora de intereses de crédito online | Tools Platforms",
+      en: "Online Credit Interest Calculator | Tools Platforms"
     },
     description: {
-      es: "Calcula cuánto pagarías en intereses por un préstamo según el monto, la tasa anual, el plazo en meses y el tipo de interés.",
-      en: "Estimate the interest you would pay on a loan based on amount, annual rate, term in months, and interest type."
+      es: "Calcula intereses de un crédito por monto, tasa anual, plazo en meses y tipo de interés para estimar cuánto pagarías en total.",
+      en: "Calculate credit interest by amount, annual rate, term in months, and interest type to estimate how much you would pay in total."
     }
   },
   "loan-payment": {
     title: {
-      es: "Calculadora de cuota de préstamo | Tools Platforms",
-      en: "Loan Payment Calculator | Tools Platforms"
+      es: "Calculadora de cuota de préstamo online | Tools Platforms",
+      en: "Online Loan Payment Calculator | Tools Platforms"
     },
     description: {
-      es: "Calcula la cuota mensual estimada de un préstamo con monto, tasa anual o mensual y plazo en meses.",
-      en: "Estimate a loan's fixed monthly payment using amount, annual or monthly rate, and term in months."
+      es: "Calcula la cuota mensual de un préstamo con monto, tasa anual o mensual y plazo en meses, más intereses y total estimado.",
+      en: "Calculate a loan's monthly payment using amount, annual or monthly rate, and term in months, plus estimated interest and total paid."
     }
   },
   "cop-usd": {
@@ -84,62 +84,62 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   },
   "worked-hours": {
     title: {
-      es: "Calculadora de horas trabajadas | Tools Platforms",
-      en: "Worked Hours Calculator | Tools Platforms"
+      es: "Calculadora de horas trabajadas online | Sumar horas de trabajo",
+      en: "Worked Hours Calculator Online | Add Work Hours"
     },
     description: {
-      es: "Suma horas trabajadas por jornadas con fecha, hora de inicio y hora de finalización para empleados, freelancers y turnos.",
-      en: "Add up worked hours by shift using date, start time, and end time for employees or freelancers."
+      es: "Suma horas trabajadas por día o jornada. Calcula horas de trabajo, horas laborales y tiempo total entre hora de inicio y finalización.",
+      en: "Add worked hours by day or shift. Calculate work hours, total labor time, and time between start and end times."
     }
   },
   "freelance-rate": {
     title: {
-      es: "Calculadora de cuánto cobrar freelance | Tools Platforms",
-      en: "Freelance Rate Calculator | Tools Platforms"
+      es: "Calculadora de cuánto cobrar freelance | Tarifa por hora",
+      en: "Freelance Rate Calculator | Hourly Rate"
     },
     description: {
-      es: "Calcula cuánto cobrar por hora, día, semana o mes como freelance según tu ingreso deseado y horas de trabajo.",
-      en: "Calculate how much to charge per hour, day, week, or month as a freelancer based on your income target and work hours."
+      es: "Calcula cuánto cobrar como freelance por hora, día, semana o mes según tu ingreso deseado, días y horas de trabajo.",
+      en: "Calculate how much to charge as a freelancer per hour, day, week, or month based on income target, work days, and hours."
     }
   },
   "days-between-dates": {
     title: {
-      es: "Contador de días entre fechas | Tools Platforms",
-      en: "Days Between Dates Calculator | Tools Platforms"
+      es: "Contador de días entre fechas online | Calculador de días",
+      en: "Days Between Dates Calculator Online | Date Counter"
     },
     description: {
-      es: "Cuenta cuántos días hay entre dos fechas y convierte el resultado a semanas completas y días restantes.",
-      en: "Count how many days lie between two dates and break the result into full weeks and remaining days."
+      es: "Cuenta días calendario entre dos fechas para trámites, viajes o planeación. Incluye semanas completas y días restantes.",
+      en: "Count calendar days between two dates for paperwork, trips, or planning. Includes full weeks and remaining days."
     }
   },
   "exact-age": {
     title: {
-      es: "Calculadora de edad exacta | Tools Platforms",
-      en: "Exact Age Calculator | Tools Platforms"
+      es: "Calculadora de edad exacta online | Años, meses y días",
+      en: "Exact Age Calculator Online | Years, Months, Days"
     },
     description: {
-      es: "Calcula tu edad exacta en años, meses y días, además de los días que faltan para tu próximo cumpleaños.",
-      en: "Calculate your exact age in years, months, and days, plus the days until your next birthday."
+      es: "Calcula edad exacta desde una fecha de nacimiento en años, meses y días, con meses totales, días totales y próximo cumpleaños.",
+      en: "Calculate exact age from a birth date in years, months, and days, with total months, total days, and next birthday."
     }
   },
   "unit-converter": {
     title: {
-      es: "Conversor de unidades online | Tools Platforms",
-      en: "Online Unit Converter | Tools Platforms"
+      es: "Conversor de unidades online | Kilos, libras, km y millas",
+      en: "Online Unit Converter | Kilograms, Pounds, km, Miles"
     },
     description: {
-      es: "Convierte unidades comunes de longitud, peso, masa y temperatura con resultados rápidos y decimales ajustables.",
-      en: "Convert common length, mass, and temperature units with fast results and adjustable decimals."
+      es: "Convierte unidades de longitud, peso, masa y temperatura como kilogramos, libras, kilómetros, millas, metros y grados.",
+      en: "Convert length, mass, weight, and temperature units such as kilograms, pounds, kilometers, miles, meters, and degrees."
     }
   },
   "text-case-converter": {
     title: {
-      es: "Convertidor de mayúsculas y minúsculas | Tools Platforms",
-      en: "Text Case Converter | Tools Platforms"
+      es: "Convertidor de mayúsculas a minúsculas online | Tools Platforms",
+      en: "Uppercase and Lowercase Text Converter Online | Tools Platforms"
     },
     description: {
-      es: "Transforma texto a mayúsculas, minúsculas, capitalizado o tipo oración directamente desde tu navegador.",
-      en: "Transform text to uppercase, lowercase, title case, or sentence case directly in your browser."
+      es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Útil para pasar mayúscula a minúscula y ordenar textos.",
+      en: "Convert text to uppercase, lowercase, title case, or sentence case. Useful for formatting and cleaning written text."
     }
   },
   "secure-password-generator": {
