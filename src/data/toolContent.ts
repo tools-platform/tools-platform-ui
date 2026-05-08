@@ -15,20 +15,20 @@ export type ToolContent = {
 export const toolContentById: Record<string, ToolContent> = {
   "net-salary-colombia": {
     intro: {
-      es: "Esta calculadora ayuda a estimar cuánto dinero recibirías realmente después de los descuentos básicos de nómina en Colombia.",
-      en: "This calculator helps estimate how much money you would actually receive after basic payroll deductions in Colombia."
+      es: "Esta calculadora de salario neto Colombia ayuda a estimar cuánto dinero recibirías realmente después de los descuentos básicos de nómina.",
+      en: "This Colombia net salary calculator helps estimate how much money you would actually receive after basic payroll deductions."
     },
     sections: [
       {
         title: { es: "Qué calcula", en: "What it calculates" },
         body: [
           {
-            es: "Parte del salario mensual bruto y descuenta los aportes del empleado a salud y pensión. También puede mostrar auxilio de transporte, Fondo de Solidaridad Pensional y valores adicionales cuando aplican.",
-            en: "It starts from the gross monthly salary and subtracts the employee's health and pension contributions. It can also show transport allowance, the solidarity pension fund, and additional values when they apply."
+            es: "Parte del salario mensual bruto y descuenta los aportes del empleado a salud y pensión para estimar el sueldo neto mensual y quincenal.",
+            en: "It starts from the gross monthly salary and subtracts employee health and pension contributions to estimate monthly and biweekly take-home pay."
           },
           {
-            es: "El resultado es una estimación mensual y quincenal para empleados dependientes. No reemplaza el desprendible oficial de nómina ni una revisión laboral.",
-            en: "The result is a monthly and biweekly estimate for dependent employees. It does not replace the official payslip or a formal labor review."
+            es: "También puede mostrar auxilio de transporte, Fondo de Solidaridad Pensional y deducciones adicionales cuando aplican. No reemplaza el desprendible oficial de nómina.",
+            en: "It can also show transport allowance, the solidarity pension fund, and extra deductions when they apply. It does not replace an official payslip."
           }
         ]
       },
@@ -36,8 +36,8 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Cómo usarla", en: "How to use it" },
         body: [
           {
-            es: "Ingresa tu salario mensual bruto, el año de reglas y cualquier descuento de nómina adicional que quieras considerar.",
-            en: "Enter your gross monthly salary, the rule year, and any extra payroll deductions you want to consider."
+            es: "Ingresa tu salario mensual bruto, el año de reglas y cualquier descuento de nómina adicional que quieras considerar para calcular el salario neto.",
+            en: "Enter your gross monthly salary, the rule year, and any extra payroll deductions you want to include when calculating net salary."
           },
           {
             es: "Activa el auxilio de transporte o el Fondo de Solidaridad solo si quieres ver ese detalle en el resultado.",
@@ -47,6 +47,16 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ],
     faqs: [
+      {
+        question: {
+          es: "¿Cómo calcular mi salario neto en Colombia?",
+          en: "How do I calculate my net salary in Colombia?"
+        },
+        answer: {
+          es: "Escribe tu salario mensual bruto y el año de reglas. La calculadora descuenta salud, pensión y otros conceptos aplicables para estimar el valor neto mensual y quincenal.",
+          en: "Enter your gross monthly salary and rule year. The calculator subtracts health, pension, and applicable items to estimate monthly and biweekly take-home pay."
+        }
+      },
       {
         question: {
           es: "¿El auxilio de transporte siempre aplica?",
@@ -71,16 +81,16 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "hourly-salary": {
     intro: {
-      es: "Esta calculadora convierte un salario mensual en valor por hora usando la jornada legal vigente en Colombia o una jornada personalizada.",
-      en: "This calculator converts a monthly salary into an hourly value using Colombia's current legal workweek or a custom schedule."
+      es: "Esta calculadora de salario por hora convierte un salario mensual en cuánto ganas por hora usando la jornada legal vigente en Colombia o una jornada personalizada.",
+      en: "This hourly salary calculator converts a monthly salary into how much you earn per hour using Colombia's current legal workweek or a custom schedule."
     },
     sections: [
       {
         title: { es: "Qué calcula", en: "What it calculates" },
         body: [
           {
-            es: "Transforma un salario mensual en valor por hora y por día laboral para ayudarte a comparar ofertas, presupuestos o cambios de jornada.",
-            en: "It turns a monthly salary into an hourly and daily work value to help you compare offers, budgets, or schedule changes."
+            es: "Transforma un salario mensual en valor por hora y por día laboral para ayudarte a responder cuánto gano por hora y comparar ofertas o cambios de jornada.",
+            en: "It turns a monthly salary into hourly and daily pay so you can answer how much you earn per hour and compare offers or schedule changes."
           },
           {
             es: "Puedes calcular el valor bruto por hora o el valor neto estimado después de salud, pensión y Fondo de Solidaridad Pensional cuando aplica.",
@@ -92,8 +102,8 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Cómo usarla", en: "How to use it" },
         body: [
           {
-            es: "Ingresa el salario mensual, elige si quieres ver el resultado bruto o neto y revisa las horas semanales legales que aparecen por defecto.",
-            en: "Enter the monthly salary, choose whether you want the gross or net result, and review the weekly legal hours shown by default."
+            es: "Ingresa el salario mensual, elige si quieres ver el resultado bruto o neto y revisa las horas semanales legales que aparecen por defecto para Colombia.",
+            en: "Enter the monthly salary, choose whether you want the gross or net result, and review the legal weekly hours shown by default for Colombia."
           },
           {
             es: "Si tu horario real es distinto al legal, usa el lápiz para editar las horas semanales y recalcular con tu jornada personalizada.",
@@ -103,6 +113,16 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ],
     faqs: [
+      {
+        question: {
+          es: "¿Cómo saber cuánto gano por hora?",
+          en: "How do I know how much I earn per hour?"
+        },
+        answer: {
+          es: "Ingresa tu salario mensual y las horas semanales de trabajo. La herramienta divide el salario entre las horas estimadas del mes para mostrar el valor por hora.",
+          en: "Enter your monthly salary and weekly work hours. The tool divides salary by estimated monthly hours to show hourly pay."
+        }
+      },
       {
         question: {
           es: "¿La herramienta usa las horas legales de Colombia?",
@@ -183,7 +203,7 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "employment-settlement-colombia": {
     intro: {
-      es: "Esta calculadora de liquidación laboral en Colombia estima cuánto podría corresponderte cuando termina una relación de trabajo.",
+      es: "Esta calculadora de liquidación laboral en Colombia estima cuánto podría corresponderte cuando termina una relación de trabajo o quieres saber a cuánto equivale la liquidación.",
       en: "This Colombia employment settlement calculator estimates what may be owed when a work relationship ends."
     },
     sections: [
@@ -195,7 +215,7 @@ export const toolContentById: Record<string, ToolContent> = {
             en: "It calculates severance, severance interest, service bonus, unused vacation, pending salary, and any extra earnings or deductions you enter."
           },
           {
-            es: "También sirve para preguntas comunes como calcular liquidación laboral, liquidación 2025 o cuánto equivale la liquidación al salir de un empleo.",
+            es: "También sirve para preguntas comunes como calcular liquidación laboral, liquidación 2025, liquidación 2026 o cuánto equivale la liquidación al salir de un empleo.",
             en: "It also helps with common questions such as calculating an employment settlement, estimating a past-year settlement, or understanding what a final payout may represent."
           },
           {
@@ -232,6 +252,16 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ],
     faqs: [
+      {
+        question: {
+          es: "¿A cuánto equivale la liquidación laboral?",
+          en: "What does an employment settlement include?"
+        },
+        answer: {
+          es: "Depende de salario, fechas, prestaciones pendientes, vacaciones, motivo de terminación y si aplica indemnización. La calculadora separa esos conceptos para darte una estimación.",
+          en: "It depends on salary, dates, pending benefits, vacation, termination reason, and whether dismissal compensation applies. The calculator separates those items to estimate the payout."
+        }
+      },
       {
         question: {
           es: "¿La fecha de inicio siempre se usa?",
@@ -429,16 +459,16 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "worked-hours": {
     intro: {
-      es: "Esta calculadora de horas trabajadas suma jornadas por día para saber cuánto tiempo trabajaste en total.",
-      en: "This worked hours calculator adds daily work entries so you can see the total time worked."
+      es: "Esta calculadora de horas trabajadas suma jornadas por día, semana o periodo para saber cuánto tiempo trabajaste en total.",
+      en: "This worked hours calculator adds daily, weekly, or period work entries so you can see the total time worked."
     },
     sections: [
       {
         title: { es: "Qué puedes calcular", en: "What you can calculate" },
         body: [
           {
-            es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización para sumar horas trabajadas sin hacer cuentas manuales.",
-            en: "Add one or more work entries with date, start time, and end time to add worked hours without manual math."
+            es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización para sumar horas trabajadas, horas laborales o turnos sin hacer cuentas manuales.",
+            en: "Add one or more work entries with date, start time, and end time to add worked hours, labor hours, or shifts without manual math."
           },
           {
             es: "La herramienta suma los minutos y los presenta como horas totales, minutos totales y tiempo trabajado por cada jornada.",
@@ -450,7 +480,7 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Para qué sirve", en: "What it is for" },
         body: [
           {
-            es: "Es útil para calcular mis horas de trabajo, reportes, cobros por hora, control personal de tiempo y revisión de jornadas laborales.",
+            es: "Es útil para calcular mis horas de trabajo, sumar horas trabajadas, preparar reportes, cobrar por hora, controlar tiempo y revisar jornadas laborales.",
             en: "It is useful for calculating my work hours, reports, hourly billing, personal time tracking, and work shift reviews."
           },
           {
@@ -474,6 +504,13 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ],
     faqs: [
+      {
+        question: { es: "¿Cómo sumar horas trabajadas?", en: "How do I add worked hours?" },
+        answer: {
+          es: "Crea una jornada por cada día o turno con hora de inicio y finalización. La calculadora suma todos los rangos y muestra el total acumulado.",
+          en: "Create one entry for each day or shift with start and end time. The calculator adds all ranges and shows the accumulated total."
+        }
+      },
       {
         question: { es: "¿Puedo sumar varias jornadas?", en: "Can I add multiple work entries?" },
         answer: {
@@ -549,7 +586,7 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "days-between-dates": {
     intro: {
-      es: "Cuenta cuántos días calendario hay entre dos fechas para trámites, viajes, entregas o planeación.",
+      es: "Cuenta cuántos días calendario hay entre dos fechas para trámites, viajes, entregas, planeación o conteos rápidos en Colombia.",
       en: "Count how many calendar days there are between two dates for paperwork, trips, deliveries, or planning."
     },
     sections: [
@@ -557,8 +594,8 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Qué muestra", en: "What it shows" },
         body: [
           {
-            es: "Entrega el total de días, semanas completas y días restantes entre la fecha inicial y la final.",
-            en: "It returns the total number of days, full weeks, and remaining days between the start and end dates."
+            es: "Entrega el total de días calendario, semanas completas y días restantes entre la fecha inicial y la final.",
+            en: "It returns the total number of calendar days, full weeks, and remaining days between the start and end dates."
           },
           {
             es: "Puedes elegir si quieres incluir la fecha final en el conteo, algo útil cuando necesitas contar ambos días.",
@@ -570,7 +607,7 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Usos comunes", en: "Common uses" },
         body: [
           {
-            es: "Sirve para calcular plazos personales, duración de viajes, periodos entre eventos, días calendario en Colombia o tiempo restante para una entrega.",
+            es: "Sirve como calculador de días para plazos personales, duración de viajes, periodos entre eventos, días calendario en Colombia o tiempo restante para una entrega.",
             en: "It is useful for personal deadlines, trip duration, time between events, calendar day counts, or the time left until a delivery."
           },
           {
@@ -581,6 +618,13 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ],
     faqs: [
+      {
+        question: { es: "¿Cómo calcular días entre dos fechas?", en: "How do I calculate days between two dates?" },
+        answer: {
+          es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula los días calendario entre ambas y puede incluir la fecha final si necesitas contar ambos extremos.",
+          en: "Select the start date and end date. The tool calculates calendar days between them and can include the end date when both endpoints should count."
+        }
+      },
       {
         question: { es: "¿Cuenta días hábiles?", en: "Does it count business days?" },
         answer: {
@@ -731,11 +775,11 @@ export const toolContentById: Record<string, ToolContent> = {
         title: { es: "Formatos disponibles", en: "Available formats" },
         body: [
           {
-            es: "Puedes convertir texto a mayúsculas, pasar mayúscula a minúscula, capitalizar palabras o ajustar frases tipo oración.",
-            en: "You can convert text to uppercase, change uppercase to lowercase, title case words, or format sentences."
+            es: "Puedes convertir texto a mayúsculas, pasar mayúscula a minúscula, cambiar minúsculas a mayúsculas, capitalizar palabras o ajustar frases tipo oración.",
+            en: "You can convert text to uppercase, change uppercase to lowercase, switch lowercase to uppercase, title case words, or format sentences."
           },
           {
-            es: "Es útil para títulos, documentos, formularios, correos, publicaciones y tareas repetitivas de edición.",
+            es: "Es útil para títulos, documentos, formularios, correos, publicaciones, limpiar texto copiado y tareas repetitivas de edición.",
             en: "It is useful for titles, documents, forms, emails, posts, and repetitive editing tasks."
           }
         ]
@@ -768,6 +812,13 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ],
     faqs: [
+      {
+        question: { es: "¿Cómo convertir texto a mayúsculas?", en: "How do I convert text to uppercase?" },
+        answer: {
+          es: "Pega tu texto, elige la opción de mayúsculas y pulsa convertir. La herramienta transforma todo el contenido en el navegador.",
+          en: "Paste your text, choose uppercase, and press convert. The tool transforms the content in your browser."
+        }
+      },
       {
         question: { es: "¿El texto se guarda?", en: "Is the text stored?" },
         answer: {

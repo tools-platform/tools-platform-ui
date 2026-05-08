@@ -47,22 +47,22 @@ const localizedPages = [
   {
     path: "/tools/colombia-net-salary-calculator",
     title: {
-      es: "Calculadora de salario neto Colombia 2026 | Tools Platforms",
-      en: "Colombia Net Salary Calculator 2026 | Tools Platforms"
+      es: "Calculadora de salario neto Colombia 2026 | Sueldo neto",
+      en: "Colombia Net Salary Calculator 2026 | Take-Home Pay"
     },
     description: {
-      es: "Calcula tu salario neto en Colombia después de salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones de nómina.",
-      en: "Calculate your take-home salary in Colombia after health, pension, transport allowance, solidarity fund, and payroll deductions."
+      es: "Calcula tu sueldo o salario neto en Colombia para 2026 con salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones.",
+      en: "Calculate your 2026 take-home pay in Colombia with health, pension, transport allowance, solidarity fund, and payroll deductions."
     }
   },
   {
     path: "/tools/colombia-employment-settlement-calculator",
     title: {
-      es: "Calculadora de liquidación laboral Colombia 2026 | Tools Platforms",
-      en: "Colombia Employment Settlement Calculator 2026 | Tools Platforms"
+      es: "Calculadora de liquidación laboral Colombia 2026 | Liquidación",
+      en: "Colombia Employment Settlement Calculator 2026 | Final Pay"
     },
     description: {
-      es: "Calcula una liquidación laboral en Colombia con cesantías, prima, vacaciones, salario pendiente e indemnización si aplica.",
+      es: "Calcula cuánto equivale tu liquidación laboral en Colombia con cesantías, prima, vacaciones, salario pendiente e indemnización si aplica.",
       en: "Estimate a Colombia employment settlement with severance, service bonus, vacation, pending salary, and dismissal compensation when applicable."
     }
   },
@@ -102,23 +102,23 @@ const localizedPages = [
   {
     path: "/tools/worked-hours-calculator",
     title: {
-      es: "Calculadora de horas trabajadas online | Sumar horas de trabajo",
-      en: "Worked Hours Calculator Online | Add Work Hours"
+      es: "Calculadora de horas trabajadas | Sumar horas de trabajo",
+      en: "Worked Hours Calculator | Add Work Hours Online"
     },
     description: {
-      es: "Suma horas trabajadas por día o jornada. Calcula horas de trabajo, horas laborales y tiempo total entre hora de inicio y finalización.",
-      en: "Add worked hours by day or shift. Calculate work hours, total labor time, and time between start and end times."
+      es: "Calcula y suma horas trabajadas por día, jornada o semana. Útil para calcular mis horas de trabajo, horas laborales y tiempo total.",
+      en: "Calculate and add worked hours by day, shift, or week. Useful for work hours, labor time, and total time tracking."
     }
   },
   {
     path: "/tools/hourly-salary-calculator",
     title: {
-      es: "Calculadora de salario por horas (Colombia) | Tools Platforms",
-      en: "Hourly Salary Calculator (Colombia) | Tools Platforms"
+      es: "Calculadora de salario por hora Colombia | Cuánto gano por hora",
+      en: "Hourly Salary Calculator (Colombia) | Hourly Pay"
     },
     description: {
-      es: "Convierte un salario mensual en valor por hora en Colombia usando la jornada legal vigente o una jornada semanal personalizada.",
-      en: "Convert a monthly salary into an hourly value in Colombia using the current legal workweek or a custom weekly schedule."
+      es: "Calcula cuánto ganas por hora en Colombia a partir de tu salario mensual, jornada legal vigente o tus horas semanales reales.",
+      en: "Calculate how much you earn per hour in Colombia from a monthly salary, legal workweek, or custom weekly hours."
     }
   },
   {
@@ -146,12 +146,12 @@ const localizedPages = [
   {
     path: "/tools/days-between-dates-calculator",
     title: {
-      es: "Contador de días entre fechas online | Calculador de días",
+      es: "Contador de días entre fechas | Calculador de días calendario",
       en: "Days Between Dates Calculator Online | Date Counter"
     },
     description: {
-      es: "Cuenta días calendario entre dos fechas para trámites, viajes o planeación. Incluye semanas completas y días restantes.",
-      en: "Count calendar days between two dates for paperwork, trips, or planning. Includes full weeks and remaining days."
+      es: "Cuenta días calendario entre dos fechas para trámites, viajes, entregas o planeación. Incluye semanas completas y días restantes.",
+      en: "Count calendar days between two dates for paperwork, trips, deliveries, or planning. Includes full weeks and remaining days."
     }
   },
   {
@@ -169,29 +169,29 @@ const localizedPages = [
     path: "/tools/unit-converter",
     title: {
       es: "Conversor de unidades online | Kilos, libras, km y millas",
-      en: "Online Unit Converter | Kilograms, Pounds, km, Miles"
+      en: "Online Unit Converter | kg, lb, km, Miles"
     },
     description: {
-      es: "Convierte unidades de longitud, peso, masa y temperatura como kilogramos, libras, kilómetros, millas, metros y grados.",
-      en: "Convert length, mass, weight, and temperature units such as kilograms, pounds, kilometers, miles, meters, and degrees."
+      es: "Convierte unidades de longitud, peso, masa y temperatura: kilogramos, libras, kilómetros, millas, metros, centímetros y grados.",
+      en: "Convert length, mass, weight, and temperature units: kilograms, pounds, kilometers, miles, meters, centimeters, and degrees."
     }
   },
   {
     path: "/tools/text-case-converter",
     title: {
-      es: "Convertidor de mayúsculas a minúsculas online | Tools Platforms",
-      en: "Uppercase and Lowercase Text Converter Online | Tools Platforms"
+      es: "Convertidor de mayúsculas y minúsculas | Texto online",
+      en: "Uppercase and Lowercase Text Converter | Online Text"
     },
     description: {
-      es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Útil para pasar mayúscula a minúscula y ordenar textos.",
-      en: "Convert text to uppercase, lowercase, title case, or sentence case. Useful for formatting and cleaning written text."
+      es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Pasa mayúscula a minúscula y limpia textos rápido.",
+      en: "Convert text to uppercase, lowercase, title case, or sentence case. Format and clean text quickly in your browser."
     }
   },
   {
     path: "/tools/secure-password-generator",
     title: {
-      es: "Generador de contraseñas seguras | Tools Platforms",
-      en: "Secure Password Generator | Tools Platforms"
+      es: "Generador de contraseñas seguras online | Password generator",
+      en: "Secure Password Generator Online | Random Passwords"
     },
     description: {
       es: "Genera contraseñas aleatorias y seguras con longitud personalizada, símbolos, números, mayúsculas y minúsculas.",
