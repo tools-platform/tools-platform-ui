@@ -211,6 +211,141 @@ const localizedPages = [
   }
 ];
 
+const toolFaqsByPath = {
+  "/tools/colombia-net-salary-calculator": [
+    {
+      question: {
+        es: "¿Cómo calcular mi salario neto en Colombia?",
+        en: "How do I calculate my net salary in Colombia?"
+      },
+      answer: {
+        es: "Escribe tu salario mensual bruto y el año de reglas. La calculadora descuenta salud, pensión y otros conceptos aplicables para estimar el valor neto mensual y quincenal.",
+        en: "Enter your gross monthly salary and rule year. The calculator subtracts health, pension, and applicable items to estimate monthly and biweekly take-home pay."
+      }
+    },
+    {
+      question: {
+        es: "¿El auxilio de transporte siempre aplica?",
+        en: "Does the transport allowance always apply?"
+      },
+      answer: {
+        es: "No. Depende del salario y de los límites legales del año seleccionado. La herramienta valida si el salario cumple el límite.",
+        en: "No. It depends on the salary and the legal limits of the selected year. The tool checks whether the salary meets that threshold."
+      }
+    }
+  ],
+  "/tools/hourly-salary-calculator": [
+    {
+      question: {
+        es: "¿Se puede calcular el valor hora dividiendo el salario mensual entre 240?",
+        en: "Can I calculate hourly pay by dividing monthly salary by 240?"
+      },
+      answer: {
+        es: "Sí, es una referencia común cuando se usa una jornada mensual de 240 horas. La herramienta también permite ajustar las horas semanales para reflejar la jornada legal vigente o tu horario real.",
+        en: "Yes, it is a common reference when using a 240-hour monthly schedule. The tool also lets you adjust weekly hours to match the current legal workweek or your real schedule."
+      }
+    },
+    {
+      question: {
+        es: "¿Cómo saber cuánto gano por hora?",
+        en: "How do I know how much I earn per hour?"
+      },
+      answer: {
+        es: "Ingresa tu salario mensual y las horas semanales de trabajo. La herramienta divide el salario entre las horas estimadas del mes para mostrar el valor por hora.",
+        en: "Enter your monthly salary and weekly work hours. The tool divides salary by estimated monthly hours to show hourly pay."
+      }
+    }
+  ],
+  "/tools/colombia-employment-settlement-calculator": [
+    {
+      question: {
+        es: "¿A cuánto equivale la liquidación laboral?",
+        en: "What does an employment settlement include?"
+      },
+      answer: {
+        es: "Depende de salario, fechas, prestaciones pendientes, vacaciones, motivo de terminación y si aplica indemnización. La calculadora separa esos conceptos para darte una estimación.",
+        en: "It depends on salary, dates, pending benefits, vacation, termination reason, and whether dismissal compensation applies. The calculator separates those items to estimate the payout."
+      }
+    },
+    {
+      question: {
+        es: "¿Puedo calcular una liquidación de 2025?",
+        en: "Can I calculate a 2025 employment settlement?"
+      },
+      answer: {
+        es: "Sí, puedes elegir el año de reglas disponible. La herramienta usa ese año para valores legales como salario mínimo y auxilio de transporte cuando aplican.",
+        en: "Yes, you can choose an available rule year. The tool uses that year for legal values such as minimum wage and transport allowance when they apply."
+      }
+    }
+  ],
+  "/tools/worked-hours-calculator": [
+    {
+      question: {
+        es: "¿Cómo sumar horas trabajadas?",
+        en: "How do I add worked hours?"
+      },
+      answer: {
+        es: "Crea una jornada por cada día o turno con hora de inicio y finalización. La calculadora suma todos los rangos y muestra el total acumulado.",
+        en: "Create one entry for each day or shift with start and end time. The calculator adds all ranges and shows the accumulated total."
+      }
+    },
+    {
+      question: {
+        es: "¿Calcula horas extra?",
+        en: "Does it calculate overtime?"
+      },
+      answer: {
+        es: "No. Solo suma tiempo trabajado; los recargos dependen de reglas laborales y acuerdos específicos.",
+        en: "No. It only adds worked time; overtime surcharges depend on labor rules and specific agreements."
+      }
+    }
+  ],
+  "/tools/days-between-dates-calculator": [
+    {
+      question: {
+        es: "¿Cómo calcular días entre dos fechas?",
+        en: "How do I calculate days between two dates?"
+      },
+      answer: {
+        es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula los días calendario entre ambas y puede incluir la fecha final si necesitas contar ambos extremos.",
+        en: "Select the start date and end date. The tool calculates calendar days between them and can include the end date when both endpoints should count."
+      }
+    },
+    {
+      question: {
+        es: "¿Cuenta días hábiles?",
+        en: "Does it count business days?"
+      },
+      answer: {
+        es: "No. Cuenta días calendario.",
+        en: "No. It counts calendar days."
+      }
+    }
+  ],
+  "/tools/text-case-converter": [
+    {
+      question: {
+        es: "¿Cómo convertir texto a mayúsculas?",
+        en: "How do I convert text to uppercase?"
+      },
+      answer: {
+        es: "Pega tu texto, elige la opción de mayúsculas y pulsa convertir. La herramienta transforma todo el contenido en el navegador.",
+        en: "Paste your text, choose uppercase, and press convert. The tool transforms the content in your browser."
+      }
+    },
+    {
+      question: {
+        es: "¿Puedo convertir mayúsculas a minúsculas?",
+        en: "Can I convert uppercase to lowercase?"
+      },
+      answer: {
+        es: "Sí. Elige minúsculas, pega tu texto y pulsa convertir para transformar todo el contenido.",
+        en: "Yes. Choose lowercase, paste your text, and press convert to transform all content."
+      }
+    }
+  ]
+};
+
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -293,7 +428,69 @@ function renderPageHtml(baseHtml, page, locale) {
     ["og:site_name", "content", siteName]
   ].reduce((html, [selector, attribute, value]) => setTagAttribute(html, selector, attribute, value), baseHtml);
 
-  return setAlternateLinks(html, page.path);
+  return injectStructuredData(setAlternateLinks(html, page.path), page, locale, canonicalUrl);
+}
+
+function serializeJsonLd(data) {
+  return JSON.stringify(data).replaceAll("<", "\\u003c");
+}
+
+function renderToolStructuredData(page, locale, canonicalUrl) {
+  if (!page.path.startsWith("/tools/")) {
+    return "";
+  }
+
+  const graph = [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${canonicalUrl}#tool`,
+      name: page.title[locale],
+      description: page.description[locale],
+      url: canonicalUrl,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Web",
+      isAccessibleForFree: true,
+      inLanguage: locale,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    }
+  ];
+
+  const faqs = toolFaqsByPath[page.path];
+
+  if (faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${canonicalUrl}#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question[locale],
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer[locale]
+        }
+      })),
+      inLanguage: locale
+    });
+  }
+
+  return `    <script type="application/ld+json" data-tools-platforms-jsonld="true">${serializeJsonLd({
+    "@context": "https://schema.org",
+    "@graph": graph
+  })}</script>\n`;
+}
+
+function injectStructuredData(html, page, locale, canonicalUrl) {
+  const structuredData = renderToolStructuredData(page, locale, canonicalUrl);
+
+  if (!structuredData) {
+    return html;
+  }
+
+  return html.replace("</head>", `${structuredData}  </head>`);
 }
 
 async function writeRouteHtml(baseHtml, page, locale) {

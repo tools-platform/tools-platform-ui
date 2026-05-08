@@ -125,6 +125,16 @@ export const toolContentById: Record<string, ToolContent> = {
       },
       {
         question: {
+          es: "¿Se puede calcular el valor hora dividiendo el salario mensual entre 240?",
+          en: "Can I calculate hourly pay by dividing monthly salary by 240?"
+        },
+        answer: {
+          es: "Sí, es una referencia común cuando se usa una jornada mensual de 240 horas. La herramienta también permite ajustar las horas semanales para reflejar la jornada legal vigente o tu horario real.",
+          en: "Yes, it is a common reference when using a 240-hour monthly schedule. The tool also lets you adjust weekly hours to match the current legal workweek or your real schedule."
+        }
+      },
+      {
+        question: {
           es: "¿La herramienta usa las horas legales de Colombia?",
           en: "Does the tool use Colombia's legal weekly hours?"
         },

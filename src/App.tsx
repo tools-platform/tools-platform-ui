@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
-import { applySeo, getToolSeo, homeSeo, legalSeo } from "./data/seo";
+import { applySeo, applyToolStructuredData, clearStructuredData, getToolSeo, homeSeo, legalSeo } from "./data/seo";
 import { getLocaleFromPathname, LocaleProvider, stripLocalePrefix, type Locale } from "./i18n";
 import { HomePage } from "./pages/HomePage";
 import { LegalPage, type LegalPageType } from "./pages/LegalPage";
@@ -31,15 +31,18 @@ export function App() {
   useEffect(() => {
     if (route.type === "tool") {
       applySeo(getToolSeo(route.slug, route.locale), route.locale);
+      applyToolStructuredData(route.slug, route.locale);
       return;
     }
 
     if (route.type === "legal") {
       applySeo(legalSeo[route.page], route.locale);
+      clearStructuredData();
       return;
     }
 
     applySeo(homeSeo, route.locale);
+    clearStructuredData();
   }, [route]);
 
   return (

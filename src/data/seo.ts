@@ -1,4 +1,5 @@
 import { tools } from "./catalog";
+import { toolContentById } from "./toolContent";
 import { getLocalizedText, localizePath, type Locale, type LocalizedText } from "../i18n";
 
 const siteName = "Tools Platforms";
@@ -281,4 +282,81 @@ export function applySeo(metadata: SeoMetadata, locale: Locale) {
   setMetaAttribute('link[rel="alternate"][hreflang="es"]', "href", spanishUrl);
   setMetaAttribute('link[rel="alternate"][hreflang="en"]', "href", englishUrl);
   setMetaAttribute('link[rel="alternate"][hreflang="x-default"]', "href", spanishUrl);
+}
+
+function removeStructuredData() {
+  document.head.querySelectorAll('script[data-tools-platforms-jsonld="true"]').forEach((element) => {
+    element.remove();
+  });
+}
+
+function appendStructuredData(id: string, data: object) {
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.dataset.toolsPlatformsJsonld = "true";
+  script.id = id;
+  script.textContent = JSON.stringify(data);
+  document.head.appendChild(script);
+}
+
+export function applyToolStructuredData(slug: string, locale: Locale) {
+  removeStructuredData();
+
+  const tool = tools.find((item) => item.slug === slug);
+
+  if (!tool) {
+    return;
+  }
+
+  const metadata = getToolSeo(slug, locale);
+  const title = getLocalizedText(metadata.title, locale);
+  const description = getLocalizedText(metadata.description, locale);
+  const url = `${siteUrl}${localizePath(metadata.canonicalPath, locale)}`;
+  const content = toolContentById[tool.id];
+  const faqItems =
+    content?.faqs.map((faq) => ({
+      "@type": "Question",
+      name: getLocalizedText(faq.question, locale),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: getLocalizedText(faq.answer, locale)
+      }
+    })) ?? [];
+
+  const graph: object[] = [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${url}#tool`,
+      name: title,
+      description,
+      url,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Web",
+      isAccessibleForFree: true,
+      inLanguage: locale,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    }
+  ];
+
+  if (faqItems.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      mainEntity: faqItems,
+      inLanguage: locale
+    });
+  }
+
+  appendStructuredData("tools-platforms-tool-schema", {
+    "@context": "https://schema.org",
+    "@graph": graph
+  });
+}
+
+export function clearStructuredData() {
+  removeStructuredData();
 }
