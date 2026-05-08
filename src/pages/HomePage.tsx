@@ -33,7 +33,8 @@ export function HomePage() {
           featureTwoCopy: "Each calculation should show what was used and what the result means.",
           featureThreeTitle: "No AI knowledge required",
           featureThreeCopy:
-            "We turn common questions into direct tools for people who simply need to solve something practical."
+            "We turn common questions into direct tools for people who simply need to solve something practical.",
+          availableTools: "tools available"
         }
       : {
           eyebrow: "Más de 50 herramientas próximamente",
@@ -55,8 +56,14 @@ export function HomePage() {
           featureTwoCopy: "Cada cálculo debe mostrar qué se usó y qué significa el resultado.",
           featureThreeTitle: "Sin saber usar IA",
           featureThreeCopy:
-            "Convertimos preguntas comunes en herramientas directas para quien solo necesita resolver algo práctico."
+            "Convertimos preguntas comunes en herramientas directas para quien solo necesita resolver algo práctico.",
+          availableTools: "herramientas disponibles"
         };
+
+  const publishedToolsCount = useMemo(
+    () => tools.filter((tool) => tool.status === "published").length,
+    []
+  );
 
   const filteredTools = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -94,11 +101,17 @@ export function HomePage() {
       </section>
 
       <section className="catalog-section" id="categories">
-        <CategoryPills
-          activeCategory={activeCategory}
-          categories={categories}
-          onChange={setActiveCategory}
-        />
+        <div className="catalog-toolbar">
+          <CategoryPills
+            activeCategory={activeCategory}
+            categories={categories}
+            onChange={setActiveCategory}
+          />
+
+          <p className="catalog-count">
+            <strong>{publishedToolsCount}</strong> {copy.availableTools}
+          </p>
+        </div>
 
         {filteredTools.length > 0 ? (
           <div className="tool-grid" id="tools">

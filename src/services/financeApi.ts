@@ -7,6 +7,16 @@ export type NetSalaryColombiaRequest = {
   otherDeductions?: number;
 };
 
+export type GrossSalaryPaymentFrequency = "monthly" | "biweekly";
+
+export type GrossSalaryColombiaRequest = {
+  receivedNetSalary: number;
+  paymentFrequency?: GrossSalaryPaymentFrequency;
+  year?: number;
+  includeTransportationAllowance?: boolean;
+  otherDeductions?: number;
+};
+
 export type HourlySalaryType = "gross" | "net";
 
 export type HourlySalaryColombiaRequest = {
@@ -14,6 +24,13 @@ export type HourlySalaryColombiaRequest = {
   salaryType?: HourlySalaryType;
   weeklyHours?: number;
   year?: number;
+};
+
+export type SalaryIncreaseRequest = {
+  currentSalary: number;
+  increasePercent: number;
+  year?: number;
+  includeColombiaPayrollDeductions?: boolean;
 };
 
 export type NetSalaryColombiaResponse = {
@@ -38,6 +55,46 @@ export type NetSalaryColombiaResponse = {
       totalDeductions: number;
       netSalary: number;
       biweeklyNetSalary: number;
+    };
+    rules: {
+      minimumMonthlyWage: number;
+      transportationAllowanceValue: number;
+      transportationAllowanceSalaryLimit: number;
+      qualifiesForTransportationAllowance: boolean;
+      employeeHealthRate: number;
+      employeePensionRate: number;
+      solidarityPensionFundRate: number;
+      sources: string[];
+    };
+    disclaimer: string;
+  };
+};
+
+export type GrossSalaryColombiaResponse = {
+  success: true;
+  data: {
+    currency: "COP";
+    year: number;
+    input: {
+      receivedNetSalary: number;
+      paymentFrequency: GrossSalaryPaymentFrequency;
+      targetMonthlyNetSalary: number;
+      includeTransportationAllowance: boolean;
+      otherDeductions: number;
+    };
+    result: {
+      estimatedGrossSalary: number;
+      estimatedGrossBiweeklySalary: number;
+      estimatedNetSalary: number;
+      estimatedNetBiweeklySalary: number;
+      transportationAllowance: number;
+      contributionBase: number;
+      healthContribution: number;
+      pensionContribution: number;
+      solidarityPensionFundContribution: number;
+      totalMandatoryDeductions: number;
+      otherDeductions: number;
+      totalDeductions: number;
     };
     rules: {
       minimumMonthlyWage: number;
@@ -86,6 +143,42 @@ export type HourlySalaryColombiaResponse = {
       employeeHealthRate: number;
       employeePensionRate: number;
       solidarityPensionFundRate: number;
+      sources: string[];
+    };
+    disclaimer: string;
+  };
+};
+
+export type SalaryIncreaseResponse = {
+  success: true;
+  data: {
+    currency: "COP";
+    year: number;
+    input: {
+      currentSalary: number;
+      increasePercent: number;
+      includeColombiaPayrollDeductions: boolean;
+    };
+    result: {
+      currentSalary: number;
+      increaseAmount: number;
+      grossNewSalary: number;
+      netNewSalary: number;
+      annualGrossIncrease: number;
+    };
+    deductions: {
+      applies: boolean;
+      contributionBase: number;
+      healthContribution: number;
+      pensionContribution: number;
+      solidarityPensionFundContribution: number;
+      totalMandatoryDeductions: number;
+    };
+    rules: {
+      employeeHealthRate: number;
+      employeePensionRate: number;
+      solidarityPensionFundRate: number;
+      minimumMonthlyWage: number | null;
       sources: string[];
     };
     disclaimer: string;
@@ -303,12 +396,28 @@ export function calculateNetSalaryColombia(
   });
 }
 
+export function calculateGrossSalaryColombia(
+  request: GrossSalaryColombiaRequest
+): Promise<GrossSalaryColombiaResponse["data"]> {
+  return postJson("/finance/gross-salary-colombia", request, {
+    es: "No se pudo calcular el salario bruto.",
+    en: "We couldn't calculate the gross salary."
+  });
+}
+
 export function calculateHourlySalaryColombia(
   request: HourlySalaryColombiaRequest
 ): Promise<HourlySalaryColombiaResponse["data"]> {
   return postJson("/work/hourly-salary", request, {
     es: "No se pudo calcular el salario por hora.",
     en: "We couldn't calculate the hourly salary."
+  });
+}
+
+export function calculateSalaryIncrease(request: SalaryIncreaseRequest): Promise<SalaryIncreaseResponse["data"]> {
+  return postJson("/finance/salary-increase", request, {
+    es: "No se pudo calcular el aumento salarial.",
+    en: "We couldn't calculate the salary increase."
   });
 }
 

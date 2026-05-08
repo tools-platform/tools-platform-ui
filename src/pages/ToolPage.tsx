@@ -8,6 +8,7 @@ import { EmployeeSalaryEquivalentCalculator } from "../components/calculators/Em
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
+import { GrossSalaryColombiaCalculator } from "../components/calculators/GrossSalaryColombiaCalculator";
 import { HourlySalaryColombiaCalculator } from "../components/calculators/HourlySalaryColombiaCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
@@ -89,6 +90,8 @@ export function ToolPage({ slug }: ToolPageProps) {
 
       {tool.id === "net-salary-colombia" ? (
         <NetSalaryColombiaCalculator />
+      ) : tool.id === "gross-salary-colombia" ? (
+        <GrossSalaryColombiaCalculator />
       ) : tool.id === "hourly-salary" ? (
         <HourlySalaryColombiaCalculator />
       ) : tool.id === "employment-settlement-colombia" ? (

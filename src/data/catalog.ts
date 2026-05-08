@@ -106,6 +106,21 @@ export const tools: ToolSummary[] = [
     Icon: Banknote
   },
   {
+    id: "gross-salary-colombia",
+    slug: "colombia-gross-salary-calculator",
+    name: {
+      es: "Calculadora de salario bruto (Colombia)",
+      en: "Gross Salary Calculator (Colombia)"
+    },
+    description: {
+      es: "Estima tu salario bruto desde lo que recibes neto mensual o quincenal.",
+      en: "Estimate gross salary from the net amount you receive monthly or biweekly."
+    },
+    categoryId: "finance",
+    status: "published",
+    Icon: Banknote
+  },
+  {
     id: "employment-settlement-colombia",
     slug: "colombia-employment-settlement-calculator",
     name: {
@@ -164,6 +179,18 @@ export const tools: ToolSummary[] = [
     categoryId: "finance",
     status: "published",
     Icon: Coins
+  },
+  {
+    id: "salary-increase",
+    slug: "salary-increase-calculator",
+    name: { es: "Calculadora de aumento salarial", en: "Salary Increase Calculator" },
+    description: {
+      es: "Calcula cómo queda un salario después de un aumento porcentual.",
+      en: "Calculate what a salary looks like after a percentage increase."
+    },
+    categoryId: "finance",
+    status: "published",
+    Icon: Repeat2
   },
   {
     id: "worked-hours",
@@ -254,6 +281,18 @@ export const tools: ToolSummary[] = [
     categoryId: "time",
     status: "published",
     Icon: Clock3
+  },
+  {
+    id: "days-until-date",
+    slug: "days-until-date-calculator",
+    name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator" },
+    description: {
+      es: "Cuenta los días restantes para eventos importantes o entregas.",
+      en: "Count the days left until an event or deadline."
+    },
+    categoryId: "time",
+    status: "published",
+    Icon: CalendarDays
   },
   {
     id: "unit-converter",
@@ -352,18 +391,6 @@ export const tools: ToolSummary[] = [
     Icon: Hash
   },
   {
-    id: "salary-increase",
-    slug: "salary-increase-calculator",
-    name: { es: "Calculadora de aumento salarial", en: "Salary Increase Calculator" },
-    description: {
-      es: "Calcula cómo queda un salario después de un aumento porcentual.",
-      en: "Calculate what a salary looks like after a percentage increase."
-    },
-    categoryId: "finance",
-    status: "published",
-    Icon: Repeat2
-  },
-  {
     id: "annual-salary",
     slug: "annual-salary-calculator",
     name: { es: "Calculadora de salario anual", en: "Annual Salary Calculator" },
@@ -413,18 +440,6 @@ export const tools: ToolSummary[] = [
     categoryId: "work",
     status: "draft",
     Icon: BriefcaseBusiness
-  },
-  {
-    id: "days-until-date",
-    slug: "days-until-date-calculator",
-    name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator" },
-    description: {
-      es: "Cuenta los días restantes para eventos importantes o entregas.",
-      en: "Count the days left until an event or deadline."
-    },
-    categoryId: "time",
-    status: "published",
-    Icon: CalendarDays
   },
   {
     id: "weeks-between-dates",

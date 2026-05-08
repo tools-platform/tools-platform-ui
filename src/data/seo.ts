@@ -23,6 +23,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Calculate your 2026 take-home pay in Colombia with health, pension, transport allowance, solidarity fund, and payroll deductions."
     }
   },
+  "gross-salary-colombia": {
+    title: {
+      es: "Calculadora de salario bruto Colombia | Desde neto",
+      en: "Gross Salary Calculator (Colombia) | From Net Pay"
+    },
+    description: {
+      es: "Calcula el salario bruto mensual aproximado desde el neto que recibes mensual o quincenal en Colombia, con salud, pensión y descuentos de nómina.",
+      en: "Estimate gross monthly salary from the net amount you receive monthly or biweekly in Colombia, including health, pension, and payroll deductions."
+    }
+  },
   "hourly-salary": {
     title: {
       es: "Calculadora de salario por hora Colombia | Cuánto gano por hora",
@@ -75,12 +85,12 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   },
   "salary-increase": {
     title: {
-      es: "Calculadora de aumento salarial | Porcentaje de aumento",
-      en: "Salary Increase Calculator | Percentage Raise"
+      es: "Calculadora de aumento salarial | Neto y bruto",
+      en: "Salary Increase Calculator | Net and Gross Raise"
     },
     description: {
-      es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo, valor del aumento y diferencia anual.",
-      en: "Calculate your salary after a percentage raise. Estimate the new salary, increase amount, and annual difference."
+      es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo bruto, neto con descuentos Colombia, valor del aumento y diferencia anual.",
+      en: "Calculate your salary after a percentage raise. Estimate the new gross salary, Colombia net salary with deductions, increase amount, and annual difference."
     }
   },
   "cop-usd": {

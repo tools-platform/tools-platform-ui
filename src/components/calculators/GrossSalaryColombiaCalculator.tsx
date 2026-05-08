@@ -1,12 +1,15 @@
-﻿import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
-import { calculateNetSalaryColombia, type NetSalaryColombiaResponse } from "../../services/financeApi";
+import {
+  calculateGrossSalaryColombia,
+  type GrossSalaryColombiaResponse,
+  type GrossSalaryPaymentFrequency
+} from "../../services/financeApi";
 
-type NetSalaryData = NetSalaryColombiaResponse["data"];
-type CalculationViewOptions = { showSolidarityFund: boolean };
+type GrossSalaryData = GrossSalaryColombiaResponse["data"];
 
 function parseMoney(value: string) {
   const normalized = value.replace(/[^\d]/g, "");
@@ -22,31 +25,31 @@ function buildPayrollYears(currentYear: number) {
 const copy = {
   es: {
     kicker: "Calculadora",
-    title: "Datos del salario",
-    monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos de salud, pensión y otros.",
+    title: "Datos del neto recibido",
+    receivedNetSalary: "Salario neto recibido",
+    receivedNetSalaryHelp: "Es lo que te llega después de descuentos de nómina.",
+    paymentFrequency: "Frecuencia del valor recibido",
+    monthly: "Mensual",
+    biweekly: "Quincenal",
     payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar el salario mínimo, auxilio de transporte y límites legales vigentes de ese año.",
+    payrollYearHelp: "Lo usamos para aplicar salario mínimo, auxilio de transporte y límites legales vigentes.",
     editYearAria: "Editar año de reglas",
     editYearTitle: "Editar año",
-    payrollDeductions: "Deducciones de nómina",
+    payrollDeductions: "Otros descuentos",
     payrollDeductionsHelp:
-      "Valores extra que te descuentan en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
+      "Valores extra descontados en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios.",
     transportationAllowance: "Incluir auxilio de transporte si aplica",
-    transportationAllowanceHelp: "Validaremos si tu salario cumple el límite legal para recibirlo.",
-    showSolidarityFund: "Ver Fondo de Solidaridad",
-    showSolidarityFundHelp: "Esto solo muestra u oculta el detalle. Ocultarlo no elimina el aporte si aplica por ley.",
-    solidarityExplanation:
-      "Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más. Si tu salario no llega a ese rango, este valor queda en cero.",
-    salaryRequired: "Ingresa un salario mensual mayor a cero.",
+    transportationAllowanceHelp: "Actívalo si ese neto incluye auxilio de transporte cuando el salario cumpla el límite legal.",
+    salaryRequired: "Ingresa un salario neto recibido mayor a cero.",
     yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    requestError: "No se pudo calcular el salario.",
-    preview: (salary: string) => `Vas a calcular sobre ${salary} mensuales.`,
-    submit: "Calcular salario neto",
+    requestError: "No se pudo calcular el salario bruto.",
+    preview: (salary: string, frequency: string) => `Vas a estimar el bruto desde un neto ${frequency} de ${salary}.`,
+    submit: "Calcular salario bruto",
     reset: "Restablecer",
-    heroTitle: "Salario neto mensual",
-    biweeklyNet: "Quincenal",
-    grossSalary: "Salario bruto",
+    heroTitle: "Salario bruto mensual estimado",
+    grossBiweekly: "Bruto quincenal",
+    netMonthly: "Neto mensual usado",
+    netBiweekly: "Neto quincenal",
     transportationAllowanceResult: "Auxilio transporte",
     health: "Salud 4%",
     pension: "Pensión 4%",
@@ -61,37 +64,37 @@ const copy = {
     yes: "Sí",
     no: "No",
     disclaimer:
-      "Este resultado es una estimación para un empleado dependiente en Colombia. No incluye retención en la fuente, pagos no salariales, prestaciones, costos del empleador ni acuerdos especiales de nómina.",
-    emptyTitle: "Tu resultado aparecerá aquí",
-    emptyDescription: "Completa los datos del salario y calcula para ver el neto mensual, quincenal y el detalle de descuentos."
+      "Este resultado es una estimación inversa para un empleado dependiente en Colombia. Puede variar por redondeos de nómina, retención en la fuente, pagos no salariales, beneficios o acuerdos especiales.",
+    emptyTitle: "Tu salario bruto aparecerá aquí",
+    emptyDescription: "Ingresa el neto que recibes mensual o quincenal para estimar el salario bruto mensual."
   },
   en: {
     kicker: "Calculator",
-    title: "Salary details",
-    monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "This is the salary before health, pension, and other deductions.",
+    title: "Net payment details",
+    receivedNetSalary: "Received net salary",
+    receivedNetSalaryHelp: "This is what you receive after payroll deductions.",
+    paymentFrequency: "Received value frequency",
+    monthly: "Monthly",
+    biweekly: "Biweekly",
     payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds in force for that year.",
+    payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds.",
     editYearAria: "Edit rule year",
     editYearTitle: "Edit year",
-    payrollDeductions: "Payroll deductions",
+    payrollDeductions: "Other deductions",
     payrollDeductionsHelp:
-      "Extra amounts deducted from payroll, such as salary loans, advances, garnishments, or voluntary contributions. Leave it at 0 if you do not have any.",
+      "Extra payroll deductions, such as salary loans, advances, garnishments, or voluntary contributions.",
     transportationAllowance: "Include transportation allowance if applicable",
-    transportationAllowanceHelp: "We will validate whether the salary meets the legal threshold to receive it.",
-    showSolidarityFund: "Show solidarity fund",
-    showSolidarityFundHelp: "This only shows or hides the detail. Hiding it does not remove the contribution if it applies by law.",
-    solidarityExplanation:
-      "It is an additional contribution that applies when the salary is 4 minimum wages or more. If your salary does not reach that threshold, this value stays at zero.",
-    salaryRequired: "Enter a monthly salary greater than zero.",
+    transportationAllowanceHelp: "Turn it on if that net value includes transportation allowance when the salary qualifies.",
+    salaryRequired: "Enter a received net salary greater than zero.",
     yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    requestError: "We couldn't calculate the salary.",
-    preview: (salary: string) => `You are calculating from ${salary} per month.`,
-    submit: "Calculate net salary",
+    requestError: "We couldn't calculate the gross salary.",
+    preview: (salary: string, frequency: string) => `You are estimating gross salary from a ${frequency} net value of ${salary}.`,
+    submit: "Calculate gross salary",
     reset: "Reset",
-    heroTitle: "Monthly net salary",
-    biweeklyNet: "Biweekly",
-    grossSalary: "Gross salary",
+    heroTitle: "Estimated gross monthly salary",
+    grossBiweekly: "Gross biweekly",
+    netMonthly: "Monthly net used",
+    netBiweekly: "Biweekly net",
     transportationAllowanceResult: "Transportation allowance",
     health: "Health 4%",
     pension: "Pension 4%",
@@ -106,13 +109,13 @@ const copy = {
     yes: "Yes",
     no: "No",
     disclaimer:
-      "This result is an estimate for a dependent employee in Colombia. It does not include withholding tax, non-salary payments, benefits, employer costs, or special payroll agreements.",
-    emptyTitle: "Your result will appear here",
-    emptyDescription: "Complete the salary details and calculate to see the monthly net, biweekly net, and deduction breakdown."
+      "This result is an inverse estimate for a dependent employee in Colombia. It may vary due to payroll rounding, withholding tax, non-salary payments, benefits, or special agreements.",
+    emptyTitle: "Your gross salary will appear here",
+    emptyDescription: "Enter the net amount you receive monthly or biweekly to estimate the gross monthly salary."
   }
 } as const;
 
-export function NetSalaryColombiaCalculator() {
+export function GrossSalaryColombiaCalculator() {
   const { locale } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
@@ -120,25 +123,21 @@ export function NetSalaryColombiaCalculator() {
     () => new Intl.NumberFormat(localeCode, { style: "currency", currency: "COP", maximumFractionDigits: 0 }),
     [localeCode]
   );
-  const numberFormatter = useMemo(
-    () => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 0 }),
-    [localeCode]
-  );
+  const numberFormatter = useMemo(() => new Intl.NumberFormat(localeCode, { maximumFractionDigits: 0 }), [localeCode]);
   const currentPayrollYear = new Date().getFullYear();
   const payrollYears = useMemo(() => buildPayrollYears(currentPayrollYear), [currentPayrollYear]);
-  const [monthlySalary, setMonthlySalary] = useState("2.500.000");
+  const [receivedNetSalary, setReceivedNetSalary] = useState("1.150.000");
+  const [paymentFrequency, setPaymentFrequency] = useState<GrossSalaryPaymentFrequency>("biweekly");
   const [year, setYear] = useState(currentPayrollYear.toString());
   const [isYearEditable, setIsYearEditable] = useState(false);
   const [includeTransportationAllowance, setIncludeTransportationAllowance] = useState(false);
-  const [showSolidarityFund, setShowSolidarityFund] = useState(false);
   const [otherDeductions, setOtherDeductions] = useState("0");
-  const [result, setResult] = useState<NetSalaryData | null>(null);
-  const [resultViewOptions, setResultViewOptions] = useState<CalculationViewOptions | null>(null);
+  const [result, setResult] = useState<GrossSalaryData | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
-  const previewSalary = useMemo(() => parseMoney(monthlySalary), [monthlySalary]);
+  const previewSalary = useMemo(() => parseMoney(receivedNetSalary), [receivedNetSalary]);
 
   function formatMoneyInput(value: string) {
     const normalized = value.replace(/[^\d]/g, "");
@@ -157,14 +156,15 @@ export function NetSalaryColombiaCalculator() {
     event.preventDefault();
     setError("");
 
-    const salaryValue = parseMoney(monthlySalary);
+    const netSalaryValue = parseMoney(receivedNetSalary);
     const deductionsValue = parseMoney(otherDeductions);
     const yearValue = Number(year);
 
-    if (salaryValue <= 0) {
+    if (netSalaryValue <= 0) {
       setError(text.salaryRequired);
       return;
     }
+
     if (!Number.isInteger(yearValue) || yearValue < 2024 || yearValue > currentPayrollYear) {
       setError(text.yearRange(currentPayrollYear));
       return;
@@ -172,33 +172,31 @@ export function NetSalaryColombiaCalculator() {
 
     setIsLoading(true);
     try {
-      const data = await calculateNetSalaryColombia({
-        monthlySalary: salaryValue,
+      const data = await calculateGrossSalaryColombia({
+        receivedNetSalary: netSalaryValue,
+        paymentFrequency,
         year: yearValue,
         includeTransportationAllowance,
         otherDeductions: deductionsValue
       });
       setResult(data);
-      setResultViewOptions({ showSolidarityFund });
       scrollToResultOnMobile();
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : text.requestError);
       setResult(null);
-      setResultViewOptions(null);
     } finally {
       setIsLoading(false);
     }
   }
 
   function handleReset() {
-    setMonthlySalary("2.500.000");
+    setReceivedNetSalary("1.150.000");
+    setPaymentFrequency("biweekly");
     setYear(currentPayrollYear.toString());
     setIsYearEditable(false);
     setIncludeTransportationAllowance(false);
-    setShowSolidarityFund(false);
     setOtherDeductions("0");
     setResult(null);
-    setResultViewOptions(null);
     setError("");
   }
 
@@ -216,14 +214,26 @@ export function NetSalaryColombiaCalculator() {
         </div>
 
         <label className="field">
-          <span>{text.monthlySalary} <span className="required-mark">*</span></span>
+          <span>{text.receivedNetSalary} <span className="required-mark">*</span></span>
           <div className="money-input">
             <span>$</span>
-            <input inputMode="numeric" onChange={(event) => setMonthlySalary(formatMoneyInput(event.target.value))} placeholder="2.500.000" required type="text" value={monthlySalary} />
+            <input inputMode="numeric" onChange={(event) => setReceivedNetSalary(formatMoneyInput(event.target.value))} required type="text" value={receivedNetSalary} />
             <strong>COP</strong>
           </div>
-          <small>{text.monthlySalaryHelp}</small>
+          <small>{text.receivedNetSalaryHelp}</small>
         </label>
+
+        <fieldset className="segmented-field">
+          <legend>{text.paymentFrequency}</legend>
+          <div className="segmented-control">
+            <button className={paymentFrequency === "monthly" ? "is-active" : ""} onClick={() => setPaymentFrequency("monthly")} type="button">
+              {text.monthly}
+            </button>
+            <button className={paymentFrequency === "biweekly" ? "is-active" : ""} onClick={() => setPaymentFrequency("biweekly")} type="button">
+              {text.biweekly}
+            </button>
+          </div>
+        </fieldset>
 
         <div className="form-grid">
           <label className="field">
@@ -257,7 +267,7 @@ export function NetSalaryColombiaCalculator() {
             </span>
             <div className="money-input money-input--compact">
               <span>$</span>
-              <input inputMode="numeric" onChange={(event) => setOtherDeductions(formatMoneyInput(event.target.value))} placeholder="0" type="text" value={otherDeductions} />
+              <input inputMode="numeric" onChange={(event) => setOtherDeductions(formatMoneyInput(event.target.value))} type="text" value={otherDeductions} />
             </div>
           </label>
         </div>
@@ -267,24 +277,10 @@ export function NetSalaryColombiaCalculator() {
           <span><strong>{text.transportationAllowance}</strong><small>{text.transportationAllowanceHelp}</small></span>
         </label>
 
-        <label className="toggle-field toggle-field--compact">
-          <input checked={showSolidarityFund} onChange={(event) => setShowSolidarityFund(event.target.checked)} type="checkbox" />
-          <span>
-            <span className="toggle-field__label">
-              <strong>{text.showSolidarityFund}</strong>
-              <span className="info-tooltip">
-                <Info size={15} strokeWidth={2.1} />
-                <span role="tooltip">{text.solidarityExplanation}</span>
-              </span>
-            </span>
-            <small>{text.showSolidarityFundHelp}</small>
-          </span>
-        </label>
-
         {previewSalary > 0 ? (
           <div className="calculator-hint">
             <Info size={16} strokeWidth={2.1} />
-            <span>{text.preview(formatMoney(previewSalary))}</span>
+            <span>{text.preview(formatMoney(previewSalary), paymentFrequency === "monthly" ? text.monthly.toLowerCase() : text.biweekly.toLowerCase())}</span>
           </div>
         ) : null}
 
@@ -304,16 +300,17 @@ export function NetSalaryColombiaCalculator() {
           <>
             <div className="result-panel__hero">
               <p>{text.heroTitle}</p>
-              <strong>{formatMoney(result.result.netSalary)}</strong>
-              <span>{text.biweeklyNet}: {formatMoney(result.result.biweeklyNetSalary)}</span>
+              <strong>{formatMoney(result.result.estimatedGrossSalary)}</strong>
+              <span>{text.grossBiweekly}: {formatMoney(result.result.estimatedGrossBiweeklySalary)}</span>
             </div>
 
             <div className="result-breakdown">
-              <ResultItem label={text.grossSalary} value={result.result.grossSalary} formatMoney={formatMoney} />
+              <ResultItem label={text.netMonthly} value={result.result.estimatedNetSalary} formatMoney={formatMoney} />
+              <ResultItem label={text.netBiweekly} value={result.result.estimatedNetBiweeklySalary} formatMoney={formatMoney} />
               {result.input.includeTransportationAllowance ? <ResultItem label={text.transportationAllowanceResult} value={result.result.transportationAllowance} formatMoney={formatMoney} /> : null}
               <ResultItem label={text.health} value={result.result.healthContribution} formatMoney={formatMoney} />
               <ResultItem label={text.pension} value={result.result.pensionContribution} formatMoney={formatMoney} />
-              {resultViewOptions?.showSolidarityFund ? <ResultItem label={text.solidarityFund} value={result.result.solidarityPensionFundContribution} formatMoney={formatMoney} /> : null}
+              {result.result.solidarityPensionFundContribution > 0 ? <ResultItem label={text.solidarityFund} value={result.result.solidarityPensionFundContribution} formatMoney={formatMoney} /> : null}
               <ResultItem label={text.totalDeductions} value={result.result.totalDeductions} strong formatMoney={formatMoney} />
             </div>
 
@@ -332,7 +329,9 @@ export function NetSalaryColombiaCalculator() {
               ) : null}
               <span>{text.healthRate}: {formatRate(result.rules.employeeHealthRate)}</span>
               <span>{text.pensionRate}: {formatRate(result.rules.employeePensionRate)}</span>
-              {resultViewOptions?.showSolidarityFund ? <span>{text.solidarityFund}: {formatRate(result.rules.solidarityPensionFundRate)}</span> : null}
+              {result.rules.solidarityPensionFundRate > 0 ? (
+                <span>{text.solidarityFund}: {formatRate(result.rules.solidarityPensionFundRate)}</span>
+              ) : null}
             </div>
 
             <p className="disclaimer">{text.disclaimer}</p>
@@ -357,5 +356,3 @@ function ResultItem({ label, value, strong = false, formatMoney }: { label: stri
     </div>
   );
 }
-
-

@@ -56,6 +56,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/colombia-gross-salary-calculator",
+    title: {
+      es: "Calculadora de salario bruto Colombia | Desde neto",
+      en: "Gross Salary Calculator (Colombia) | From Net Pay"
+    },
+    description: {
+      es: "Calcula el salario bruto mensual aproximado desde el neto que recibes mensual o quincenal en Colombia, con salud, pensión y descuentos de nómina.",
+      en: "Estimate gross monthly salary from the net amount you receive monthly or biweekly in Colombia, including health, pension, and payroll deductions."
+    }
+  },
+  {
     path: "/tools/colombia-employment-settlement-calculator",
     title: {
       es: "Calculadora de liquidación laboral Colombia 2026 | Liquidación",
@@ -91,12 +102,12 @@ const localizedPages = [
   {
     path: "/tools/salary-increase-calculator",
     title: {
-      es: "Calculadora de aumento salarial | Porcentaje de aumento",
-      en: "Salary Increase Calculator | Percentage Raise"
+      es: "Calculadora de aumento salarial | Neto y bruto",
+      en: "Salary Increase Calculator | Net and Gross Raise"
     },
     description: {
-      es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo, valor del aumento y diferencia anual.",
-      en: "Calculate your salary after a percentage raise. Estimate the new salary, increase amount, and annual difference."
+      es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo bruto, neto con descuentos Colombia, valor del aumento y diferencia anual.",
+      en: "Calculate your salary after a percentage raise. Estimate the new gross salary, Colombia net salary with deductions, increase amount, and annual difference."
     }
   },
   {
@@ -278,6 +289,28 @@ const toolFaqsByPath = {
       }
     }
   ],
+  "/tools/colombia-gross-salary-calculator": [
+    {
+      question: {
+        es: "¿Cómo calcular mi salario bruto si sé mi neto?",
+        en: "How do I calculate gross salary if I know my net pay?"
+      },
+      answer: {
+        es: "Ingresa el valor neto que recibes y elige si es mensual o quincenal. La herramienta estima el salario bruto mensual necesario para llegar a ese neto.",
+        en: "Enter the net amount you receive and choose whether it is monthly or biweekly. The tool estimates the gross monthly salary needed to reach that net amount."
+      }
+    },
+    {
+      question: {
+        es: "¿Sirve para nómina Colombia?",
+        en: "Does it work for Colombia payroll?"
+      },
+      answer: {
+        es: "Sí. Usa salud, pensión, Fondo de Solidaridad cuando aplica, auxilio de transporte opcional y otros descuentos de nómina.",
+        en: "Yes. It uses health, pension, solidarity fund when applicable, optional transport allowance, and other payroll deductions."
+      }
+    }
+  ],
   "/tools/colombia-employment-settlement-calculator": [
     {
       question: {
@@ -317,8 +350,8 @@ const toolFaqsByPath = {
         en: "Is the result net salary?"
       },
       answer: {
-        es: "No. Es una estimación simple del salario antes de descuentos. Nómina, impuestos o acuerdos internos pueden cambiar el valor final.",
-        en: "No. It is a simple salary estimate before deductions. Payroll, taxes, or internal agreements may change the final amount."
+        es: "La calculadora muestra el salario bruto. Si activas los descuentos de nómina Colombia, también estima el salario neto después de salud, pensión y Fondo de Solidaridad cuando aplique.",
+        en: "The calculator shows the gross salary. If you enable Colombia payroll deductions, it also estimates the net salary after health, pension, and solidarity fund when applicable."
       }
     }
   ],

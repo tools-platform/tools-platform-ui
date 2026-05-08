@@ -153,7 +153,7 @@ export function SiteHeader() {
             </a>
 
             <div className="nav-category__tools">
-              {category.tools.slice(0, 5).map((tool) => (
+              {category.tools.map((tool) => (
                 <a
                   aria-disabled={tool.status === "draft" ? true : undefined}
                   className={tool.status === "draft" ? "nav-tool is-draft" : "nav-tool"}
