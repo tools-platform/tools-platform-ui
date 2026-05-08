@@ -3,6 +3,7 @@ import { CaseStyleConverter } from "../components/calculators/CaseStyleConverter
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetweenDatesCalculator";
+import { DaysUntilDateCalculator } from "../components/calculators/DaysUntilDateCalculator";
 import { EmployeeSalaryEquivalentCalculator } from "../components/calculators/EmployeeSalaryEquivalentCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
@@ -11,6 +12,7 @@ import { HourlySalaryColombiaCalculator } from "../components/calculators/Hourly
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
+import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
@@ -115,6 +117,10 @@ export function ToolPage({ slug }: ToolPageProps) {
         <SecurePasswordGenerator />
       ) : tool.id === "case-style-converter" ? (
         <CaseStyleConverter />
+      ) : tool.id === "salary-increase" ? (
+        <SalaryIncreaseCalculator />
+      ) : tool.id === "days-until-date" ? (
+        <DaysUntilDateCalculator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

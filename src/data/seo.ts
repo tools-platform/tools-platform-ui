@@ -73,6 +73,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Calculate a loan's monthly payment using amount, annual or monthly rate, and term in months, plus estimated interest and total paid."
     }
   },
+  "salary-increase": {
+    title: {
+      es: "Calculadora de aumento salarial | Porcentaje de aumento",
+      en: "Salary Increase Calculator | Percentage Raise"
+    },
+    description: {
+      es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo, valor del aumento y diferencia anual.",
+      en: "Calculate your salary after a percentage raise. Estimate the new salary, increase amount, and annual difference."
+    }
+  },
   "cop-usd": {
     title: {
       es: "Conversor COP a USD con TRM | Tools Platforms",
@@ -111,6 +121,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
     description: {
       es: "Cuenta días calendario entre dos fechas para trámites, viajes, entregas o planeación. Incluye semanas completas y días restantes.",
       en: "Count calendar days between two dates for paperwork, trips, deliveries, or planning. Includes full weeks and remaining days."
+    }
+  },
+  "days-until-date": {
+    title: {
+      es: "Cuántos días faltan para una fecha | Contador de días",
+      en: "Days Until a Date Calculator | Days Left Counter"
+    },
+    description: {
+      es: "Cuenta cuántos días faltan para una fecha, evento, entrega o plazo. Calcula días calendario, semanas completas y días restantes.",
+      en: "Count how many days are left until a date, event, delivery, or deadline. See calendar days, full weeks, and remaining days."
     }
   },
   "exact-age": {

@@ -467,6 +467,56 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "salary-increase": {
+    intro: {
+      es: "Calcula cómo queda un salario después de aplicar un aumento porcentual.",
+      en: "Calculate what a salary looks like after applying a percentage raise."
+    },
+    sections: [
+      {
+        title: { es: "Qué calcula", en: "What it calculates" },
+        body: [
+          {
+            es: "La herramienta toma el salario actual y el porcentaje de aumento para estimar el nuevo salario mensual.",
+            en: "The tool takes the current salary and increase percentage to estimate the new monthly salary."
+          },
+          {
+            es: "También muestra el valor exacto del aumento y la diferencia anual si ese aumento se mantiene durante doce meses.",
+            en: "It also shows the exact increase amount and the annual difference if that raise stays in place for twelve months."
+          }
+        ]
+      },
+      {
+        title: { es: "Cuándo usarla", en: "When to use it" },
+        body: [
+          {
+            es: "Sirve para revisar propuestas de aumento salarial, comparar escenarios o entender cuánto representa un porcentaje sobre tu sueldo.",
+            en: "Use it to review salary raise proposals, compare scenarios, or understand what a percentage means on your pay."
+          },
+          {
+            es: "No calcula descuentos de nómina, impuestos, auxilios, bonificaciones ni reglas internas de la empresa.",
+            en: "It does not calculate payroll deductions, taxes, allowances, bonuses, or company-specific rules."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo calcular un aumento salarial?", en: "How do I calculate a salary increase?" },
+        answer: {
+          es: "Ingresa el salario actual y el porcentaje de aumento. La calculadora multiplica el salario por ese porcentaje y suma el resultado al salario actual.",
+          en: "Enter the current salary and increase percentage. The calculator multiplies the salary by that percentage and adds the result to the current salary."
+        }
+      },
+      {
+        question: { es: "¿El resultado es salario neto?", en: "Is the result net salary?" },
+        answer: {
+          es: "No. Es una estimación simple del salario antes de descuentos. Nómina, impuestos o acuerdos internos pueden cambiar el valor final.",
+          en: "No. It is a simple salary estimate before deductions. Payroll, taxes, or internal agreements may change the final amount."
+        }
+      }
+    ]
+  },
   "worked-hours": {
     intro: {
       es: "Esta calculadora de horas trabajadas suma jornadas por día, semana o periodo para saber cuánto tiempo trabajaste en total.",
@@ -654,6 +704,56 @@ export const toolContentById: Record<string, ToolContent> = {
         answer: {
           es: "Sí, sirve como referencia de días calendario. Si el trámite depende de días hábiles, festivos o reglas legales, revisa la norma específica.",
           en: "Yes, it works as a calendar day reference. If paperwork depends on business days, holidays, or legal rules, check the specific rule."
+        }
+      }
+    ]
+  },
+  "days-until-date": {
+    intro: {
+      es: "Cuenta cuántos días faltan para una fecha futura, evento, entrega o plazo personal.",
+      en: "Count how many days are left until a future date, event, delivery, or personal deadline."
+    },
+    sections: [
+      {
+        title: { es: "Qué muestra", en: "What it shows" },
+        body: [
+          {
+            es: "Entrega días calendario restantes, semanas aproximadas, semanas completas y días sobrantes hasta la fecha objetivo.",
+            en: "It returns calendar days left, approximate weeks, full weeks, and remaining days until the target date."
+          },
+          {
+            es: "Puedes elegir si quieres incluir el día de hoy dentro del conteo.",
+            en: "You can choose whether today should count as part of the period."
+          }
+        ]
+      },
+      {
+        title: { es: "Usos comunes", en: "Common uses" },
+        body: [
+          {
+            es: "Sirve para saber cuántos días faltan para una fecha, un viaje, un cumpleaños, una entrega o un evento importante.",
+            en: "It helps you know how many days are left until a date, trip, birthday, delivery, or important event."
+          },
+          {
+            es: "No interpreta días hábiles, festivos, vencimientos legales ni reglas de entidades.",
+            en: "It does not interpret business days, holidays, legal deadlines, or institution-specific rules."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo saber cuántos días faltan para una fecha?", en: "How do I know how many days are left until a date?" },
+        answer: {
+          es: "Selecciona la fecha objetivo y la herramienta cuenta los días calendario desde hoy hasta esa fecha.",
+          en: "Select the target date and the tool counts calendar days from today until that date."
+        }
+      },
+      {
+        question: { es: "¿Cuenta días hábiles?", en: "Does it count business days?" },
+        answer: {
+          es: "No. Cuenta días calendario. Si necesitas días hábiles, festivos o reglas legales, revisa la norma correspondiente.",
+          en: "No. It counts calendar days. If you need business days, holidays, or legal rules, check the relevant rule."
         }
       }
     ]

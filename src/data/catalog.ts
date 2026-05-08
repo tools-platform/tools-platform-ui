@@ -360,7 +360,7 @@ export const tools: ToolSummary[] = [
       en: "Calculate what a salary looks like after a percentage increase."
     },
     categoryId: "finance",
-    status: "draft",
+    status: "published",
     Icon: Repeat2
   },
   {
@@ -423,7 +423,7 @@ export const tools: ToolSummary[] = [
       en: "Count the days left until an event or deadline."
     },
     categoryId: "time",
-    status: "draft",
+    status: "published",
     Icon: CalendarDays
   },
   {
