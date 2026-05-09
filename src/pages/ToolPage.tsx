@@ -17,6 +17,7 @@ import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncrea
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
+import { RelatedTools } from "../components/RelatedTools";
 import { ToolSeoContent } from "../components/ToolSeoContent";
 import { categories, tools } from "../data/catalog";
 import { toolContentById } from "../data/toolContent";
@@ -132,7 +133,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         </div>
       )}
 
-      {seoContent ? <ToolSeoContent content={seoContent} /> : null}
+      {seoContent ? <ToolSeoContent content={seoContent} toolId={tool.id} /> : null}
+      <RelatedTools currentTool={tool} />
     </section>
   );
 }

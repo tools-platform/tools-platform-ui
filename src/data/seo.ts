@@ -15,11 +15,11 @@ export type SeoMetadata = {
 const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   "net-salary-colombia": {
     title: {
-      es: "Calculadora de salario neto Colombia 2026 | Sueldo neto",
+      es: "Calculadora salarial Colombia 2026 | Salario neto",
       en: "Net Salary Calculator (Colombia) 2026 | Take-Home Pay"
     },
     description: {
-      es: "Calcula tu sueldo o salario neto en Colombia para 2026 con salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones.",
+      es: "Calcula tu salario neto en Colombia para 2026 y años disponibles con salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones.",
       en: "Calculate your 2026 take-home pay in Colombia with health, pension, transport allowance, solidarity fund, and payroll deductions."
     }
   },
@@ -35,11 +35,11 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   },
   "hourly-salary": {
     title: {
-      es: "Calculadora de salario por hora Colombia | Cuánto gano por hora",
+      es: "Calculadora salario por hora Colombia | Valor hora",
       en: "Hourly Salary Calculator (Colombia) | Hourly Pay"
     },
     description: {
-      es: "Calcula cuánto ganas por hora en Colombia a partir de tu salario mensual, jornada legal vigente o tus horas semanales reales.",
+      es: "Calcula cuánto ganas por hora en Colombia desde tu salario mensual, jornada legal vigente, horas semanales reales o referencia de dividir entre 240.",
       en: "Calculate how much you earn per hour in Colombia from a monthly salary, legal workweek, or custom weekly hours."
     }
   },
@@ -105,11 +105,11 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   },
   "worked-hours": {
     title: {
-      es: "Calculadora de horas trabajadas | Sumar horas de trabajo",
+      es: "Calculadora de horas trabajadas | Horas laborales",
       en: "Worked Hours Calculator | Add Work Hours Online"
     },
     description: {
-      es: "Calcula y suma horas trabajadas por día, jornada o semana. Útil para calcular mis horas de trabajo, horas laborales y tiempo total.",
+      es: "Calcula y suma horas trabajadas por día, jornada o semana. Útil para calcular horas de trabajo, horas laborales y tiempo total.",
       en: "Calculate and add worked hours by day, shift, or week. Useful for work hours, labor time, and total time tracking."
     }
   },
