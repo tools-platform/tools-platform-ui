@@ -201,8 +201,8 @@ const localizedPages = [
   {
     path: "/tools/unit-converter",
     title: {
-      es: "Conversor de unidades online | Kilos, libras, km y millas",
-      en: "Online Unit Converter | kg, lb, km, Miles"
+      es: "Conversor de unidades online | kg, libras, km y millas",
+      en: "Online Unit Converter | kg to lb, km to Miles"
     },
     description: {
       es: "Convierte unidades de longitud, peso, masa y temperatura: kilogramos, libras, kilómetros, millas, metros, centímetros y grados.",
@@ -212,8 +212,8 @@ const localizedPages = [
   {
     path: "/tools/text-case-converter",
     title: {
-      es: "Convertidor de mayúsculas y minúsculas | Texto online",
-      en: "Uppercase and Lowercase Text Converter | Online Text"
+      es: "Convertidor de mayúsculas y minúsculas online | Texto",
+      en: "Uppercase and Lowercase Converter | Text Case"
     },
     description: {
       es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Pasa mayúscula a minúscula y limpia textos rápido.",

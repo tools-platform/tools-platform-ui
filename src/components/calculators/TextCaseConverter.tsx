@@ -16,7 +16,7 @@ const copy = {
     modes: [
       { value: "uppercase", label: "Mayúsculas", description: "Convierte todo el texto a letras grandes.", example: "HOLA MUNDO" },
       { value: "lowercase", label: "Minúsculas", description: "Convierte todo el texto a letras pequeñas.", example: "hola mundo" },
-      { value: "capitalized", label: "Capitalizado", description: "Pone en mayúscula la primera letra de cada palabra.", example: "Hola Mundo" },
+      { value: "capitalized", label: "Capitalizar", description: "Pone en mayúscula la primera letra de cada palabra.", example: "Hola Mundo" },
       { value: "sentence", label: "Tipo oración", description: "Pone en mayúscula el inicio de cada frase.", example: "Hola mundo." }
     ] as const,
     kicker: "Convertidor",
@@ -48,7 +48,7 @@ const copy = {
     modes: [
       { value: "uppercase", label: "Uppercase", description: "Turns the whole text into uppercase letters.", example: "HELLO WORLD" },
       { value: "lowercase", label: "Lowercase", description: "Turns the whole text into lowercase letters.", example: "hello world" },
-      { value: "capitalized", label: "Capitalized", description: "Uppercases the first letter of each word.", example: "Hello World" },
+      { value: "capitalized", label: "Title case", description: "Uppercases the first letter of each word.", example: "Hello World" },
       { value: "sentence", label: "Sentence case", description: "Uppercases the beginning of each sentence.", example: "Hello world." }
     ] as const,
     kicker: "Converter",

@@ -298,8 +298,8 @@ export const tools: ToolSummary[] = [
     id: "unit-converter",
     slug: "unit-converter",
     name: {
-      es: "Conversor de unidades",
-      en: "Unit Converter"
+      es: "Conversor de unidades online",
+      en: "Online Unit Converter"
     },
     description: {
       es: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
@@ -313,8 +313,8 @@ export const tools: ToolSummary[] = [
     id: "text-case-converter",
     slug: "text-case-converter",
     name: {
-      es: "Convertidor de mayúsculas y minúsculas",
-      en: "Text Case Converter"
+      es: "Convertidor de mayúsculas y minúsculas online",
+      en: "Uppercase and Lowercase Converter"
     },
     description: {
       es: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
