@@ -371,6 +371,21 @@ export const tools: ToolSummary[] = [
     Icon: Code2
   },
   {
+    id: "base64-converter",
+    slug: "base64-encoder-decoder",
+    name: {
+      es: "Codificador y decodificador Base64",
+      en: "Base64 Encoder and Decoder"
+    },
+    description: {
+      es: "Codifica texto a Base64 o decodifica Base64 a texto en tu navegador.",
+      en: "Encode text to Base64 or decode Base64 to text in your browser."
+    },
+    categoryId: "development",
+    status: "published",
+    Icon: Binary
+  },
+  {
     id: "json-formatter",
     slug: "json-formatter",
     name: { es: "Formateador JSON", en: "JSON Formatter" },

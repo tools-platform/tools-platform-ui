@@ -243,6 +243,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/base64-encoder-decoder",
+    title: {
+      es: "Codificador y decodificador Base64 online | Tools Platforms",
+      en: "Base64 Encoder and Decoder Online | Tools Platforms"
+    },
+    description: {
+      es: "Codifica texto a Base64 o decodifica Base64 a texto online. Conversor Base64 con UTF-8, modo por líneas y formato URL-safe.",
+      en: "Encode text to Base64 or decode Base64 to text online. Base64 converter with UTF-8, per-line mode, and URL-safe format."
+    }
+  },
+  {
     path: "/tools/case-style-converter",
     title: {
       es: "Convertidor camelCase, PascalCase y snake_case | Tools Platforms",
@@ -473,6 +484,38 @@ const toolFaqsByPath = {
       answer: {
         es: "Una lista distinct contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en la lista distinct solo se muestra una vez.",
         en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
+      }
+    }
+  ],
+  "/tools/base64-encoder-decoder": [
+    {
+      question: {
+        es: "¿Base64 es cifrado?",
+        en: "Is Base64 encryption?"
+      },
+      answer: {
+        es: "No. Base64 es una codificación, no protege el contenido. Cualquier persona puede decodificarlo si tiene el texto.",
+        en: "No. Base64 is encoding, not protection. Anyone can decode it if they have the text."
+      }
+    },
+    {
+      question: {
+        es: "¿El texto se envía al servidor?",
+        en: "Is the text sent to a server?"
+      },
+      answer: {
+        es: "No. La codificación y decodificación se hacen en tu navegador.",
+        en: "No. Encoding and decoding happen in your browser."
+      }
+    },
+    {
+      question: {
+        es: "¿Qué es Base64 URL-safe?",
+        en: "What is URL-safe Base64?"
+      },
+      answer: {
+        es: "Es una variante que reemplaza caracteres problemáticos en URLs, normalmente + por - y / por _.",
+        en: "It is a variant that replaces URL-sensitive characters, usually + with - and / with _."
       }
     }
   ]

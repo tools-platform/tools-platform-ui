@@ -1122,6 +1122,56 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "base64-converter": {
+    intro: {
+      es: "Codifica texto a Base64 o decodifica Base64 a texto de forma local en el navegador.",
+      en: "Encode text to Base64 or decode Base64 to text locally in your browser."
+    },
+    sections: [
+      {
+        title: { es: "Qué hace", en: "What it does" },
+        body: [
+          {
+            es: "Convierte texto UTF-8 a Base64 para usarlo en APIs, pruebas, tokens, payloads o datos técnicos.",
+            en: "It converts UTF-8 text to Base64 for APIs, tests, tokens, payloads, or technical data."
+          },
+          {
+            es: "También decodifica Base64 válido y muestra el texto resultante, con opción para procesar cada línea por separado.",
+            en: "It also decodes valid Base64 and shows the resulting text, with an option to process each line separately."
+          }
+        ]
+      },
+      {
+        title: { es: "Opciones útiles", en: "Useful options" },
+        body: [
+          {
+            es: "El resultado se puede copiar o descargar como TXT sin enviar el contenido a un servidor.",
+            en: "The result can be copied or downloaded as TXT without sending the content to a server."
+          },
+          {
+            es: "También puedes activar formato URL-safe para generar Base64 útil en URLs, tokens o JWT.",
+            en: "You can also enable URL-safe format to generate Base64 that works well in URLs, tokens, or JWTs."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Base64 es cifrado?", en: "Is Base64 encryption?" },
+        answer: {
+          es: "No. Base64 es una codificación, no protege el contenido. Cualquier persona puede decodificarlo si tiene el texto.",
+          en: "No. Base64 is encoding, not protection. Anyone can decode it if they have the text."
+        }
+      },
+      {
+        question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. La codificación y decodificación se hacen en tu navegador.",
+          en: "No. Encoding and decoding happen in your browser."
+        }
+      }
+    ]
+  },
   "case-style-converter": {
     intro: {
       es: "Convierte frases a estilos usados en programación, documentación técnica y nombres de variables.",

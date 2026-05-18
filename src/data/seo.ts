@@ -203,6 +203,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       es: "Convierte frases a camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE y otros estilos usados en código.",
       en: "Convert phrases to camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, and other code naming styles."
     }
+  },
+  "base64-converter": {
+    title: {
+      es: "Codificador y decodificador Base64 online | Tools Platforms",
+      en: "Base64 Encoder and Decoder Online | Tools Platforms"
+    },
+    description: {
+      es: "Codifica texto a Base64 o decodifica Base64 a texto online. Conversor Base64 con UTF-8, modo por líneas y formato URL-safe.",
+      en: "Encode text to Base64 or decode Base64 to text online. Base64 converter with UTF-8, per-line mode, and URL-safe format."
+    }
   }
 };
 

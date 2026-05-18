@@ -20,6 +20,7 @@ type DuplicateResult = {
   uniqueValues: number;
   duplicateValues: number;
   duplicateLines: number;
+  wordCount: number;
   displayMode: DisplayMode;
   sortMode: SortMode;
   entries: DuplicateEntry[];
@@ -61,6 +62,7 @@ const copy = {
     totalLines: "Líneas totales",
     countedLines: "Líneas contadas",
     uniqueValues: "Valores únicos",
+    wordCount: "Palabras",
     duplicateLines: "Repeticiones extra",
     emptyLines: "Líneas vacías",
     mostRepeated: "Más repetido",
@@ -117,6 +119,7 @@ const copy = {
     totalLines: "Total lines",
     countedLines: "Counted lines",
     uniqueValues: "Unique values",
+    wordCount: "Words",
     duplicateLines: "Extra repetitions",
     emptyLines: "Empty lines",
     mostRepeated: "Most repeated",
@@ -150,6 +153,7 @@ function countDuplicates(input: string, ignoreCase: boolean, trimSpaces: boolean
   const entries = new Map<string, DuplicateEntry>();
   let emptyLines = 0;
   let countedLines = 0;
+  let wordCount = 0;
 
   rawLines.forEach((line, index) => {
     const value = trimSpaces ? line.trim() : line;
@@ -162,6 +166,7 @@ function countDuplicates(input: string, ignoreCase: boolean, trimSpaces: boolean
     const key = ignoreCase ? value.toLocaleLowerCase(localeCode) : value;
     const current = entries.get(key);
     countedLines += 1;
+    wordCount += countWords(value);
 
     if (current) {
       current.count += 1;
@@ -185,10 +190,21 @@ function countDuplicates(input: string, ignoreCase: boolean, trimSpaces: boolean
     uniqueValues: entryList.length,
     duplicateValues,
     duplicateLines: entryList.reduce((total, entry) => total + Math.max(entry.count - 1, 0), 0),
+    wordCount,
     displayMode: "all",
     sortMode: "count",
     entries: entryList
   };
+}
+
+function countWords(value: string) {
+  const normalized = value.trim();
+
+  if (!normalized) {
+    return 0;
+  }
+
+  return normalized.split(/\s+/).length;
 }
 
 function sortEntries(entries: DuplicateEntry[], sortMode: SortMode, localeCode: string) {
@@ -347,32 +363,6 @@ export function DuplicateCounter() {
           />
         </label>
 
-        <div className="duplicate-options">
-          <label className="toggle-field toggle-field--compact">
-            <input checked={trimSpaces} onChange={(event) => setTrimSpaces(event.target.checked)} type="checkbox" />
-            <span>
-              <strong>{text.trimSpaces}</strong>
-              <small>{text.trimSpacesHelp}</small>
-            </span>
-          </label>
-
-          <label className="toggle-field toggle-field--compact">
-            <input checked={omitEmpty} onChange={(event) => setOmitEmpty(event.target.checked)} type="checkbox" />
-            <span>
-              <strong>{text.omitEmpty}</strong>
-              <small>{text.omitEmptyHelp}</small>
-            </span>
-          </label>
-
-          <label className="toggle-field toggle-field--compact">
-            <input checked={ignoreCase} onChange={(event) => setIgnoreCase(event.target.checked)} type="checkbox" />
-            <span>
-              <strong>{text.ignoreCase}</strong>
-              <small>{text.ignoreCaseHelp}</small>
-            </span>
-          </label>
-        </div>
-
         <div className="form-grid">
           <label className="field">
             <span>{text.displayMode}</span>
@@ -399,12 +389,38 @@ export function DuplicateCounter() {
           </label>
         </div>
 
-        {error ? <p className="form-error">{error}</p> : null}
+        <div className="duplicate-options">
+          <label className="toggle-field toggle-field--compact">
+            <input checked={trimSpaces} onChange={(event) => setTrimSpaces(event.target.checked)} type="checkbox" />
+            <span>
+              <strong>{text.trimSpaces}</strong>
+              <small>{text.trimSpacesHelp}</small>
+            </span>
+          </label>
+
+          <label className="toggle-field toggle-field--compact">
+            <input checked={omitEmpty} onChange={(event) => setOmitEmpty(event.target.checked)} type="checkbox" />
+            <span>
+              <strong>{text.omitEmpty}</strong>
+              <small>{text.omitEmptyHelp}</small>
+            </span>
+          </label>
+
+          <label className="toggle-field toggle-field--compact">
+            <input checked={ignoreCase} onChange={(event) => setIgnoreCase(event.target.checked)} type="checkbox" />
+            <span>
+              <strong>{text.ignoreCase}</strong>
+              <small>{text.ignoreCaseHelp}</small>
+            </span>
+          </label>
+        </div>
 
         <div className="calculator-hint">
           <Info size={16} strokeWidth={2.1} />
           <span>{text.hint}</span>
         </div>
+
+        {error ? <p className="form-error">{error}</p> : null}
 
         <button className="primary-action" type="submit">
           <SearchCheck size={18} />
@@ -505,7 +521,7 @@ export function DuplicateCounter() {
             <ResultStat label={text.duplicateLines} value={result.duplicateLines} formatter={numberFormatter} />
             <ResultStat label={text.emptyLines} value={result.emptyLines} formatter={numberFormatter} />
             {mostRepeated ? (
-              <div className="result-item result-item--strong result-item--wide">
+              <div className="result-item result-item--strong">
                 <div className="result-item__meta">
                   <span>{text.mostRepeated}</span>
                   <small>{numberFormatter.format(mostRepeated.count)} {text.countColumn.toLowerCase()}</small>
@@ -513,6 +529,7 @@ export function DuplicateCounter() {
                 <strong>{mostRepeated.value || " "}</strong>
               </div>
             ) : null}
+            <ResultStat label={text.wordCount} value={result.wordCount} formatter={numberFormatter} />
           </div>
 
           <div className="rules-note">

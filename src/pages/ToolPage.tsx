@@ -1,4 +1,5 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
+import { Base64Converter } from "../components/calculators/Base64Converter";
 import { CaseStyleConverter } from "../components/calculators/CaseStyleConverter";
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
@@ -124,6 +125,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <SecurePasswordGenerator />
       ) : tool.id === "case-style-converter" ? (
         <CaseStyleConverter />
+      ) : tool.id === "base64-converter" ? (
+        <Base64Converter />
       ) : tool.id === "salary-increase" ? (
         <SalaryIncreaseCalculator />
       ) : tool.id === "days-until-date" ? (

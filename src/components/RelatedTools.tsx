@@ -20,8 +20,9 @@ const relatedToolIds: Record<string, string[]> = {
   "unit-converter": ["text-case-converter", "cop-usd", "case-style-converter"],
   "text-case-converter": ["duplicate-counter", "case-style-converter", "unit-converter"],
   "duplicate-counter": ["text-case-converter", "case-style-converter", "secure-password-generator"],
-  "secure-password-generator": ["case-style-converter", "text-case-converter", "duplicate-counter"],
-  "case-style-converter": ["text-case-converter", "duplicate-counter", "secure-password-generator"]
+  "secure-password-generator": ["base64-converter", "case-style-converter", "text-case-converter"],
+  "case-style-converter": ["base64-converter", "text-case-converter", "duplicate-counter"],
+  "base64-converter": ["case-style-converter", "secure-password-generator", "duplicate-counter"]
 };
 
 type RelatedToolsProps = {
