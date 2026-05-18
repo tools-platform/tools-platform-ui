@@ -10,6 +10,7 @@ export type SeoMetadata = {
   description: LocalizedText;
   canonicalPath: string;
   type?: "website" | "article";
+  robots?: string;
 };
 
 const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
@@ -245,7 +246,8 @@ export function getToolSeo(slug: string, locale: Locale): SeoMetadata {
         es: "Esta herramienta todavía no está disponible en Tools Platforms.",
         en: "This tool is not available yet on Tools Platforms."
       },
-      canonicalPath: `/tools/${slug}`
+      canonicalPath: "/",
+      robots: "noindex, follow"
     };
   }
 
@@ -303,6 +305,7 @@ export function applySeo(metadata: SeoMetadata, locale: Locale) {
   document.documentElement.lang = locale;
   document.title = title;
   setMetaAttribute('meta[name="description"]', "content", description);
+  setMetaAttribute('meta[name="robots"]', "content", metadata.robots ?? "index, follow");
   setMetaAttribute('link[rel="canonical"]', "href", canonicalUrl);
   setMetaAttribute('meta[property="og:title"]', "content", title);
   setMetaAttribute('meta[property="og:description"]', "content", description);
