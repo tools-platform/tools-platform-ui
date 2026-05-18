@@ -418,6 +418,36 @@ export const tools: ToolSummary[] = [
     Icon: Binary
   },
   {
+    id: "html-preview",
+    slug: "html-preview-online",
+    name: {
+      es: "Vista previa de HTML online",
+      en: "Online HTML Preview"
+    },
+    description: {
+      es: "Pega código HTML y revisa cómo se renderiza en una vista previa segura.",
+      en: "Paste HTML code and see how it renders in a safe preview."
+    },
+    categoryId: "development",
+    status: "published",
+    Icon: Code2
+  },
+  {
+    id: "html-formatter-minifier",
+    slug: "html-formatter-minifier",
+    name: {
+      es: "Formateador y minificador HTML",
+      en: "HTML Formatter and Minifier"
+    },
+    description: {
+      es: "Formatea HTML para leerlo mejor o minifícalo para obtener una versión compacta.",
+      en: "Format HTML for readability or minify it into a compact version."
+    },
+    categoryId: "development",
+    status: "published",
+    Icon: Code2
+  },
+  {
     id: "json-formatter",
     slug: "json-formatter",
     name: { es: "Formateador JSON", en: "JSON Formatter" },

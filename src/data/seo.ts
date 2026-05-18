@@ -233,6 +233,26 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       es: "Codifica texto a Base64 o decodifica Base64 a texto online. Conversor Base64 con UTF-8, modo por líneas y formato URL-safe.",
       en: "Encode text to Base64 or decode Base64 to text online. Base64 converter with UTF-8, per-line mode, and URL-safe format."
     }
+  },
+  "html-preview": {
+    title: {
+      es: "Vista previa de HTML online | Vista segura",
+      en: "Online HTML Preview | Safe Browser Preview"
+    },
+    description: {
+      es: "Pega código HTML y revisa cómo se renderiza en una vista previa segura. Elimina scripts, eventos inline y enlaces JavaScript en el navegador.",
+      en: "Paste HTML code and see how it renders in a safe preview. Removes scripts, inline events, and javascript links in the browser."
+    }
+  },
+  "html-formatter-minifier": {
+    title: {
+      es: "Formateador y minificador HTML online | Tools Platforms",
+      en: "HTML Formatter and Minifier Online | Tools Platforms"
+    },
+    description: {
+      es: "Formatea HTML online para leerlo mejor o minifica código HTML en el navegador. Herramienta local para limpiar comentarios y compactar marcado.",
+      en: "Format HTML online for readability or minify HTML code in the browser. Local tool for cleaning comments and compacting markup."
+    }
   }
 };
 

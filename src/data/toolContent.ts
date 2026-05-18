@@ -1286,6 +1286,120 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "html-preview": {
+    intro: {
+      es: "Genera una vista previa de HTML online sin ejecutar scripts y sin enviar el código a un servidor.",
+      en: "Generate an online HTML preview without running scripts or sending code to a server."
+    },
+    sections: [
+      {
+        title: { es: "Qué muestra", en: "What it shows" },
+        body: [
+          {
+            es: "Pega marcado HTML y revisa cómo se renderiza en una vista previa aislada dentro del navegador.",
+            en: "Paste HTML markup and see how it renders in an isolated preview inside the browser."
+          },
+          {
+            es: "Funciona bien para revisar estructuras, estilos inline, bloques de contenido, tablas, snippets y componentes estáticos.",
+            en: "It works well for checking structures, inline styles, content blocks, tables, snippets, and static components."
+          }
+        ]
+      },
+      {
+        title: { es: "Seguridad", en: "Safety" },
+        body: [
+          {
+            es: "La herramienta elimina scripts, eventos inline y enlaces JavaScript antes de mostrar la vista previa.",
+            en: "The tool removes scripts, inline events, and javascript: links before showing the preview."
+          },
+          {
+            es: "El resultado se renderiza en un iframe sin permisos de script para reducir riesgos mientras revisas HTML pegado.",
+            en: "The result renders in an iframe without script permissions to reduce risk while checking pasted HTML."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Puedo previsualizar HTML con CSS?", en: "Can I preview HTML with CSS?" },
+        answer: {
+          es: "Sí. Puedes incluir estilos inline o etiquetas style. La vista previa intenta renderizarlos junto con el HTML.",
+          en: "Yes. You can include inline styles or style tags. The preview attempts to render them together with the HTML."
+        }
+      },
+      {
+        question: { es: "¿Ejecuta JavaScript?", en: "Does it run JavaScript?" },
+        answer: {
+          es: "No. Por seguridad, los scripts y eventos inline se eliminan y el iframe no tiene permisos para ejecutar JavaScript.",
+          en: "No. For safety, scripts and inline events are removed and the iframe has no permission to run JavaScript."
+        }
+      },
+      {
+        question: { es: "¿El código se envía al servidor?", en: "Is the code sent to a server?" },
+        answer: {
+          es: "No. La limpieza y la vista previa se hacen en tu navegador.",
+          en: "No. Cleanup and preview happen in your browser."
+        }
+      }
+    ]
+  },
+  "html-formatter-minifier": {
+    intro: {
+      es: "Formatea HTML para revisarlo con más claridad o minifícalo para obtener una versión compacta sin enviar el código a un servidor.",
+      en: "Format HTML so it is easier to review or minify it into a compact version without sending code to a server."
+    },
+    sections: [
+      {
+        title: { es: "Qué hace", en: "What it does" },
+        body: [
+          {
+            es: "Organiza etiquetas HTML con saltos de línea e indentación para que el marcado sea más fácil de leer.",
+            en: "It organizes HTML tags with line breaks and indentation so markup is easier to read."
+          },
+          {
+            es: "También puede minificar HTML reduciendo espacios entre etiquetas y líneas vacías cuando necesitas una versión más compacta.",
+            en: "It can also minify HTML by reducing whitespace between tags and empty lines when you need a more compact version."
+          }
+        ]
+      },
+      {
+        title: { es: "Uso recomendado", en: "Recommended use" },
+        body: [
+          {
+            es: "Úsalo para revisar snippets, plantillas, correos HTML, componentes estáticos o bloques copiados desde otra herramienta.",
+            en: "Use it to review snippets, templates, HTML emails, static components, or blocks copied from another tool."
+          },
+          {
+            es: "El resultado no se actualiza hasta presionar el botón de nuevo, así puedes cambiar opciones sin alterar una salida ya generada.",
+            en: "The result does not update until you press the button again, so you can change options without altering an already generated output."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿El HTML se ejecuta?", en: "Does the HTML execute?" },
+        answer: {
+          es: "No. Esta herramienta trata el HTML como texto: lo formatea o lo minifica, pero no lo renderiza ni ejecuta scripts.",
+          en: "No. This tool treats HTML as text: it formats or minifies it, but it does not render it or execute scripts."
+        }
+      },
+      {
+        question: { es: "¿Puedo eliminar comentarios HTML?", en: "Can I remove HTML comments?" },
+        answer: {
+          es: "Sí. Puedes activar la opción para quitar bloques de comentarios antes de generar el resultado.",
+          en: "Yes. You can enable the option to remove comment blocks before generating the result."
+        }
+      },
+      {
+        question: { es: "¿El código se envía al servidor?", en: "Is the code sent to a server?" },
+        answer: {
+          es: "No. La transformación se hace localmente en tu navegador.",
+          en: "No. The transformation happens locally in your browser."
+        }
+      }
+    ]
+  },
   "case-style-converter": {
     intro: {
       es: "Convierte frases a estilos usados en programación, documentación técnica y nombres de variables.",
