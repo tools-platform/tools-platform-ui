@@ -8,11 +8,13 @@ import {
   Clock3,
   Code2,
   Coins,
+  Eraser,
   FileJson,
   HandCoins,
   Hash,
   KeyRound,
   Landmark,
+  Languages,
   LetterText,
   ListChecks,
   Repeat2,
@@ -333,12 +335,42 @@ export const tools: ToolSummary[] = [
       en: "Duplicate Counter"
     },
     description: {
-      es: "Cuenta valores repetidos, únicos y distinct en una lista.",
+      es: "Cuenta valores repetidos, únicos y resultados limpios en una lista.",
       en: "Count repeated values, unique values, and distinct lines in a list."
     },
     categoryId: "utilities",
     status: "published",
     Icon: ListChecks
+  },
+  {
+    id: "remove-extra-spaces",
+    slug: "remove-extra-spaces",
+    name: {
+      es: "Eliminar espacios extra",
+      en: "Remove Extra Spaces"
+    },
+    description: {
+      es: "Limpia espacios dobles, tabs y líneas vacías en textos o listas.",
+      en: "Clean double spaces, tabs, and blank lines from text or lists."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: Eraser
+  },
+  {
+    id: "remove-accents",
+    slug: "remove-accents",
+    name: {
+      es: "Eliminar acentos (Español)",
+      en: "Remove Accents (Spanish)"
+    },
+    description: {
+      es: "Convierte texto con tildes a una versión sin acentos, conservando la ñ si quieres.",
+      en: "Convert accented text into a version without accents, preserving ñ if needed."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: Languages
   },
   {
     id: "secure-password-generator",

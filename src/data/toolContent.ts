@@ -1010,7 +1010,7 @@ export const toolContentById: Record<string, ToolContent> = {
   },
   "duplicate-counter": {
     intro: {
-      es: "Cuenta duplicados en una lista y genera una vista distinct con los valores únicos y sus ocurrencias.",
+      es: "Cuenta duplicados en una lista y genera una vista de resultados con los valores únicos y sus ocurrencias.",
       en: "Count duplicates in a list and generate a distinct view with unique values and their occurrences."
     },
     sections: [
@@ -1022,7 +1022,7 @@ export const toolContentById: Record<string, ToolContent> = {
             en: "It treats each line as one value and shows total lines, how many unique values exist, and which values appear more than once."
           },
           {
-            es: "También entrega una lista distinct, una tabla con conteos y opciones para copiar o descargar el resultado en CSV.",
+            es: "También entrega una lista de resultados, una tabla con conteos y opciones para copiar o descargar el resultado en CSV.",
             en: "It also returns a distinct list, a count table, and options to copy or download the result as CSV."
           }
         ]
@@ -1050,9 +1050,9 @@ export const toolContentById: Record<string, ToolContent> = {
         }
       },
       {
-        question: { es: "¿Qué significa lista distinct?", en: "What does distinct list mean?" },
+        question: { es: "¿Qué significa lista de resultados?", en: "What does distinct list mean?" },
         answer: {
-          es: "Una lista distinct contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en la lista distinct solo se muestra una vez.",
+          es: "Una lista de resultados contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en esa lista solo se muestra una vez.",
           en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
         }
       },
@@ -1068,6 +1068,120 @@ export const toolContentById: Record<string, ToolContent> = {
         answer: {
           es: "No. El conteo ocurre en tu navegador.",
           en: "No. The counting happens in your browser."
+        }
+      }
+    ]
+  },
+  "remove-extra-spaces": {
+    intro: {
+      es: "Limpia espacios extra, tabs y líneas vacías de textos o listas directamente en tu navegador.",
+      en: "Clean extra spaces, tabs, and blank lines from text or lists directly in your browser."
+    },
+    sections: [
+      {
+        title: { es: "Qué limpia", en: "What it cleans" },
+        body: [
+          {
+            es: "Puedes eliminar espacios al inicio y final de cada línea, reducir espacios repetidos, convertir tabs en espacios y eliminar líneas vacías.",
+            en: "You can trim leading and trailing spaces on each line, reduce repeated spaces, convert tabs to spaces, and remove empty lines."
+          },
+          {
+            es: "Sirve para columnas copiadas desde Excel, listas pegadas desde sistemas, documentos, correos o textos que llegan con formato irregular.",
+            en: "Use it for columns copied from Excel, lists pasted from systems, documents, emails, or text with irregular formatting."
+          }
+        ]
+      },
+      {
+        title: { es: "Control del resultado", en: "Result control" },
+        body: [
+          {
+            es: "El resultado no cambia mientras ajustas opciones. Vuelve a pulsar limpiar espacios para generar una nueva versión.",
+            en: "The result does not change while you adjust options. Press clean spaces again to generate a new version."
+          },
+          {
+            es: "También puedes copiar el texto limpio o descargarlo como archivo TXT.",
+            en: "You can also copy the clean text or download it as a TXT file."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo eliminar espacios extra de un texto?", en: "How do I remove extra spaces from text?" },
+        answer: {
+          es: "Pega el texto, elige las opciones de limpieza y pulsa limpiar espacios. La herramienta genera una versión limpia sin enviar el contenido al servidor.",
+          en: "Paste the text, choose cleanup options, and press clean spaces. The tool generates a clean version without sending content to a server."
+        }
+      },
+      {
+        question: { es: "¿Elimina saltos de línea?", en: "Does it remove line breaks?" },
+        answer: {
+          es: "No elimina los saltos de línea normales. Solo quita líneas vacías si activas esa opción.",
+          en: "It does not remove normal line breaks. It only removes blank lines if you enable that option."
+        }
+      },
+      {
+        question: { es: "¿El texto se guarda?", en: "Is the text stored?" },
+        answer: {
+          es: "No. La limpieza se hace localmente en el navegador.",
+          en: "No. Cleanup happens locally in your browser."
+        }
+      }
+    ]
+  },
+  "remove-accents": {
+    intro: {
+      es: "Elimina tildes, diéresis y acentos de un texto sin enviar el contenido a ningún servidor.",
+      en: "Remove accents, umlauts, and diacritics from text without sending content to any server."
+    },
+    sections: [
+      {
+        title: { es: "Qué convierte", en: "What it converts" },
+        body: [
+          {
+            es: "Transforma letras como á, é, í, ó, ú, ü o ç en sus versiones sin acento, manteniendo mayúsculas y minúsculas.",
+            en: "It transforms letters like á, é, í, ó, ú, ü, or ç into their unaccented versions while preserving uppercase and lowercase."
+          },
+          {
+            es: "La ñ se conserva por defecto para respetar textos en español, pero puedes convertirla en n si necesitas nombres de archivo, slugs o datos normalizados.",
+            en: "Ñ is preserved by default for Spanish text, but you can convert it to n when you need file names, slugs, or normalized data."
+          }
+        ]
+      },
+      {
+        title: { es: "Cuándo usarlo", en: "When to use it" },
+        body: [
+          {
+            es: "Úsalo para limpiar búsquedas, importar datos, crear rutas, comparar textos o preparar listas que no deben llevar caracteres acentuados.",
+            en: "Use it to clean searches, import data, create routes, compare text, or prepare lists that should not contain accented characters."
+          },
+          {
+            es: "El resultado queda fijo hasta que vuelves a ejecutar la herramienta, así puedes ajustar opciones sin cambiar lo ya calculado.",
+            en: "The result stays fixed until you run the tool again, so you can adjust options without changing the current output."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo eliminar tildes de un texto?", en: "How do I remove accents from text?" },
+        answer: {
+          es: "Pega el texto y pulsa eliminar acentos. La herramienta devuelve una versión sin tildes ni diéresis.",
+          en: "Paste the text and press remove accents. The tool returns a version without accents or umlauts."
+        }
+      },
+      {
+        question: { es: "¿Qué pasa con la ñ?", en: "What happens to ñ?" },
+        answer: {
+          es: "Por defecto se conserva. Si activas convertir ñ en n, la herramienta también normaliza esa letra.",
+          en: "It is preserved by default. If you enable convert ñ to n, the tool also normalizes that letter."
+        }
+      },
+      {
+        question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. La conversión ocurre en tu navegador.",
+          en: "No. The conversion happens in your browser."
         }
       }
     ]

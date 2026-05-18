@@ -176,12 +176,32 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
   },
   "duplicate-counter": {
     title: {
-      es: "Contador de duplicados online | Lista distinct",
+      es: "Contador de duplicados online | Lista de resultados",
       en: "Duplicate Counter Online | Count Repeated Values"
     },
     description: {
-      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista distinct, total de líneas y ocurrencias por cada valor.",
+      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista de resultados, total de líneas y ocurrencias por cada valor.",
       en: "Count duplicate values in a list, get unique values, a distinct list, total lines, and occurrences for each value."
+    }
+  },
+  "remove-extra-spaces": {
+    title: {
+      es: "Eliminar espacios extra online | Limpiar texto",
+      en: "Remove Extra Spaces Online | Clean Text"
+    },
+    description: {
+      es: "Limpia espacios dobles, tabs, espacios al inicio y final o líneas vacías en textos, listas y columnas copiadas.",
+      en: "Clean double spaces, tabs, leading and trailing spaces, or blank lines from text, lists, and copied columns."
+    }
+  },
+  "remove-accents": {
+    title: {
+      es: "Eliminar acentos en español online | Texto sin tildes",
+      en: "Remove Spanish Accents Online | Text Without Accents"
+    },
+    description: {
+      es: "Elimina tildes, diéresis y acentos de un texto en el navegador. Conserva la ñ o conviértela en n si lo necesitas.",
+      en: "Remove accents, diacritics, and umlauts from text in your browser. Preserve ñ or convert it to n when needed."
     }
   },
   "secure-password-generator": {

@@ -1,6 +1,6 @@
 import { CheckCircle2, Clipboard, Info, KeyRound, RefreshCw, RotateCcw } from "lucide-react";
 import type { FormEvent } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 
@@ -45,7 +45,8 @@ const copy = {
     noTypeError: "Activa al menos un tipo de carácter para generar la contraseña.",
     lengthError: "La longitud debe permitir incluir al menos un carácter de cada tipo activo.",
     mainPassword: "Contraseña principal",
-    copied: "Copiada",
+    copied: "Copiada.",
+    copyFailed: "No se pudo copiar automáticamente.",
     copy: "Copiar",
     main: "Principal",
     alternative: "Alternativa",
@@ -82,7 +83,8 @@ const copy = {
     noTypeError: "Enable at least one character type to generate the password.",
     lengthError: "The length must allow at least one character from each active type.",
     mainPassword: "Main password",
-    copied: "Copied",
+    copied: "Copied.",
+    copyFailed: "We couldn't copy it automatically.",
     copy: "Copy",
     main: "Main",
     alternative: "Alternative",
@@ -169,21 +171,30 @@ export function SecurePasswordGenerator() {
   const [appliedQuantity, setAppliedQuantity] = useState(3);
   const [appliedOptions, setAppliedOptions] = useState<PasswordOptions>(createDefaultOptions);
   const [error, setError] = useState("");
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [copyStatus, setCopyStatus] = useState("");
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   const mainPassword = passwords[0] ?? "";
   const strength = useMemo(() => evaluateStrength(mainPassword, appliedOptions, locale), [mainPassword, appliedOptions, locale]);
 
+  useEffect(() => {
+    if (!copyStatus) {
+      return undefined;
+    }
+
+    const timeout = window.setTimeout(() => setCopyStatus(""), 2200);
+    return () => window.clearTimeout(timeout);
+  }, [copyStatus]);
+
   function updateOption(key: keyof PasswordOptions, value: boolean) {
     setOptions((currentOptions) => ({ ...currentOptions, [key]: value }));
-    setCopiedIndex(null);
+    setCopyStatus("");
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
-    setCopiedIndex(null);
+    setCopyStatus("");
 
     const activeSets = getActiveSets(options);
     if (activeSets.length === 0) {
@@ -214,15 +225,15 @@ export function SecurePasswordGenerator() {
     setAppliedQuantity(3);
     setAppliedOptions(createDefaultOptions());
     setError("");
-    setCopiedIndex(null);
+    setCopyStatus("");
   }
 
-  async function handleCopy(password: string, index: number) {
+  async function handleCopy(password: string) {
     try {
       await navigator.clipboard.writeText(password);
-      setCopiedIndex(index);
+      setCopyStatus(text.copied);
     } catch {
-      setCopiedIndex(null);
+      setCopyStatus(text.copyFailed);
     }
   }
 
@@ -312,6 +323,13 @@ export function SecurePasswordGenerator() {
           </div>
 
           <div className="case-result-list">
+            {copyStatus ? (
+              <div className={`duplicate-copy-toast${copyStatus === text.copyFailed ? " duplicate-copy-toast--error" : ""}`} role="status">
+                <CheckCircle2 size={18} strokeWidth={2.1} />
+                <span>{copyStatus}</span>
+              </div>
+            ) : null}
+
             <div className={`password-strength ${strength.className}`}>
               <span />
               <strong>{strength.label}</strong>
@@ -324,9 +342,9 @@ export function SecurePasswordGenerator() {
                   <small>{appliedLength} {text.characters}</small>
                   <strong>{password}</strong>
                 </div>
-                <button onClick={() => handleCopy(password, index)} type="button">
+                <button onClick={() => handleCopy(password)} type="button">
                   <Clipboard size={16} strokeWidth={2.1} />
-                  {copiedIndex === index ? text.copied : text.copy}
+                  {text.copy}
                 </button>
               </div>
             ))}

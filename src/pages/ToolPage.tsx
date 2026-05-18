@@ -14,6 +14,8 @@ import { GrossSalaryColombiaCalculator } from "../components/calculators/GrossSa
 import { HourlySalaryColombiaCalculator } from "../components/calculators/HourlySalaryColombiaCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
+import { RemoveAccents } from "../components/calculators/RemoveAccents";
+import { RemoveExtraSpaces } from "../components/calculators/RemoveExtraSpaces";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
 import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
@@ -121,6 +123,10 @@ export function ToolPage({ slug }: ToolPageProps) {
         <TextCaseConverter />
       ) : tool.id === "duplicate-counter" ? (
         <DuplicateCounter />
+      ) : tool.id === "remove-extra-spaces" ? (
+        <RemoveExtraSpaces />
+      ) : tool.id === "remove-accents" ? (
+        <RemoveAccents />
       ) : tool.id === "secure-password-generator" ? (
         <SecurePasswordGenerator />
       ) : tool.id === "case-style-converter" ? (

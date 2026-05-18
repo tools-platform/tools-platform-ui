@@ -361,6 +361,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/tools/remove-extra-spaces</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/remove-extra-spaces" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/remove-extra-spaces" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/remove-extra-spaces" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/remove-extra-spaces</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/remove-extra-spaces" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/remove-extra-spaces" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/remove-extra-spaces" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/remove-accents</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/remove-accents" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/remove-accents" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/remove-accents" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/remove-accents</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/remove-accents" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/remove-accents" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/remove-accents" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/secure-password-generator</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/secure-password-generator" />
     <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/secure-password-generator" />

@@ -1,6 +1,6 @@
 ﻿import { CheckCircle2, Clipboard, Info, LetterText, RotateCcw, Wand2 } from "lucide-react";
 import type { FormEvent } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 
@@ -134,6 +134,15 @@ export function TextCaseConverter() {
   const characterCount = result.length;
   const wordCount = countWords(result);
 
+  useEffect(() => {
+    if (!copyStatus) {
+      return undefined;
+    }
+
+    const timeout = window.setTimeout(() => setCopyStatus(""), 2200);
+    return () => window.clearTimeout(timeout);
+  }, [copyStatus]);
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
@@ -244,6 +253,13 @@ export function TextCaseConverter() {
           </div>
 
           <div className="text-result">
+            {copyStatus ? (
+              <div className={`duplicate-copy-toast${copyStatus === text.copyFailed ? " duplicate-copy-toast--error" : ""}`} role="status">
+                <CheckCircle2 size={18} strokeWidth={2.1} />
+                <span>{copyStatus}</span>
+              </div>
+            ) : null}
+
             <div className="text-result__header">
               <span>{text.result}</span>
               <button onClick={handleCopy} type="button">
@@ -252,7 +268,6 @@ export function TextCaseConverter() {
               </button>
             </div>
             <textarea readOnly rows={10} value={result} />
-            {copyStatus ? <p>{copyStatus}</p> : null}
           </div>
 
           <div className="result-breakdown">

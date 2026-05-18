@@ -18,10 +18,12 @@ const relatedToolIds: Record<string, string[]> = {
   "exact-age": ["days-between-dates", "days-until-date", "unit-converter"],
   "days-until-date": ["days-between-dates", "exact-age", "worked-hours"],
   "unit-converter": ["text-case-converter", "cop-usd", "case-style-converter"],
-  "text-case-converter": ["duplicate-counter", "case-style-converter", "unit-converter"],
-  "duplicate-counter": ["text-case-converter", "case-style-converter", "secure-password-generator"],
+  "text-case-converter": ["remove-accents", "remove-extra-spaces", "duplicate-counter"],
+  "duplicate-counter": ["remove-extra-spaces", "text-case-converter", "remove-accents"],
+  "remove-extra-spaces": ["duplicate-counter", "remove-accents", "text-case-converter"],
+  "remove-accents": ["remove-extra-spaces", "text-case-converter", "case-style-converter"],
   "secure-password-generator": ["base64-converter", "case-style-converter", "text-case-converter"],
-  "case-style-converter": ["base64-converter", "text-case-converter", "duplicate-counter"],
+  "case-style-converter": ["remove-accents", "base64-converter", "text-case-converter"],
   "base64-converter": ["case-style-converter", "secure-password-generator", "duplicate-counter"]
 };
 

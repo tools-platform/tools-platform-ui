@@ -223,12 +223,34 @@ const localizedPages = [
   {
     path: "/tools/duplicate-counter",
     title: {
-      es: "Contador de duplicados online | Lista distinct",
+      es: "Contador de duplicados online | Lista de resultados",
       en: "Duplicate Counter Online | Count Repeated Values"
     },
     description: {
-      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista distinct, total de líneas y ocurrencias por cada valor.",
+      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista de resultados, total de líneas y ocurrencias por cada valor.",
       en: "Count duplicate values in a list, get unique values, a distinct list, total lines, and occurrences for each value."
+    }
+  },
+  {
+    path: "/tools/remove-extra-spaces",
+    title: {
+      es: "Eliminar espacios extra online | Limpiar texto",
+      en: "Remove Extra Spaces Online | Clean Text"
+    },
+    description: {
+      es: "Limpia espacios dobles, tabs, espacios al inicio y final o líneas vacías en textos, listas y columnas copiadas.",
+      en: "Clean double spaces, tabs, leading and trailing spaces, or blank lines from text, lists, and copied columns."
+    }
+  },
+  {
+    path: "/tools/remove-accents",
+    title: {
+      es: "Eliminar acentos en español online | Texto sin tildes",
+      en: "Remove Spanish Accents Online | Text Without Accents"
+    },
+    description: {
+      es: "Elimina tildes, diéresis y acentos de un texto en el navegador. Conserva la ñ o conviértela en n si lo necesitas.",
+      en: "Remove accents, diacritics, and umlauts from text in your browser. Preserve ñ or convert it to n when needed."
     }
   },
   {
@@ -478,12 +500,56 @@ const toolFaqsByPath = {
     },
     {
       question: {
-        es: "¿Qué significa lista distinct?",
+        es: "¿Qué significa lista de resultados?",
         en: "What does distinct list mean?"
       },
       answer: {
-        es: "Una lista distinct contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en la lista distinct solo se muestra una vez.",
+        es: "Una lista de resultados contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en esa lista solo se muestra una vez.",
         en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
+      }
+    }
+  ],
+  "/tools/remove-extra-spaces": [
+    {
+      question: {
+        es: "¿Cómo eliminar espacios extra de un texto?",
+        en: "How do I remove extra spaces from text?"
+      },
+      answer: {
+        es: "Pega el texto, elige las opciones de limpieza y pulsa limpiar espacios. La herramienta genera una versión limpia en el navegador.",
+        en: "Paste the text, choose cleanup options, and press clean spaces. The tool generates a clean version in your browser."
+      }
+    },
+    {
+      question: {
+        es: "¿Elimina saltos de línea?",
+        en: "Does it remove line breaks?"
+      },
+      answer: {
+        es: "No elimina los saltos de línea normales. Solo quita líneas vacías si activas esa opción.",
+        en: "It does not remove normal line breaks. It only removes blank lines if you enable that option."
+      }
+    }
+  ],
+  "/tools/remove-accents": [
+    {
+      question: {
+        es: "¿Cómo eliminar tildes de un texto?",
+        en: "How do I remove accents from text?"
+      },
+      answer: {
+        es: "Pega el texto y pulsa eliminar acentos. La herramienta devuelve una versión sin tildes ni diéresis.",
+        en: "Paste the text and press remove accents. The tool returns a version without accents or umlauts."
+      }
+    },
+    {
+      question: {
+        es: "¿Qué pasa con la ñ?",
+        en: "What happens to ñ?"
+      },
+      answer: {
+        es: "Por defecto se conserva. Si activas convertir ñ en n, la herramienta también normaliza esa letra.",
+        en: "It is preserved by default. If you enable convert ñ to n, the tool also normalizes that letter."
       }
     }
   ],

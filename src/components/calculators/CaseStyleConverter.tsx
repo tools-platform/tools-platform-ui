@@ -1,6 +1,6 @@
 ﻿import { CheckCircle2, Clipboard, Code2, Info, RotateCcw, Wand2 } from "lucide-react";
 import type { FormEvent } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 
@@ -103,7 +103,8 @@ const copy = {
     styles: "Estilos",
     wordsDetected: "Palabras detectadas",
     copy: "Copiar",
-    copied: "Copiado",
+    copied: "Copiado.",
+    copyFailed: "No se pudo copiar automáticamente.",
     localRules: "Conversión local para nombres de variables, clases, archivos, rutas, slugs y constantes.",
     disclaimer:
       "Resultado automático para apoyo en desarrollo. Valida la convención exacta de tu lenguaje, framework o equipo antes de usarlo en producción.",
@@ -126,7 +127,8 @@ const copy = {
     styles: "Styles",
     wordsDetected: "Words detected",
     copy: "Copy",
-    copied: "Copied",
+    copied: "Copied.",
+    copyFailed: "We couldn't copy it automatically.",
     localRules: "Local conversion for variable names, classes, files, routes, slugs, and constants.",
     disclaimer:
       "Automatic result for development support. Validate the exact convention of your language, framework, or team before using it in production.",
@@ -143,15 +145,24 @@ export function CaseStyleConverter() {
   const [results, setResults] = useState<CaseResult[] | null>(null);
   const [appliedText, setAppliedText] = useState("");
   const [error, setError] = useState("");
-  const [copiedId, setCopiedId] = useState("");
+  const [copyStatus, setCopyStatus] = useState("");
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   const detectedWords = useMemo(() => countWords(appliedText, localeCode), [appliedText, localeCode]);
 
+  useEffect(() => {
+    if (!copyStatus) {
+      return undefined;
+    }
+
+    const timeout = window.setTimeout(() => setCopyStatus(""), 2200);
+    return () => window.clearTimeout(timeout);
+  }, [copyStatus]);
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
-    setCopiedId("");
+    setCopyStatus("");
 
     if (!inputText.trim()) {
       setError(text.emptyError);
@@ -177,15 +188,15 @@ export function CaseStyleConverter() {
     setResults(null);
     setAppliedText("");
     setError("");
-    setCopiedId("");
+    setCopyStatus("");
   }
 
   async function handleCopy(result: CaseResult) {
     try {
       await navigator.clipboard.writeText(result.value);
-      setCopiedId(result.id);
+      setCopyStatus(text.copied);
     } catch {
-      setCopiedId("");
+      setCopyStatus(text.copyFailed);
     }
   }
 
@@ -207,7 +218,7 @@ export function CaseStyleConverter() {
           <textarea
             onChange={(event) => {
               setInputText(event.target.value);
-              setCopiedId("");
+              setCopyStatus("");
             }}
             placeholder={text.placeholder}
             rows={8}
@@ -247,6 +258,13 @@ export function CaseStyleConverter() {
           </div>
 
           <div className="case-result-list">
+            {copyStatus ? (
+              <div className={`duplicate-copy-toast${copyStatus === text.copyFailed ? " duplicate-copy-toast--error" : ""}`} role="status">
+                <CheckCircle2 size={18} strokeWidth={2.1} />
+                <span>{copyStatus}</span>
+              </div>
+            ) : null}
+
             {results.map((result) => (
               <div className="case-result-item" key={result.id}>
                 <div>
@@ -256,7 +274,7 @@ export function CaseStyleConverter() {
                 </div>
                 <button onClick={() => handleCopy(result)} type="button">
                   <Clipboard size={16} strokeWidth={2.1} />
-                  {copiedId === result.id ? text.copied : text.copy}
+                  {text.copy}
                 </button>
               </div>
             ))}
