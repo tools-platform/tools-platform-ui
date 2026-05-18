@@ -78,6 +78,14 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
   "case-style-converter": {
     es: ["convertidor camelCase", "snake_case converter", "PascalCase y kebab-case"],
     en: ["camelCase converter", "snake_case converter", "PascalCase and kebab-case converter"]
+  },
+  "html-preview": {
+    es: ["vista previa HTML online", "preview HTML seguro", "probar código HTML online"],
+    en: ["online HTML preview", "safe HTML preview", "test HTML code online"]
+  },
+  "html-formatter-minifier": {
+    es: ["formateador HTML online", "minificar HTML", "ordenar código HTML"],
+    en: ["HTML formatter online", "minify HTML", "format HTML code"]
   }
 };
 

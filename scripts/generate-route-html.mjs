@@ -8,7 +8,7 @@ const distRoot = path.join(projectRoot, "dist");
 const siteUrl = "https://toolsplatforms.com";
 const siteName = "Tools Platforms";
 const supportedLocales = ["es", "en"];
-const sitemapLastModified = "2026-05-06";
+const sitemapLastModified = "2026-05-18";
 
 const localizedPages = [
   {
@@ -273,6 +273,28 @@ const localizedPages = [
     description: {
       es: "Codifica texto a Base64 o decodifica Base64 a texto online. Conversor Base64 con UTF-8, modo por líneas y formato URL-safe.",
       en: "Encode text to Base64 or decode Base64 to text online. Base64 converter with UTF-8, per-line mode, and URL-safe format."
+    }
+  },
+  {
+    path: "/tools/html-preview-online",
+    title: {
+      es: "Vista previa de HTML online | Vista segura",
+      en: "Online HTML Preview | Safe Browser Preview"
+    },
+    description: {
+      es: "Pega código HTML y revisa cómo se renderiza en una vista previa segura. Elimina scripts, eventos inline y enlaces JavaScript en el navegador.",
+      en: "Paste HTML code and see how it renders in a safe preview. Removes scripts, inline events, and javascript links in the browser."
+    }
+  },
+  {
+    path: "/tools/html-formatter-minifier",
+    title: {
+      es: "Formateador y minificador HTML online | Tools Platforms",
+      en: "HTML Formatter and Minifier Online | Tools Platforms"
+    },
+    description: {
+      es: "Formatea HTML online para leerlo mejor o minifica código HTML en el navegador. Herramienta local para limpiar comentarios y compactar marcado.",
+      en: "Format HTML online for readability or minify HTML code in the browser. Local tool for cleaning comments and compacting markup."
     }
   },
   {
@@ -584,6 +606,50 @@ const toolFaqsByPath = {
         en: "It is a variant that replaces URL-sensitive characters, usually + with - and / with _."
       }
     }
+  ],
+  "/tools/html-preview-online": [
+    {
+      question: {
+        es: "¿Puedo previsualizar HTML con CSS?",
+        en: "Can I preview HTML with CSS?"
+      },
+      answer: {
+        es: "Sí. Puedes incluir estilos inline o etiquetas style. La vista previa intenta renderizarlos junto con el HTML.",
+        en: "Yes. You can include inline styles or style tags. The preview attempts to render them together with the HTML."
+      }
+    },
+    {
+      question: {
+        es: "¿Ejecuta JavaScript?",
+        en: "Does it run JavaScript?"
+      },
+      answer: {
+        es: "No. Por seguridad, los scripts y eventos inline se eliminan y el iframe no tiene permisos para ejecutar JavaScript.",
+        en: "No. For safety, scripts and inline events are removed and the iframe has no permission to run JavaScript."
+      }
+    }
+  ],
+  "/tools/html-formatter-minifier": [
+    {
+      question: {
+        es: "¿El HTML se ejecuta?",
+        en: "Does the HTML execute?"
+      },
+      answer: {
+        es: "No. La herramienta trata el HTML como texto: lo formatea o lo minifica, pero no renderiza ni ejecuta scripts.",
+        en: "No. The tool treats HTML as text: it formats or minifies it, but it does not render or execute scripts."
+      }
+    },
+    {
+      question: {
+        es: "¿Puedo eliminar comentarios HTML?",
+        en: "Can I remove HTML comments?"
+      },
+      answer: {
+        es: "Sí. Puedes activar la opción para quitar bloques de comentarios antes de generar el resultado.",
+        en: "Yes. You can enable the option to remove comment blocks before generating the result."
+      }
+    }
   ]
 };
 
@@ -795,9 +861,6 @@ function renderSitemapUrl(page, locale) {
   return [
     "  <url>",
     `    <loc>${escapeHtml(loc)}</loc>`,
-    `    <xhtml:link rel="alternate" hreflang="es" href="${escapeHtml(spanishUrl)}" />`,
-    `    <xhtml:link rel="alternate" hreflang="en" href="${escapeHtml(englishUrl)}" />`,
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(spanishUrl)}" />`,
     `    <lastmod>${sitemapLastModified}</lastmod>`,
     `    <changefreq>${changeFrequency}</changefreq>`,
     `    <priority>${priority}</priority>`,
@@ -810,7 +873,7 @@ function renderSitemap() {
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     urls.join("\n"),
     "</urlset>",
     ""

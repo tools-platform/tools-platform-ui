@@ -23,8 +23,10 @@ const relatedToolIds: Record<string, string[]> = {
   "remove-extra-spaces": ["duplicate-counter", "remove-accents", "text-case-converter"],
   "remove-accents": ["remove-extra-spaces", "text-case-converter", "case-style-converter"],
   "secure-password-generator": ["base64-converter", "case-style-converter", "text-case-converter"],
-  "case-style-converter": ["remove-accents", "base64-converter", "text-case-converter"],
-  "base64-converter": ["case-style-converter", "secure-password-generator", "duplicate-counter"]
+  "case-style-converter": ["html-formatter-minifier", "html-preview", "base64-converter"],
+  "base64-converter": ["html-formatter-minifier", "html-preview", "case-style-converter"],
+  "html-preview": ["html-formatter-minifier", "base64-converter", "case-style-converter"],
+  "html-formatter-minifier": ["html-preview", "base64-converter", "case-style-converter"]
 };
 
 type RelatedToolsProps = {
