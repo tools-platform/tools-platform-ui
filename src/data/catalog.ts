@@ -14,6 +14,7 @@ import {
   KeyRound,
   Landmark,
   LetterText,
+  ListChecks,
   Repeat2,
   Ruler,
   Timer,
@@ -323,6 +324,21 @@ export const tools: ToolSummary[] = [
     categoryId: "utilities",
     status: "published",
     Icon: LetterText
+  },
+  {
+    id: "duplicate-counter",
+    slug: "duplicate-counter",
+    name: {
+      es: "Contador de duplicados",
+      en: "Duplicate Counter"
+    },
+    description: {
+      es: "Cuenta valores repetidos, únicos y distinct en una lista.",
+      en: "Count repeated values, unique values, and distinct lines in a list."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: ListChecks
   },
   {
     id: "secure-password-generator",

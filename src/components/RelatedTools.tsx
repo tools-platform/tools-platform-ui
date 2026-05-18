@@ -18,9 +18,10 @@ const relatedToolIds: Record<string, string[]> = {
   "exact-age": ["days-between-dates", "days-until-date", "unit-converter"],
   "days-until-date": ["days-between-dates", "exact-age", "worked-hours"],
   "unit-converter": ["text-case-converter", "cop-usd", "case-style-converter"],
-  "text-case-converter": ["case-style-converter", "unit-converter", "secure-password-generator"],
-  "secure-password-generator": ["case-style-converter", "text-case-converter", "unit-converter"],
-  "case-style-converter": ["text-case-converter", "secure-password-generator", "unit-converter"]
+  "text-case-converter": ["duplicate-counter", "case-style-converter", "unit-converter"],
+  "duplicate-counter": ["text-case-converter", "case-style-converter", "secure-password-generator"],
+  "secure-password-generator": ["case-style-converter", "text-case-converter", "duplicate-counter"],
+  "case-style-converter": ["text-case-converter", "duplicate-counter", "secure-password-generator"]
 };
 
 type RelatedToolsProps = {

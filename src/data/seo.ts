@@ -174,6 +174,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Convert text to uppercase, lowercase, title case, or sentence case. Format and clean text quickly in your browser."
     }
   },
+  "duplicate-counter": {
+    title: {
+      es: "Contador de duplicados online | Lista distinct",
+      en: "Duplicate Counter Online | Count Repeated Values"
+    },
+    description: {
+      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista distinct, total de líneas y ocurrencias por cada valor.",
+      en: "Count duplicate values in a list, get unique values, a distinct list, total lines, and occurrences for each value."
+    }
+  },
   "secure-password-generator": {
     title: {
       es: "Generador de contraseñas seguras online | Password generator",

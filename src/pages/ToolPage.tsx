@@ -4,6 +4,7 @@ import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
 import { CreditInterestCalculator } from "../components/calculators/CreditInterestCalculator";
 import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetweenDatesCalculator";
 import { DaysUntilDateCalculator } from "../components/calculators/DaysUntilDateCalculator";
+import { DuplicateCounter } from "../components/calculators/DuplicateCounter";
 import { EmployeeSalaryEquivalentCalculator } from "../components/calculators/EmployeeSalaryEquivalentCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
@@ -117,6 +118,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <UnitConverter />
       ) : tool.id === "text-case-converter" ? (
         <TextCaseConverter />
+      ) : tool.id === "duplicate-counter" ? (
+        <DuplicateCounter />
       ) : tool.id === "secure-password-generator" ? (
         <SecurePasswordGenerator />
       ) : tool.id === "case-style-converter" ? (

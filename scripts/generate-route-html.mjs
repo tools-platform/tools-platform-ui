@@ -221,6 +221,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/duplicate-counter",
+    title: {
+      es: "Contador de duplicados online | Lista distinct",
+      en: "Duplicate Counter Online | Count Repeated Values"
+    },
+    description: {
+      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista distinct, total de líneas y ocurrencias por cada valor.",
+      en: "Count duplicate values in a list, get unique values, a distinct list, total lines, and occurrences for each value."
+    }
+  },
+  {
     path: "/tools/secure-password-generator",
     title: {
       es: "Generador de contraseñas seguras online | Password generator",
@@ -440,6 +451,28 @@ const toolFaqsByPath = {
       answer: {
         es: "Sí. Elige minúsculas, pega tu texto y pulsa convertir para transformar todo el contenido.",
         en: "Yes. Choose lowercase, paste your text, and press convert to transform all content."
+      }
+    }
+  ],
+  "/tools/duplicate-counter": [
+    {
+      question: {
+        es: "¿Cómo contar duplicados en una lista?",
+        en: "How do I count duplicates in a list?"
+      },
+      answer: {
+        es: "Pega una lista con un valor por línea y pulsa contar duplicados. La herramienta muestra cuántas veces aparece cada valor y separa los valores únicos.",
+        en: "Paste a list with one value per line and press count duplicates. The tool shows how many times each value appears and separates unique values."
+      }
+    },
+    {
+      question: {
+        es: "¿Qué significa lista distinct?",
+        en: "What does distinct list mean?"
+      },
+      answer: {
+        es: "Una lista distinct contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en la lista distinct solo se muestra una vez.",
+        en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
       }
     }
   ]

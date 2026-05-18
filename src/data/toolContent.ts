@@ -1008,6 +1008,70 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "duplicate-counter": {
+    intro: {
+      es: "Cuenta duplicados en una lista y genera una vista distinct con los valores únicos y sus ocurrencias.",
+      en: "Count duplicates in a list and generate a distinct view with unique values and their occurrences."
+    },
+    sections: [
+      {
+        title: { es: "Qué calcula", en: "What it calculates" },
+        body: [
+          {
+            es: "Toma cada línea como un valor y muestra cuántas líneas hay, cuántos valores únicos existen y qué valores aparecen más de una vez.",
+            en: "It treats each line as one value and shows total lines, how many unique values exist, and which values appear more than once."
+          },
+          {
+            es: "También entrega una lista distinct, una tabla con conteos y opciones para copiar o descargar el resultado en CSV.",
+            en: "It also returns a distinct list, a count table, and options to copy or download the result as CSV."
+          }
+        ]
+      },
+      {
+        title: { es: "Cuándo usarlo", en: "When to use it" },
+        body: [
+          {
+            es: "Sirve para revisar correos, códigos, IDs, URLs, nombres, SKUs o columnas copiadas desde Excel cuando necesitas detectar repetidos rápido.",
+            en: "Use it to review emails, codes, IDs, URLs, names, SKUs, or columns copied from Excel when you need to detect repeated values quickly."
+          },
+          {
+            es: "Puedes ignorar mayúsculas, limpiar espacios al inicio y final, omitir líneas vacías y filtrar solo duplicados o solo únicos.",
+            en: "You can ignore case, trim leading and trailing spaces, skip empty lines, and filter only duplicates or only unique values."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo contar duplicados en una lista?", en: "How do I count duplicates in a list?" },
+        answer: {
+          es: "Pega una lista con un valor por línea y pulsa contar duplicados. La herramienta muestra cuántas veces aparece cada valor y separa los valores únicos.",
+          en: "Paste a list with one value per line and press count duplicates. The tool shows how many times each value appears and separates unique values."
+        }
+      },
+      {
+        question: { es: "¿Qué significa lista distinct?", en: "What does distinct list mean?" },
+        answer: {
+          es: "Una lista distinct contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en la lista distinct solo se muestra una vez.",
+          en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
+        }
+      },
+      {
+        question: { es: "¿Puedo contar duplicados ignorando mayúsculas?", en: "Can I count duplicates ignoring uppercase and lowercase?" },
+        answer: {
+          es: "Sí. Activa la opción de ignorar mayúsculas/minúsculas para que valores como Hola, hola y HOLA cuenten como el mismo elemento.",
+          en: "Yes. Turn on ignore uppercase/lowercase so values like Hello, hello, and HELLO count as the same item."
+        }
+      },
+      {
+        question: { es: "¿El texto se envía a un servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. El conteo ocurre en tu navegador.",
+          en: "No. The counting happens in your browser."
+        }
+      }
+    ]
+  },
   "secure-password-generator": {
     intro: {
       es: "Genera contraseñas aleatorias y seguras directamente en tu navegador.",

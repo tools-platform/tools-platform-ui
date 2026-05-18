@@ -343,6 +343,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/tools/duplicate-counter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/duplicate-counter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/duplicate-counter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/duplicate-counter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/duplicate-counter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/duplicate-counter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/duplicate-counter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolsplatforms.com/tools/duplicate-counter" />
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/secure-password-generator</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://toolsplatforms.com/tools/secure-password-generator" />
     <xhtml:link rel="alternate" hreflang="en" href="https://toolsplatforms.com/en/tools/secure-password-generator" />
