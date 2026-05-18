@@ -527,7 +527,7 @@ function renderPageHtml(baseHtml, page, locale) {
     ["og:site_name", "content", siteName]
   ].reduce((html, [selector, attribute, value]) => setTagAttribute(html, selector, attribute, value), baseHtml);
 
-  return injectStructuredData(setAlternateLinks(html, page.path), page, locale, canonicalUrl);
+  return injectStaticContent(injectStructuredData(setAlternateLinks(html, page.path), page, locale, canonicalUrl), page, locale);
 }
 
 function serializeJsonLd(data) {
@@ -592,6 +592,30 @@ function injectStructuredData(html, page, locale, canonicalUrl) {
   return html.replace("</head>", `${structuredData}  </head>`);
 }
 
+function renderStaticContent(page, locale) {
+  const faqs = toolFaqsByPath[page.path] ?? [];
+  const faqHtml = faqs
+    .map(
+      (faq) => `
+        <section>
+          <h2>${escapeHtml(faq.question[locale])}</h2>
+          <p>${escapeHtml(faq.answer[locale])}</p>
+        </section>`
+    )
+    .join("");
+
+  return `
+      <main>
+        <h1>${escapeHtml(page.title[locale])}</h1>
+        <p>${escapeHtml(page.description[locale])}</p>${faqHtml}
+      </main>
+    `;
+}
+
+function injectStaticContent(html, page, locale) {
+  return html.replace('<div id="root"></div>', `<div id="root">${renderStaticContent(page, locale)}</div>`);
+}
+
 async function writeRouteHtml(baseHtml, page, locale) {
   const localizedPath = getLocalizedPath(page.path, locale);
   const html = renderPageHtml(baseHtml, page, locale);
@@ -614,6 +638,8 @@ await Promise.all(
 
 function renderSitemapUrl(page, locale) {
   const loc = getAbsoluteUrl(page.path, locale);
+  const spanishUrl = getAbsoluteUrl(page.path, "es");
+  const englishUrl = getAbsoluteUrl(page.path, "en");
   const changeFrequency =
     page.path === "/tools/cop-to-usd-converter"
       ? "daily"
@@ -627,6 +653,9 @@ function renderSitemapUrl(page, locale) {
   return [
     "  <url>",
     `    <loc>${escapeHtml(loc)}</loc>`,
+    `    <xhtml:link rel="alternate" hreflang="es" href="${escapeHtml(spanishUrl)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${escapeHtml(englishUrl)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(spanishUrl)}" />`,
     `    <lastmod>${sitemapLastModified}</lastmod>`,
     `    <changefreq>${changeFrequency}</changefreq>`,
     `    <priority>${priority}</priority>`,
@@ -639,7 +668,7 @@ function renderSitemap() {
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     urls.join("\n"),
     "</urlset>",
     ""
