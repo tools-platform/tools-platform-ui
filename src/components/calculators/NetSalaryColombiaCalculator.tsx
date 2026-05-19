@@ -29,7 +29,7 @@ const copy = {
     payrollYearHelp: "Lo usamos para aplicar el salario mínimo, auxilio de transporte y límites legales vigentes de ese año.",
     editYearAria: "Editar año de reglas",
     editYearTitle: "Editar año",
-    payrollDeductions: "Deducciones mensuales de nómina",
+    payrollDeductions: "Deducciones de nómina",
     payrollDeductionsHelp:
       "Valores extra que te descuentan al mes en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
     transportationAllowance: "Incluir auxilio de transporte si aplica",
@@ -74,7 +74,7 @@ const copy = {
     payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds in force for that year.",
     editYearAria: "Edit rule year",
     editYearTitle: "Edit year",
-    payrollDeductions: "Monthly payroll deductions",
+    payrollDeductions: "Payroll deductions",
     payrollDeductionsHelp:
       "Extra monthly amounts deducted from payroll, such as salary loans, advances, garnishments, or voluntary contributions. Leave it at 0 if you do not have any.",
     transportationAllowance: "Include transportation allowance if applicable",
