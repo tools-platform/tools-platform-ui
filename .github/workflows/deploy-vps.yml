@@ -14,6 +14,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -26,4 +27,4 @@ jobs:
 
       - name: Deploy stack
         run: |
-          ssh -i ~/.ssh/vps_key -p "${{ secrets.VPS_PORT || '22' }}" "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" "cd /opt/apps/tools-platforms && ./deploy.sh"
+          ssh -i ~/.ssh/vps_key -p "${{ secrets.VPS_PORT || '22' }}" "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" "cd /opt/apps/tools-platforms && ./deploy.sh tools-ui"
