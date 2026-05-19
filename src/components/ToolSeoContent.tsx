@@ -43,6 +43,10 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
     es: ["calculadora de salario por hora", "valor hora salario mensual", "salario mensual dividido en horas"],
     en: ["hourly salary calculator", "monthly salary to hourly pay", "hourly wage from salary"]
   },
+  "overtime-colombia": {
+    es: ["calculadora de horas extras Colombia", "recargos nocturnos Colombia", "hora extra diurna nocturna"],
+    en: ["Colombia overtime calculator", "night surcharge Colombia", "Sunday holiday overtime pay"]
+  },
   "employee-salary-equivalent": {
     es: ["sueldo equivalente como empleado", "tarifa por hora a salario mensual", "independiente a empleado"],
     en: ["employee salary equivalent", "hourly rate to salary", "independent contractor to employee salary"]
@@ -74,6 +78,18 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
   "secure-password-generator": {
     es: ["generador de contraseñas seguras", "crear contraseña aleatoria", "password generator online"],
     en: ["secure password generator", "random password generator", "strong password generator"]
+  },
+  "random-text-generator": {
+    es: ["generador de texto aleatorio", "texto de prueba online", "generar lorem ipsum"],
+    en: ["random text generator", "sample text generator", "lorem ipsum generator"]
+  },
+  "alphabetical-line-sorter": {
+    es: ["ordenar líneas alfabéticamente", "ordenar lista A-Z", "ordenar texto online"],
+    en: ["alphabetical line sorter", "sort lines alphabetically", "sort list A to Z"]
+  },
+  "percentage-calculator": {
+    es: ["calculadora de porcentaje", "calcular descuento porcentual", "diferencia porcentual"],
+    en: ["percentage calculator", "discount percentage calculator", "percentage change calculator"]
   },
   "case-style-converter": {
     es: ["convertidor camelCase", "snake_case converter", "PascalCase y kebab-case"],

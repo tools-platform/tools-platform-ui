@@ -211,6 +211,72 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "overtime-colombia": {
+    intro: {
+      es: "Esta calculadora de horas extras en Colombia estima el valor de horas extra, recargos nocturnos, dominicales y festivos desde un salario mensual.",
+      en: "This Colombia overtime calculator estimates overtime, night surcharges, Sunday, and holiday pay from a monthly salary."
+    },
+    sections: [
+      {
+        title: { es: "Qué calcula", en: "What it calculates" },
+        body: [
+          {
+            es: "Convierte el salario mensual en valor de hora ordinaria usando la jornada semanal legal o una jornada personalizada.",
+            en: "It converts a monthly salary into a regular hourly value using the legal weekly workweek or a custom schedule."
+          },
+          {
+            es: "Luego aplica los factores de hora extra diurna, nocturna, recargo nocturno, dominical o festivo para estimar el total a pagar.",
+            en: "Then it applies factors for daytime overtime, night overtime, night surcharge, Sunday, and holiday pay to estimate the total amount."
+          }
+        ]
+      },
+      {
+        title: { es: "Cómo usarla", en: "How to use it" },
+        body: [
+          {
+            es: "Ingresa tu salario mensual, revisa el año de reglas y las horas semanales. Puedes editar la jornada si tu contrato usa una cantidad diferente.",
+            en: "Enter your monthly salary, review the rule year and weekly hours. You can edit the schedule if your contract uses a different number."
+          },
+          {
+            es: "Agrega cada tipo de hora con su cantidad, calcula y revisa el total estimado junto con el detalle por tipo de recargo.",
+            en: "Add each hour type with its quantity, calculate, and review the estimated total with the breakdown by surcharge type."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: {
+          es: "¿Cómo se calculan las horas extras en Colombia?",
+          en: "How is overtime calculated in Colombia?"
+        },
+        answer: {
+          es: "Primero se calcula el valor de la hora ordinaria desde el salario mensual y las horas mensuales estimadas. Luego se multiplica por el factor del tipo de hora: extra diurna, extra nocturna, recargo nocturno, dominical o festivo.",
+          en: "First, the regular hourly value is calculated from monthly salary and estimated monthly hours. Then it is multiplied by the factor for the hour type: daytime overtime, night overtime, night surcharge, Sunday, or holiday."
+        }
+      },
+      {
+        question: {
+          es: "¿La calculadora usa la jornada legal de Colombia?",
+          en: "Does the calculator use Colombia's legal workweek?"
+        },
+        answer: {
+          es: "Sí. Por defecto usa la jornada legal de referencia según el año seleccionado, pero puedes editar las horas semanales si necesitas calcular con tu jornada real.",
+          en: "Yes. By default it uses the legal reference workweek for the selected year, but you can edit weekly hours if you need to calculate with your real schedule."
+        }
+      },
+      {
+        question: {
+          es: "¿El resultado reemplaza la nómina?",
+          en: "Does the result replace payroll?"
+        },
+        answer: {
+          es: "No. Es una estimación práctica. La nómina real puede cambiar por acuerdos internos, turnos mixtos, recargos ya pagados, redondeos, retención u otros conceptos laborales.",
+          en: "No. It is a practical estimate. Real payroll may change due to internal agreements, mixed shifts, already paid surcharges, rounding, withholding, or other labor items."
+        }
+      }
+    ]
+  },
   "employee-salary-equivalent": {
     intro: {
       es: "Esta calculadora ayuda a convertir lo que cobras por hora como independiente en un sueldo equivalente como empleado.",
@@ -1232,6 +1298,184 @@ export const toolContentById: Record<string, ToolContent> = {
         answer: {
           es: "Para cuentas importantes, una longitud de 16 caracteres o más suele ser una mejor base.",
           en: "For important accounts, 16 characters or more is usually a stronger baseline."
+        }
+      }
+    ]
+  },
+  "random-text-generator": {
+    intro: {
+      es: "Genera texto aleatorio para pruebas, formularios, diseños, hojas de cálculo o contenido temporal sin usar IA ni enviar datos a un servidor.",
+      en: "Generate random text for tests, forms, designs, spreadsheets, or temporary content without using AI or sending data to a server."
+    },
+    sections: [
+      {
+        title: { es: "Qué puedes generar", en: "What you can generate" },
+        body: [
+          {
+            es: "Puedes crear palabras, frases, párrafos o listas. La herramienta permite elegir entre texto natural desde bancos locales o Lorem ipsum tradicional.",
+            en: "You can create words, sentences, paragraphs, or lists. The tool lets you choose between natural text from local banks or traditional Lorem ipsum."
+          },
+          {
+            es: "El modo de lista sirve para generar elementos separados por línea, útil para probar tablas, formularios, columnas copiadas o campos repetidos.",
+            en: "List mode creates one item per line, useful for testing tables, forms, copied columns, or repeated fields."
+          }
+        ]
+      },
+      {
+        title: { es: "Cómo se genera", en: "How it is generated" },
+        body: [
+          {
+            es: "No usa IA. Combina bancos internos de sujetos, verbos, objetos, frases y palabras para producir texto de prueba rápido y variado.",
+            en: "It does not use AI. It combines internal banks of subjects, verbs, objects, phrases, and words to produce quick and varied sample text."
+          },
+          {
+            es: "El resultado queda fijo hasta volver a presionar generar, así puedes cambiar opciones sin alterar el texto que ya obtuviste.",
+            en: "The result stays fixed until you press generate again, so changing options does not alter the text you already produced."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo generar texto aleatorio online?", en: "How do I generate random text online?" },
+        answer: {
+          es: "Elige si quieres texto natural o Lorem ipsum, selecciona palabras, frases, párrafos o lista, define la cantidad y pulsa generar texto.",
+          en: "Choose natural text or Lorem ipsum, select words, sentences, paragraphs, or list, set the quantity, and press generate text."
+        }
+      },
+      {
+        question: { es: "¿El generador usa inteligencia artificial?", en: "Does the generator use artificial intelligence?" },
+        answer: {
+          es: "No. Usa bancos locales de palabras y plantillas simples dentro del navegador.",
+          en: "No. It uses local word banks and simple templates inside the browser."
+        }
+      },
+      {
+        question: { es: "¿Puedo generar Lorem ipsum?", en: "Can I generate Lorem ipsum?" },
+        answer: {
+          es: "Sí. Puedes cambiar la fuente a Lorem ipsum para generar texto clásico de relleno.",
+          en: "Yes. You can switch the source to Lorem ipsum to generate classic placeholder text."
+        }
+      },
+      {
+        question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. Todo se genera localmente en tu navegador.",
+          en: "No. Everything is generated locally in your browser."
+        }
+      }
+    ]
+  },
+  "alphabetical-line-sorter": {
+    intro: {
+      es: "Ordena líneas alfabéticamente para limpiar listas, columnas copiadas, correos, nombres, códigos o valores repetidos directamente en tu navegador.",
+      en: "Sort lines alphabetically to clean lists, copied columns, emails, names, codes, or repeated values directly in your browser."
+    },
+    sections: [
+      {
+        title: { es: "Qué ordena", en: "What it sorts" },
+        body: [
+          {
+            es: "Puedes pegar cualquier texto con una línea por valor y ordenarlo de A a Z o de Z a A.",
+            en: "You can paste any text with one value per line and sort it from A to Z or Z to A."
+          },
+          {
+            es: "También puedes ignorar mayúsculas/minúsculas, limpiar espacios, eliminar líneas vacías y quitar duplicados antes de generar el resultado.",
+            en: "You can also ignore uppercase/lowercase, trim spaces, remove empty lines, and remove duplicates before generating the result."
+          }
+        ]
+      },
+      {
+        title: { es: "Cuándo usarlo", en: "When to use it" },
+        body: [
+          {
+            es: "Sirve para ordenar nombres, listas de productos, correos, códigos, columnas de Excel, palabras clave o resultados copiados desde otra herramienta.",
+            en: "Use it to sort names, product lists, emails, codes, Excel columns, keywords, or results copied from another tool."
+          },
+          {
+            es: "El resultado no cambia hasta presionar ordenar de nuevo, así puedes ajustar opciones sin modificar la salida actual.",
+            en: "The result does not change until you press sort again, so you can adjust options without changing the current output."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo ordenar una lista alfabéticamente?", en: "How do I sort a list alphabetically?" },
+        answer: {
+          es: "Pega una lista con un valor por línea, elige A-Z o Z-A y pulsa ordenar líneas. La herramienta devuelve la lista ordenada.",
+          en: "Paste a list with one value per line, choose A-Z or Z-A, and press sort lines. The tool returns the sorted list."
+        }
+      },
+      {
+        question: { es: "¿Puedo eliminar duplicados al ordenar?", en: "Can I remove duplicates while sorting?" },
+        answer: {
+          es: "Sí. Activa eliminar duplicados para conservar cada línea una sola vez en el resultado.",
+          en: "Yes. Turn on remove duplicates to keep each line only once in the result."
+        }
+      },
+      {
+        question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. El ordenamiento ocurre localmente en tu navegador.",
+          en: "No. Sorting happens locally in your browser."
+        }
+      }
+    ]
+  },
+  "percentage-calculator": {
+    intro: {
+      es: "Calcula porcentajes comunes directamente en el navegador: porcentaje de un número, proporción entre valores, aumentos, descuentos y diferencia porcentual.",
+      en: "Calculate common percentages directly in the browser: percentage of a number, value ratios, increases, discounts, and percentage change."
+    },
+    sections: [
+      {
+        title: { es: "Qué calcula", en: "What it calculates" },
+        body: [
+          {
+            es: "Puedes calcular cuánto es un porcentaje de un número, qué porcentaje representa un valor frente a otro, el resultado después de un aumento o descuento y la diferencia porcentual entre dos valores.",
+            en: "You can calculate what a percentage of a number is, what percentage one value represents of another, the result after an increase or discount, and the percentage change between two values."
+          },
+          {
+            es: "Funciona para precios, notas, métricas, descuentos, aumentos de valor, comparaciones rápidas o cualquier cálculo porcentual básico.",
+            en: "It works for prices, grades, metrics, discounts, value increases, quick comparisons, or any basic percentage calculation."
+          }
+        ]
+      },
+      {
+        title: { es: "Cómo usarla", en: "How to use it" },
+        body: [
+          {
+            es: "Elige el tipo de cálculo, completa los campos requeridos y pulsa calcular porcentaje. El resultado queda fijo hasta que vuelves a calcular.",
+            en: "Choose the calculation type, complete the required fields, and press calculate percentage. The result stays fixed until you calculate again."
+          },
+          {
+            es: "Si usas diferencia porcentual, el valor inicial no puede ser cero porque el cálculo necesita dividir entre el valor base.",
+            en: "If you use percentage change, the initial value cannot be zero because the calculation needs to divide by the base value."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Cómo calcular el porcentaje de un número?", en: "How do I calculate a percentage of a number?" },
+        answer: {
+          es: "Selecciona X% de un número, escribe el porcentaje y el número base. La herramienta multiplica el número por el porcentaje dividido entre 100.",
+          en: "Select X% of a number, enter the percentage and the base number. The tool multiplies the number by the percentage divided by 100."
+        }
+      },
+      {
+        question: { es: "¿Cómo calcular un descuento porcentual?", en: "How do I calculate a percentage discount?" },
+        answer: {
+          es: "Selecciona aumento / descuento, elige descuento, escribe el porcentaje y el valor base. El resultado muestra el valor después de aplicar el descuento.",
+          en: "Select increase / discount, choose discount, enter the percentage and the base value. The result shows the value after applying the discount."
+        }
+      },
+      {
+        question: { es: "¿El cálculo se envía al servidor?", en: "Is the calculation sent to a server?" },
+        answer: {
+          es: "No. La calculadora funciona localmente en tu navegador.",
+          en: "No. The calculator works locally in your browser."
         }
       }
     ]

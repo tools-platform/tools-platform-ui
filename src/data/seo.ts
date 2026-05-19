@@ -44,6 +44,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Calculate how much you earn per hour in Colombia from a monthly salary, legal workweek, or custom weekly hours."
     }
   },
+  "overtime-colombia": {
+    title: {
+      es: "Calculadora de horas extras Colombia | Recargos",
+      en: "Overtime Calculator (Colombia) | Night and Holiday Pay"
+    },
+    description: {
+      es: "Calcula horas extras en Colombia con salario mensual, jornada semanal, recargos nocturnos, dominicales, festivos y reglas laborales vigentes.",
+      en: "Calculate overtime pay in Colombia from monthly salary, weekly hours, night surcharges, Sunday, holiday, and labor rule references."
+    }
+  },
   "employee-salary-equivalent": {
     title: {
       es: "Calculadora de sueldo de empleado para independientes (Colombia) | Tools Platforms",
@@ -212,6 +222,36 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
     description: {
       es: "Genera contraseñas aleatorias y seguras con longitud personalizada, símbolos, números, mayúsculas y minúsculas.",
       en: "Generate secure random passwords with custom length, symbols, numbers, uppercase, and lowercase letters."
+    }
+  },
+  "random-text-generator": {
+    title: {
+      es: "Generador de texto aleatorio online | Texto de prueba",
+      en: "Random Text Generator Online | Sample Text"
+    },
+    description: {
+      es: "Genera texto aleatorio online con palabras, frases, párrafos o listas. Elige texto natural o Lorem ipsum en español e inglés.",
+      en: "Generate random text online with words, sentences, paragraphs, or lists. Choose natural text or Lorem ipsum in English and Spanish."
+    }
+  },
+  "alphabetical-line-sorter": {
+    title: {
+      es: "Ordenador alfabético de líneas online | A-Z y Z-A",
+      en: "Alphabetical Line Sorter Online | A-Z and Z-A"
+    },
+    description: {
+      es: "Ordena líneas alfabéticamente online de A a Z o Z a A. Limpia espacios, elimina líneas vacías y quita duplicados si lo necesitas.",
+      en: "Sort lines alphabetically online from A to Z or Z to A. Trim spaces, remove empty lines, and remove duplicates when needed."
+    }
+  },
+  "percentage-calculator": {
+    title: {
+      es: "Calculadora de porcentaje online | Descuentos y aumentos",
+      en: "Percentage Calculator Online | Discounts and Increases"
+    },
+    description: {
+      es: "Calcula porcentajes online: cuánto es X% de un número, qué porcentaje representa un valor, aumentos, descuentos y diferencia porcentual.",
+      en: "Calculate percentages online: X% of a number, what percentage a value represents, increases, discounts, and percentage change."
     }
   },
   "case-style-converter": {

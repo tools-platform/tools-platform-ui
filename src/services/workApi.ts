@@ -2,6 +2,14 @@ import { postJson } from "./apiClient";
 
 export type WorkedHoursRounding = "none" | "nearest_15_minutes" | "nearest_30_minutes";
 export type WorkCurrency = "COP" | "USD";
+export type OvertimeColombiaEntryType =
+  | "daytime_overtime"
+  | "night_overtime"
+  | "night_surcharge"
+  | "sunday_holiday_daytime"
+  | "sunday_holiday_night"
+  | "sunday_holiday_daytime_overtime"
+  | "sunday_holiday_night_overtime";
 
 export type WorkedHoursEntryRequest = {
   date: string;
@@ -83,6 +91,16 @@ export type EmployeeSalaryEquivalentRequest = {
   year?: number;
 };
 
+export type OvertimeColombiaRequest = {
+  monthlySalary: number;
+  weeklyHours?: number;
+  year?: number;
+  entries: Array<{
+    type: OvertimeColombiaEntryType;
+    hours: number;
+  }>;
+};
+
 export type EmployeeSalaryEquivalentResponse = {
   success: true;
   data: {
@@ -119,6 +137,48 @@ export type EmployeeSalaryEquivalentResponse = {
   };
 };
 
+export type OvertimeColombiaResponse = {
+  success: true;
+  data: {
+    currency: "COP";
+    year: number;
+    input: {
+      monthlySalary: number;
+      weeklyHours: number;
+      year: number;
+      entries: Array<{
+        type: OvertimeColombiaEntryType;
+        hours: number;
+      }>;
+    };
+    result: {
+      monthlySalary: number;
+      ordinaryHourlyRate: number;
+      totalHours: number;
+      totalOvertimePay: number;
+      weeklyHours: number;
+      monthlyHours: number;
+      entries: Array<{
+        type: OvertimeColombiaEntryType;
+        label: string;
+        hours: number;
+        surchargeRate: number;
+        payFactor: number;
+        hourlyRate: number;
+        subtotal: number;
+      }>;
+    };
+    rules: {
+      currentDate: string;
+      legalWeeklyHours: number;
+      usedCustomWeeklyHours: boolean;
+      monthlyHoursFormula: string;
+      sources: string[];
+    };
+    disclaimer: string;
+  };
+};
+
 export function calculateWorkedHours(request: WorkedHoursRequest): Promise<WorkedHoursResponse["data"]> {
   return postJson("/work/worked-hours", request, {
     es: "No se pudieron calcular las horas.",
@@ -139,5 +199,14 @@ export function calculateEmployeeSalaryEquivalent(
   return postJson("/work/employee-salary-equivalent", request, {
     es: "No se pudo calcular el sueldo equivalente.",
     en: "We couldn't calculate the equivalent employee salary."
+  });
+}
+
+export function calculateOvertimeColombia(
+  request: OvertimeColombiaRequest
+): Promise<OvertimeColombiaResponse["data"]> {
+  return postJson("/work/overtime-colombia", request, {
+    es: "No se pudieron calcular las horas extras.",
+    en: "We couldn't calculate the overtime pay."
   });
 }

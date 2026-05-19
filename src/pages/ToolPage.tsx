@@ -1,4 +1,5 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
+import { AlphabeticalLineSorter } from "../components/calculators/AlphabeticalLineSorter";
 import { Base64Converter } from "../components/calculators/Base64Converter";
 import { CaseStyleConverter } from "../components/calculators/CaseStyleConverter";
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
@@ -16,8 +17,11 @@ import { HtmlPreview } from "../components/calculators/HtmlPreview";
 import { HourlySalaryColombiaCalculator } from "../components/calculators/HourlySalaryColombiaCalculator";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
+import { OvertimeColombiaCalculator } from "../components/calculators/OvertimeColombiaCalculator";
+import { PercentageCalculator } from "../components/calculators/PercentageCalculator";
 import { RemoveAccents } from "../components/calculators/RemoveAccents";
 import { RemoveExtraSpaces } from "../components/calculators/RemoveExtraSpaces";
+import { RandomTextGenerator } from "../components/calculators/RandomTextGenerator";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
 import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
@@ -101,6 +105,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <GrossSalaryColombiaCalculator />
       ) : tool.id === "hourly-salary" ? (
         <HourlySalaryColombiaCalculator />
+      ) : tool.id === "overtime-colombia" ? (
+        <OvertimeColombiaCalculator />
       ) : tool.id === "employment-settlement-colombia" ? (
         <EmploymentSettlementColombiaCalculator />
       ) : tool.id === "credit-interest" ? (
@@ -129,6 +135,12 @@ export function ToolPage({ slug }: ToolPageProps) {
         <RemoveExtraSpaces />
       ) : tool.id === "remove-accents" ? (
         <RemoveAccents />
+      ) : tool.id === "random-text-generator" ? (
+        <RandomTextGenerator />
+      ) : tool.id === "alphabetical-line-sorter" ? (
+        <AlphabeticalLineSorter />
+      ) : tool.id === "percentage-calculator" ? (
+        <PercentageCalculator />
       ) : tool.id === "secure-password-generator" ? (
         <SecurePasswordGenerator />
       ) : tool.id === "case-style-converter" ? (

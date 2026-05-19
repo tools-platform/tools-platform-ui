@@ -144,6 +144,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/colombia-overtime-calculator",
+    title: {
+      es: "Calculadora de horas extras Colombia | Recargos",
+      en: "Overtime Calculator (Colombia) | Night and Holiday Pay"
+    },
+    description: {
+      es: "Calcula horas extras en Colombia con salario mensual, jornada semanal, recargos nocturnos, dominicales, festivos y reglas laborales vigentes.",
+      en: "Calculate overtime pay in Colombia from monthly salary, weekly hours, night surcharges, Sunday, holiday, and labor rule references."
+    }
+  },
+  {
     path: "/tools/employee-salary-for-independents-calculator",
     title: {
       es: "Calculadora de sueldo de empleado para independientes (Colombia) | Tools Platforms",
@@ -265,6 +276,39 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/random-text-generator",
+    title: {
+      es: "Generador de texto aleatorio online | Texto de prueba",
+      en: "Random Text Generator Online | Sample Text"
+    },
+    description: {
+      es: "Genera texto aleatorio online con palabras, frases, párrafos o listas. Elige texto natural o Lorem ipsum en español e inglés.",
+      en: "Generate random text online with words, sentences, paragraphs, or lists. Choose natural text or Lorem ipsum in English and Spanish."
+    }
+  },
+  {
+    path: "/tools/alphabetical-line-sorter",
+    title: {
+      es: "Ordenador alfabético de líneas online | A-Z y Z-A",
+      en: "Alphabetical Line Sorter Online | A-Z and Z-A"
+    },
+    description: {
+      es: "Ordena líneas alfabéticamente online de A a Z o Z a A. Limpia espacios, elimina líneas vacías y quita duplicados si lo necesitas.",
+      en: "Sort lines alphabetically online from A to Z or Z to A. Trim spaces, remove empty lines, and remove duplicates when needed."
+    }
+  },
+  {
+    path: "/tools/percentage-calculator",
+    title: {
+      es: "Calculadora de porcentaje online | Descuentos y aumentos",
+      en: "Percentage Calculator Online | Discounts and Increases"
+    },
+    description: {
+      es: "Calcula porcentajes online: cuánto es X% de un número, qué porcentaje representa un valor, aumentos, descuentos y diferencia porcentual.",
+      en: "Calculate percentages online: X% of a number, what percentage a value represents, increases, discounts, and percentage change."
+    }
+  },
+  {
     path: "/tools/base64-encoder-decoder",
     title: {
       es: "Codificador y decodificador Base64 online | Tools Platforms",
@@ -352,6 +396,28 @@ const toolFaqsByPath = {
       answer: {
         es: "Ingresa tu salario mensual y las horas semanales de trabajo. La herramienta divide el salario entre las horas estimadas del mes para mostrar el valor por hora.",
         en: "Enter your monthly salary and weekly work hours. The tool divides salary by estimated monthly hours to show hourly pay."
+      }
+    }
+  ],
+  "/tools/colombia-overtime-calculator": [
+    {
+      question: {
+        es: "¿Cómo se calculan las horas extras en Colombia?",
+        en: "How is overtime calculated in Colombia?"
+      },
+      answer: {
+        es: "Primero se calcula el valor de la hora ordinaria desde el salario mensual y las horas mensuales estimadas. Luego se multiplica por el factor del tipo de hora: extra diurna, extra nocturna, recargo nocturno, dominical o festivo.",
+        en: "First, the regular hourly value is calculated from monthly salary and estimated monthly hours. Then it is multiplied by the factor for the hour type: daytime overtime, night overtime, night surcharge, Sunday, or holiday."
+      }
+    },
+    {
+      question: {
+        es: "¿La calculadora usa la jornada legal de Colombia?",
+        en: "Does the calculator use Colombia's legal workweek?"
+      },
+      answer: {
+        es: "Sí. Por defecto usa la jornada legal de referencia según el año seleccionado, pero puedes editar las horas semanales si necesitas calcular con tu jornada real.",
+        en: "Yes. By default it uses the legal reference workweek for the selected year, but you can edit weekly hours if you need to calculate with your real schedule."
       }
     }
   ],
@@ -572,6 +638,72 @@ const toolFaqsByPath = {
       answer: {
         es: "Por defecto se conserva. Si activas convertir ñ en n, la herramienta también normaliza esa letra.",
         en: "It is preserved by default. If you enable convert ñ to n, the tool also normalizes that letter."
+      }
+    }
+  ],
+  "/tools/random-text-generator": [
+    {
+      question: {
+        es: "¿Cómo generar texto aleatorio online?",
+        en: "How do I generate random text online?"
+      },
+      answer: {
+        es: "Elige si quieres texto natural o Lorem ipsum, selecciona palabras, frases, párrafos o lista, define la cantidad y pulsa generar texto.",
+        en: "Choose natural text or Lorem ipsum, select words, sentences, paragraphs, or list, set the quantity, and press generate text."
+      }
+    },
+    {
+      question: {
+        es: "¿El generador usa inteligencia artificial?",
+        en: "Does the generator use artificial intelligence?"
+      },
+      answer: {
+        es: "No. Usa bancos locales de palabras y plantillas simples dentro del navegador.",
+        en: "No. It uses local word banks and simple templates inside the browser."
+      }
+    }
+  ],
+  "/tools/alphabetical-line-sorter": [
+    {
+      question: {
+        es: "¿Cómo ordenar una lista alfabéticamente?",
+        en: "How do I sort a list alphabetically?"
+      },
+      answer: {
+        es: "Pega una lista con un valor por línea, elige A-Z o Z-A y pulsa ordenar líneas. La herramienta devuelve la lista ordenada.",
+        en: "Paste a list with one value per line, choose A-Z or Z-A, and press sort lines. The tool returns the sorted list."
+      }
+    },
+    {
+      question: {
+        es: "¿Puedo eliminar duplicados al ordenar?",
+        en: "Can I remove duplicates while sorting?"
+      },
+      answer: {
+        es: "Sí. Activa eliminar duplicados para conservar cada línea una sola vez en el resultado.",
+        en: "Yes. Turn on remove duplicates to keep each line only once in the result."
+      }
+    }
+  ],
+  "/tools/percentage-calculator": [
+    {
+      question: {
+        es: "¿Cómo calcular el porcentaje de un número?",
+        en: "How do I calculate a percentage of a number?"
+      },
+      answer: {
+        es: "Selecciona X% de un número, escribe el porcentaje y el número base. La herramienta multiplica el número por el porcentaje dividido entre 100.",
+        en: "Select X% of a number, enter the percentage and the base number. The tool multiplies the number by the percentage divided by 100."
+      }
+    },
+    {
+      question: {
+        es: "¿Cómo calcular un descuento porcentual?",
+        en: "How do I calculate a percentage discount?"
+      },
+      answer: {
+        es: "Selecciona aumento / descuento, elige descuento, escribe el porcentaje y el valor base. El resultado muestra el valor después de aplicar el descuento.",
+        en: "Select increase / discount, choose discount, enter the percentage and the base value. The result shows the value after applying the discount."
       }
     }
   ],

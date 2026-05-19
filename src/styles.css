@@ -2617,6 +2617,50 @@ select {
   border-bottom: 0;
 }
 
+.overtime-table th:nth-child(1),
+.overtime-table td:nth-child(1) {
+  min-width: 190px;
+  width: auto;
+  text-align: left;
+}
+
+.overtime-table th:nth-child(2),
+.overtime-table td:nth-child(2) {
+  width: 84px;
+  text-align: right;
+}
+
+.overtime-table th:nth-child(3),
+.overtime-table td:nth-child(3) {
+  width: 96px;
+  text-align: right;
+}
+
+.overtime-table th:nth-child(4),
+.overtime-table td:nth-child(4) {
+  width: 132px;
+  text-align: right;
+}
+
+.overtime-table {
+  table-layout: auto;
+}
+
+.overtime-table th,
+.overtime-table td {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .overtime-table-wrap {
+    overflow-x: auto;
+  }
+
+  .overtime-table {
+    min-width: 560px;
+  }
+}
+
 .duplicate-empty-filter,
 .duplicate-distinct-description {
   margin: 0 0 10px;

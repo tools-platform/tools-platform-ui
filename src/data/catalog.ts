@@ -17,8 +17,11 @@ import {
   Languages,
   LetterText,
   ListChecks,
+  ArrowDownAZ,
+  Percent,
   Repeat2,
   Ruler,
+  Shuffle,
   Timer,
   Wrench
 } from "lucide-react";
@@ -256,6 +259,21 @@ export const tools: ToolSummary[] = [
     Icon: BriefcaseBusiness
   },
   {
+    id: "overtime-colombia",
+    slug: "colombia-overtime-calculator",
+    name: {
+      es: "Calculadora de horas extras (Colombia)",
+      en: "Overtime Calculator (Colombia)"
+    },
+    description: {
+      es: "Calcula horas extra, recargos nocturnos, dominicales y festivos.",
+      en: "Calculate overtime, night, Sunday, and holiday pay."
+    },
+    categoryId: "work",
+    status: "published",
+    Icon: Timer
+  },
+  {
     id: "days-between-dates",
     slug: "days-between-dates-calculator",
     name: {
@@ -386,6 +404,51 @@ export const tools: ToolSummary[] = [
     categoryId: "utilities",
     status: "published",
     Icon: KeyRound
+  },
+  {
+    id: "random-text-generator",
+    slug: "random-text-generator",
+    name: {
+      es: "Generador de texto aleatorio",
+      en: "Random Text Generator"
+    },
+    description: {
+      es: "Genera palabras, frases, párrafos o listas con texto natural o Lorem ipsum.",
+      en: "Generate words, sentences, paragraphs, or lists with natural text or Lorem ipsum."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: Shuffle
+  },
+  {
+    id: "alphabetical-line-sorter",
+    slug: "alphabetical-line-sorter",
+    name: {
+      es: "Ordenador alfabético de líneas",
+      en: "Alphabetical Line Sorter"
+    },
+    description: {
+      es: "Ordena listas, nombres, correos o códigos de la A a la Z o de la Z a la A.",
+      en: "Sort lists, names, emails, or codes from A to Z or Z to A."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: ArrowDownAZ
+  },
+  {
+    id: "percentage-calculator",
+    slug: "percentage-calculator",
+    name: {
+      es: "Calculadora de porcentaje",
+      en: "Percentage Calculator"
+    },
+    description: {
+      es: "Calcula porcentajes, descuentos, aumentos y diferencias porcentuales.",
+      en: "Calculate percentages, discounts, increases, and percentage changes."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: Percent
   },
   {
     id: "case-style-converter",
