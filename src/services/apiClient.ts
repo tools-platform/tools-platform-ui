@@ -110,3 +110,48 @@ export async function postJson<TData, TRequest>(
 
   return payload.data;
 }
+
+export async function getJson<TData>(
+  path: string,
+  localizedFallbackMessage?: string | Partial<Record<Locale, string>>
+): Promise<TData> {
+  const locale = getCurrentLocale();
+  const messages = fallbackMessages[locale];
+  const fallbackMessage =
+    typeof localizedFallbackMessage === "string"
+      ? locale === "es"
+        ? localizedFallbackMessage
+        : messages.generic
+      : localizedFallbackMessage?.[locale] ?? messages.generic;
+
+  let response: Response;
+
+  try {
+    response = await fetch(`${API_BASE_URL}${path}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json"
+      }
+    });
+  } catch {
+    throw new Error(messages.connection);
+  }
+
+  let payload: ApiSuccessResponse<TData> | ApiErrorResponse | null = null;
+
+  try {
+    payload = (await response.json()) as ApiSuccessResponse<TData> | ApiErrorResponse;
+  } catch {
+    if (!response.ok) {
+      throw new Error(getFriendlyStatusMessage(locale, response.status, fallbackMessage));
+    }
+
+    throw new Error(messages.generic);
+  }
+
+  if (!response.ok || !payload.success) {
+    throw new Error(getFriendlyStatusMessage(locale, response.status, fallbackMessage));
+  }
+
+  return payload.data;
+}

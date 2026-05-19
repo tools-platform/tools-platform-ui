@@ -1,13 +1,15 @@
 import { ArrowRight } from "lucide-react";
+import type { ReactNode } from "react";
 import type { Category, ToolSummary } from "../data/catalog";
 import { getLocalizedText, useLocale } from "../i18n";
 
 type ToolCardProps = {
   category?: Category;
+  featureBadge?: ReactNode;
   tool: ToolSummary;
 };
 
-export function ToolCard({ category, tool }: ToolCardProps) {
+export function ToolCard({ category, featureBadge, tool }: ToolCardProps) {
   const { locale, localizePath } = useLocale();
   const copy =
     locale === "en"
@@ -21,13 +23,24 @@ export function ToolCard({ category, tool }: ToolCardProps) {
         };
 
   return (
-    <article className={tool.status === "draft" ? "tool-card is-muted" : "tool-card"}>
+    <article
+      className={[
+        "tool-card",
+        tool.status === "draft" ? "is-muted" : "",
+        featureBadge ? "has-feature-badge" : ""
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="tool-card__topline">
         <span>{category ? getLocalizedText(category.name, locale) : ""}</span>
       </div>
 
-      <div className="tool-card__icon">
-        <tool.Icon size={22} strokeWidth={2.1} />
+      <div className="tool-card__identity">
+        <div className="tool-card__icon">
+          <tool.Icon size={22} strokeWidth={2.1} />
+        </div>
+        {featureBadge}
       </div>
 
       <h3>{getLocalizedText(tool.name, locale)}</h3>

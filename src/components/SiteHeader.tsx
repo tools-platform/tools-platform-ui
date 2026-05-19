@@ -22,6 +22,7 @@ export function SiteHeader() {
       ? {
           home: "Home",
           browse: "Browse",
+          popular: "Popular",
           categories: "Categories",
           about: "About",
           search: "Search",
@@ -35,6 +36,7 @@ export function SiteHeader() {
       : {
           home: "Principal",
           browse: "Explorar",
+          popular: "Más buscadas",
           categories: "Categorías",
           about: "Acerca",
           search: "Buscar",
@@ -213,6 +215,10 @@ export function SiteHeader() {
 
           <a className="site-nav__link" href={localizePath("/#catalog")}>
             {copy.browse}
+          </a>
+
+          <a className="site-nav__link" href={localizePath("/#popular")}>
+            {copy.popular}
           </a>
 
           <div
