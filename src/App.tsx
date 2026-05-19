@@ -10,7 +10,7 @@ import { ToolPage } from "./pages/ToolPage";
 export function App() {
   const route = useMemo(() => {
     const locale = getLocaleFromPathname(window.location.pathname);
-    const normalizedPath = stripLocalePrefix(window.location.pathname);
+    const normalizedPath = stripLocalePrefix(window.location.pathname).replace(/\/+$/, "") || "/";
     const toolMatch = normalizedPath.match(/^\/tools\/([^/]+)$/);
 
     if (toolMatch?.[1]) {
