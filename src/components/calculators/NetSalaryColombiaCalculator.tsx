@@ -29,9 +29,9 @@ const copy = {
     payrollYearHelp: "Lo usamos para aplicar el salario mínimo, auxilio de transporte y límites legales vigentes de ese año.",
     editYearAria: "Editar año de reglas",
     editYearTitle: "Editar año",
-    payrollDeductions: "Deducciones de nómina",
+    payrollDeductions: "Deducciones mensuales de nómina",
     payrollDeductionsHelp:
-      "Valores extra que te descuentan en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
+      "Valores extra que te descuentan al mes en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
     transportationAllowance: "Incluir auxilio de transporte si aplica",
     transportationAllowanceHelp: "Validaremos si tu salario cumple el límite legal para recibirlo.",
     showSolidarityFund: "Ver Fondo de Solidaridad",
@@ -74,9 +74,9 @@ const copy = {
     payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds in force for that year.",
     editYearAria: "Edit rule year",
     editYearTitle: "Edit year",
-    payrollDeductions: "Payroll deductions",
+    payrollDeductions: "Monthly payroll deductions",
     payrollDeductionsHelp:
-      "Extra amounts deducted from payroll, such as salary loans, advances, garnishments, or voluntary contributions. Leave it at 0 if you do not have any.",
+      "Extra monthly amounts deducted from payroll, such as salary loans, advances, garnishments, or voluntary contributions. Leave it at 0 if you do not have any.",
     transportationAllowance: "Include transportation allowance if applicable",
     transportationAllowanceHelp: "We will validate whether the salary meets the legal threshold to receive it.",
     showSolidarityFund: "Show solidarity fund",

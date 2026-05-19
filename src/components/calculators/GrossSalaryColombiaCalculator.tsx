@@ -35,9 +35,9 @@ const copy = {
     payrollYearHelp: "Lo usamos para aplicar salario mínimo, auxilio de transporte y límites legales vigentes.",
     editYearAria: "Editar año de reglas",
     editYearTitle: "Editar año",
-    payrollDeductions: "Otros descuentos",
+    payrollDeductions: "Otros descuentos mensuales",
     payrollDeductionsHelp:
-      "Valores extra descontados en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios.",
+      "Valores extra descontados al mes en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios.",
     transportationAllowance: "Incluir auxilio de transporte si aplica",
     transportationAllowanceHelp: "Actívalo si ese neto incluye auxilio de transporte cuando el salario cumpla el límite legal.",
     salaryRequired: "Ingresa un salario neto recibido mayor a cero.",
@@ -80,9 +80,9 @@ const copy = {
     payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds.",
     editYearAria: "Edit rule year",
     editYearTitle: "Edit year",
-    payrollDeductions: "Other deductions",
+    payrollDeductions: "Monthly other deductions",
     payrollDeductionsHelp:
-      "Extra payroll deductions, such as salary loans, advances, garnishments, or voluntary contributions.",
+      "Extra monthly payroll deductions, such as salary loans, advances, garnishments, or voluntary contributions.",
     transportationAllowance: "Include transportation allowance if applicable",
     transportationAllowanceHelp: "Turn it on if that net value includes transportation allowance when the salary qualifies.",
     salaryRequired: "Enter a received net salary greater than zero.",
