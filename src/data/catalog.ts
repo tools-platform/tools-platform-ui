@@ -531,7 +531,7 @@ export const tools: ToolSummary[] = [
       en: "Generate unique identifiers for systems and tests."
     },
     categoryId: "development",
-    status: "draft",
+    status: "published",
     Icon: Binary
   },
   {

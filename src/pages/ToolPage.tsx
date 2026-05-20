@@ -27,6 +27,7 @@ import { SecurePasswordGenerator } from "../components/calculators/SecurePasswor
 import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
+import { UuidGenerator } from "../components/calculators/UuidGenerator";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
 import { RelatedTools } from "../components/RelatedTools";
 import { ToolFeedback } from "../components/ToolFeedback";
@@ -155,6 +156,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <HtmlFormatterMinifier />
       ) : tool.id === "json-formatter" ? (
         <JsonFormatter />
+      ) : tool.id === "uuid-generator" ? (
+        <UuidGenerator />
       ) : tool.id === "salary-increase" ? (
         <SalaryIncreaseCalculator />
       ) : tool.id === "days-until-date" ? (

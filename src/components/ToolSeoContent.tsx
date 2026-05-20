@@ -95,6 +95,10 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
     es: ["formateador JSON online", "validar JSON", "minificar JSON"],
     en: ["JSON formatter online", "JSON validator", "minify JSON"]
   },
+  "uuid-generator": {
+    es: ["generador UUID online", "UUID v4", "generar UUID desde texto"],
+    en: ["UUID generator online", "UUID v4 generator", "UUID from text"]
+  },
   "case-style-converter": {
     es: ["convertidor camelCase", "snake_case converter", "PascalCase y kebab-case"],
     en: ["camelCase converter", "snake_case converter", "PascalCase and kebab-case converter"]

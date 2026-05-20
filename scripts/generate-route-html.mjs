@@ -320,6 +320,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/uuid-generator",
+    title: {
+      es: "Generador UUID online | UUID v4 y desde texto",
+      en: "UUID Generator Online | UUID v4 and From Text"
+    },
+    description: {
+      es: "Genera UUID v4 online en tu navegador o crea UUID mezclados con un texto base. Copia uno o varios identificadores al instante.",
+      en: "Generate UUID v4 values online in your browser or create UUIDs mixed with base text. Copy one or many identifiers instantly."
+    }
+  },
+  {
     path: "/tools/base64-encoder-decoder",
     title: {
       es: "Codificador y decodificador Base64 online | Tools Platforms",
@@ -737,6 +748,28 @@ const toolFaqsByPath = {
       answer: {
         es: "Formatear agrega saltos de línea e indentación para leer mejor. Minificar elimina espacios innecesarios para dejar el JSON compacto.",
         en: "Formatting adds line breaks and indentation for readability. Minifying removes unnecessary spaces to keep the JSON compact."
+      }
+    }
+  ],
+  "/tools/uuid-generator": [
+    {
+      question: {
+        es: "¿Qué es un UUID v4?",
+        en: "What is a UUID v4?"
+      },
+      answer: {
+        es: "Es un identificador de 128 bits generado con aleatoriedad. Se usa para crear IDs con una probabilidad muy baja de repetirse.",
+        en: "It is a 128-bit identifier generated with randomness. It is used to create IDs with a very low chance of collision."
+      }
+    },
+    {
+      question: {
+        es: "¿Puedo generar UUID desde texto?",
+        en: "Can I generate UUIDs from text?"
+      },
+      answer: {
+        es: "Sí. El modo desde texto mezcla tu texto base con aleatoriedad local para crear UUID nuevos en cada generación.",
+        en: "Yes. From text mode mixes your base text with local randomness to create new UUIDs on each generation."
       }
     }
   ],

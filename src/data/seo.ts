@@ -264,6 +264,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Format JSON online, validate its structure, and minify JSON code in your browser without sending it to a server."
     }
   },
+  "uuid-generator": {
+    title: {
+      es: "Generador UUID online | UUID v4 y desde texto",
+      en: "UUID Generator Online | UUID v4 and From Text"
+    },
+    description: {
+      es: "Genera UUID v4 online en tu navegador o crea UUID mezclados con un texto base. Copia uno o varios identificadores al instante.",
+      en: "Generate UUID v4 values online in your browser or create UUIDs mixed with base text. Copy one or many identifiers instantly."
+    }
+  },
   "case-style-converter": {
     title: {
       es: "Convertidor camelCase, PascalCase y snake_case | Tools Platforms",

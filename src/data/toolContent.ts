@@ -1537,6 +1537,63 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "uuid-generator": {
+    intro: {
+      es: "Genera UUID v4 aleatorios o UUID mezclados con un texto base directamente en tu navegador.",
+      en: "Generate random UUID v4 values or UUIDs mixed with base text directly in your browser."
+    },
+    sections: [
+      {
+        title: { es: "Qué genera", en: "What it generates" },
+        body: [
+          {
+            es: "Puedes crear uno o varios UUID v4 aleatorios para pruebas, bases de datos, APIs, registros, mocks o identificadores internos.",
+            en: "You can create one or many random UUID v4 values for tests, databases, APIs, records, mocks, or internal identifiers."
+          },
+          {
+            es: "También puedes usar un texto base para influir en la generación. Cada clic mezcla ese texto con nueva aleatoriedad local, así que los UUID cambian entre intentos.",
+            en: "You can also use base text to influence generation. Each click mixes that text with fresh local randomness, so UUIDs change between attempts."
+          }
+        ]
+      },
+      {
+        title: { es: "Privacidad y uso", en: "Privacy and use" },
+        body: [
+          {
+            es: "La generación ocurre localmente en el navegador. Los UUID y el texto base no se envían a un servidor de Tools Platforms.",
+            en: "Generation happens locally in the browser. UUIDs and base text are not sent to a Tools Platforms server."
+          },
+          {
+            es: "Evita usar datos sensibles como texto base. Un UUID sirve como identificador, no como contraseña ni token secreto.",
+            en: "Avoid using sensitive data as base text. A UUID is useful as an identifier, not as a password or secret token."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Qué es un UUID v4?", en: "What is a UUID v4?" },
+        answer: {
+          es: "Es un identificador de 128 bits generado con aleatoriedad. Se usa para crear IDs con una probabilidad muy baja de repetirse.",
+          en: "It is a 128-bit identifier generated with randomness. It is used to create IDs with a very low chance of collision."
+        }
+      },
+      {
+        question: { es: "¿Puedo generar UUID desde texto?", en: "Can I generate UUIDs from text?" },
+        answer: {
+          es: "Sí. El modo desde texto mezcla tu texto base con aleatoriedad local para crear UUID nuevos en cada generación.",
+          en: "Yes. From text mode mixes your base text with local randomness to create new UUIDs on each generation."
+        }
+      },
+      {
+        question: { es: "¿Los UUID se envían al servidor?", en: "Are UUIDs sent to a server?" },
+        answer: {
+          es: "No. La herramienta funciona localmente en tu navegador.",
+          en: "No. The tool works locally in your browser."
+        }
+      }
+    ]
+  },
   "base64-converter": {
     intro: {
       es: "Codifica texto a Base64 o decodifica Base64 a texto de forma local en el navegador.",
