@@ -91,6 +91,10 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
     es: ["calculadora de porcentaje", "calcular descuento porcentual", "diferencia porcentual"],
     en: ["percentage calculator", "discount percentage calculator", "percentage change calculator"]
   },
+  "json-formatter": {
+    es: ["formateador JSON online", "validar JSON", "minificar JSON"],
+    en: ["JSON formatter online", "JSON validator", "minify JSON"]
+  },
   "case-style-converter": {
     es: ["convertidor camelCase", "snake_case converter", "PascalCase y kebab-case"],
     en: ["camelCase converter", "snake_case converter", "PascalCase and kebab-case converter"]

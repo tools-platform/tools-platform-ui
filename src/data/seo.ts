@@ -254,6 +254,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Calculate percentages online: X% of a number, what percentage a value represents, increases, discounts, and percentage change."
     }
   },
+  "json-formatter": {
+    title: {
+      es: "Formateador JSON online | Validar y minificar JSON",
+      en: "JSON Formatter Online | Validate and Minify JSON"
+    },
+    description: {
+      es: "Formatea JSON online, valida su estructura y minifica código JSON en tu navegador sin enviarlo al servidor.",
+      en: "Format JSON online, validate its structure, and minify JSON code in your browser without sending it to a server."
+    }
+  },
   "case-style-converter": {
     title: {
       es: "Convertidor camelCase, PascalCase y snake_case | Tools Platforms",

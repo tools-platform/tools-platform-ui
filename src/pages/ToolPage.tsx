@@ -15,6 +15,7 @@ import { GrossSalaryColombiaCalculator } from "../components/calculators/GrossSa
 import { HtmlFormatterMinifier } from "../components/calculators/HtmlFormatterMinifier";
 import { HtmlPreview } from "../components/calculators/HtmlPreview";
 import { HourlySalaryColombiaCalculator } from "../components/calculators/HourlySalaryColombiaCalculator";
+import { JsonFormatter } from "../components/calculators/JsonFormatter";
 import { LoanPaymentCalculator } from "../components/calculators/LoanPaymentCalculator";
 import { NetSalaryColombiaCalculator } from "../components/calculators/NetSalaryColombiaCalculator";
 import { OvertimeColombiaCalculator } from "../components/calculators/OvertimeColombiaCalculator";
@@ -152,6 +153,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <HtmlPreview />
       ) : tool.id === "html-formatter-minifier" ? (
         <HtmlFormatterMinifier />
+      ) : tool.id === "json-formatter" ? (
+        <JsonFormatter />
       ) : tool.id === "salary-increase" ? (
         <SalaryIncreaseCalculator />
       ) : tool.id === "days-until-date" ? (

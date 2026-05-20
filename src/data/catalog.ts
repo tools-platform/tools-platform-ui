@@ -519,7 +519,7 @@ export const tools: ToolSummary[] = [
       en: "Format JSON to make it readable and easier to inspect."
     },
     categoryId: "development",
-    status: "draft",
+    status: "published",
     Icon: FileJson
   },
   {

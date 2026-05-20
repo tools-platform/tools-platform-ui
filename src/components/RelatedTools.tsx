@@ -30,7 +30,8 @@ const relatedToolIds: Record<string, string[]> = {
   "case-style-converter": ["html-formatter-minifier", "html-preview", "base64-converter"],
   "base64-converter": ["html-formatter-minifier", "html-preview", "case-style-converter"],
   "html-preview": ["html-formatter-minifier", "base64-converter", "case-style-converter"],
-  "html-formatter-minifier": ["html-preview", "base64-converter", "case-style-converter"]
+  "html-formatter-minifier": ["json-formatter", "html-preview", "base64-converter"],
+  "json-formatter": ["html-formatter-minifier", "base64-converter", "case-style-converter"]
 };
 
 type RelatedToolsProps = {

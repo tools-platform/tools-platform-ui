@@ -1480,6 +1480,63 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "json-formatter": {
+    intro: {
+      es: "Formatea, valida y minifica JSON directamente en el navegador para revisar respuestas de APIs, configuraciones, payloads o datos estructurados.",
+      en: "Format, validate, and minify JSON directly in the browser to review API responses, configuration files, payloads, or structured data."
+    },
+    sections: [
+      {
+        title: { es: "Qué hace", en: "What it does" },
+        body: [
+          {
+            es: "Convierte JSON compacto en una versión con indentación para leerlo mejor, o minifica JSON formateado para obtener una salida más pequeña.",
+            en: "It converts compact JSON into an indented version that is easier to read, or minifies formatted JSON into a smaller output."
+          },
+          {
+            es: "También valida la estructura y muestra un error si hay comillas mal cerradas, comas sobrantes, llaves incompletas o sintaxis inválida.",
+            en: "It also validates the structure and shows an error when quotes, commas, braces, brackets, or syntax are invalid."
+          }
+        ]
+      },
+      {
+        title: { es: "Cuándo usarlo", en: "When to use it" },
+        body: [
+          {
+            es: "Úsalo para depurar respuestas de APIs, revisar objetos de configuración, limpiar datos antes de pegarlos en una herramienta técnica o preparar JSON para documentación.",
+            en: "Use it to debug API responses, inspect configuration objects, clean data before pasting it into a technical tool, or prepare JSON for documentation."
+          },
+          {
+            es: "El procesamiento ocurre localmente en tu navegador, así que el texto no se envía a un servidor de Tools Platforms.",
+            en: "Processing happens locally in your browser, so the text is not sent to a Tools Platforms server."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Puedo validar JSON online?", en: "Can I validate JSON online?" },
+        answer: {
+          es: "Sí. Si el JSON no es válido, la herramienta muestra un error antes de generar el resultado.",
+          en: "Yes. If the JSON is not valid, the tool shows an error before generating the result."
+        }
+      },
+      {
+        question: { es: "¿Cuál es la diferencia entre formatear y minificar JSON?", en: "What is the difference between formatting and minifying JSON?" },
+        answer: {
+          es: "Formatear agrega saltos de línea e indentación para leer mejor. Minificar elimina espacios innecesarios para dejar el JSON compacto.",
+          en: "Formatting adds line breaks and indentation for readability. Minifying removes unnecessary spaces to keep the JSON compact."
+        }
+      },
+      {
+        question: { es: "¿El JSON se envía al servidor?", en: "Is the JSON sent to a server?" },
+        answer: {
+          es: "No. El formateo y la validación ocurren localmente en tu navegador.",
+          en: "No. Formatting and validation happen locally in your browser."
+        }
+      }
+    ]
+  },
   "base64-converter": {
     intro: {
       es: "Codifica texto a Base64 o decodifica Base64 a texto de forma local en el navegador.",

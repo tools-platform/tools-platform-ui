@@ -1,6 +1,7 @@
-import { CheckCircle2, Clipboard, Code2, FileCode2, Info, RotateCcw } from "lucide-react";
+import { CheckCircle2, Clipboard, Code2, FileCode2, Info, Maximize2, RotateCcw } from "lucide-react";
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
+import { ExpandedTextTransform } from "../ExpandedTextTransform";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 
@@ -36,6 +37,12 @@ const copy = {
     copy: "Copiar",
     copied: "HTML copiado.",
     copyFailed: "No se pudo copiar automáticamente.",
+    expand: "Expandir",
+    close: "Cerrar",
+    editorTitle: "Editor HTML",
+    updateResult: "Actualizar resultado",
+    autoUpdate: "Actualización automática",
+    updated: "Resultado actualizado.",
     totalChars: "Total de caracteres",
     mode: "Modo",
     rulesNoteFormat: "Organizamos etiquetas en líneas e indentación para facilitar la lectura.",
@@ -66,6 +73,12 @@ const copy = {
     copy: "Copy",
     copied: "HTML copied.",
     copyFailed: "We couldn't copy it automatically.",
+    expand: "Expand",
+    close: "Close",
+    editorTitle: "HTML editor",
+    updateResult: "Update result",
+    autoUpdate: "Auto update",
+    updated: "Result updated.",
     totalChars: "Total characters",
     mode: "Mode",
     rulesNoteFormat: "We organize tags into lines and indentation so the HTML is easier to read.",
@@ -123,6 +136,19 @@ function shouldIncreaseIndent(token: string) {
   return Boolean(tagName) && !voidTags.has(tagName) && !/\/\s*>$/.test(token);
 }
 
+function normalizeHtmlTag(token: string) {
+  if (!token.startsWith("<")) return token;
+
+  return token
+    .replace(/\s+/g, " ")
+    .replace(/^<\s+/, "<")
+    .replace(/^<\/\s+/, "</")
+    .replace(/\s*=\s*/g, "=")
+    .replace(/\s+>/g, ">")
+    .replace(/\s+\/>/g, " />")
+    .trim();
+}
+
 function formatHtml(value: string) {
   const source = value.replace(/\r\n?/g, "\n").replace(/>\s+</g, ">\n<");
   const tokens = source.match(/<!--[\s\S]*?-->|<!doctype[^>]*>|<\/?[^>]+>|[^<]+/gi) ?? [];
@@ -130,7 +156,7 @@ function formatHtml(value: string) {
   let indent = 0;
 
   tokens.forEach((token) => {
-    const trimmed = token.trim();
+    const trimmed = normalizeHtmlTag(token.trim());
     if (!trimmed) return;
 
     if (trimmed.startsWith("</")) {
@@ -154,6 +180,7 @@ function minifyHtml(value: string) {
     .map((line) => line.trim())
     .filter(Boolean)
     .join(" ")
+    .replace(/<[^>]+>/g, (token) => normalizeHtmlTag(token))
     .replace(/>\s+</g, "><")
     .replace(/\s{2,}/g, " ")
     .trim();
@@ -183,6 +210,8 @@ export function HtmlFormatterMinifier() {
   const [result, setResult] = useState<HtmlTransformResult | null>(null);
   const [error, setError] = useState("");
   const [copyStatus, setCopyStatus] = useState("");
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [autoUpdateExpanded, setAutoUpdateExpanded] = useState(false);
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
 
   const resultTitle = result?.mode === "minify" ? text.resultTitleMinify : text.resultTitleFormat;
@@ -199,6 +228,11 @@ export function HtmlFormatterMinifier() {
     return () => window.clearTimeout(timer);
   }, [copyStatus]);
 
+  useEffect(() => {
+    if (!isExpanded || !autoUpdateExpanded || result?.mode !== "format") return;
+    setResult(transformHtml(inputText, "format", removeComments));
+  }, [autoUpdateExpanded, inputText, isExpanded, removeComments, result?.mode]);
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
@@ -206,6 +240,7 @@ export function HtmlFormatterMinifier() {
 
     if (!inputText.trim()) {
       setResult(null);
+      setIsExpanded(false);
       setError(text.emptyError);
       return;
     }
@@ -221,6 +256,21 @@ export function HtmlFormatterMinifier() {
     setResult(null);
     setError("");
     setCopyStatus("");
+    setIsExpanded(false);
+    setAutoUpdateExpanded(false);
+  }
+
+  function handleExpandedUpdate() {
+    if (!inputText.trim()) {
+      setResult(null);
+      setIsExpanded(false);
+      setError(text.emptyError);
+      return;
+    }
+
+    setError("");
+    setResult(transformHtml(inputText, "format", removeComments));
+    setCopyStatus(text.updated);
   }
 
   async function handleCopy() {
@@ -235,7 +285,8 @@ export function HtmlFormatterMinifier() {
   }
 
   return (
-    <div className="calculator-layout">
+    <>
+      <div className="calculator-layout">
       <form className="calculator-card" onSubmit={handleSubmit}>
         <div className="calculator-card__header">
           <div>
@@ -322,6 +373,12 @@ export function HtmlFormatterMinifier() {
             <div className="text-result__header">
               <span>{text.result}</span>
               <div className="text-result__actions">
+                {result.mode === "format" ? (
+                  <button onClick={() => setIsExpanded(true)} type="button">
+                    <Maximize2 size={16} strokeWidth={2.1} />
+                    {text.expand}
+                  </button>
+                ) : null}
                 <button onClick={handleCopy} type="button">
                   <Clipboard size={16} strokeWidth={2.1} />
                   {text.copy}
@@ -355,7 +412,34 @@ export function HtmlFormatterMinifier() {
           </div>
         </aside>
       )}
-    </div>
+      </div>
+
+      {isExpanded && result?.mode === "format" ? (
+        <ExpandedTextTransform
+          autoUpdate={autoUpdateExpanded}
+          autoUpdateLabel={text.autoUpdate}
+          closeLabel={text.close}
+          copyFailedLabel={text.copyFailed}
+          copyLabel={text.copy}
+          copyStatus={copyStatus}
+          editorTitle={text.editorTitle}
+          inputLabel={text.inputLabel}
+          inputValue={inputText}
+          onAutoUpdateChange={setAutoUpdateExpanded}
+          onClose={() => setIsExpanded(false)}
+          onCopy={handleCopy}
+          onInputChange={(value) => {
+            setInputText(value);
+            setCopyStatus("");
+          }}
+          onUpdate={handleExpandedUpdate}
+          outputLabel={resultTitle}
+          outputValue={result.output}
+          title={resultTitle}
+          updateLabel={text.updateResult}
+        />
+      ) : null}
+    </>
   );
 }
 

@@ -309,6 +309,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/json-formatter",
+    title: {
+      es: "Formateador JSON online | Validar y minificar JSON",
+      en: "JSON Formatter Online | Validate and Minify JSON"
+    },
+    description: {
+      es: "Formatea JSON online, valida su estructura y minifica código JSON en tu navegador sin enviarlo al servidor.",
+      en: "Format JSON online, validate its structure, and minify JSON code in your browser without sending it to a server."
+    }
+  },
+  {
     path: "/tools/base64-encoder-decoder",
     title: {
       es: "Codificador y decodificador Base64 online | Tools Platforms",
@@ -704,6 +715,28 @@ const toolFaqsByPath = {
       answer: {
         es: "Selecciona aumento / descuento, elige descuento, escribe el porcentaje y el valor base. El resultado muestra el valor después de aplicar el descuento.",
         en: "Select increase / discount, choose discount, enter the percentage and the base value. The result shows the value after applying the discount."
+      }
+    }
+  ],
+  "/tools/json-formatter": [
+    {
+      question: {
+        es: "¿Puedo validar JSON online?",
+        en: "Can I validate JSON online?"
+      },
+      answer: {
+        es: "Sí. Si el JSON no es válido, la herramienta muestra un error antes de generar el resultado.",
+        en: "Yes. If the JSON is not valid, the tool shows an error before generating the result."
+      }
+    },
+    {
+      question: {
+        es: "¿Cuál es la diferencia entre formatear y minificar JSON?",
+        en: "What is the difference between formatting and minifying JSON?"
+      },
+      answer: {
+        es: "Formatear agrega saltos de línea e indentación para leer mejor. Minificar elimina espacios innecesarios para dejar el JSON compacto.",
+        en: "Formatting adds line breaks and indentation for readability. Minifying removes unnecessary spaces to keep the JSON compact."
       }
     }
   ],
