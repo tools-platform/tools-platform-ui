@@ -18,6 +18,7 @@ export function ToolFeedback({ toolSlug }: ToolFeedbackProps) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState<SaveStatus>("idle");
   const lastSavedRef = useRef("");
+  const failedSignatureRef = useRef("");
 
   const copy =
     locale === "en"
@@ -60,9 +61,11 @@ export function ToolFeedback({ toolSlug }: ToolFeedbackProps) {
       });
       setFeedbackId(response.id);
       lastSavedRef.current = `${nextValue}:${nextComment.trim()}`;
+      failedSignatureRef.current = "";
       setStatus("saved");
     } catch {
-      setStatus("error");
+      failedSignatureRef.current = `${nextValue}:${nextComment.trim()}`;
+      setStatus("idle");
     }
   }
 
@@ -87,7 +90,7 @@ export function ToolFeedback({ toolSlug }: ToolFeedbackProps) {
 
     const signature = `${value}:${comment.trim()}`;
 
-    if (signature === lastSavedRef.current) {
+    if (signature === lastSavedRef.current || signature === failedSignatureRef.current) {
       return;
     }
 
@@ -105,9 +108,7 @@ export function ToolFeedback({ toolSlug }: ToolFeedbackProps) {
         ? copy.saved
         : status === "needs-choice"
           ? copy.needsChoice
-          : status === "error"
-            ? copy.error
-            : "";
+          : "";
 
   return (
     <section className="tool-feedback" aria-label={copy.question}>
