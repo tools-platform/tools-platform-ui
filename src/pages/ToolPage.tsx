@@ -28,6 +28,7 @@ import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
 import { RelatedTools } from "../components/RelatedTools";
+import { ToolFeedback } from "../components/ToolFeedback";
 import { ToolSeoContent } from "../components/ToolSeoContent";
 import { categories, tools } from "../data/catalog";
 import { toolContentById } from "../data/toolContent";
@@ -163,6 +164,7 @@ export function ToolPage({ slug }: ToolPageProps) {
         </div>
       )}
 
+      <ToolFeedback toolSlug={tool.slug} />
       {seoContent ? <ToolSeoContent content={seoContent} toolId={tool.id} /> : null}
       <RelatedTools currentTool={tool} />
     </section>

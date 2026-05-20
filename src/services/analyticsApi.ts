@@ -1,4 +1,4 @@
-import { getJson } from "./apiClient";
+import { getJson, postJson } from "./apiClient";
 
 export type TopSearchConsolePage = {
   url: string;
@@ -26,5 +26,26 @@ export function getTopSearchConsolePages({
   return getJson(`/analytics/search-console/top-pages?limit=${limit}&days=${days}`, {
     es: "No se pudieron cargar las herramientas más buscadas.",
     en: "We couldn't load the most searched tools."
+  });
+}
+
+export type ToolFeedbackRequest = {
+  feedbackId?: string;
+  toolSlug: string;
+  locale: "es" | "en";
+  helpful: boolean;
+  comment?: string;
+  pageUrl?: string;
+};
+
+export type ToolFeedbackResponse = {
+  id: string;
+  createdAt: string;
+};
+
+export function sendToolFeedback(request: ToolFeedbackRequest): Promise<ToolFeedbackResponse> {
+  return postJson("/analytics/feedback/tool", request, {
+    es: "No pudimos guardar tu opinión. Intenta de nuevo en unos segundos.",
+    en: "We couldn't save your feedback. Please try again in a few seconds."
   });
 }

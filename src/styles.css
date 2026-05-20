@@ -3269,6 +3269,149 @@ select {
   padding: 8px 11px;
 }
 
+.tool-feedback {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+  border: 1px solid color-mix(in oklch, var(--primary), transparent 76%);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, color-mix(in oklch, var(--primary), transparent 94%), rgba(255, 255, 255, 0.94)),
+    var(--card);
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+}
+
+.tool-feedback__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.tool-feedback__main p {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.tool-feedback__main span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tool-feedback__error {
+  color: #b45309 !important;
+}
+
+.tool-feedback__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-feedback button {
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.tool-feedback button:hover {
+  border-color: color-mix(in oklch, var(--primary), transparent 58%);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.tool-feedback button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.tool-feedback__choice,
+.tool-feedback__comment-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 15px;
+}
+
+.tool-feedback__choice.is-selected {
+  border-color: color-mix(in oklch, var(--primary), transparent 46%);
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.tool-feedback__comment-toggle {
+  border-color: color-mix(in oklch, var(--primary), transparent 72%);
+  color: var(--primary);
+}
+
+.tool-feedback__comment {
+  border-top: 1px solid color-mix(in oklch, var(--border), transparent 28%);
+  padding-top: 14px;
+}
+
+.tool-feedback__comment label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.tool-feedback__comment textarea {
+  width: 100%;
+  min-height: 96px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in oklch, var(--background), white 20%);
+  color: var(--foreground);
+  font: inherit;
+  line-height: 1.55;
+  padding: 14px 16px;
+}
+
+.tool-feedback__comment textarea:focus {
+  outline: none;
+  border-color: color-mix(in oklch, var(--primary), transparent 42%);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 88%);
+}
+
+.tool-feedback__spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border: 2px solid color-mix(in oklch, var(--primary), transparent 76%);
+  border-top-color: var(--primary);
+  border-radius: 999px;
+  animation: tool-feedback-spin 0.75s linear infinite;
+}
+
+@keyframes tool-feedback-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .related-tools {
   display: grid;
   gap: 22px;
@@ -3632,6 +3775,26 @@ select {
 
   .calculator-layout {
     grid-template-columns: 1fr;
+  }
+
+  .tool-feedback__main {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tool-feedback__actions,
+  .tool-feedback__choice,
+  .tool-feedback__comment-toggle {
+    width: 100%;
+  }
+
+  .tool-feedback__actions {
+    justify-content: stretch;
+  }
+
+  .tool-feedback__choice,
+  .tool-feedback__comment-toggle {
+    justify-content: center;
   }
 
   .form-grid,
