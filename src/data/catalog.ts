@@ -147,7 +147,7 @@ export const tools: ToolSummary[] = [
   },
   {
     id: "social-benefits-colombia",
-    slug: "colombia-social-benefits-calculator",
+    slug: "social-benefits-colombia",
     name: {
       es: "Calculadora de prestaciones sociales (Colombia)",
       en: "Social Benefits Calculator (Colombia)"

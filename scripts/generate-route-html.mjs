@@ -78,7 +78,7 @@ const localizedPages = [
     }
   },
   {
-    path: "/tools/colombia-social-benefits-calculator",
+    path: "/tools/social-benefits-colombia",
     title: {
       es: "Calculadora de prestaciones sociales Colombia 2026 | Cesantías y prima",
       en: "Colombia Social Benefits Calculator 2026 | Severance and Bonus"
@@ -564,7 +564,7 @@ const toolFaqsByPath = {
       }
     }
   ],
-  "/tools/colombia-social-benefits-calculator": [
+  "/tools/social-benefits-colombia": [
     {
       question: {
         es: "¿Qué salario debo ingresar?",
