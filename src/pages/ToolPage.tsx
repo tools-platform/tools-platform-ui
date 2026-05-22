@@ -12,6 +12,7 @@ import { EmploymentSettlementColombiaCalculator } from "../components/calculator
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { GrossSalaryColombiaCalculator } from "../components/calculators/GrossSalaryColombiaCalculator";
+import { HashGenerator } from "../components/calculators/HashGenerator";
 import { HtmlFormatterMinifier } from "../components/calculators/HtmlFormatterMinifier";
 import { HtmlPreview } from "../components/calculators/HtmlPreview";
 import { HourlySalaryColombiaCalculator } from "../components/calculators/HourlySalaryColombiaCalculator";
@@ -158,6 +159,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <JsonFormatter />
       ) : tool.id === "uuid-generator" ? (
         <UuidGenerator />
+      ) : tool.id === "hash-generator" ? (
+        <HashGenerator />
       ) : tool.id === "salary-increase" ? (
         <SalaryIncreaseCalculator />
       ) : tool.id === "days-until-date" ? (

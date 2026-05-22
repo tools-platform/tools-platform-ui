@@ -32,7 +32,8 @@ const relatedToolIds: Record<string, string[]> = {
   "html-preview": ["html-formatter-minifier", "base64-converter", "case-style-converter"],
   "html-formatter-minifier": ["json-formatter", "html-preview", "base64-converter"],
   "json-formatter": ["uuid-generator", "html-formatter-minifier", "base64-converter"],
-  "uuid-generator": ["json-formatter", "base64-converter", "secure-password-generator"]
+  "uuid-generator": ["hash-generator", "json-formatter", "base64-converter"],
+  "hash-generator": ["uuid-generator", "json-formatter", "base64-converter"]
 };
 
 type RelatedToolsProps = {

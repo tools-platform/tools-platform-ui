@@ -274,6 +274,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Generate UUID v4 values online in your browser or create UUIDs mixed with base text. Copy one or many identifiers instantly."
     }
   },
+  "hash-generator": {
+    title: {
+      es: "Generador hash online | SHA-256, SHA-1 y SHA-512",
+      en: "Hash Generator Online | SHA-256, SHA-1 and SHA-512"
+    },
+    description: {
+      es: "Genera hashes SHA-256, SHA-1, SHA-384 y SHA-512 online en tu navegador. Procesa texto completo o cada línea por separado.",
+      en: "Generate SHA-256, SHA-1, SHA-384, and SHA-512 hashes online in your browser. Process full text or each line separately."
+    }
+  },
   "case-style-converter": {
     title: {
       es: "Convertidor camelCase, PascalCase y snake_case | Tools Platforms",

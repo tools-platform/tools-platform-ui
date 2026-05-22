@@ -543,7 +543,7 @@ export const tools: ToolSummary[] = [
       en: "Generate MD5, SHA, and similar hashes for development and security."
     },
     categoryId: "development",
-    status: "draft",
+    status: "published",
     Icon: Hash
   },
   {

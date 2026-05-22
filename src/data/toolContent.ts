@@ -1594,6 +1594,63 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "hash-generator": {
+    intro: {
+      es: "Genera hashes SHA-256, SHA-1, SHA-384 y SHA-512 directamente en tu navegador para comparar texto, revisar cambios o crear huellas técnicas.",
+      en: "Generate SHA-256, SHA-1, SHA-384, and SHA-512 hashes directly in your browser to compare text, review changes, or create technical fingerprints."
+    },
+    sections: [
+      {
+        title: { es: "Qué hace", en: "What it does" },
+        body: [
+          {
+            es: "Convierte texto en una huella hash usando algoritmos SHA comunes. Puedes generar un hash para todo el texto o procesar cada línea por separado.",
+            en: "It converts text into a hash fingerprint using common SHA algorithms. You can generate one hash for the full text or process each line separately."
+          },
+          {
+            es: "Sirve para comparar contenido, detectar cambios, preparar pruebas técnicas o crear identificadores derivados de texto.",
+            en: "It helps compare content, detect changes, prepare technical tests, or create identifiers derived from text."
+          }
+        ]
+      },
+      {
+        title: { es: "Privacidad y límites", en: "Privacy and limits" },
+        body: [
+          {
+            es: "El cálculo ocurre localmente en tu navegador. El texto no se envía a un servidor de Tools Platforms.",
+            en: "The calculation happens locally in your browser. The text is not sent to a Tools Platforms server."
+          },
+          {
+            es: "Un hash no es cifrado y no se puede desencriptar como si fuera un mensaje oculto. Para contraseñas reales se necesitan sistemas especializados con sal y derivación de claves.",
+            en: "A hash is not encryption and cannot be decrypted like a hidden message. Real passwords require specialized salted key-derivation systems."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Un hash es lo mismo que cifrar?", en: "Is hashing the same as encryption?" },
+        answer: {
+          es: "No. El cifrado busca poder recuperar el contenido con una clave. Un hash es una huella de una sola vía para comparar o verificar datos.",
+          en: "No. Encryption is meant to recover content with a key. A hash is a one-way fingerprint for comparison or verification."
+        }
+      },
+      {
+        question: { es: "¿Puedo generar SHA-256 online?", en: "Can I generate SHA-256 online?" },
+        answer: {
+          es: "Sí. Elige SHA-256, pega el texto y genera el hash localmente en tu navegador.",
+          en: "Yes. Choose SHA-256, paste the text, and generate the hash locally in your browser."
+        }
+      },
+      {
+        question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. La herramienta usa Web Crypto en el navegador y no envía el texto a Tools Platforms.",
+          en: "No. The tool uses Web Crypto in the browser and does not send the text to Tools Platforms."
+        }
+      }
+    ]
+  },
   "base64-converter": {
     intro: {
       es: "Codifica texto a Base64 o decodifica Base64 a texto de forma local en el navegador.",

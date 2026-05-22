@@ -331,6 +331,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/hash-generator",
+    title: {
+      es: "Generador hash online | SHA-256, SHA-1 y SHA-512",
+      en: "Hash Generator Online | SHA-256, SHA-1 and SHA-512"
+    },
+    description: {
+      es: "Genera hashes SHA-256, SHA-1, SHA-384 y SHA-512 online en tu navegador. Procesa texto completo o cada línea por separado.",
+      en: "Generate SHA-256, SHA-1, SHA-384, and SHA-512 hashes online in your browser. Process full text or each line separately."
+    }
+  },
+  {
     path: "/tools/base64-encoder-decoder",
     title: {
       es: "Codificador y decodificador Base64 online | Tools Platforms",
@@ -770,6 +781,28 @@ const toolFaqsByPath = {
       answer: {
         es: "Sí. El modo desde texto mezcla tu texto base con aleatoriedad local para crear UUID nuevos en cada generación.",
         en: "Yes. From text mode mixes your base text with local randomness to create new UUIDs on each generation."
+      }
+    }
+  ],
+  "/tools/hash-generator": [
+    {
+      question: {
+        es: "¿Un hash es lo mismo que cifrar?",
+        en: "Is hashing the same as encryption?"
+      },
+      answer: {
+        es: "No. El cifrado busca poder recuperar el contenido con una clave. Un hash es una huella de una sola vía para comparar o verificar datos.",
+        en: "No. Encryption is meant to recover content with a key. A hash is a one-way fingerprint for comparison or verification."
+      }
+    },
+    {
+      question: {
+        es: "¿Puedo generar SHA-256 online?",
+        en: "Can I generate SHA-256 online?"
+      },
+      answer: {
+        es: "Sí. Elige SHA-256, pega el texto y genera el hash localmente en tu navegador.",
+        en: "Yes. Choose SHA-256, paste the text, and generate the hash locally in your browser."
       }
     }
   ],
