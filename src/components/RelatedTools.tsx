@@ -10,7 +10,8 @@ const relatedToolIds: Record<string, string[]> = {
   "credit-interest": ["loan-payment", "cop-usd", "salary-increase"],
   "loan-payment": ["credit-interest", "cop-usd", "salary-increase"],
   "cop-usd": ["credit-interest", "loan-payment", "unit-converter"],
-  "salary-increase": ["net-salary-colombia", "gross-salary-colombia", "hourly-salary"],
+  "salary-increase": ["annual-salary", "net-salary-colombia", "gross-salary-colombia"],
+  "annual-salary": ["salary-increase", "net-salary-colombia", "gross-salary-colombia"],
   "worked-hours": ["hourly-salary", "freelance-rate", "days-between-dates"],
   "hourly-salary": ["overtime-colombia", "worked-hours", "employee-salary-equivalent"],
   "overtime-colombia": ["hourly-salary", "worked-hours", "net-salary-colombia"],
@@ -22,7 +23,9 @@ const relatedToolIds: Record<string, string[]> = {
   "days-until-date": ["days-between-dates", "weeks-between-dates", "exact-age"],
   "unit-converter": ["text-case-converter", "cop-usd", "case-style-converter"],
   "text-case-converter": ["remove-accents", "remove-extra-spaces", "duplicate-counter"],
-  "duplicate-counter": ["remove-extra-spaces", "text-case-converter", "remove-accents"],
+  "duplicate-counter": ["word-character-counter", "find-replace-text", "remove-extra-spaces"],
+  "word-character-counter": ["find-replace-text", "duplicate-counter", "text-case-converter"],
+  "find-replace-text": ["word-character-counter", "remove-extra-spaces", "text-case-converter"],
   "remove-extra-spaces": ["duplicate-counter", "remove-accents", "text-case-converter"],
   "remove-accents": ["remove-extra-spaces", "text-case-converter", "random-text-generator"],
   "secure-password-generator": ["base64-converter", "case-style-converter", "random-text-generator"],
@@ -35,7 +38,8 @@ const relatedToolIds: Record<string, string[]> = {
   "html-formatter-minifier": ["json-formatter", "html-preview", "base64-converter"],
   "json-formatter": ["uuid-generator", "html-formatter-minifier", "base64-converter"],
   "uuid-generator": ["hash-generator", "json-formatter", "base64-converter"],
-  "hash-generator": ["uuid-generator", "json-formatter", "base64-converter"]
+  "hash-generator": ["uuid-generator", "json-formatter", "simple-cron-generator"],
+  "simple-cron-generator": ["json-formatter", "uuid-generator", "hash-generator"]
 };
 
 type RelatedToolsProps = {

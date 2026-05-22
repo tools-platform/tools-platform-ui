@@ -1978,5 +1978,205 @@ export const toolContentById: Record<string, ToolContent> = {
         }
       }
     ]
+  },
+  "annual-salary": {
+    intro: {
+      es: "Calcula tu salario anual estimado en Colombia con salario mensual bruto, auxilio de transporte, prima de servicios y descuentos de nomina.",
+      en: "Estimate annual salary in Colombia with gross monthly salary, transportation allowance, service bonus, and payroll deductions."
+    },
+    sections: [
+      {
+        title: { es: "Que incluye", en: "What it includes" },
+        body: [
+          {
+            es: "La herramienta parte del salario mensual bruto y calcula salario base anual, auxilio de transporte anual si aplica y prima de servicios estimada.",
+            en: "The tool starts from gross monthly salary and calculates annual base salary, annual transportation allowance when applicable, and estimated service bonus."
+          },
+          {
+            es: "También puede restar salud, pensión y Fondo de Solidaridad cuando el salario supera los límites legales.",
+            en: "It can also subtract health, pension, and solidarity fund when salary exceeds the legal thresholds."
+          }
+        ]
+      },
+      {
+        title: { es: "Reglas Colombia", en: "Colombia rules" },
+        body: [
+          {
+            es: "El año de reglas define salario mínimo, auxilio de transporte y límites para saber si el auxilio aplica.",
+            en: "The rule year defines minimum wage, transportation allowance, and thresholds used to decide whether the allowance applies."
+          },
+          {
+            es: "No reemplaza una colilla de pago ni incluye retencion en la fuente, cesantias, vacaciones, pagos variables o acuerdos internos.",
+            en: "It does not replace a payslip and does not include withholding tax, severance, vacation, variable pay, or internal agreements."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "Que salario debo escribir?", en: "Which salary should I enter?" },
+        answer: {
+          es: "Escribe el salario mensual bruto, antes de salud, pension u otros descuentos.",
+          en: "Enter the gross monthly salary before health, pension, or other deductions."
+        }
+      },
+      {
+        question: { es: "Incluye prima de servicios?", en: "Does it include service bonus?" },
+        answer: {
+          es: "Si activas la opcion, suma una prima anual estimada equivalente a los dos pagos semestrales.",
+          en: "If enabled, it adds an estimated annual service bonus equal to the two half-year payments."
+        }
+      }
+    ]
+  },
+  "word-character-counter": {
+    intro: {
+      es: "Cuenta palabras, caracteres, letras, líneas, párrafos, frases y tiempo de lectura de un texto en segundos.",
+      en: "Count words, characters, letters, lines, paragraphs, sentences, and reading time in seconds."
+    },
+    sections: [
+      {
+        title: { es: "Conteo completo", en: "Complete count" },
+        body: [
+          {
+            es: "Muestra palabras, caracteres con espacios, caracteres sin espacios, letras, números, líneas, líneas vacías, párrafos y frases.",
+            en: "It shows words, characters with spaces, characters without spaces, letters, numbers, lines, empty lines, paragraphs, and sentences."
+          },
+          {
+            es: "También calcula un tiempo aproximado de lectura para textos, artículos, tareas, publicaciones o contenido SEO.",
+            en: "It also estimates reading time for text, articles, assignments, posts, or SEO content."
+          }
+        ]
+      },
+      {
+        title: { es: "Uso práctico", en: "Practical use" },
+        body: [
+          {
+            es: "Sirve para revisar límites de formularios, textos académicos, publicaciones, descripciones, guiones y documentos.",
+            en: "Use it to check form limits, academic text, posts, descriptions, scripts, and documents."
+          },
+          {
+            es: "El conteo se hace localmente en el navegador y no cambia hasta que vuelves a contar.",
+            en: "Counting happens locally in the browser and does not change until you count again."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "Cuenta caracteres con espacios?", en: "Does it count characters with spaces?" },
+        answer: {
+          es: "Sí. Muestra caracteres totales y también caracteres sin espacios.",
+          en: "Yes. It shows total characters and characters without spaces."
+        }
+      },
+      {
+        question: { es: "El texto se envia al servidor?", en: "Is the text sent to a server?" },
+        answer: {
+          es: "No. El conteo se hace en tu navegador.",
+          en: "No. Counting happens in your browser."
+        }
+      }
+    ]
+  },
+  "find-replace-text": {
+    intro: {
+      es: "Busca una palabra o fragmento dentro de un texto y reemplazalo por otro valor de forma rapida.",
+      en: "Find a word or fragment inside text and quickly replace it with another value."
+    },
+    sections: [
+      {
+        title: { es: "Opciones de reemplazo", en: "Replacement options" },
+        body: [
+          {
+            es: "Puedes distinguir mayusculas y minusculas cuando necesitas que Hola y hola sean diferentes.",
+            en: "You can match case when you need Hello and hello to be treated differently."
+          },
+          {
+            es: "También puedes reemplazar solo palabras completas para evitar cambios dentro de otras palabras.",
+            en: "You can also replace whole words only to avoid changing matches inside other words."
+          }
+        ]
+      },
+      {
+        title: { es: "Para que sirve", en: "What it is for" },
+        body: [
+          {
+            es: "Usalo para corregir nombres, cambiar terminos repetidos, limpiar listas, ajustar plantillas o editar textos largos.",
+            en: "Use it to fix names, change repeated terms, clean lists, adjust templates, or edit long text."
+          },
+          {
+            es: "La busqueda usa texto normal, no expresiones regulares, para que sea facil de manejar.",
+            en: "Search uses plain text, not regular expressions, so it stays easy to use."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "Puedo reemplazar con texto vacio?", en: "Can I replace with empty text?" },
+        answer: {
+          es: "Sí. Deja el campo reemplazar vacío para eliminar las coincidencias encontradas.",
+          en: "Yes. Leave replace with empty to remove found matches."
+        }
+      },
+      {
+        question: { es: "Usa expresiones regulares?", en: "Does it use regular expressions?" },
+        answer: {
+          es: "No. Esta pensado para buscar texto normal y evitar configuraciones confusas.",
+          en: "No. It is designed for plain-text search to avoid confusing settings."
+        }
+      }
+    ]
+  },
+  "simple-cron-generator": {
+    intro: {
+      es: "Genera expresiones cron sencillas o pega una expresion cron de 5 partes para entender que significa.",
+      en: "Generate simple cron expressions or paste a 5-part cron expression to understand what it means."
+    },
+    sections: [
+      {
+        title: { es: "Sin sintaxis dificil", en: "No hard syntax" },
+        body: [
+          {
+            es: "Elige si quieres una tarea cada ciertos minutos, cada hora, diaria, semanal o mensual y la herramienta arma el cron.",
+            en: "Choose whether you want a task every few minutes, hourly, daily, weekly, or monthly, and the tool builds the cron."
+          },
+          {
+            es: "También puedes pegar una expresión cron para ver una explicación simple de sus cinco partes.",
+            en: "You can also paste a cron expression to see a simple explanation of its five parts."
+          }
+        ]
+      },
+      {
+        title: { es: "Antes de usarlo", en: "Before using it" },
+        body: [
+          {
+            es: "El cron generado usa el formato clasico de cinco campos: minuto, hora, dia, mes y dia de semana.",
+            en: "The generated cron uses the classic five-field format: minute, hour, day, month, and weekday."
+          },
+          {
+            es: "Revisa la zona horaria y el formato exacto de tu proveedor antes de programar una tarea real.",
+            en: "Check your provider's timezone and exact format before scheduling a real task."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "Sirve para cualquier sistema?", en: "Does it work for every system?" },
+        answer: {
+          es: "Sirve como base para cron de 5 campos. Algunos sistemas usan segundos o reglas especiales.",
+          en: "It works as a base for 5-field cron. Some systems use seconds or special rules."
+        }
+      },
+      {
+        question: { es: "Puede explicar un cron existente?", en: "Can it explain an existing cron?" },
+        answer: {
+          es: "Sí. Elige explicar cron y pega una expresión de cinco partes.",
+          en: "Yes. Choose explain cron and paste a five-part expression."
+        }
+      }
+    ]
   }
 };

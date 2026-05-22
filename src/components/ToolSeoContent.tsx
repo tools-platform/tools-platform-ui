@@ -138,6 +138,22 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
   "weeks-between-dates": {
     es: ["calculadora de semanas entre fechas", "cuantas semanas hay entre fechas", "convertir fechas a semanas"],
     en: ["weeks between dates calculator", "how many weeks between dates", "convert dates to weeks"]
+  },
+  "annual-salary": {
+    es: ["calculadora salario anual Colombia", "salario anual desde mensual", "ingreso anual Colombia"],
+    en: ["annual salary calculator Colombia", "monthly salary to yearly income", "Colombia yearly salary"]
+  },
+  "word-character-counter": {
+    es: ["contador de palabras", "contador de caracteres", "contar líneas y párrafos"],
+    en: ["word counter", "character counter", "count lines and paragraphs"]
+  },
+  "find-replace-text": {
+    es: ["buscar y reemplazar texto", "reemplazar palabras online", "cambiar texto rapido"],
+    en: ["find and replace text", "replace words online", "change text quickly"]
+  },
+  "simple-cron-generator": {
+    es: ["generador cron", "crear cron simple", "explicar expresion cron"],
+    en: ["cron generator", "simple cron expression", "explain cron expression"]
   }
 };
 

@@ -133,6 +133,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/annual-salary-calculator",
+    title: {
+      es: "Calculadora de salario anual Colombia | Ingreso anual",
+      en: "Annual Salary Calculator (Colombia) | Yearly Income"
+    },
+    description: {
+      es: "Calcula tu salario anual en Colombia con salario mensual bruto, auxilio de transporte, prima de servicios y descuentos estimados de salud y pensión.",
+      en: "Calculate annual salary in Colombia with gross monthly salary, transportation allowance, service bonus, and estimated health and pension deductions."
+    }
+  },
+  {
     path: "/tools/worked-hours-calculator",
     title: {
       es: "Calculadora de horas trabajadas | Horas laborales",
@@ -265,6 +276,28 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/word-character-counter",
+    title: {
+      es: "Contador de palabras, caracteres y líneas online",
+      en: "Word, Character, and Line Counter Online"
+    },
+    description: {
+      es: "Cuenta palabras, caracteres con y sin espacios, letras, números, líneas, párrafos, frases y tiempo de lectura de cualquier texto.",
+      en: "Count words, characters with and without spaces, letters, numbers, lines, paragraphs, sentences, and reading time for any text."
+    }
+  },
+  {
+    path: "/tools/find-replace-text",
+    title: {
+      es: "Buscar y reemplazar texto online | Reemplazar palabras",
+      en: "Find and Replace Text Online | Replace Words"
+    },
+    description: {
+      es: "Busca palabras o fragmentos en un texto y reemplázalos online. Opciones para distinguir mayúsculas y reemplazar solo palabras completas.",
+      en: "Find words or fragments in text and replace them online. Options for case matching and whole-word replacement."
+    }
+  },
+  {
     path: "/tools/remove-extra-spaces",
     title: {
       es: "Eliminar espacios extra online | Limpiar texto",
@@ -361,6 +394,17 @@ const localizedPages = [
     description: {
       es: "Genera hashes SHA-256, SHA-1, SHA-384 y SHA-512 online en tu navegador. Procesa texto completo o cada línea por separado.",
       en: "Generate SHA-256, SHA-1, SHA-384, and SHA-512 hashes online in your browser. Process full text or each line separately."
+    }
+  },
+  {
+    path: "/tools/simple-cron-generator",
+    title: {
+      es: "Generador de cron simple | Crear y explicar cron",
+      en: "Simple Cron Generator | Create and Explain Cron"
+    },
+    description: {
+      es: "Genera expresiones cron fáciles para tareas cada X minutos, por hora, diarias, semanales o mensuales, y explica cron de 5 partes.",
+      en: "Generate easy cron expressions for every X minutes, hourly, daily, weekly, or monthly tasks, and explain 5-part cron syntax."
     }
   },
   {
@@ -564,6 +608,16 @@ const toolFaqsByPath = {
       }
     }
   ],
+  "/tools/annual-salary-calculator": [
+    {
+      question: { es: "¿Qué salario debo escribir?", en: "Which salary should I enter?" },
+      answer: { es: "Escribe el salario mensual bruto, antes de salud, pensión u otros descuentos.", en: "Enter the gross monthly salary before health, pension, or other deductions." }
+    },
+    {
+      question: { es: "¿Incluye prima de servicios?", en: "Does it include service bonus?" },
+      answer: { es: "Sí, si activas la opción de prima de servicios.", en: "Yes, if you enable the service bonus option." }
+    }
+  ],
   "/tools/worked-hours-calculator": [
     {
       question: {
@@ -694,6 +748,26 @@ const toolFaqsByPath = {
         es: "Una lista de resultados contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en esa lista solo se muestra una vez.",
         en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
       }
+    }
+  ],
+  "/tools/word-character-counter": [
+    {
+      question: { es: "¿Cuenta caracteres con espacios?", en: "Does it count characters with spaces?" },
+      answer: { es: "Sí. Muestra caracteres totales y también caracteres sin espacios.", en: "Yes. It shows total characters and characters without spaces." }
+    },
+    {
+      question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
+      answer: { es: "No. El conteo se hace en tu navegador.", en: "No. Counting happens in your browser." }
+    }
+  ],
+  "/tools/find-replace-text": [
+    {
+      question: { es: "¿Puedo reemplazar con texto vacío?", en: "Can I replace with empty text?" },
+      answer: { es: "Sí. Deja el reemplazo vacío para eliminar coincidencias.", en: "Yes. Leave replacement empty to remove matches." }
+    },
+    {
+      question: { es: "¿Usa expresiones regulares?", en: "Does it use regular expressions?" },
+      answer: { es: "No. Usa búsqueda de texto normal.", en: "No. It uses plain-text search." }
     }
   ],
   "/tools/remove-extra-spaces": [
@@ -870,6 +944,16 @@ const toolFaqsByPath = {
         es: "Sí. Elige SHA-256, pega el texto y genera el hash localmente en tu navegador.",
         en: "Yes. Choose SHA-256, paste the text, and generate the hash locally in your browser."
       }
+    }
+  ],
+  "/tools/simple-cron-generator": [
+    {
+      question: { es: "¿Qué formato usa?", en: "Which format does it use?" },
+      answer: { es: "Usa cron clásico de cinco campos: minuto, hora, día, mes y día de semana.", en: "It uses classic five-field cron: minute, hour, day, month, and weekday." }
+    },
+    {
+      question: { es: "¿Puede explicar un cron existente?", en: "Can it explain an existing cron?" },
+      answer: { es: "Sí. Elige explicar cron y pega una expresión de cinco partes.", en: "Yes. Choose explain cron and paste a five-part expression." }
     }
   ],
   "/tools/base64-encoder-decoder": [

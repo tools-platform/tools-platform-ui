@@ -4,12 +4,14 @@ import {
   Binary,
   BriefcaseBusiness,
   Calculator,
+  CalendarClock,
   CalendarDays,
   Clock3,
   Code2,
   Coins,
   Eraser,
   FileJson,
+  FileText,
   HandCoins,
   Hash,
   KeyRound,
@@ -20,6 +22,7 @@ import {
   ArrowDownAZ,
   Percent,
   Repeat2,
+  Replace,
   Ruler,
   Shuffle,
   Timer,
@@ -96,6 +99,7 @@ export const categories: Category[] = [
 ];
 
 export const tools: ToolSummary[] = [
+
   {
     id: "net-salary-colombia",
     slug: "colombia-net-salary-calculator",
@@ -214,6 +218,18 @@ export const tools: ToolSummary[] = [
     Icon: Repeat2
   },
   {
+    id: "annual-salary",
+    slug: "annual-salary-calculator",
+    name: { es: "Calculadora de salario anual (Colombia)", en: "Annual Salary Calculator (Colombia)" },
+    description: {
+      es: "Estima tu ingreso anual con salario, auxilio, prima y descuentos.",
+      en: "Estimate annual income with salary, allowance, bonus, and deductions."
+    },
+    categoryId: "finance",
+    status: "published",
+    Icon: Banknote
+  },
+  {
     id: "worked-hours",
     slug: "worked-hours-calculator",
     name: {
@@ -304,6 +320,18 @@ export const tools: ToolSummary[] = [
     Icon: CalendarDays
   },
   {
+    id: "weeks-between-dates",
+    slug: "weeks-between-dates-calculator",
+    name: { es: "Calculadora de semanas entre fechas", en: "Weeks Between Dates Calculator" },
+    description: {
+      es: "Convierte el tiempo entre dos fechas a semanas y días.",
+      en: "Convert the time between two dates into weeks and days."
+    },
+    categoryId: "time",
+    status: "published",
+    Icon: Clock3
+  },
+  {
     id: "exact-age",
     slug: "exact-age-calculator",
     name: {
@@ -374,6 +402,30 @@ export const tools: ToolSummary[] = [
     categoryId: "utilities",
     status: "published",
     Icon: ListChecks
+  },
+  {
+    id: "word-character-counter",
+    slug: "word-character-counter",
+    name: { es: "Contador de palabras, caracteres y líneas", en: "Word, Character, and Line Counter" },
+    description: {
+      es: "Cuenta palabras, caracteres, letras, líneas, párrafos y frases.",
+      en: "Count words, characters, letters, lines, paragraphs, and sentences."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: FileText
+  },
+  {
+    id: "find-replace-text",
+    slug: "find-replace-text",
+    name: { es: "Buscar y reemplazar texto", en: "Find and Replace Text" },
+    description: {
+      es: "Busca palabras o fragmentos y reemplázalos en un texto.",
+      en: "Find words or fragments and replace them in text."
+    },
+    categoryId: "utilities",
+    status: "published",
+    Icon: Replace
   },
   {
     id: "remove-extra-spaces",
@@ -562,51 +614,15 @@ export const tools: ToolSummary[] = [
     Icon: Hash
   },
   {
-    id: "annual-salary",
-    slug: "annual-salary-calculator",
-    name: { es: "Calculadora de salario anual", en: "Annual Salary Calculator" },
+    id: "simple-cron-generator",
+    slug: "simple-cron-generator",
+    name: { es: "Generador de cron simple", en: "Simple Cron Generator" },
     description: {
-      es: "Calcula cuánto ganas en un año completo según tu salario mensual.",
-      en: "Calculate your annual income from a monthly salary."
+      es: "Crea o explica expresiones cron sin complicarte con la sintaxis.",
+      en: "Create or explain cron expressions without wrestling with syntax."
     },
-    categoryId: "finance",
-    status: "draft",
-    Icon: Banknote
-  },
-  {
-    id: "productivity",
-    slug: "productivity-calculator",
-    name: { es: "Calculadora de productividad", en: "Productivity Calculator" },
-    description: {
-      es: "Mide cuánto produces en cierto tiempo para análisis laboral.",
-      en: "Measure output over time for work analysis."
-    },
-    categoryId: "work",
-    status: "draft",
-    Icon: Timer
-  },
-  {
-    id: "hourly-cost",
-    slug: "hourly-cost-calculator",
-    name: { es: "Calculadora de costo por hora", en: "Hourly Cost Calculator" },
-    description: {
-      es: "Calcula cuánto cuesta realmente una hora de trabajo incluyendo gastos.",
-      en: "Calculate the real cost of one hour of work, including expenses."
-    },
-    categoryId: "work",
-    status: "draft",
-    Icon: BriefcaseBusiness
-  },
-  {
-    id: "weeks-between-dates",
-    slug: "weeks-between-dates-calculator",
-    name: { es: "Calculadora de semanas entre fechas", en: "Weeks Between Dates Calculator" },
-    description: {
-      es: "Convierte el tiempo entre dos fechas a semanas y días.",
-      en: "Convert the time between two dates into weeks and days."
-    },
-    categoryId: "time",
+    categoryId: "development",
     status: "published",
-    Icon: Clock3
+    Icon: CalendarClock
   }
 ];

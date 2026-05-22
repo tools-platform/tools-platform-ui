@@ -1,5 +1,6 @@
 import { ArrowLeft, Clock3 } from "lucide-react";
 import { AlphabeticalLineSorter } from "../components/calculators/AlphabeticalLineSorter";
+import { AnnualSalaryColombiaCalculator } from "../components/calculators/AnnualSalaryColombiaCalculator";
 import { Base64Converter } from "../components/calculators/Base64Converter";
 import { CaseStyleConverter } from "../components/calculators/CaseStyleConverter";
 import { CopUsdConverter } from "../components/calculators/CopUsdConverter";
@@ -10,6 +11,7 @@ import { DuplicateCounter } from "../components/calculators/DuplicateCounter";
 import { EmployeeSalaryEquivalentCalculator } from "../components/calculators/EmployeeSalaryEquivalentCalculator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
+import { FindReplaceText } from "../components/calculators/FindReplaceText";
 import { FreelanceRateCalculator } from "../components/calculators/FreelanceRateCalculator";
 import { GrossSalaryColombiaCalculator } from "../components/calculators/GrossSalaryColombiaCalculator";
 import { HashGenerator } from "../components/calculators/HashGenerator";
@@ -26,12 +28,14 @@ import { RemoveExtraSpaces } from "../components/calculators/RemoveExtraSpaces";
 import { RandomTextGenerator } from "../components/calculators/RandomTextGenerator";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
 import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
+import { SimpleCronGenerator } from "../components/calculators/SimpleCronGenerator";
 import { SocialBenefitsColombiaCalculator } from "../components/calculators/SocialBenefitsColombiaCalculator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { UuidGenerator } from "../components/calculators/UuidGenerator";
 import { WeeksBetweenDatesCalculator } from "../components/calculators/WeeksBetweenDatesCalculator";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
+import { WordCharacterCounter } from "../components/calculators/WordCharacterCounter";
 import { RelatedTools } from "../components/RelatedTools";
 import { ToolFeedback } from "../components/ToolFeedback";
 import { ToolSeoContent } from "../components/ToolSeoContent";
@@ -169,8 +173,16 @@ export function ToolPage({ slug }: ToolPageProps) {
         <HashGenerator />
       ) : tool.id === "salary-increase" ? (
         <SalaryIncreaseCalculator />
+      ) : tool.id === "annual-salary" ? (
+        <AnnualSalaryColombiaCalculator />
       ) : tool.id === "days-until-date" ? (
         <DaysUntilDateCalculator />
+      ) : tool.id === "word-character-counter" ? (
+        <WordCharacterCounter />
+      ) : tool.id === "find-replace-text" ? (
+        <FindReplaceText />
+      ) : tool.id === "simple-cron-generator" ? (
+        <SimpleCronGenerator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

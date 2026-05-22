@@ -343,6 +343,46 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       es: "Formatea HTML online para leerlo mejor o minifica código HTML en el navegador. Herramienta local para limpiar comentarios y compactar marcado.",
       en: "Format HTML online for readability or minify HTML code in the browser. Local tool for cleaning comments and compacting markup."
     }
+  },
+  "annual-salary": {
+    title: {
+      es: "Calculadora de salario anual Colombia | Ingreso anual",
+      en: "Annual Salary Calculator (Colombia) | Yearly Income"
+    },
+    description: {
+      es: "Calcula tu salario anual en Colombia con salario mensual bruto, auxilio de transporte, prima de servicios y descuentos estimados de salud y pensión.",
+      en: "Calculate annual salary in Colombia with gross monthly salary, transportation allowance, service bonus, and estimated health and pension deductions."
+    }
+  },
+  "word-character-counter": {
+    title: {
+      es: "Contador de palabras, caracteres y líneas online",
+      en: "Word, Character, and Line Counter Online"
+    },
+    description: {
+      es: "Cuenta palabras, caracteres con y sin espacios, letras, números, líneas, párrafos, frases y tiempo de lectura de cualquier texto.",
+      en: "Count words, characters with and without spaces, letters, numbers, lines, paragraphs, sentences, and reading time for any text."
+    }
+  },
+  "find-replace-text": {
+    title: {
+      es: "Buscar y reemplazar texto online | Reemplazar palabras",
+      en: "Find and Replace Text Online | Replace Words"
+    },
+    description: {
+      es: "Busca palabras o fragmentos en un texto y reemplázalos online. Opciones para distinguir mayúsculas y reemplazar solo palabras completas.",
+      en: "Find words or fragments in text and replace them online. Options for case matching and whole-word replacement."
+    }
+  },
+  "simple-cron-generator": {
+    title: {
+      es: "Generador de cron simple | Crear y explicar cron",
+      en: "Simple Cron Generator | Create and Explain Cron"
+    },
+    description: {
+      es: "Genera expresiones cron fáciles para tareas cada X minutos, por hora, diarias, semanales o mensuales, y explica cron de 5 partes.",
+      en: "Generate easy cron expressions for every X minutes, hourly, daily, weekly, or monthly tasks, and explain 5-part cron syntax."
+    }
   }
 };
 

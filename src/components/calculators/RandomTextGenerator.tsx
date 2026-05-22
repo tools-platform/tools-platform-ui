@@ -269,7 +269,7 @@ export function RandomTextGenerator() {
   const numberFormatter = useMemo(() => new Intl.NumberFormat(localeCode), [localeCode]);
   const [source, setSource] = useState<TextSource>("natural");
   const [mode, setMode] = useState<TextMode>("sentences");
-  const [quantity, setQuantity] = useState(5);
+  const [quantity, setQuantity] = useState("5");
   const [includePunctuation, setIncludePunctuation] = useState(true);
   const [capitalizeSentences, setCapitalizeSentences] = useState(true);
   const [onePerLine, setOnePerLine] = useState(false);
@@ -291,7 +291,8 @@ export function RandomTextGenerator() {
     event.preventDefault();
     setCopyStatus("");
 
-    const normalizedQuantity = Math.min(Math.max(quantity || 1, 1), mode === "paragraphs" ? 12 : 200);
+    const parsedQuantity = Number(quantity);
+    const normalizedQuantity = Math.min(Math.max(Number.isFinite(parsedQuantity) ? parsedQuantity : 1, 1), mode === "paragraphs" ? 12 : 200);
     const output = buildText({
       locale,
       localeCode,
@@ -303,7 +304,7 @@ export function RandomTextGenerator() {
       onePerLine
     });
 
-    setQuantity(normalizedQuantity);
+    setQuantity(String(normalizedQuantity));
     setResult({ output, source, mode });
     scrollToResultOnMobile();
   }
@@ -311,7 +312,7 @@ export function RandomTextGenerator() {
   function handleReset() {
     setSource("natural");
     setMode("sentences");
-    setQuantity(5);
+    setQuantity("5");
     setIncludePunctuation(true);
     setCapitalizeSentences(true);
     setOnePerLine(false);
@@ -374,7 +375,7 @@ export function RandomTextGenerator() {
           <input
             max={mode === "paragraphs" ? 12 : 200}
             min={1}
-            onChange={(event) => setQuantity(Number(event.target.value))}
+            onChange={(event) => setQuantity(event.target.value)}
             type="number"
             value={quantity}
           />
