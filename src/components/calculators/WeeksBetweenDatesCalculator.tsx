@@ -4,9 +4,8 @@ import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
-import { calculateDaysBetweenDates, type DaysBetweenDatesResponse } from "../../services/timeApi";
 
-type DaysBetweenDatesData = DaysBetweenDatesResponse["data"];
+const DAY_IN_MS = 24 * 60 * 60 * 1000;
 
 function toDateKey(date: Date) {
   const year = date.getFullYear();
@@ -26,82 +25,99 @@ function addDays(date: Date, days: number) {
   return nextDate;
 }
 
+function parseDateKey(value: string) {
+  const [year, month, day] = value.split("-").map(Number);
+
+  if (!year || !month || !day) return null;
+
+  return Date.UTC(year, month - 1, day);
+}
+
 const copy = {
   es: {
     kicker: "Contador",
-    title: "Días entre fechas",
+    title: "Semanas entre fechas",
     startDate: "Fecha inicial",
     endDate: "Fecha final",
     startDateAria: "Seleccionar fecha inicial",
     endDateAria: "Seleccionar fecha final",
     includeEndDate: "Incluir fecha final",
-    includeEndDateHelp: "Actívalo si quieres contar también el último día del periodo.",
-    helperText: "\u00bfLo necesitas en semanas?",
-    helperAction: "Calcular semanas",
+    includeEndDateHelp: "Activalo si quieres contar tambien el ultimo dia del periodo.",
+    helperText: "Prefieres verlo en dias?",
+    helperAction: "Calcular dias",
     selectBothDates: "Selecciona la fecha inicial y la fecha final.",
     endAfterStart: "La fecha final debe ser igual o posterior a la fecha inicial.",
-    hint: "Cuenta días calendario entre dos fechas. No descuenta fines de semana ni festivos.",
-    submit: "Contar días",
+    hint: "Convierte el tiempo entre dos fechas a semanas completas, dias restantes y semanas aproximadas.",
+    submit: "Calcular semanas",
     reset: "Restablecer",
     totalBetweenDates: "Total entre fechas",
-    days: "días",
     approximateWeeks: "semanas aproximadas",
     fullWeeks: "Semanas completas",
-    remainingDays: "Días restantes",
-    calendarDifference: "Diferencia calendario",
+    remainingDays: "Dias restantes",
+    totalDays: "Dias calendario",
     includesEndDate: "Incluye fecha final",
-    yes: "Sí",
+    yes: "Si",
     no: "No",
-    rulesNote: "Se contó desde {start} hasta {end}{suffix}",
+    rulesNote: "Se conto desde {start} hasta {end}{suffix}",
     withEndSuffix: ", incluyendo la fecha final.",
     withoutEndSuffix: ", sin incluir la fecha final.",
-    emptyTitle: "Resultado del conteo",
-    emptyDescription: "Selecciona dos fechas para ver cuántos días hay entre ellas."
+    disclaimer: "Conteo calendario. No evalua dias habiles, festivos, plazos ni reglas legales.",
+    emptyTitle: "Resultado en semanas",
+    emptyDescription: "Selecciona dos fechas para ver semanas completas, dias restantes y semanas aproximadas."
   },
   en: {
     kicker: "Counter",
-    title: "Days between dates",
+    title: "Weeks between dates",
     startDate: "Start date",
     endDate: "End date",
     startDateAria: "Select start date",
     endDateAria: "Select end date",
     includeEndDate: "Include end date",
     includeEndDateHelp: "Turn it on if you also want to count the last day of the period.",
-    helperText: "Need it in weeks?",
-    helperAction: "Calculate weeks",
+    helperText: "Prefer to see days?",
+    helperAction: "Calculate days",
     selectBothDates: "Select the start date and the end date.",
     endAfterStart: "The end date must be the same as or later than the start date.",
-    hint: "Counts calendar days between two dates. It does not exclude weekends or holidays.",
-    submit: "Count days",
+    hint: "Convert the time between two dates into full weeks, remaining days, and approximate weeks.",
+    submit: "Calculate weeks",
     reset: "Reset",
     totalBetweenDates: "Total between dates",
-    days: "days",
     approximateWeeks: "approximate weeks",
     fullWeeks: "Full weeks",
     remainingDays: "Remaining days",
-    calendarDifference: "Calendar difference",
+    totalDays: "Calendar days",
     includesEndDate: "Includes end date",
     yes: "Yes",
     no: "No",
     rulesNote: "Counted from {start} to {end}{suffix}",
     withEndSuffix: ", including the end date.",
     withoutEndSuffix: ", excluding the end date.",
-    emptyTitle: "Count result",
-    emptyDescription: "Select two dates to see how many days are between them."
+    disclaimer: "Calendar count. It does not evaluate business days, holidays, deadlines, or legal rules.",
+    emptyTitle: "Weeks result",
+    emptyDescription: "Select two dates to see full weeks, remaining days, and approximate weeks."
   }
 } as const;
 
-export function DaysBetweenDatesCalculator() {
+export function WeeksBetweenDatesCalculator() {
   const { locale, localizePath } = useLocale();
   const text = copy[locale];
-  const numberFormatter = useMemo(() => new Intl.NumberFormat(locale === "es" ? "es-CO" : "en-US", {
-    maximumFractionDigits: 2
-  }), [locale]);
+  const numberFormatter = useMemo(
+    () => new Intl.NumberFormat(locale === "es" ? "es-CO" : "en-US", { maximumFractionDigits: 2 }),
+    [locale]
+  );
 
   const [startDate, setStartDate] = useState(todayDate());
-  const [endDate, setEndDate] = useState(toDateKey(addDays(new Date(), 17)));
+  const [endDate, setEndDate] = useState(toDateKey(addDays(new Date(), 45)));
   const [includeEndDate, setIncludeEndDate] = useState(false);
-  const [result, setResult] = useState<DaysBetweenDatesData | null>(null);
+  const [result, setResult] = useState<{
+    startDate: string;
+    endDate: string;
+    includeEndDate: boolean;
+    days: number;
+    weeks: number;
+    fullWeeks: number;
+    remainingDays: number;
+  } | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { resultRef, scrollToResultOnMobile } = useMobileResultScroll<HTMLElement>();
@@ -113,9 +129,7 @@ export function DaysBetweenDatesCalculator() {
   function formatDate(value: string) {
     const [year, month, day] = value.split("-").map(Number);
 
-    if (!year || !month || !day) {
-      return value;
-    }
+    if (!year || !month || !day) return value;
 
     return new Intl.DateTimeFormat(locale === "es" ? "es-CO" : "en-US", {
       day: "2-digit",
@@ -124,41 +138,45 @@ export function DaysBetweenDatesCalculator() {
     }).format(new Date(year, month - 1, day));
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
 
-    if (!startDate || !endDate) {
+    const startTime = parseDateKey(startDate);
+    const endTime = parseDateKey(endDate);
+
+    if (startTime === null || endTime === null) {
       setError(text.selectBothDates);
       return;
     }
 
-    if (endDate < startDate) {
+    if (endTime < startTime) {
       setError(text.endAfterStart);
       return;
     }
 
     setIsLoading(true);
 
-    try {
-      const data = await calculateDaysBetweenDates({
-        startDate,
-        endDate,
-        includeEndDate
-      });
-      setResult(data);
-      scrollToResultOnMobile();
-    } catch (requestError) {
-      setError(requestError instanceof Error ? requestError.message : text.selectBothDates);
-      setResult(null);
-    } finally {
-      setIsLoading(false);
-    }
+    const baseDays = Math.round((endTime - startTime) / DAY_IN_MS);
+    const days = includeEndDate ? baseDays + 1 : baseDays;
+    const fullWeeks = Math.floor(days / 7);
+
+    setResult({
+      startDate,
+      endDate,
+      includeEndDate,
+      days,
+      weeks: days / 7,
+      fullWeeks,
+      remainingDays: days % 7
+    });
+    setIsLoading(false);
+    scrollToResultOnMobile();
   }
 
   function handleReset() {
     setStartDate(todayDate());
-    setEndDate(toDateKey(addDays(new Date(), 17)));
+    setEndDate(toDateKey(addDays(new Date(), 45)));
     setIncludeEndDate(false);
     setResult(null);
     setError("");
@@ -166,9 +184,9 @@ export function DaysBetweenDatesCalculator() {
 
   const rulesNote = result
     ? text.rulesNote
-        .replace("{start}", formatDate(result.input.startDate))
-        .replace("{end}", formatDate(result.input.endDate))
-        .replace("{suffix}", result.input.includeEndDate ? text.withEndSuffix : text.withoutEndSuffix)
+        .replace("{start}", formatDate(result.startDate))
+        .replace("{end}", formatDate(result.endDate))
+        .replace("{suffix}", result.includeEndDate ? text.withEndSuffix : text.withoutEndSuffix)
     : "";
 
   return (
@@ -210,7 +228,7 @@ export function DaysBetweenDatesCalculator() {
 
         <div className="field-action-row">
           <span>{text.helperText}</span>
-          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/weeks-between-dates-calculator")}>
+          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/days-between-dates-calculator")}>
             {text.helperAction}
             <ArrowRight size={16} strokeWidth={2.1} />
           </a>
@@ -237,26 +255,26 @@ export function DaysBetweenDatesCalculator() {
         <aside className="result-panel" ref={resultRef}>
           <div className="result-panel__hero">
             <p>{text.totalBetweenDates}</p>
-            <strong>{formatNumber(result.result.days)} {text.days}</strong>
-            <span>{formatNumber(result.result.weeks)} {text.approximateWeeks}</span>
+            <strong>{formatNumber(result.weeks)} {text.approximateWeeks}</strong>
+            <span>{result.fullWeeks} {text.fullWeeks.toLowerCase()} + {result.remainingDays} {text.remainingDays.toLowerCase()}</span>
           </div>
 
           <div className="result-breakdown">
             <div className="result-item">
               <span>{text.fullWeeks}</span>
-              <strong>{result.result.fullWeeks}</strong>
+              <strong>{result.fullWeeks}</strong>
             </div>
             <div className="result-item">
               <span>{text.remainingDays}</span>
-              <strong>{result.result.remainingDays}</strong>
+              <strong>{result.remainingDays}</strong>
             </div>
             <div className="result-item">
-              <span>{text.calendarDifference}</span>
-              <strong>{result.result.calendarDaysDifference}</strong>
+              <span>{text.totalDays}</span>
+              <strong>{result.days}</strong>
             </div>
             <div className="result-item result-item--strong">
               <span>{text.includesEndDate}</span>
-              <strong>{result.input.includeEndDate ? text.yes : text.no}</strong>
+              <strong>{result.includeEndDate ? text.yes : text.no}</strong>
             </div>
           </div>
 
@@ -265,11 +283,7 @@ export function DaysBetweenDatesCalculator() {
             <p>{rulesNote}</p>
           </div>
 
-          <p className="disclaimer">
-            {locale === "es"
-              ? "Conteo estimado de días calendario. No evalúa días hábiles, festivos, plazos ni reglas legales."
-              : "Estimated calendar day count. It does not evaluate business days, holidays, deadlines, or legal rules."}
-          </p>
+          <p className="disclaimer">{text.disclaimer}</p>
         </aside>
       ) : (
         <aside className="result-panel result-panel--empty" ref={resultRef}>

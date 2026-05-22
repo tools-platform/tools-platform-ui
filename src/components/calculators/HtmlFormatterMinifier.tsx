@@ -1,4 +1,4 @@
-import { CheckCircle2, Clipboard, Code2, FileCode2, Info, Maximize2, RotateCcw } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clipboard, Code2, FileCode2, Info, Maximize2, RotateCcw } from "lucide-react";
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { ExpandedTextTransform } from "../ExpandedTextTransform";
@@ -26,6 +26,8 @@ const copy = {
     minify: "Minificar",
     removeComments: "Eliminar comentarios HTML",
     removeCommentsHelp: "Quita bloques <!-- comentario --> antes de generar el resultado.",
+    helperText: "Quieres ver el resultado?",
+    helperAction: "Previsualizar HTML",
     hint: "Transforma HTML como texto en tu navegador. No ejecuta ni renderiza el contenido.",
     emptyError: "Pega código HTML para formatear o minificar.",
     submitFormat: "Formatear HTML",
@@ -62,6 +64,8 @@ const copy = {
     minify: "Minify",
     removeComments: "Remove HTML comments",
     removeCommentsHelp: "Removes <!-- comment --> blocks before generating the result.",
+    helperText: "Want to preview it?",
+    helperAction: "Preview HTML",
     hint: "Transform HTML as text in your browser. It does not execute or render the content.",
     emptyError: "Paste HTML code to format or minify.",
     submitFormat: "Format HTML",
@@ -200,7 +204,7 @@ function transformHtml(value: string, mode: HtmlMode, removeComments: boolean): 
 }
 
 export function HtmlFormatterMinifier() {
-  const { locale } = useLocale();
+  const { locale, localizePath } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
   const numberFormatter = useMemo(() => new Intl.NumberFormat(localeCode), [localeCode]);
@@ -335,6 +339,14 @@ export function HtmlFormatterMinifier() {
               <small>{text.removeCommentsHelp}</small>
             </span>
           </label>
+        </div>
+
+        <div className="field-action-row">
+          <span>{text.helperText}</span>
+          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/html-preview-online")}>
+            {text.helperAction}
+            <ArrowRight size={16} strokeWidth={2.1} />
+          </a>
         </div>
 
         <div className="calculator-hint">

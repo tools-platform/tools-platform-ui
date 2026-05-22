@@ -79,6 +79,18 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
     es: ["convertidor de mayúsculas", "convertir a minúsculas", "mayúsculas y minúsculas online"],
     en: ["uppercase converter", "lowercase converter", "text case converter"]
   },
+  "duplicate-counter": {
+    es: ["contador de duplicados", "buscar valores repetidos", "contar repetidos en lista"],
+    en: ["duplicate counter", "find repeated values", "count duplicates in a list"]
+  },
+  "remove-extra-spaces": {
+    es: ["quitar espacios extra", "limpiar espacios en texto", "eliminar espacios dobles"],
+    en: ["remove extra spaces", "clean text spaces", "remove double spaces"]
+  },
+  "remove-accents": {
+    es: ["quitar tildes online", "eliminar acentos de texto", "convertir texto sin tildes"],
+    en: ["remove accents online", "remove diacritics from text", "convert text without accents"]
+  },
   "secure-password-generator": {
     es: ["generador de contraseñas seguras", "crear contraseña aleatoria", "password generator online"],
     en: ["secure password generator", "random password generator", "strong password generator"]
@@ -111,6 +123,10 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
     es: ["convertidor camelCase", "snake_case converter", "PascalCase y kebab-case"],
     en: ["camelCase converter", "snake_case converter", "PascalCase and kebab-case converter"]
   },
+  "base64-converter": {
+    es: ["convertidor Base64 online", "codificar Base64", "decodificar Base64"],
+    en: ["Base64 converter online", "encode Base64", "decode Base64"]
+  },
   "html-preview": {
     es: ["vista previa HTML online", "preview HTML seguro", "probar código HTML online"],
     en: ["online HTML preview", "safe HTML preview", "test HTML code online"]
@@ -118,6 +134,10 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
   "html-formatter-minifier": {
     es: ["formateador HTML online", "minificar HTML", "ordenar código HTML"],
     en: ["HTML formatter online", "minify HTML", "format HTML code"]
+  },
+  "weeks-between-dates": {
+    es: ["calculadora de semanas entre fechas", "cuantas semanas hay entre fechas", "convertir fechas a semanas"],
+    en: ["weeks between dates calculator", "how many weeks between dates", "convert dates to weeks"]
   }
 };
 

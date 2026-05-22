@@ -199,6 +199,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/weeks-between-dates-calculator",
+    title: {
+      es: "Calculadora de semanas entre fechas | Semanas y dias",
+      en: "Weeks Between Dates Calculator Online | Weeks and Days"
+    },
+    description: {
+      es: "Calcula cuantas semanas hay entre dos fechas. Muestra semanas aproximadas, semanas completas, dias restantes y dias calendario.",
+      en: "Calculate how many weeks are between two dates. See approximate weeks, full weeks, remaining days, and calendar days."
+    }
+  },
+  {
     path: "/tools/days-until-date-calculator",
     title: {
       es: "Cuántos días faltan para una fecha | Contador de días",
@@ -593,6 +604,28 @@ const toolFaqsByPath = {
       },
       answer: {
         es: "No. Cuenta días calendario.",
+        en: "No. It counts calendar days."
+      }
+    }
+  ],
+  "/tools/weeks-between-dates-calculator": [
+    {
+      question: {
+        es: "Como calcular semanas entre dos fechas?",
+        en: "How do I calculate weeks between two dates?"
+      },
+      answer: {
+        es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula los dias calendario y los convierte en semanas completas, dias restantes y semanas aproximadas.",
+        en: "Select the start date and end date. The tool calculates calendar days and converts them into full weeks, remaining days, and approximate weeks."
+      }
+    },
+    {
+      question: {
+        es: "Cuenta dias habiles?",
+        en: "Does it count business days?"
+      },
+      answer: {
+        es: "No. Cuenta dias calendario.",
         en: "No. It counts calendar days."
       }
     }

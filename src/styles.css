@@ -1977,15 +1977,15 @@ select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 16px;
+  margin-top: 20px;
   border: 1px solid color-mix(in oklch, var(--primary), transparent 76%);
-  border-radius: 14px;
+  border-radius: 16px;
   background: color-mix(in oklch, var(--primary), white 94%);
   color: var(--muted-foreground);
   font-size: 13px;
   line-height: 1.4;
-  padding: 12px;
+  padding: 16px;
 }
 
 .field-action-row > span {
@@ -3861,6 +3861,7 @@ select {
   .field-action-row {
     align-items: stretch;
     flex-direction: column;
+    gap: 12px;
   }
 
   .field-action-row .secondary-action {

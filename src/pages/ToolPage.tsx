@@ -30,6 +30,7 @@ import { SocialBenefitsColombiaCalculator } from "../components/calculators/Soci
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { UuidGenerator } from "../components/calculators/UuidGenerator";
+import { WeeksBetweenDatesCalculator } from "../components/calculators/WeeksBetweenDatesCalculator";
 import { WorkedHoursCalculator } from "../components/calculators/WorkedHoursCalculator";
 import { RelatedTools } from "../components/RelatedTools";
 import { ToolFeedback } from "../components/ToolFeedback";
@@ -130,6 +131,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <FreelanceRateCalculator />
       ) : tool.id === "days-between-dates" ? (
         <DaysBetweenDatesCalculator />
+      ) : tool.id === "weeks-between-dates" ? (
+        <WeeksBetweenDatesCalculator />
       ) : tool.id === "exact-age" ? (
         <ExactAgeCalculator />
       ) : tool.id === "unit-converter" ? (

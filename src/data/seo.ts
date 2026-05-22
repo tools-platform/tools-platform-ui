@@ -154,6 +154,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Count calendar days between two dates for paperwork, trips, deliveries, or planning. Includes full weeks and remaining days."
     }
   },
+  "weeks-between-dates": {
+    title: {
+      es: "Calculadora de semanas entre fechas | Semanas y dias",
+      en: "Weeks Between Dates Calculator Online | Weeks and Days"
+    },
+    description: {
+      es: "Calcula cuantas semanas hay entre dos fechas. Muestra semanas aproximadas, semanas completas, dias restantes y dias calendario.",
+      en: "Calculate how many weeks are between two dates. See approximate weeks, full weeks, remaining days, and calendar days."
+    }
+  },
   "days-until-date": {
     title: {
       es: "Cuántos días faltan para una fecha | Contador de días",

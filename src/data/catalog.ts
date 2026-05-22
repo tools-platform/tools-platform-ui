@@ -606,7 +606,7 @@ export const tools: ToolSummary[] = [
       en: "Convert the time between two dates into weeks and days."
     },
     categoryId: "time",
-    status: "draft",
+    status: "published",
     Icon: Clock3
   }
 ];

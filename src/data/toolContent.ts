@@ -887,6 +887,63 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "weeks-between-dates": {
+    intro: {
+      es: "Calcula cuantas semanas hay entre dos fechas y convierte el periodo en semanas completas, dias restantes y dias calendario.",
+      en: "Calculate how many weeks are between two dates and convert the period into full weeks, remaining days, and calendar days."
+    },
+    sections: [
+      {
+        title: { es: "Que muestra", en: "What it shows" },
+        body: [
+          {
+            es: "Entrega semanas aproximadas, semanas completas, dias restantes y total de dias calendario entre la fecha inicial y la fecha final.",
+            en: "It returns approximate weeks, full weeks, remaining days, and total calendar days between the start and end dates."
+          },
+          {
+            es: "Puedes elegir si quieres incluir la fecha final cuando necesitas contar ambos extremos del periodo.",
+            en: "You can choose whether to include the end date when both endpoints should count."
+          }
+        ]
+      },
+      {
+        title: { es: "Usos comunes", en: "Common uses" },
+        body: [
+          {
+            es: "Sirve para planes de estudio, proyectos, viajes, entregas, rutinas, embarazo, eventos o conteos rapidos por semanas.",
+            en: "It helps with study plans, projects, trips, deliveries, routines, pregnancy, events, or quick week-based counts."
+          },
+          {
+            es: "No interpreta dias habiles, festivos, vencimientos legales ni reglas de entidades.",
+            en: "It does not interpret business days, holidays, legal deadlines, or institution-specific rules."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "Como calcular semanas entre dos fechas?", en: "How do I calculate weeks between two dates?" },
+        answer: {
+          es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula el total de dias y lo convierte a semanas aproximadas, semanas completas y dias restantes.",
+          en: "Select the start date and end date. The tool calculates total days and converts them into approximate weeks, full weeks, and remaining days."
+        }
+      },
+      {
+        question: { es: "Cuenta la fecha final?", en: "Does it count the end date?" },
+        answer: {
+          es: "Solo si activas la opcion de incluir fecha final. Esto suma un dia al conteo.",
+          en: "Only if you enable the include end date option. That adds one day to the count."
+        }
+      },
+      {
+        question: { es: "Cuenta dias habiles?", en: "Does it count business days?" },
+        answer: {
+          es: "No. Cuenta dias calendario y los convierte a semanas.",
+          en: "No. It counts calendar days and converts them into weeks."
+        }
+      }
+    ]
+  },
   "days-until-date": {
     intro: {
       es: "Cuenta cuántos días faltan para una fecha futura, evento, entrega o plazo personal.",

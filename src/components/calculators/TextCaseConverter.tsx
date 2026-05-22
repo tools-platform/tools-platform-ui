@@ -1,4 +1,4 @@
-﻿import { CheckCircle2, Clipboard, Info, LetterText, RotateCcw, Wand2 } from "lucide-react";
+﻿import { ArrowRight, CheckCircle2, Clipboard, Info, LetterText, RotateCcw, Wand2 } from "lucide-react";
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -25,6 +25,8 @@ const copy = {
     originalPlaceholder: "Pega aquí el texto que quieres convertir...",
     format: "Formato",
     emptyError: "Escribe o pega un texto para transformarlo.",
+    helperText: "Tiene tildes o simbolos?",
+    helperAction: "Limpiar texto",
     hint: "El texto se transforma en tu navegador. No se envía a ningún servidor.",
     submit: "Transformar texto",
     reset: "Restablecer",
@@ -57,6 +59,8 @@ const copy = {
     originalPlaceholder: "Paste the text you want to transform here...",
     format: "Format",
     emptyError: "Type or paste text to transform it.",
+    helperText: "Has accents or symbols?",
+    helperAction: "Clean text",
     hint: "The text is transformed in your browser. It is not sent to any server.",
     submit: "Transform text",
     reset: "Reset",
@@ -118,7 +122,7 @@ function transformText(value: string, mode: CaseMode, localeCode: string) {
 }
 
 export function TextCaseConverter() {
-  const { locale } = useLocale();
+  const { locale, localizePath } = useLocale();
   const localeCode = locale === "es" ? "es-CO" : "en-US";
   const text = copy[locale];
   const caseModes = text.modes;
@@ -224,6 +228,14 @@ export function TextCaseConverter() {
               </button>
             ))}
           </div>
+        </div>
+
+        <div className="field-action-row">
+          <span>{text.helperText}</span>
+          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/remove-accents")}>
+            {text.helperAction}
+            <ArrowRight size={16} strokeWidth={2.1} />
+          </a>
         </div>
 
         {error ? <p className="form-error">{error}</p> : null}
