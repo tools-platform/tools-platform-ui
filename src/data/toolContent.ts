@@ -426,6 +426,63 @@ export const toolContentById: Record<string, ToolContent> = {
       }
     ]
   },
+  "social-benefits-colombia": {
+    intro: {
+      es: "Calcula prestaciones sociales en Colombia para un periodo específico: cesantías, intereses de cesantías, prima de servicios y vacaciones causadas.",
+      en: "Calculate Colombia social benefits for a specific period: severance, severance interest, service bonus, and accrued vacation."
+    },
+    sections: [
+      {
+        title: { es: "Qué calcula", en: "What it calculates" },
+        body: [
+          {
+            es: "La herramienta usa salario mensual bruto, fechas y año de reglas para estimar prestaciones proporcionales del periodo indicado.",
+            en: "The tool uses gross monthly salary, dates, and rule year to estimate proportional benefits for the selected period."
+          },
+          {
+            es: "Incluye el auxilio de transporte en cesantías y prima solo si activas la opción y el salario cumple el límite legal del año.",
+            en: "It includes transportation allowance in severance and service bonus only when enabled and when the salary meets that year's legal threshold."
+          }
+        ]
+      },
+      {
+        title: { es: "Diferencia con liquidación", en: "Difference from settlement" },
+        body: [
+          {
+            es: "Esta página no calcula indemnización ni salario pendiente por terminar un contrato. Sirve para estimar prestaciones acumuladas aunque el contrato siga activo.",
+            en: "This page does not calculate dismissal compensation or pending salary tied to ending a contract. It estimates accrued benefits even when employment continues."
+          },
+          {
+            es: "Las vacaciones se calculan como causadas completas entre las fechas elegidas; no se restan vacaciones ya disfrutadas o pagadas.",
+            en: "Vacation is calculated as fully accrued between the selected dates; previously used or paid vacation is not subtracted."
+          }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: { es: "¿Qué salario debo ingresar?", en: "Which salary should I enter?" },
+        answer: {
+          es: "Ingresa el salario mensual bruto, antes de descuentos de salud, pensión u otros conceptos.",
+          en: "Enter the gross monthly salary, before health, pension, or other deductions."
+        }
+      },
+      {
+        question: { es: "¿Para qué sirven las fechas?", en: "What are the dates for?" },
+        answer: {
+          es: "Sirven para calcular los días del periodo que quieres estimar. No tienen que representar una terminación del contrato.",
+          en: "They calculate the days in the period you want to estimate. They do not have to represent contract termination."
+        }
+      },
+      {
+        question: { es: "¿Debo escribir el valor del auxilio de transporte?", en: "Do I need to enter the transportation allowance amount?" },
+        answer: {
+          es: "No. La herramienta usa el valor legal del año de reglas y valida automáticamente si el salario cumple el límite.",
+          en: "No. The tool uses the legal value for the selected rule year and automatically checks whether the salary meets the threshold."
+        }
+      }
+    ]
+  },
   "credit-interest": {
     intro: {
       es: "Esta calculadora estima cuánto pagarías en intereses por un crédito antes de tomar una decisión de endeudamiento.",

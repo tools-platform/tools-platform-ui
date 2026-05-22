@@ -387,6 +387,51 @@ export type EmploymentSettlementColombiaResponse = {
   };
 };
 
+export type SocialBenefitsColombiaRequest = {
+  monthlySalary: number;
+  startDate: string;
+  endDate: string;
+  year?: number;
+  includeTransportationAllowance?: boolean;
+};
+
+export type SocialBenefitsColombiaResponse = {
+  success: true;
+  data: {
+    currency: "COP";
+    year: number;
+    input: SocialBenefitsColombiaRequest & {
+      includeTransportationAllowance: boolean;
+    };
+    period: {
+      startDate: string;
+      endDate: string;
+      workedDays: number;
+    };
+    result: {
+      baseSalary: number;
+      transportationAllowance: number;
+      benefitsBase: number;
+      severancePay: number;
+      severanceInterest: number;
+      serviceBonus: number;
+      vacationPay: number;
+      totalBenefits: number;
+    };
+    rules: {
+      minimumMonthlyWage: number;
+      transportationAllowanceValue: number;
+      transportationAllowanceSalaryLimit: number;
+      qualifiesForTransportationAllowance: boolean;
+      severanceInterestRate: number;
+      daysInLaborYear: number;
+      vacationDaysPerYear: number;
+      sources: string[];
+    };
+    disclaimer: string;
+  };
+};
+
 export function calculateNetSalaryColombia(
   request: NetSalaryColombiaRequest
 ): Promise<NetSalaryColombiaResponse["data"]> {
@@ -448,5 +493,14 @@ export function calculateEmploymentSettlementColombia(
   return postJson("/finance/employment-settlement-colombia", request, {
     es: "No se pudo calcular la liquidación.",
     en: "We couldn't calculate the employment settlement."
+  });
+}
+
+export function calculateSocialBenefitsColombia(
+  request: SocialBenefitsColombiaRequest
+): Promise<SocialBenefitsColombiaResponse["data"]> {
+  return postJson("/finance/colombia-social-benefits", request, {
+    es: "No se pudieron calcular las prestaciones.",
+    en: "We couldn't calculate the social benefits."
   });
 }

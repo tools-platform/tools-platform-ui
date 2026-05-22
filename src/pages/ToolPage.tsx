@@ -26,6 +26,7 @@ import { RemoveExtraSpaces } from "../components/calculators/RemoveExtraSpaces";
 import { RandomTextGenerator } from "../components/calculators/RandomTextGenerator";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
 import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
+import { SocialBenefitsColombiaCalculator } from "../components/calculators/SocialBenefitsColombiaCalculator";
 import { TextCaseConverter } from "../components/calculators/TextCaseConverter";
 import { UnitConverter } from "../components/calculators/UnitConverter";
 import { UuidGenerator } from "../components/calculators/UuidGenerator";
@@ -113,6 +114,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <OvertimeColombiaCalculator />
       ) : tool.id === "employment-settlement-colombia" ? (
         <EmploymentSettlementColombiaCalculator />
+      ) : tool.id === "social-benefits-colombia" ? (
+        <SocialBenefitsColombiaCalculator />
       ) : tool.id === "credit-interest" ? (
         <CreditInterestCalculator />
       ) : tool.id === "loan-payment" ? (

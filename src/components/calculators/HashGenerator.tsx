@@ -233,31 +233,33 @@ export function HashGenerator() {
           />
         </label>
 
-        <label className="field field--spaced">
-          <span>{text.algorithm}</span>
-          <div className="select-control">
-            <select className="plain-select" onChange={(event) => setAlgorithm(event.target.value as HashAlgorithm)} value={algorithm}>
-              {algorithms.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={18} strokeWidth={2.1} />
-          </div>
-        </label>
+        <div className="form-grid">
+          <label className="field">
+            <span>{text.algorithm}</span>
+            <div className="select-control">
+              <select className="plain-select" onChange={(event) => setAlgorithm(event.target.value as HashAlgorithm)} value={algorithm}>
+                {algorithms.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={18} strokeWidth={2.1} />
+            </div>
+          </label>
 
-        <label className="field field--spaced">
-          <span>{text.letterCase}</span>
-          <div className="select-control">
-            <select className="plain-select" onChange={(event) => setLetterCase(event.target.value as HashCase)} value={letterCase}>
-              <option value="lowercase">{text.lowercase}</option>
-              <option value="uppercase">{text.uppercase}</option>
-              <option value="mixed">{text.mixed}</option>
-            </select>
-            <ChevronDown size={18} strokeWidth={2.1} />
-          </div>
-        </label>
+          <label className="field">
+            <span>{text.letterCase}</span>
+            <div className="select-control">
+              <select className="plain-select" onChange={(event) => setLetterCase(event.target.value as HashCase)} value={letterCase}>
+                <option value="lowercase">{text.lowercase}</option>
+                <option value="uppercase">{text.uppercase}</option>
+                <option value="mixed">{text.mixed}</option>
+              </select>
+              <ChevronDown size={18} strokeWidth={2.1} />
+            </div>
+          </label>
+        </div>
 
         <div className="duplicate-options field--spaced">
           <label className="toggle-field toggle-field--compact">

@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, TrendingUp } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2, CircleDollarSign, Info, Loader2, TrendingUp } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -23,6 +23,8 @@ const copy = {
     kicker: "Calculadora",
     title: "Aumento salarial",
     currentSalary: "Salario actual",
+    salaryHelper: "¿Solo sabes tu quincena?",
+    salaryHelperAction: "Calcular salario",
     increasePercent: "Porcentaje de aumento",
     includeDeductions: "Aplicar descuentos de nómina (Colombia)",
     includeDeductionsHelp: "Incluye salud, pensión y Fondo de Solidaridad cuando aplique.",
@@ -53,6 +55,8 @@ const copy = {
     kicker: "Calculator",
     title: "Salary increase",
     currentSalary: "Current salary",
+    salaryHelper: "Only know biweekly pay?",
+    salaryHelperAction: "Calculate salary",
     increasePercent: "Increase percentage",
     includeDeductions: "Apply payroll deductions (Colombia)",
     includeDeductionsHelp: "Includes health, pension, and solidarity fund when applicable.",
@@ -82,7 +86,7 @@ const copy = {
 } as const;
 
 export function SalaryIncreaseCalculator() {
-  const { locale } = useLocale();
+  const { locale, localizePath } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
   const numberFormatter = useMemo(
@@ -183,6 +187,13 @@ export function SalaryIncreaseCalculator() {
             <strong>COP</strong>
           </div>
         </label>
+        <div className="field-action-row">
+          <span>{text.salaryHelper}</span>
+          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/colombia-gross-salary-calculator")}>
+            {text.salaryHelperAction}
+            <ArrowRight size={16} strokeWidth={2.1} />
+          </a>
+        </div>
 
         <label className="field field--spaced">
           <span>

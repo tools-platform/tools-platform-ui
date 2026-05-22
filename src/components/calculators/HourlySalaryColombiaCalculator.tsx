@@ -1,4 +1,4 @@
-﻿import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+﻿import { ArrowRight, Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -48,8 +48,13 @@ const copy = {
   es: {
     kicker: "Calculadora",
     title: "Salario por hora",
-    monthlySalary: "Salario mensual",
-    monthlySalaryHelp: "Es el salario mensual que quieres convertir a valor por hora.",
+    monthlySalary: "Salario mensual base",
+    monthlySalaryHelp: "El tipo de cálculo define si se usa bruto o neto.",
+    monthlySalaryTooltip: "Usa bruto si es antes de descuentos. Usa neto si es después de salud, pensión y otros descuentos de nómina.",
+    salaryHelperGross: "¿Solo sabes tu quincena?",
+    salaryHelperGrossAction: "Calcular salario",
+    salaryHelperNet: "¿No sabes el salario neto?",
+    salaryHelperNetAction: "Calcular salario",
     payrollYear: "Año de reglas",
     payrollYearHelp: "Lo usamos para aplicar la jornada legal y los límites laborales vigentes de ese año en Colombia.",
     editYearAria: "Editar año de reglas",
@@ -100,8 +105,13 @@ const copy = {
   en: {
     kicker: "Calculator",
     title: "Hourly salary",
-    monthlySalary: "Monthly salary",
-    monthlySalaryHelp: "This is the monthly salary you want to convert into an hourly value.",
+    monthlySalary: "Base monthly salary",
+    monthlySalaryHelp: "The calculation type defines whether gross or net is used.",
+    monthlySalaryTooltip: "Use gross if it is before deductions. Use net if it is after health, pension, and other payroll deductions.",
+    salaryHelperGross: "Only know biweekly pay?",
+    salaryHelperGrossAction: "Calculate salary",
+    salaryHelperNet: "Don't know the net salary?",
+    salaryHelperNetAction: "Calculate salary",
     payrollYear: "Rule year",
     payrollYearHelp: "We use it to apply the legal workweek and labor limits in force for that year in Colombia.",
     editYearAria: "Edit rule year",
@@ -152,7 +162,7 @@ const copy = {
 } as const;
 
 export function HourlySalaryColombiaCalculator() {
-  const { locale } = useLocale();
+  const { locale, localizePath } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
   const currencyFormatter = useMemo(
@@ -268,7 +278,30 @@ export function HourlySalaryColombiaCalculator() {
         </div>
 
         <label className="field">
-          <span>{text.monthlySalary} <span className="required-mark">*</span></span>
+          <span className="field-label">
+            {text.salaryType} <span className="required-mark">*</span>
+            <span className="info-tooltip">
+              <Info size={15} strokeWidth={2.1} />
+              <span role="tooltip">{text.salaryTypeHelp}</span>
+            </span>
+          </span>
+          <span className="select-control">
+            <select onChange={(event) => setSalaryType(event.target.value as HourlySalaryType)} value={salaryType}>
+              <option value="gross">{text.gross}</option>
+              <option value="net">{text.net}</option>
+            </select>
+            <ChevronDown size={18} strokeWidth={2.1} />
+          </span>
+        </label>
+
+        <label className="field field--spaced">
+          <span className="field-label">
+            {text.monthlySalary} <span className="required-mark">*</span>
+            <span className="info-tooltip">
+              <Info size={15} strokeWidth={2.1} />
+              <span role="tooltip">{text.monthlySalaryTooltip}</span>
+            </span>
+          </span>
           <div className="money-input">
             <span>$</span>
             <input inputMode="numeric" onChange={(event) => setMonthlySalary(formatMoneyInput(event.target.value))} placeholder="2.500.000" required type="text" value={monthlySalary} />
@@ -276,6 +309,13 @@ export function HourlySalaryColombiaCalculator() {
           </div>
           <small>{text.monthlySalaryHelp}</small>
         </label>
+        <div className="field-action-row">
+          <span>{salaryType === "net" ? text.salaryHelperNet : text.salaryHelperGross}</span>
+          <a className="secondary-action secondary-action--compact" href={localizePath(salaryType === "net" ? "/tools/colombia-net-salary-calculator" : "/tools/colombia-gross-salary-calculator")}>
+            {salaryType === "net" ? text.salaryHelperNetAction : text.salaryHelperGrossAction}
+            <ArrowRight size={16} strokeWidth={2.1} />
+          </a>
+        </div>
 
         <div className="form-grid form-grid--single">
           <div className="form-grid form-grid--compact">
@@ -315,23 +355,6 @@ export function HourlySalaryColombiaCalculator() {
               </div>
             </label>
           </div>
-
-          <label className="field field--spaced">
-            <span className="field-label">
-              {text.salaryType} <span className="required-mark">*</span>
-              <span className="info-tooltip">
-                <Info size={15} strokeWidth={2.1} />
-                <span role="tooltip">{text.salaryTypeHelp}</span>
-              </span>
-            </span>
-            <span className="select-control">
-              <select onChange={(event) => setSalaryType(event.target.value as HourlySalaryType)} value={salaryType}>
-                <option value="gross">{text.gross}</option>
-                <option value="net">{text.net}</option>
-              </select>
-              <ChevronDown size={18} strokeWidth={2.1} />
-            </span>
-          </label>
         </div>
 
         {previewSalary > 0 ? (

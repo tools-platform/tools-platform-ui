@@ -95,7 +95,7 @@ export function HomePage() {
 
   const popularTools = useMemo(() => {
     const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
-    const pageEntries = topPages
+    return topPages
       .map((page) => {
         let slug = "";
 
@@ -108,15 +108,9 @@ export function HomePage() {
         const tool = slug ? toolBySlug.get(slug) : undefined;
         return tool && tool.status === "published" ? { tool, page } : null;
       })
-      .filter((item): item is { tool: (typeof tools)[number]; page: TopSearchConsolePage } => Boolean(item));
-    const seen = new Set<string>();
-    const uniquePageEntries = pageEntries.filter((item) => {
-      if (seen.has(item.tool.id)) return false;
-      seen.add(item.tool.id);
-      return true;
-    });
-
-    return uniquePageEntries.slice(0, 3);
+      .filter((item): item is { tool: (typeof tools)[number]; page: TopSearchConsolePage } => Boolean(item))
+      .sort((first, second) => second.page.impressions - first.page.impressions)
+      .slice(0, 3);
   }, [topPages]);
 
   const filteredTools = useMemo(() => {

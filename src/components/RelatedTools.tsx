@@ -5,7 +5,8 @@ import { getLocalizedText, useLocale } from "../i18n";
 const relatedToolIds: Record<string, string[]> = {
   "net-salary-colombia": ["gross-salary-colombia", "salary-increase", "hourly-salary"],
   "gross-salary-colombia": ["net-salary-colombia", "salary-increase", "employee-salary-equivalent"],
-  "employment-settlement-colombia": ["net-salary-colombia", "gross-salary-colombia", "hourly-salary"],
+  "employment-settlement-colombia": ["social-benefits-colombia", "net-salary-colombia", "gross-salary-colombia"],
+  "social-benefits-colombia": ["employment-settlement-colombia", "net-salary-colombia", "overtime-colombia"],
   "credit-interest": ["loan-payment", "cop-usd", "salary-increase"],
   "loan-payment": ["credit-interest", "cop-usd", "salary-increase"],
   "cop-usd": ["credit-interest", "loan-payment", "unit-converter"],

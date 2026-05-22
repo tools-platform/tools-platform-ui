@@ -142,6 +142,21 @@ export const tools: ToolSummary[] = [
     Icon: HandCoins
   },
   {
+    id: "social-benefits-colombia",
+    slug: "colombia-social-benefits-calculator",
+    name: {
+      es: "Calculadora de prestaciones sociales (Colombia)",
+      en: "Social Benefits Calculator (Colombia)"
+    },
+    description: {
+      es: "Desglosa beneficios como cesantías, prima y vacaciones.",
+      en: "Break down benefits such as severance, service bonus, and vacation."
+    },
+    categoryId: "finance",
+    status: "published",
+    Icon: HandCoins
+  },
+  {
     id: "credit-interest",
     slug: "credit-interest-calculator",
     name: {
@@ -557,21 +572,6 @@ export const tools: ToolSummary[] = [
     categoryId: "finance",
     status: "draft",
     Icon: Banknote
-  },
-  {
-    id: "social-benefits-colombia",
-    slug: "colombia-social-benefits-calculator",
-    name: {
-      es: "Calculadora de prestaciones sociales",
-      en: "Social Benefits Calculator (Colombia)"
-    },
-    description: {
-      es: "Desglosa beneficios como cesantías, prima y vacaciones.",
-      en: "Break down benefits such as severance, service bonus, and vacation."
-    },
-    categoryId: "finance",
-    status: "draft",
-    Icon: HandCoins
   },
   {
     id: "productivity",

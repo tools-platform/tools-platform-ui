@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil, Plus, Trash2 } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil, Plus, Trash2 } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
@@ -71,7 +71,10 @@ const copy = {
     kicker: "Calculadora",
     title: "Horas extras",
     monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Usa el salario antes de descuentos de salud, pensión, Fondo de Solidaridad u otros conceptos. Con ese valor se calcula la hora ordinaria.",
+    monthlySalaryHelp: "Es el salario antes de descuentos.",
+    monthlySalaryTooltip: "Usa el salario mensual bruto, antes de salud, pensión, Fondo de Solidaridad u otros descuentos. Con ese valor se calcula la hora ordinaria.",
+    salaryHelper: "¿Solo sabes tu quincena?",
+    salaryHelperAction: "Calcular salario",
     payrollYear: "Año de reglas",
     payrollYearHelp: "Lo usamos para aplicar la jornada legal vigente de Colombia en ese año.",
     editYearAria: "Editar año de reglas",
@@ -123,7 +126,10 @@ const copy = {
     kicker: "Calculator",
     title: "Overtime pay",
     monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "Use the salary before health, pension, solidarity fund, or other deductions. This value is used to calculate the regular hourly rate.",
+    monthlySalaryHelp: "This is the salary before deductions.",
+    monthlySalaryTooltip: "Use the gross monthly salary before health, pension, solidarity fund, or other deductions. This value is used to calculate the regular hourly rate.",
+    salaryHelper: "Only know biweekly pay?",
+    salaryHelperAction: "Calculate salary",
     payrollYear: "Rule year",
     payrollYearHelp: "We use it to apply Colombia's legal workweek for that year.",
     editYearAria: "Edit rule year",
@@ -174,7 +180,7 @@ const copy = {
 } as const;
 
 export function OvertimeColombiaCalculator() {
-  const { locale } = useLocale();
+  const { locale, localizePath } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
   const currencyFormatter = useMemo(
@@ -333,7 +339,7 @@ export function OvertimeColombiaCalculator() {
             {text.monthlySalary} <span className="required-mark">*</span>
             <span className="info-tooltip">
               <Info size={15} strokeWidth={2.1} />
-              <span role="tooltip">{text.monthlySalaryHelp}</span>
+              <span role="tooltip">{text.monthlySalaryTooltip}</span>
             </span>
           </span>
           <div className="money-input">
@@ -341,7 +347,15 @@ export function OvertimeColombiaCalculator() {
             <input inputMode="numeric" onChange={(event) => setMonthlySalary(formatMoneyInput(event.target.value))} placeholder="2.500.000" required type="text" value={monthlySalary} />
             <strong>COP</strong>
           </div>
+          <small>{text.monthlySalaryHelp}</small>
         </label>
+        <div className="field-action-row">
+          <span>{text.salaryHelper}</span>
+          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/colombia-gross-salary-calculator")}>
+            {text.salaryHelperAction}
+            <ArrowRight size={16} strokeWidth={2.1} />
+          </a>
+        </div>
 
         <div className="form-grid form-grid--single">
           <div className="form-grid form-grid--compact">

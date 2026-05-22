@@ -78,6 +78,17 @@ const localizedPages = [
     }
   },
   {
+    path: "/tools/colombia-social-benefits-calculator",
+    title: {
+      es: "Calculadora de prestaciones sociales Colombia 2026 | Cesantías y prima",
+      en: "Colombia Social Benefits Calculator 2026 | Severance and Bonus"
+    },
+    description: {
+      es: "Calcula prestaciones sociales en Colombia con salario mensual bruto, fechas, cesantías, intereses, prima de servicios y vacaciones causadas.",
+      en: "Calculate Colombia social benefits from gross monthly salary and dates, including severance, interest, service bonus, and accrued vacation."
+    }
+  },
+  {
     path: "/tools/credit-interest-calculator",
     title: {
       es: "Calculadora de intereses de crédito online | Tools Platforms",
@@ -495,6 +506,28 @@ const toolFaqsByPath = {
       answer: {
         es: "Sí, puedes elegir el año de reglas disponible. La herramienta usa ese año para valores legales como salario mínimo y auxilio de transporte cuando aplican.",
         en: "Yes, you can choose an available rule year. The tool uses that year for legal values such as minimum wage and transport allowance when they apply."
+      }
+    }
+  ],
+  "/tools/colombia-social-benefits-calculator": [
+    {
+      question: {
+        es: "¿Qué salario debo ingresar?",
+        en: "Which salary should I enter?"
+      },
+      answer: {
+        es: "Ingresa el salario mensual bruto, antes de descuentos de salud, pensión u otros conceptos.",
+        en: "Enter the gross monthly salary, before health, pension, or other deductions."
+      }
+    },
+    {
+      question: {
+        es: "¿Para qué sirven las fechas?",
+        en: "What are the dates for?"
+      },
+      answer: {
+        es: "Sirven para calcular los días del periodo que quieres estimar. No tienen que representar una terminación del contrato.",
+        en: "They calculate the days in the period you want to estimate. They do not have to represent contract termination."
       }
     }
   ],

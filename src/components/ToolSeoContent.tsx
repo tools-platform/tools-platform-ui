@@ -19,6 +19,10 @@ const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
     es: ["calculadora de liquidación laboral", "a cuánto equivale la liquidación", "calcular liquidación Colombia"],
     en: ["Colombia employment settlement calculator", "final pay calculator Colombia", "severance and vacation payout"]
   },
+  "social-benefits-colombia": {
+    es: ["calculadora prestaciones sociales Colombia", "calcular cesantías y prima", "vacaciones causadas Colombia"],
+    en: ["Colombia social benefits calculator", "calculate severance and service bonus", "accrued vacation Colombia"]
+  },
   "credit-interest": {
     es: ["calculadora de intereses de crédito", "intereses de préstamo", "cuánto pago de intereses"],
     en: ["credit interest calculator", "loan interest calculator", "total interest paid"]

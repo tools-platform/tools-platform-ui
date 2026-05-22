@@ -74,6 +74,16 @@ const toolSeoById: Record<string, Omit<SeoMetadata, "canonicalPath">> = {
       en: "Estimate a Colombia employment settlement with severance, service bonus, vacation, pending salary, and dismissal compensation when applicable."
     }
   },
+  "social-benefits-colombia": {
+    title: {
+      es: "Calculadora de prestaciones sociales Colombia 2026 | Cesantías y prima",
+      en: "Colombia Social Benefits Calculator 2026 | Severance and Bonus"
+    },
+    description: {
+      es: "Calcula prestaciones sociales en Colombia con salario mensual bruto, fechas, cesantías, intereses, prima de servicios y vacaciones causadas.",
+      en: "Calculate Colombia social benefits from gross monthly salary and dates, including severance, interest, service bonus, and accrued vacation."
+    }
+  },
   "credit-interest": {
     title: {
       es: "Calculadora de intereses de crédito online | Tools Platforms",

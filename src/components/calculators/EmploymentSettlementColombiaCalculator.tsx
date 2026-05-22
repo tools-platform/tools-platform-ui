@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2, Pencil } from "lucide-react";
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
@@ -60,7 +60,11 @@ const copy = {
   es: {
     kicker: "Calculadora",
     title: "Datos de la liquidación",
-    monthlySalary: "Salario mensual base",
+    monthlySalary: "Salario mensual bruto",
+    monthlySalaryHelp: "Es el salario antes de descuentos.",
+    monthlySalaryTooltip: "Es el salario mensual bruto, antes de salud, pensión u otros descuentos. Se usa como base para calcular la liquidación.",
+    salaryHelper: "¿Solo sabes tu quincena?",
+    salaryHelperAction: "Calcular salario",
     startDate: "Fecha de inicio",
     startDateHelp: "La usamos para calcular tu antigüedad si el contrato indefinido termina sin justa causa. Esa antigüedad define los días de indemnización.",
     endDate: "Fecha de finalización",
@@ -123,7 +127,11 @@ const copy = {
   en: {
     kicker: "Calculator",
     title: "Settlement details",
-    monthlySalary: "Base monthly salary",
+    monthlySalary: "Gross monthly salary",
+    monthlySalaryHelp: "This is the salary before deductions.",
+    monthlySalaryTooltip: "This is the gross monthly salary before health, pension, or other deductions. It is used as the base to calculate the settlement.",
+    salaryHelper: "Only know biweekly pay?",
+    salaryHelperAction: "Calculate salary",
     startDate: "Start date",
     startDateHelp: "We use it to calculate seniority if an indefinite contract ends without just cause. That seniority defines compensation days.",
     endDate: "End date",
@@ -215,7 +223,7 @@ function ResultItem({
 }
 
 export function EmploymentSettlementColombiaCalculator() {
-  const { locale } = useLocale();
+  const { locale, localizePath } = useLocale();
   const text = copy[locale];
   const localeCode = locale === "es" ? "es-CO" : "en-US";
   const currencyFormatter = useMemo(
@@ -375,13 +383,27 @@ export function EmploymentSettlementColombiaCalculator() {
         </div>
 
         <label className="field">
-          <span>{text.monthlySalary} <span className="required-mark">*</span></span>
+          <span className="field-label">
+            {text.monthlySalary} <span className="required-mark">*</span>
+            <span className="info-tooltip">
+              <Info size={15} strokeWidth={2.1} />
+              <span role="tooltip">{text.monthlySalaryTooltip}</span>
+            </span>
+          </span>
           <div className="money-input">
             <span>$</span>
             <input inputMode="numeric" onChange={(event) => setMonthlySalary(formatMoneyInput(event.target.value))} placeholder="2.500.000" required type="text" value={monthlySalary} />
             <strong>COP</strong>
           </div>
+          <small>{text.monthlySalaryHelp}</small>
         </label>
+        <div className="field-action-row">
+          <span>{text.salaryHelper}</span>
+          <a className="secondary-action secondary-action--compact" href={localizePath("/tools/colombia-gross-salary-calculator")}>
+            {text.salaryHelperAction}
+            <ArrowRight size={16} strokeWidth={2.1} />
+          </a>
+        </div>
 
         <div className="form-grid">
           <label className="field">
