@@ -3,65 +3,13 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { removeAccentsCopy as copy } from "../../locales/calculatorCopy";
 
 type AccentCleanerResult = {
   input: string;
   output: string;
   convertEnye: boolean;
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Texto con acentos",
-    inputLabel: "Texto con acentos",
-    placeholder: "Pega texto con tildes, diéresis o caracteres acentuados...",
-    convertEnye: "Convertir ñ en n",
-    convertEnyeHelp: "Déjalo apagado si quieres conservar palabras en español como año o niño.",
-    hint: "La limpieza se hace en tu navegador. Útil para búsquedas, nombres de archivo, slugs y datos importados.",
-    emptyError: "Pega un texto para eliminar acentos.",
-    submit: "Eliminar acentos",
-    reset: "Restablecer",
-    resultTitle: "Texto sin acentos",
-    result: "Resultado",
-    copy: "Copiar",
-    copied: "Resultado copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    changedChars: "Caracteres cambiados",
-    enye: "Ñ",
-    enyeKept: "Conservada",
-    enyeConverted: "Convertida",
-    rulesNote: "Quitamos tildes y diéresis manteniendo mayúsculas y minúsculas.",
-    disclaimer: "Resultado automático para limpieza de texto. Revisa nombres propios si lo usarás en contenido final.",
-    emptyTitle: "El texto sin acentos aparecerá aquí",
-    emptyDescription: "Pega contenido con tildes y genera una versión limpia en segundos."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Accented text",
-    inputLabel: "Text with accents",
-    placeholder: "Paste text with accents, umlauts, or accented characters...",
-    convertEnye: "Convert ñ to n",
-    convertEnyeHelp: "Keep it off if you want to preserve Spanish words like año or niño.",
-    hint: "Cleanup happens in your browser. Useful for searches, file names, slugs, and imported data.",
-    emptyError: "Paste text to remove accents.",
-    submit: "Remove accents",
-    reset: "Reset",
-    resultTitle: "Text without accents",
-    result: "Result",
-    copy: "Copy",
-    copied: "Result copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    changedChars: "Changed characters",
-    enye: "Ñ",
-    enyeKept: "Preserved",
-    enyeConverted: "Converted",
-    rulesNote: "We remove accents and umlauts while keeping uppercase and lowercase letters.",
-    disclaimer: "Automatic text cleanup result. Review proper nouns if you will use it in final content.",
-    emptyTitle: "Text without accents will appear here",
-    emptyDescription: "Paste accented content and generate a clean version in seconds."
-  }
-} as const;
 
 function removeAccents(value: string, convertEnye: boolean) {
   const lowerEnyeToken = "\uE000";

@@ -2,7 +2,8 @@ import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2 
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { loanPaymentCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateLoanPayment,
   type CreditInterestCurrency,
@@ -11,98 +12,6 @@ import {
 } from "../../services/financeApi";
 
 type LoanPaymentData = LoanPaymentResponse["data"];
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Datos del prestamo",
-    currency: "Moneda",
-    currencyHelp: "Elige si quieres hacer la proyeccion en pesos colombianos o en dolares.",
-    loanAmount: "Monto del prestamo",
-    loanAmountHelp: "Es el dinero que piensas solicitar antes de intereses y cargos.",
-    annualRate: "Tasa anual",
-    monthlyRateTitle: "Tasa mensual",
-    rateHelp:
-      "Escribe el porcentaje segun el tipo de tasa elegido. Si seleccionas efectiva anual, usa la tasa del ano completo. Si seleccionas mensual, usa la tasa que se aplica cada mes.",
-    rateType: "Tipo de tasa",
-    rateTypeHelp:
-      "Efectiva anual: tasa para todo el ano. Mensual: tasa que se aplica cada mes.",
-    effectiveAnnual: "Efectiva anual",
-    monthly: "Mensual",
-    cop: "Peso colombiano (COP)",
-    usd: "Dolar estadounidense (USD)",
-    termMonths: "Plazo en meses",
-    termMonthsHelp: "Si tienes el plazo en anos, multiplicalo por 12. Por ejemplo, 3 anos son 36 meses.",
-    hint: "Esta cuota es una estimacion fija. No incluye seguros, comisiones ni cargos de la entidad.",
-    submit: "Calcular cuota",
-    reset: "Restablecer",
-    amountError: "Ingresa un monto de prestamo mayor a cero.",
-    rateError: "Ingresa una tasa entre 0% y 1000%.",
-    termError: "Ingresa un plazo entre 1 y 600 meses.",
-    requestError: "No se pudo calcular la cuota.",
-    heroTitle: "Cuota mensual estimada",
-    totalToPay: "Total a pagar",
-    monthlyPayment: "Cuota mensual",
-    totalInterest: "Intereses totales",
-    monthlyRateUsed: "Tasa mensual usada",
-    currencyResult: "Moneda usada",
-    rulesNote: (periods: number, effectiveAnnualRate: string) =>
-      `Se calcularon ${periods} cuotas fijas con tasa efectiva anual de ${effectiveAnnualRate}.`,
-    disclaimer:
-      "Resultado estimado. No incluye seguros, comisiones, impuestos, cargos administrativos, mora, tasas variables ni condiciones especificas de una entidad financiera.",
-    emptyTitle: "Resultado de la cuota",
-    emptyDescription: "Ingresa monto, tasa y plazo para estimar cuanto pagarias cada mes.",
-    sixMonths: "6 meses",
-    oneYear: "1 ano",
-    twoYears: "2 anos",
-    threeYears: "3 anos",
-    fiveYears: "5 anos"
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Loan details",
-    currency: "Currency",
-    currencyHelp: "Choose whether you want the estimate in Colombian pesos or US dollars.",
-    loanAmount: "Loan amount",
-    loanAmountHelp: "This is the money you plan to borrow before interest and fees.",
-    annualRate: "Annual rate",
-    monthlyRateTitle: "Monthly rate",
-    rateHelp:
-      "Enter the percentage based on the selected rate type. If you choose effective annual, use the full-year rate. If you choose monthly, use the rate applied each month.",
-    rateType: "Rate type",
-    rateTypeHelp: "Effective annual: rate for the full year. Monthly: rate applied every month.",
-    effectiveAnnual: "Effective annual",
-    monthly: "Monthly",
-    cop: "Colombian peso (COP)",
-    usd: "US dollar (USD)",
-    termMonths: "Term in months",
-    termMonthsHelp: "If you have the term in years, multiply it by 12. For example, 3 years are 36 months.",
-    hint: "This payment is a fixed estimate. It does not include insurance, fees, or lender charges.",
-    submit: "Calculate payment",
-    reset: "Reset",
-    amountError: "Enter a loan amount greater than zero.",
-    rateError: "Enter a rate between 0% and 1000%.",
-    termError: "Enter a term between 1 and 600 months.",
-    requestError: "We couldn't calculate the payment.",
-    heroTitle: "Estimated monthly payment",
-    totalToPay: "Total to pay",
-    monthlyPayment: "Monthly payment",
-    totalInterest: "Total interest",
-    monthlyRateUsed: "Monthly rate used",
-    currencyResult: "Currency used",
-    rulesNote: (periods: number, effectiveAnnualRate: string) =>
-      `Calculated ${periods} fixed payments with an effective annual rate of ${effectiveAnnualRate}.`,
-    disclaimer:
-      "Estimated result. It does not include insurance, fees, taxes, administrative charges, late interest, variable rates, or institution-specific conditions.",
-    emptyTitle: "Payment result",
-    emptyDescription: "Enter amount, rate, and term to estimate how much you would pay each month.",
-    sixMonths: "6 months",
-    oneYear: "1 year",
-    twoYears: "2 years",
-    threeYears: "3 years",
-    fiveYears: "5 years"
-  }
-} as const;
 
 function parseMoney(value: string) {
   const normalized = value.replace(/[^\d]/g, "");
@@ -119,7 +28,7 @@ function parseRate(value: string) {
   return normalized.length > 0 ? Number(normalized) : 0;
 }
 
-function getRateTypeLabel(rateType: LoanPaymentRateType, locale: "es" | "en") {
+function getRateTypeLabel(rateType: LoanPaymentRateType, locale: Locale) {
   return rateType === "effective_annual" ? copy[locale].effectiveAnnual : copy[locale].monthly;
 }
 

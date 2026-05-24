@@ -5,6 +5,7 @@ import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { calculateExactAge, type ExactAgeResponse } from "../../services/timeApi";
+import { exactAgeCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type ExactAgeData = ExactAgeResponse["data"];
 
@@ -25,71 +26,6 @@ function oneYearAgoDate() {
   date.setFullYear(date.getFullYear() - 1);
   return toDateKey(date);
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Edad exacta",
-    birthDate: "Fecha de nacimiento",
-    referenceDate: "Fecha de cálculo",
-    birthDateAria: "Seleccionar fecha de nacimiento",
-    referenceDateAria: "Seleccionar fecha de cálculo",
-    referenceDateHelp:
-      "Usamos esta fecha para calcular la edad exacta. Por defecto es hoy, pero puedes cambiarla si necesitas saber la edad en otra fecha.",
-    selectDates: "Selecciona la fecha de nacimiento y la fecha de cálculo.",
-    birthDateAfterReference: "La fecha de nacimiento no puede ser posterior a la fecha de cálculo.",
-    hint: "Calcula años, meses y días cumplidos entre la fecha de nacimiento y la fecha elegida.",
-    submit: "Calcular edad",
-    reset: "Restablecer",
-    heroTitle: "Edad exacta",
-    years: "años",
-    months: "meses",
-    days: "días",
-    livedDays: "días vividos",
-    additionalMonths: "Meses adicionales",
-    additionalDays: "Días adicionales",
-    totalMonths: "Meses totales",
-    nextBirthday: "Próximo cumpleaños",
-    daysUntilBirthday: "Días para cumpleaños",
-    rulesNote: "Se calculó desde {birthDate} hasta {referenceDate}.{birthdayToday}",
-    birthdayToday: " La fecha de cálculo coincide con el cumpleaños.",
-    emptyTitle: "Resultado de edad",
-    emptyDescription: "Selecciona la fecha de nacimiento para ver la edad exacta.",
-    disclaimer:
-      "Estimación de edad exacta para formularios y consultas generales. No reemplaza validaciones legales o médicas específicas."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Exact age",
-    birthDate: "Birth date",
-    referenceDate: "Calculation date",
-    birthDateAria: "Select birth date",
-    referenceDateAria: "Select calculation date",
-    referenceDateHelp:
-      "We use this date to calculate the exact age. By default it is today, but you can change it if you need the age on another date.",
-    selectDates: "Select the birth date and the calculation date.",
-    birthDateAfterReference: "The birth date cannot be later than the calculation date.",
-    hint: "Calculates completed years, months, and days between the birth date and the selected date.",
-    submit: "Calculate age",
-    reset: "Reset",
-    heroTitle: "Exact age",
-    years: "years",
-    months: "months",
-    days: "days",
-    livedDays: "days lived",
-    additionalMonths: "Additional months",
-    additionalDays: "Additional days",
-    totalMonths: "Total months",
-    nextBirthday: "Next birthday",
-    daysUntilBirthday: "Days until birthday",
-    rulesNote: "Calculated from {birthDate} to {referenceDate}.{birthdayToday}",
-    birthdayToday: " The calculation date matches the birthday.",
-    emptyTitle: "Age result",
-    emptyDescription: "Select the birth date to see the exact age.",
-    disclaimer:
-      "Estimated exact age for forms and general queries. It does not replace specific legal or medical validations."
-  }
-} as const;
 
 export function ExactAgeCalculator() {
   const { locale } = useLocale();
@@ -221,7 +157,7 @@ export function ExactAgeCalculator() {
           <div className="result-panel__hero">
             <p>{text.heroTitle}</p>
             <strong>
-              {result.result.years} {text.years}, {result.result.months} {text.months} y {result.result.days} {text.days}
+              {result.result.years} {text.years}, {result.result.months} {text.months} {text.and} {result.result.days} {text.days}
             </strong>
             <span>{formatNumber(result.result.totalDays)} {text.livedDays}</span>
           </div>

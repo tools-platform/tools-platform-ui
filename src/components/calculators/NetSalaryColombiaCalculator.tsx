@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { calculateNetSalaryColombia, type NetSalaryColombiaResponse } from "../../services/financeApi";
+import { netSalaryColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type NetSalaryData = NetSalaryColombiaResponse["data"];
 type CalculationViewOptions = { showSolidarityFund: boolean };
@@ -18,99 +19,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Datos del salario",
-    monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos de salud, pensión y otros.",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar el salario mínimo, auxilio de transporte y límites legales vigentes de ese año.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    payrollDeductions: "Deducciones de nómina",
-    payrollDeductionsHelp:
-      "Valores extra que te descuentan al mes en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
-    transportationAllowance: "Incluir auxilio de transporte si aplica",
-    transportationAllowanceHelp: "Validaremos si tu salario cumple el límite legal para recibirlo.",
-    showSolidarityFund: "Ver Fondo de Solidaridad",
-    showSolidarityFundHelp: "Esto solo muestra u oculta el detalle. Ocultarlo no elimina el aporte si aplica por ley.",
-    solidarityExplanation:
-      "Es un aporte adicional que aplica cuando el salario es de 4 salarios mínimos o más. Si tu salario no llega a ese rango, este valor queda en cero.",
-    salaryRequired: "Ingresa un salario mensual mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    requestError: "No se pudo calcular el salario.",
-    preview: (salary: string) => `Vas a calcular sobre ${salary} mensuales.`,
-    submit: "Calcular salario neto",
-    reset: "Restablecer",
-    heroTitle: "Salario neto mensual",
-    biweeklyNet: "Quincenal",
-    grossSalary: "Salario bruto",
-    transportationAllowanceResult: "Auxilio transporte",
-    health: "Salud 4%",
-    pension: "Pensión 4%",
-    healthRate: "Salud",
-    pensionRate: "Pensión",
-    solidarityFund: "Fondo de solidaridad",
-    totalDeductions: "Total descuentos",
-    rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Usa salario mínimo ${minWage}, auxilio de transporte ${allowance} y límite ${limit} para ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Usa salario mínimo ${minWage} para ${year}.`,
-    qualifiesForAllowance: "Cumple límite legal para auxilio",
-    yes: "Sí",
-    no: "No",
-    disclaimer:
-      "Este resultado es una estimación para un empleado dependiente en Colombia. No incluye retención en la fuente, pagos no salariales, prestaciones, costos del empleador ni acuerdos especiales de nómina.",
-    emptyTitle: "Tu resultado aparecerá aquí",
-    emptyDescription: "Completa los datos del salario y calcula para ver el neto mensual, quincenal y el detalle de descuentos."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Salary details",
-    monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "This is the salary before health, pension, and other deductions.",
-    payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds in force for that year.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    payrollDeductions: "Payroll deductions",
-    payrollDeductionsHelp:
-      "Extra monthly amounts deducted from payroll, such as salary loans, advances, garnishments, or voluntary contributions. Leave it at 0 if you do not have any.",
-    transportationAllowance: "Include transportation allowance if applicable",
-    transportationAllowanceHelp: "We will validate whether the salary meets the legal threshold to receive it.",
-    showSolidarityFund: "Show solidarity fund",
-    showSolidarityFundHelp: "This only shows or hides the detail. Hiding it does not remove the contribution if it applies by law.",
-    solidarityExplanation:
-      "It is an additional contribution that applies when the salary is 4 minimum wages or more. If your salary does not reach that threshold, this value stays at zero.",
-    salaryRequired: "Enter a monthly salary greater than zero.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    requestError: "We couldn't calculate the salary.",
-    preview: (salary: string) => `You are calculating from ${salary} per month.`,
-    submit: "Calculate net salary",
-    reset: "Reset",
-    heroTitle: "Monthly net salary",
-    biweeklyNet: "Biweekly",
-    grossSalary: "Gross salary",
-    transportationAllowanceResult: "Transportation allowance",
-    health: "Health 4%",
-    pension: "Pension 4%",
-    healthRate: "Health",
-    pensionRate: "Pension",
-    solidarityFund: "Solidarity fund",
-    totalDeductions: "Total deductions",
-    rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Uses minimum wage ${minWage}, transportation allowance ${allowance}, and threshold ${limit} for ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Uses minimum wage ${minWage} for ${year}.`,
-    qualifiesForAllowance: "Meets legal allowance threshold",
-    yes: "Yes",
-    no: "No",
-    disclaimer:
-      "This result is an estimate for a dependent employee in Colombia. It does not include withholding tax, non-salary payments, benefits, employer costs, or special payroll agreements.",
-    emptyTitle: "Your result will appear here",
-    emptyDescription: "Complete the salary details and calculate to see the monthly net, biweekly net, and deduction breakdown."
-  }
-} as const;
 
 export function NetSalaryColombiaCalculator() {
   const { locale } = useLocale();

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { calculateAnnualSalaryColombia, type AnnualSalaryColombiaResponse } from "../../services/financeApi";
+import { annualSalaryColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type AnnualSalaryData = AnnualSalaryColombiaResponse["data"];
 
@@ -17,97 +18,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Salario anual",
-    monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos.",
-    monthlySalaryTooltip: "Usa el salario mensual bruto, antes de salud, pensión u otros descuentos. Con eso estimamos el ingreso anual en Colombia.",
-    salaryHelper: "¿Solo sabes tu quincena?",
-    salaryHelperAction: "Calcular salario",
-    payrollYear: "Año",
-    payrollYearHelp: "Lo usamos para aplicar salario mínimo, auxilio de transporte y límites legales vigentes.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    transportationAllowance: "Auxilio de transporte",
-    transportationAllowanceHelp: "Se suma solo si el salario cumple el límite legal.",
-    serviceBonus: "Incluir prima de servicios",
-    serviceBonusHelp: "Agrega una prima anual estimada equivalente a dos pagos semestrales.",
-    payrollDeductions: "Restar salud y pensión",
-    payrollDeductionsHelp: "Estima deducciones obligatorias del empleado durante 12 meses.",
-    salaryRequired: "Ingresa un salario mensual bruto mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    requestError: "No se pudo calcular el salario anual.",
-    hint: "Estimación anual para Colombia. No incluye retención en la fuente, cesantías, vacaciones ni pagos variables.",
-    submit: "Calcular salario anual",
-    reset: "Restablecer",
-    heroTitle: "Ingreso anual estimado",
-    grossAnnual: "Ingreso bruto anual",
-    netAnnual: "Ingreso neto anual",
-    annualBaseSalary: "Salario base anual",
-    annualTransport: "Auxilio anual",
-    serviceBonusResult: "Prima estimada",
-    deductions: "Deducciones",
-    monthlyAverage: "Promedio mensual",
-    biweeklyAverage: "Promedio quincenal",
-    minimumWage: "Salario mínimo",
-    allowanceLimit: "Límite auxilio",
-    qualifiesForAllowance: "Cumple límite para auxilio",
-    yes: "Sí",
-    no: "No",
-    rulesNote: (year: number) => `Calculamos con reglas Colombia ${year}, 12 meses y prima anual si la activas.`,
-    disclaimer:
-      "Estimación anual para un empleado dependiente en Colombia. No incluye retención en la fuente, cesantías, intereses de cesantías, vacaciones, salario variable, pagos no salariales ni acuerdos especiales.",
-    emptyTitle: "Tu salario anual aparecerá aquí",
-    emptyDescription: "Ingresa salario mensual, año de reglas y opciones para estimar tu ingreso anual."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Annual salary",
-    monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "This is the salary before deductions.",
-    monthlySalaryTooltip: "Use the gross monthly salary before health, pension, or other deductions. We use it to estimate annual income in Colombia.",
-    salaryHelper: "Only know biweekly pay?",
-    salaryHelperAction: "Calculate salary",
-    payrollYear: "Year",
-    payrollYearHelp: "We use it to apply minimum wage, transportation allowance, and legal thresholds in force.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    transportationAllowance: "Transportation allowance",
-    transportationAllowanceHelp: "Added only when the salary meets the legal threshold.",
-    serviceBonus: "Include service bonus",
-    serviceBonusHelp: "Adds an estimated annual service bonus equal to two half-year payments.",
-    payrollDeductions: "Subtract health and pension",
-    payrollDeductionsHelp: "Estimates mandatory employee deductions for 12 months.",
-    salaryRequired: "Enter a gross monthly salary greater than zero.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    requestError: "We couldn't calculate the annual salary.",
-    hint: "Annual estimate for Colombia. It does not include withholding tax, severance, vacation, or variable payments.",
-    submit: "Calculate annual salary",
-    reset: "Reset",
-    heroTitle: "Estimated annual income",
-    grossAnnual: "Annual gross income",
-    netAnnual: "Annual net income",
-    annualBaseSalary: "Annual base salary",
-    annualTransport: "Annual allowance",
-    serviceBonusResult: "Estimated bonus",
-    deductions: "Deductions",
-    monthlyAverage: "Monthly average",
-    biweeklyAverage: "Biweekly average",
-    minimumWage: "Minimum wage",
-    allowanceLimit: "Allowance threshold",
-    qualifiesForAllowance: "Meets allowance threshold",
-    yes: "Yes",
-    no: "No",
-    rulesNote: (year: number) => `Calculated with Colombia ${year} rules, 12 months, and annual service bonus if enabled.`,
-    disclaimer:
-      "Annual estimate for a dependent employee in Colombia. It does not include withholding tax, severance, severance interest, vacation, variable salary, non-salary payments, or special agreements.",
-    emptyTitle: "Your annual salary will appear here",
-    emptyDescription: "Enter monthly salary, rule year, and options to estimate annual income."
-  }
-} as const;
 
 export function AnnualSalaryColombiaCalculator() {
   const { locale, localizePath } = useLocale();

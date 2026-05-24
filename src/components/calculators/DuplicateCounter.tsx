@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { duplicateCounterCopy as copy } from "../../locales/calculatorCopy";
 
 type SortMode = "count" | "value" | "original";
 type DisplayMode = "all" | "duplicates" | "unique";
@@ -25,123 +26,6 @@ type DuplicateResult = {
   sortMode: SortMode;
   entries: DuplicateEntry[];
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Lista para revisar",
-    inputLabel: "Valores de entrada",
-    placeholder: "Pega una lista, correos, IDs, códigos, URLs o una columna copiada de Excel...",
-    options: "Opciones",
-    ignoreCase: "Ignorar mayúsculas/minúsculas",
-    ignoreCaseHelp: "Cuenta Hola, hola y HOLA como el mismo valor.",
-    trimSpaces: "Quitar espacios al inicio y final",
-    trimSpacesHelp: "Limpia espacios accidentales al copiar datos.",
-    omitEmpty: "Omitir líneas vacías",
-    omitEmptyHelp: "No cuenta filas vacías como un valor.",
-    displayMode: "Mostrar",
-    displayModes: {
-      all: "Todos",
-      duplicates: "Solo duplicados",
-      unique: "Solo únicos"
-    },
-    sortBy: "Ordenar por",
-    sortModes: {
-      count: "Más repetidos",
-      value: "A-Z",
-      original: "Orden original"
-    },
-    emptyError: "Pega al menos una línea o valor para contar duplicados.",
-    noCountableLines: "No hay líneas válidas para contar con las opciones actuales.",
-    hint: "El conteo se hace en tu navegador. Sirve para listas, columnas de Excel, correos, códigos o URLs.",
-    submit: "Contar duplicados",
-    reset: "Restablecer",
-    resultTitle: "Resultado de duplicados",
-    noDuplicates: "Sin duplicados",
-    duplicateCount: "Valores duplicados",
-    totalLines: "Líneas totales",
-    countedLines: "Líneas contadas",
-    uniqueValues: "Valores únicos",
-    wordCount: "Palabras",
-    duplicateLines: "Repeticiones extra",
-    emptyLines: "Líneas vacías",
-    mostRepeated: "Más repetido",
-    tableTitle: "Conteo por valor",
-    valueColumn: "Valor",
-    countColumn: "Conteo",
-    firstSeenColumn: "Primera aparición",
-    distinctTitle: "Lista de resultados",
-    filteredEmpty: "No hay valores para mostrar con este filtro.",
-    copyTable: "Copiar tabla",
-    copyDistinct: "Copiar",
-    copyDuplicates: "Copiar duplicados",
-    downloadCsv: "Descargar CSV",
-    moreOptions: "Más opciones",
-    copied: "Copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    rulesNote: "Usamos cada línea como un valor. Puedes ignorar mayúsculas, limpiar espacios y filtrar solo duplicados o únicos.",
-    disclaimer: "Resultado automático para limpieza de listas. Revisa el criterio de comparación antes de usarlo en procesos definitivos.",
-    emptyTitle: "Los duplicados aparecerán aquí",
-    emptyDescription: "Pega una lista y obtén conteos, valores únicos y duplicados en segundos."
-  },
-  en: {
-    kicker: "Utility",
-    title: "List to analyze",
-    inputLabel: "Input values",
-    placeholder: "Paste a list, emails, IDs, codes, URLs, or a column copied from Excel...",
-    options: "Options",
-    ignoreCase: "Ignore uppercase/lowercase",
-    ignoreCaseHelp: "Counts Hello, hello, and HELLO as the same value.",
-    trimSpaces: "Trim leading and trailing spaces",
-    trimSpacesHelp: "Cleans accidental spaces from copied data.",
-    omitEmpty: "Skip empty lines",
-    omitEmptyHelp: "Does not count blank rows as a value.",
-    displayMode: "Show",
-    displayModes: {
-      all: "All",
-      duplicates: "Duplicates only",
-      unique: "Unique only"
-    },
-    sortBy: "Sort by",
-    sortModes: {
-      count: "Most repeated",
-      value: "A-Z",
-      original: "Original order"
-    },
-    emptyError: "Paste at least one line or value to count duplicates.",
-    noCountableLines: "There are no valid lines to count with the current options.",
-    hint: "Counting happens in your browser. Use it for lists, Excel columns, emails, codes, or URLs.",
-    submit: "Count duplicates",
-    reset: "Reset",
-    resultTitle: "Duplicate results",
-    noDuplicates: "No duplicates",
-    duplicateCount: "Duplicate values",
-    totalLines: "Total lines",
-    countedLines: "Counted lines",
-    uniqueValues: "Unique values",
-    wordCount: "Words",
-    duplicateLines: "Extra repetitions",
-    emptyLines: "Empty lines",
-    mostRepeated: "Most repeated",
-    tableTitle: "Count by value",
-    valueColumn: "Value",
-    countColumn: "Count",
-    firstSeenColumn: "First occurrence",
-    distinctTitle: "Distinct list",
-    filteredEmpty: "There are no values to show with this filter.",
-    copyTable: "Copy table",
-    copyDistinct: "Copy distinct",
-    copyDuplicates: "Copy duplicates",
-    downloadCsv: "Download CSV",
-    moreOptions: "More options",
-    copied: "Copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    rulesNote: "We treat each line as one value. You can ignore case, trim spaces, and filter only duplicates or unique values.",
-    disclaimer: "Automatic result for list cleanup. Review the comparison rules before using it in final workflows.",
-    emptyTitle: "Duplicates will appear here",
-    emptyDescription: "Paste a list and get counts, unique values, and duplicates in seconds."
-  }
-} as const;
 
 function escapeCsv(value: string) {
   if (!/[",\n\r]/.test(value)) return value;

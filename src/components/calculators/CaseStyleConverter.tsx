@@ -2,7 +2,8 @@
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { caseStyleConverterCopy as copy } from "../../locales/calculatorCopy";
 
 type CaseResult = {
   id: string;
@@ -49,10 +50,22 @@ const descriptions = {
     path: "Useful for routes or file path segments.",
     flat: "Everything together in lowercase.",
     upperFlat: "Everything together in uppercase."
+  },
+  hi: {
+    camel: "JavaScript variables और functions में आम.",
+    pascal: "Classes, components और types में आम.",
+    snake: "Python, Ruby, SQL और APIs में उपयोगी.",
+    screamingSnake: "आमतौर पर constants के लिए.",
+    kebab: "URLs, files, CSS classes और slugs के लिए उपयोगी.",
+    train: "Hyphen वाली शैली जिसमें हर शब्द capitalized होता है.",
+    dot: "Keys, logical paths और configs के लिए उपयोगी.",
+    path: "Routes या file path segments के लिए उपयोगी.",
+    flat: "सब कुछ lowercase में साथ-साथ.",
+    upperFlat: "सब कुछ uppercase में साथ-साथ."
   }
 } as const;
 
-function buildCaseResults(value: string, localeCode: string, locale: "es" | "en"): CaseResult[] {
+function buildCaseResults(value: string, localeCode: string, locale: Locale): CaseResult[] {
   const words = normalizeWords(value, localeCode);
   const pascalWords = words.map((word) => capitalizeWord(word, localeCode));
 
@@ -85,57 +98,6 @@ function buildCaseResults(value: string, localeCode: string, locale: "es" | "en"
 function countWords(value: string, localeCode: string) {
   return normalizeWords(value, localeCode).length;
 }
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "Formatos para código",
-    baseText: "Texto base",
-    placeholder: "Pega una frase, nombre de variable o título...",
-    emptyError: "Escribe una frase, nombre de variable o texto para convertir.",
-    emptyValueError: "El texto debe incluir al menos una letra o número.",
-    rulesNote:
-      "Al convertir obtendrás todos los formatos del texto, incluyendo camelCase, snake_case, kebab-case y otros.",
-    hint: "Quitamos tildes y símbolos para generar nombres más compatibles con código, rutas y archivos.",
-    submit: "Convertir estilos",
-    reset: "Restablecer",
-    generatedFormats: "Formatos generados",
-    styles: "Estilos",
-    wordsDetected: "Palabras detectadas",
-    copy: "Copiar",
-    copied: "Copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    localRules: "Conversión local para nombres de variables, clases, archivos, rutas, slugs y constantes.",
-    disclaimer:
-      "Resultado automático para apoyo en desarrollo. Valida la convención exacta de tu lenguaje, framework o equipo antes de usarlo en producción.",
-    emptyTitle: "Formatos de código",
-    emptyDescription: "Convierte una frase a varios estilos usados en programación."
-  },
-  en: {
-    kicker: "Development",
-    title: "Code naming styles",
-    baseText: "Base text",
-    placeholder: "Paste a phrase, variable name, or title...",
-    emptyError: "Type a phrase, variable name, or text to convert.",
-    emptyValueError: "The text must include at least one letter or number.",
-    rulesNote:
-      "When you convert it, you'll get all text formats, including camelCase, snake_case, kebab-case, and more.",
-    hint: "We remove accents and symbols to generate names that are more compatible with code, routes, and files.",
-    submit: "Convert styles",
-    reset: "Reset",
-    generatedFormats: "Generated formats",
-    styles: "Styles",
-    wordsDetected: "Words detected",
-    copy: "Copy",
-    copied: "Copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    localRules: "Local conversion for variable names, classes, files, routes, slugs, and constants.",
-    disclaimer:
-      "Automatic result for development support. Validate the exact convention of your language, framework, or team before using it in production.",
-    emptyTitle: "Code formats",
-    emptyDescription: "Convert a phrase into multiple styles used in programming."
-  }
-} as const;
 
 export function CaseStyleConverter() {
   const { locale } = useLocale();

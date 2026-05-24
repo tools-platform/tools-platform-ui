@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { weeksBetweenDatesCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 const DAY_IN_MS = 24 * 60 * 60 * 1000;
 
@@ -32,71 +33,6 @@ function parseDateKey(value: string) {
 
   return Date.UTC(year, month - 1, day);
 }
-
-const copy = {
-  es: {
-    kicker: "Contador",
-    title: "Semanas entre fechas",
-    startDate: "Fecha inicial",
-    endDate: "Fecha final",
-    startDateAria: "Seleccionar fecha inicial",
-    endDateAria: "Seleccionar fecha final",
-    includeEndDate: "Incluir fecha final",
-    includeEndDateHelp: "Activalo si quieres contar tambien el ultimo dia del periodo.",
-    helperText: "Prefieres verlo en dias?",
-    helperAction: "Calcular dias",
-    selectBothDates: "Selecciona la fecha inicial y la fecha final.",
-    endAfterStart: "La fecha final debe ser igual o posterior a la fecha inicial.",
-    hint: "Convierte el tiempo entre dos fechas a semanas completas, dias restantes y semanas aproximadas.",
-    submit: "Calcular semanas",
-    reset: "Restablecer",
-    totalBetweenDates: "Total entre fechas",
-    approximateWeeks: "semanas aproximadas",
-    fullWeeks: "Semanas completas",
-    remainingDays: "Dias restantes",
-    totalDays: "Dias calendario",
-    includesEndDate: "Incluye fecha final",
-    yes: "Si",
-    no: "No",
-    rulesNote: "Se conto desde {start} hasta {end}{suffix}",
-    withEndSuffix: ", incluyendo la fecha final.",
-    withoutEndSuffix: ", sin incluir la fecha final.",
-    disclaimer: "Conteo calendario. No evalua dias habiles, festivos, plazos ni reglas legales.",
-    emptyTitle: "Resultado en semanas",
-    emptyDescription: "Selecciona dos fechas para ver semanas completas, dias restantes y semanas aproximadas."
-  },
-  en: {
-    kicker: "Counter",
-    title: "Weeks between dates",
-    startDate: "Start date",
-    endDate: "End date",
-    startDateAria: "Select start date",
-    endDateAria: "Select end date",
-    includeEndDate: "Include end date",
-    includeEndDateHelp: "Turn it on if you also want to count the last day of the period.",
-    helperText: "Prefer to see days?",
-    helperAction: "Calculate days",
-    selectBothDates: "Select the start date and the end date.",
-    endAfterStart: "The end date must be the same as or later than the start date.",
-    hint: "Convert the time between two dates into full weeks, remaining days, and approximate weeks.",
-    submit: "Calculate weeks",
-    reset: "Reset",
-    totalBetweenDates: "Total between dates",
-    approximateWeeks: "approximate weeks",
-    fullWeeks: "Full weeks",
-    remainingDays: "Remaining days",
-    totalDays: "Calendar days",
-    includesEndDate: "Includes end date",
-    yes: "Yes",
-    no: "No",
-    rulesNote: "Counted from {start} to {end}{suffix}",
-    withEndSuffix: ", including the end date.",
-    withoutEndSuffix: ", excluding the end date.",
-    disclaimer: "Calendar count. It does not evaluate business days, holidays, deadlines, or legal rules.",
-    emptyTitle: "Weeks result",
-    emptyDescription: "Select two dates to see full weeks, remaining days, and approximate weeks."
-  }
-} as const;
 
 export function WeeksBetweenDatesCalculator() {
   const { locale, localizePath } = useLocale();

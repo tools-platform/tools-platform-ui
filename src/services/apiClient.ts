@@ -35,6 +35,13 @@ const fallbackMessages: Record<
     notAllowed: "You don't have permission to use this tool from this origin.",
     notFound: "We couldn't find the service for this tool. Please try again later.",
     temporary: "The API had a temporary problem. Try again in a few seconds."
+  },
+  hi: {
+    connection: "हम API से कनेक्ट नहीं कर सके. अपना कनेक्शन जांचें और कुछ सेकंड में फिर कोशिश करें.",
+    generic: "हम गणना पूरी नहीं कर सके. कुछ सेकंड में फिर कोशिश करें.",
+    notAllowed: "आपको इस स्रोत से इस टूल का उपयोग करने की अनुमति नहीं है.",
+    notFound: "हमें इस टूल की सेवा नहीं मिली. कृपया बाद में फिर कोशिश करें.",
+    temporary: "API में अस्थायी समस्या हुई. कुछ सेकंड में फिर कोशिश करें."
   }
 };
 

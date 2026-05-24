@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { textCaseConverterCopy as copy } from "../../locales/calculatorCopy";
 
 type CaseMode = "uppercase" | "lowercase" | "capitalized" | "sentence";
 
@@ -10,77 +11,6 @@ function countWords(value: string) {
   const words = value.trim().match(/\S+/g);
   return words?.length ?? 0;
 }
-
-const copy = {
-  es: {
-    modes: [
-      { value: "uppercase", label: "Mayúsculas", description: "Convierte todo el texto a letras grandes.", example: "HOLA MUNDO" },
-      { value: "lowercase", label: "Minúsculas", description: "Convierte todo el texto a letras pequeñas.", example: "hola mundo" },
-      { value: "capitalized", label: "Capitalizar", description: "Pone en mayúscula la primera letra de cada palabra.", example: "Hola Mundo" },
-      { value: "sentence", label: "Tipo oración", description: "Pone en mayúscula el inicio de cada frase.", example: "Hola mundo." }
-    ] as const,
-    kicker: "Convertidor",
-    title: "Formato de texto",
-    originalText: "Texto original",
-    originalPlaceholder: "Pega aquí el texto que quieres convertir...",
-    format: "Formato",
-    emptyError: "Escribe o pega un texto para transformarlo.",
-    helperText: "Tiene tildes o simbolos?",
-    helperAction: "Limpiar texto",
-    hint: "El texto se transforma en tu navegador. No se envía a ningún servidor.",
-    submit: "Transformar texto",
-    reset: "Restablecer",
-    copied: "Texto copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    transformedText: "Texto transformado",
-    words: "Palabras",
-    characters: "Caracteres",
-    result: "Resultado",
-    copy: "Copiar",
-    appliedFormat: "Formato aplicado",
-    privacy: "Privacidad",
-    local: "Local",
-    rulesNote: "Conversión aplicada directamente en el navegador para tareas rápidas de texto.",
-    disclaimer:
-      "Resultado automático de formato. Revisa nombres propios, siglas o estilos editoriales si el texto se usará de forma profesional.",
-    emptyTitle: "Resultado de texto",
-    emptyDescription: "Elige un formato y transforma tu texto en segundos."
-  },
-  en: {
-    modes: [
-      { value: "uppercase", label: "Uppercase", description: "Turns the whole text into uppercase letters.", example: "HELLO WORLD" },
-      { value: "lowercase", label: "Lowercase", description: "Turns the whole text into lowercase letters.", example: "hello world" },
-      { value: "capitalized", label: "Title case", description: "Uppercases the first letter of each word.", example: "Hello World" },
-      { value: "sentence", label: "Sentence case", description: "Uppercases the beginning of each sentence.", example: "Hello world." }
-    ] as const,
-    kicker: "Converter",
-    title: "Text formatting",
-    originalText: "Original text",
-    originalPlaceholder: "Paste the text you want to transform here...",
-    format: "Format",
-    emptyError: "Type or paste text to transform it.",
-    helperText: "Has accents or symbols?",
-    helperAction: "Clean text",
-    hint: "The text is transformed in your browser. It is not sent to any server.",
-    submit: "Transform text",
-    reset: "Reset",
-    copied: "Text copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    transformedText: "Transformed text",
-    words: "Words",
-    characters: "Characters",
-    result: "Result",
-    copy: "Copy",
-    appliedFormat: "Applied format",
-    privacy: "Privacy",
-    local: "Local",
-    rulesNote: "Conversion is applied directly in the browser for quick text tasks.",
-    disclaimer:
-      "Automatic formatting result. Review proper nouns, acronyms, or editorial styles if the text will be used professionally.",
-    emptyTitle: "Text result",
-    emptyDescription: "Choose a format and transform your text in seconds."
-  }
-} as const;
 
 function capitalizeWords(value: string, localeCode: string) {
   const lowerText = value.toLocaleLowerCase(localeCode);

@@ -3,7 +3,8 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { workedHoursCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateWorkedHours,
   type WorkedHoursResponse,
@@ -17,86 +18,9 @@ function todayDate() {
   return new Date().toISOString().slice(0, 10);
 }
 
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Rangos trabajados",
-    range: "Rango",
-    pendingEntry: "Pendiente por completar",
-    workedDay: "Día trabajado",
-    startTime: "Hora de inicio",
-    endTime: "Hora de finalización",
-    addRange: "Agregar rango",
-    rounding: "Redondeo",
-    roundingHelp:
-      "Sirve si cobras o reportas tiempo por bloques. Si no necesitas ajustar los minutos, déjalo sin redondeo.",
-    noRounding: "Sin redondeo",
-    quarterHour: "Al cuarto de hora",
-    halfHour: "A media hora",
-    hint: "Puedes agregar una o varias jornadas para sumar el tiempo trabajado por día y rango de horas.",
-    submit: "Calcular horas",
-    reset: "Restablecer",
-    noEntriesError: "Agrega al menos un rango de trabajo.",
-    incompleteError: "Completa la fecha y las horas de cada rango.",
-    endTimeError: "La hora de finalización debe ser mayor que la hora de inicio en cada rango.",
-    requestError: "No se pudieron calcular las horas.",
-    heroTitle: "Total trabajado",
-    decimalHours: "horas en decimal",
-    totalHours: "Horas totales",
-    totalMinutes: "Minutos totales",
-    calculatedRanges: "Rangos calculados",
-    includedDays: "Días incluidos",
-    usedRounding: "Redondeo usado",
-    rulesNote: (entryCount: number) =>
-      `Se calcularon ${entryCount} rangos. El total en decimal te sirve para cobrar o registrar tiempo en plataformas de trabajo.`,
-    minutesCalculated: "min calculados",
-    disclaimer:
-      "Resultado estimado. No calcula horas extra, recargos nocturnos, festivos, políticas de nómina ni reglas laborales específicas.",
-    emptyTitle: "Resultado de horas",
-    emptyDescription: "Agrega uno o varios rangos para ver el total trabajado."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Worked ranges",
-    range: "Range",
-    pendingEntry: "Pending to complete",
-    workedDay: "Worked day",
-    startTime: "Start time",
-    endTime: "End time",
-    addRange: "Add range",
-    rounding: "Rounding",
-    roundingHelp:
-      "Useful if you bill or report time in blocks. If you do not need to adjust minutes, leave it with no rounding.",
-    noRounding: "No rounding",
-    quarterHour: "Nearest quarter hour",
-    halfHour: "Nearest half hour",
-    hint: "You can add one or several work sessions to total time by day and time range.",
-    submit: "Calculate hours",
-    reset: "Reset",
-    noEntriesError: "Add at least one work range.",
-    incompleteError: "Complete the date and times for every range.",
-    endTimeError: "The end time must be greater than the start time in each range.",
-    requestError: "We couldn't calculate the hours.",
-    heroTitle: "Total worked",
-    decimalHours: "decimal hours",
-    totalHours: "Total hours",
-    totalMinutes: "Total minutes",
-    calculatedRanges: "Calculated ranges",
-    includedDays: "Included days",
-    usedRounding: "Rounding used",
-    rulesNote: (entryCount: number) =>
-      `Calculated ${entryCount} ranges. The decimal total helps you bill or log time on work platforms.`,
-    minutesCalculated: "calculated min",
-    disclaimer:
-      "Estimated result. It does not calculate overtime, night surcharges, holidays, payroll policies, or specific labor rules.",
-    emptyTitle: "Hours result",
-    emptyDescription: "Add one or more ranges to see the total time worked."
-  }
-} as const;
-
 const initialEntries: WorkEntryForm[] = [{ id: "entry-1", date: todayDate(), startTime: "08:00", endTime: "12:00" }];
 
-function getRoundingLabel(rounding: WorkedHoursRounding, locale: "es" | "en") {
+function getRoundingLabel(rounding: WorkedHoursRounding, locale: Locale) {
   const text = copy[locale];
   return {
     none: text.noRounding,

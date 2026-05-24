@@ -2,6 +2,7 @@ import { MessageSquare, ThumbsDown, ThumbsUp } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "../i18n";
 import { sendToolFeedback } from "../services/analyticsApi";
+import { toolFeedbackCopy } from "../locales/uiCopy";
 
 type FeedbackValue = "yes" | "no" | null;
 type SaveStatus = "idle" | "saving" | "saved" | "error" | "needs-choice";
@@ -21,31 +22,7 @@ export function ToolFeedback({ toolSlug }: ToolFeedbackProps) {
   const failedSignatureRef = useRef("");
 
   const copy =
-    locale === "en"
-      ? {
-          question: "Was this tool helpful?",
-          yes: "Yes",
-          no: "No",
-          addComment: "Add comment",
-          commentLabel: "Optional comment",
-          placeholder: "Tell us what worked or what we can improve...",
-          saving: "Saving...",
-          saved: "Saved. Thanks for helping us improve this tool.",
-          needsChoice: "Choose Yes or No so we can save the comment.",
-          error: "We couldn't save it. Please try again."
-        }
-      : {
-          question: "¿Te sirvió esta herramienta?",
-          yes: "Sí",
-          no: "No",
-          addComment: "Agregar comentario",
-          commentLabel: "Comentario opcional",
-          placeholder: "Cuéntanos qué funcionó o qué podemos mejorar...",
-          saving: "Guardando...",
-          saved: "Guardado. Gracias por ayudarnos a mejorar esta herramienta.",
-          needsChoice: "Elige Sí o No para poder guardar el comentario.",
-          error: "No pudimos guardarlo. Intenta de nuevo."
-        };
+    toolFeedbackCopy[locale];
 
   async function saveFeedback(nextValue: Exclude<FeedbackValue, null>, nextComment = "") {
     setStatus("saving");

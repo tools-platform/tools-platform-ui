@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { percentageCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type PercentageMode = "percentOf" | "whatPercent" | "increaseDecrease" | "percentChange";
 type ChangeOperation = "increase" | "decrease";
@@ -13,77 +14,6 @@ type PercentageResult = {
   value: number;
   unit: "number" | "percent";
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Calcular porcentaje",
-    mode: "Tipo de cálculo",
-    modes: {
-      percentOf: "X% de un número",
-      whatPercent: "Qué porcentaje es",
-      increaseDecrease: "Aumento / descuento",
-      percentChange: "Diferencia porcentual"
-    },
-    percentage: "Porcentaje",
-    number: "Número",
-    part: "Valor parcial",
-    total: "Valor total",
-    initialValue: "Valor inicial",
-    finalValue: "Valor final",
-    operation: "Operación",
-    operations: {
-      increase: "Aumento",
-      decrease: "Descuento"
-    },
-    emptyError: "Completa los campos con valores válidos.",
-    divisionError: "El valor total o inicial no puede ser cero.",
-    hint: "Calcula porcentajes en tu navegador para descuentos, aumentos, comparaciones, notas o valores rápidos.",
-    submit: "Calcular porcentaje",
-    reset: "Restablecer",
-    resultTitle: "Resultado",
-    result: "Resultado",
-    appliedMode: "Tipo",
-    rulesNote: "El resultado queda fijo hasta que vuelves a calcular, así puedes cambiar datos sin alterar la salida actual.",
-    disclaimer: "Resultado automático para cálculos de porcentaje. Revisa redondeos si usarás el valor en documentos finales.",
-    emptyTitle: "El resultado aparecerá aquí",
-    emptyDescription: "Elige el tipo de cálculo, completa los valores y calcula el porcentaje."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Calculate percentage",
-    mode: "Calculation type",
-    modes: {
-      percentOf: "X% of a number",
-      whatPercent: "What percentage is",
-      increaseDecrease: "Increase / discount",
-      percentChange: "Percentage change"
-    },
-    percentage: "Percentage",
-    number: "Number",
-    part: "Partial value",
-    total: "Total value",
-    initialValue: "Initial value",
-    finalValue: "Final value",
-    operation: "Operation",
-    operations: {
-      increase: "Increase",
-      decrease: "Discount"
-    },
-    emptyError: "Complete the fields with valid values.",
-    divisionError: "The total or initial value cannot be zero.",
-    hint: "Calculate percentages in your browser for discounts, increases, comparisons, grades, or quick values.",
-    submit: "Calculate percentage",
-    reset: "Reset",
-    resultTitle: "Result",
-    result: "Result",
-    appliedMode: "Type",
-    rulesNote: "The result stays fixed until you calculate again, so changing inputs does not alter the current output.",
-    disclaimer: "Automatic percentage result. Review rounding if you will use the value in final documents.",
-    emptyTitle: "The result will appear here",
-    emptyDescription: "Choose the calculation type, complete the values, and calculate the percentage."
-  }
-} as const;
 
 function parseNumber(value: string) {
   const normalized = value.replace(/\s/g, "").replace(",", ".");

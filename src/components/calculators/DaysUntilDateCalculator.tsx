@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { daysUntilDateCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 function toDateKey(date: Date) {
   const year = date.getFullYear();
@@ -23,59 +24,6 @@ function parseDate(value: string) {
   const [year, month, day] = value.split("-").map(Number);
   return new Date(year, month - 1, day);
 }
-
-const copy = {
-  es: {
-    kicker: "Contador",
-    title: "Días hasta una fecha",
-    targetDate: "Fecha objetivo",
-    targetDateAria: "Seleccionar fecha objetivo",
-    includeToday: "Incluir el día de hoy",
-    includeTodayHelp: "Actívalo si quieres contar hoy como parte del periodo.",
-    missingDate: "Selecciona una fecha objetivo.",
-    pastDate: "La fecha objetivo debe ser hoy o una fecha futura.",
-    hint: "Cuenta cuántos días faltan para una fecha, evento, entrega o plazo personal.",
-    submit: "Contar días restantes",
-    reset: "Restablecer",
-    hero: "Días restantes",
-    weeks: "Semanas aproximadas",
-    fullWeeks: "Semanas completas",
-    remainingDays: "Días restantes",
-    target: "Fecha objetivo",
-    includesToday: "Incluye hoy",
-    yes: "Sí",
-    no: "No",
-    rulesNote: "Conteo de días calendario hasta {date}.",
-    disclaimer: "Conteo informativo de días calendario. No evalúa días hábiles, festivos ni vencimientos legales.",
-    emptyTitle: "El conteo aparecerá aquí",
-    emptyDescription: "Selecciona una fecha futura para ver cuántos días faltan."
-  },
-  en: {
-    kicker: "Counter",
-    title: "Days until a date",
-    targetDate: "Target date",
-    targetDateAria: "Select target date",
-    includeToday: "Include today",
-    includeTodayHelp: "Turn it on if today should count as part of the period.",
-    missingDate: "Select a target date.",
-    pastDate: "The target date must be today or a future date.",
-    hint: "Count how many days are left until a date, event, delivery, or personal deadline.",
-    submit: "Count days left",
-    reset: "Reset",
-    hero: "Days left",
-    weeks: "Approximate weeks",
-    fullWeeks: "Full weeks",
-    remainingDays: "Remaining days",
-    target: "Target date",
-    includesToday: "Includes today",
-    yes: "Yes",
-    no: "No",
-    rulesNote: "Calendar day count until {date}.",
-    disclaimer: "Informational calendar day count. It does not evaluate business days, holidays, or legal deadlines.",
-    emptyTitle: "The count will appear here",
-    emptyDescription: "Select a future date to see how many days are left."
-  }
-} as const;
 
 export function DaysUntilDateCalculator() {
   const { locale } = useLocale();

@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { freelanceRateCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateFreelanceRate,
   type FreelanceRateResponse,
@@ -10,85 +11,6 @@ import {
 } from "../../services/workApi";
 
 type FreelanceRateData = FreelanceRateResponse["data"];
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Cuanto cobrar por hora",
-    currency: "Moneda",
-    currencyHelp: "Elige si quieres hacer la proyeccion en pesos colombianos o en dolares.",
-    desiredMonthlyIncome: "Cuanto quieres ganar al mes",
-    desiredMonthlyIncomeHelp: "Es la meta mensual que quieres lograr con tu trabajo independiente.",
-    workDaysPerWeek: "Dias por semana",
-    hoursPerDay: "Horas por dia",
-    safetyMargin: "Margen de seguridad",
-    safetyMarginHelp:
-      "Es un extra sobre tu meta mensual para cubrir imprevistos, semanas flojas, ajustes o negociacion con clientes.",
-    hint: "La tarifa por hora se calcula con las horas que realmente quieres trabajar y cobrar.",
-    submit: "Calcular cuanto cobrar",
-    reset: "Restablecer",
-    monthlyGoalError: "Ingresa cuanto quieres ganar al mes.",
-    workDaysError: "Elige entre 1 y 7 dias de trabajo por semana.",
-    hoursError: "Ingresa horas por dia entre 1 y 24.",
-    marginError: "El margen debe estar entre 0% y 300%.",
-    requestError: "No se pudo calcular la tarifa freelance.",
-    heroTitle: "Tarifa sugerida por hora",
-    targetWithMargin: "Meta mensual con margen",
-    minimumHourlyRate: "Tarifa minima por hora",
-    suggestedDailyRate: "Tarifa diaria sugerida",
-    suggestedWeeklyRate: "Tarifa semanal sugerida",
-    monthlyHours: "Horas al mes",
-    weeklyHours: "Horas por semana",
-    addedMargin: "Margen agregado",
-    currencyResult: "Moneda usada",
-    cop: "Peso colombiano (COP)",
-    usd: "Dolar estadounidense (USD)",
-    rulesNote: (days: number, hours: string, weeksPerMonth: number) =>
-      `Se usaron ${days} dias por semana, ${hours} horas por dia y ${weeksPerMonth} semanas promedio por mes.`,
-    disclaimer:
-      "Resultado estimado. No incluye impuestos, comisiones de plataformas, riesgo del cliente, cambios de alcance ni asesoria contable o legal.",
-    emptyTitle: "Resultado freelance",
-    emptyDescription: "Ingresa tu meta mensual y tu ritmo de trabajo para ver cuanto cobrar por hora."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "How much to charge per hour",
-    currency: "Currency",
-    currencyHelp: "Choose whether you want the estimate in Colombian pesos or US dollars.",
-    desiredMonthlyIncome: "How much you want to earn per month",
-    desiredMonthlyIncomeHelp: "This is the monthly goal you want to reach with your independent work.",
-    workDaysPerWeek: "Days per week",
-    hoursPerDay: "Hours per day",
-    safetyMargin: "Safety margin",
-    safetyMarginHelp:
-      "This is an extra amount on top of your monthly goal to cover surprises, slow weeks, scope changes, or negotiation.",
-    hint: "The hourly rate is calculated with the hours you actually want to work and bill.",
-    submit: "Calculate how much to charge",
-    reset: "Reset",
-    monthlyGoalError: "Enter how much you want to earn per month.",
-    workDaysError: "Choose between 1 and 7 workdays per week.",
-    hoursError: "Enter hours per day between 1 and 24.",
-    marginError: "The margin must be between 0% and 300%.",
-    requestError: "We couldn't calculate the freelance rate.",
-    heroTitle: "Suggested hourly rate",
-    targetWithMargin: "Monthly target with margin",
-    minimumHourlyRate: "Minimum hourly rate",
-    suggestedDailyRate: "Suggested daily rate",
-    suggestedWeeklyRate: "Suggested weekly rate",
-    monthlyHours: "Monthly hours",
-    weeklyHours: "Weekly hours",
-    addedMargin: "Added margin",
-    currencyResult: "Currency used",
-    cop: "Colombian peso (COP)",
-    usd: "US dollar (USD)",
-    rulesNote: (days: number, hours: string, weeksPerMonth: number) =>
-      `Used ${days} days per week, ${hours} hours per day, and ${weeksPerMonth} average weeks per month.`,
-    disclaimer:
-      "Estimated result. It does not include taxes, platform fees, client risk, scope changes, or accounting or legal advice.",
-    emptyTitle: "Freelance result",
-    emptyDescription: "Enter your monthly goal and work pace to see how much to charge per hour."
-  }
-} as const;
 
 function parseMoney(value: string) {
   const normalized = value.replace(/[^\d]/g, "");

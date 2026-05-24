@@ -42,6 +42,7 @@ import { ToolSeoContent } from "../components/ToolSeoContent";
 import { categories, tools } from "../data/catalog";
 import { toolContentById } from "../data/toolContent";
 import { getLocalizedText, useLocale } from "../i18n";
+import { toolPageCopy } from "../locales/uiCopy";
 
 type ToolPageProps = {
   slug: string;
@@ -52,23 +53,7 @@ export function ToolPage({ slug }: ToolPageProps) {
   const tool = tools.find((item) => item.slug === slug);
   const category = categories.find((item) => item.id === tool?.categoryId);
   const copy =
-    locale === "en"
-      ? {
-          back: "All tools",
-          notFoundTitle: "Tool not found",
-          notFoundCopy: "This URL does not exist in the catalog yet.",
-          preparedTitle: "Page ready",
-          preparedCopy:
-            "We will place the form, action button, results, and SEO content here when this tool goes live."
-        }
-      : {
-          back: "Todas las herramientas",
-          notFoundTitle: "Herramienta no encontrada",
-          notFoundCopy: "Esta URL todavía no existe en el catálogo.",
-          preparedTitle: "Página preparada",
-          preparedCopy:
-            "Aquí montaremos el formulario, botón de cálculo, resultados y texto SEO cuando activemos esta herramienta."
-        };
+    toolPageCopy[locale];
 
   if (!tool) {
     return (

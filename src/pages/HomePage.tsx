@@ -6,6 +6,7 @@ import { ToolCard } from "../components/ToolCard";
 import { categories, tools } from "../data/catalog";
 import { getLocalizedText, useLocale } from "../i18n";
 import { getTopSearchConsolePages, type TopSearchConsolePage } from "../services/analyticsApi";
+import { homePageCopy } from "../locales/uiCopy";
 
 export function HomePage() {
   const { locale } = useLocale();
@@ -14,63 +15,7 @@ export function HomePage() {
   const [topPages, setTopPages] = useState<TopSearchConsolePage[]>([]);
 
   const copy =
-    locale === "en"
-      ? {
-          eyebrow: "50+ more tools coming soon",
-          titleLead: "Tools that",
-          titleEmphasis: "simply work",
-          heroCopy: "Fast calculators, converters, and utilities for practical tasks without the extra noise.",
-          emptyTitle: "We couldn't find that tool",
-          emptyCopy: "Try a different search or switch categories.",
-          popularKicker: "Real usage",
-          popularTitle: "Most searched tools",
-          popularCopy: "Tools that people are finding and opening most often in the latest available data.",
-          impressions: "impressions",
-          topLabel: "Top",
-          aboutKicker: "About",
-          aboutTitle: "Simple tools for people who need clear answers.",
-          aboutParagraphOne:
-            "Our purpose is to help people who arrive looking for one concrete solution: calculate a salary, understand a settlement, convert a unit, or solve a practical question without learning prompts, AI models, or complicated workflows.",
-          aboutParagraphTwo:
-            "We want each tool to explain only what is needed, ask for as little data as possible, and return a result that is easy to understand. The technology stays behind the scenes; usefulness stays in front.",
-          principlesLabel: "Tools Platforms principles",
-          featureOneTitle: "Use in seconds",
-          featureOneCopy: "Open it, fill only what matters, and get the result without unnecessary steps.",
-          featureTwoTitle: "Clear results",
-          featureTwoCopy: "Each calculation should show what was used and what the result means.",
-          featureThreeTitle: "No AI knowledge required",
-          featureThreeCopy:
-            "We turn common questions into direct tools for people who simply need to solve something practical.",
-          availableTools: "tools available"
-        }
-      : {
-          eyebrow: "Más de 50 herramientas próximamente",
-          titleLead: "Herramientas que",
-          titleEmphasis: "simplemente funcionan",
-          heroCopy: "Calculadoras, conversores y utilidades rápidas para resolver tareas prácticas sin vueltas.",
-          emptyTitle: "No encontramos esa herramienta",
-          emptyCopy: "Cambia la búsqueda o selecciona otra categoría.",
-          popularKicker: "Uso real",
-          popularTitle: "Herramientas más buscadas",
-          popularCopy: "Herramientas que más personas están encontrando y abriendo según los datos recientes.",
-          impressions: "impresiones",
-          topLabel: "Top",
-          aboutKicker: "Acerca de",
-          aboutTitle: "Herramientas simples para personas que necesitan respuestas claras.",
-          aboutParagraphOne:
-            "Nuestro propósito es ayudar a la gente que llega buscando una solución concreta: calcular un salario, entender una liquidación, convertir una medida o resolver una duda práctica sin tener que aprender prompts, modelos de IA o procesos complicados.",
-          aboutParagraphTwo:
-            "Queremos que cada herramienta explique lo necesario, pida pocos datos y entregue un resultado fácil de entender. La tecnología queda detrás; la utilidad queda al frente.",
-          principlesLabel: "Principios de Tools Platforms",
-          featureOneTitle: "Usar en segundos",
-          featureOneCopy: "Entrar, llenar lo justo y ver el resultado sin pasos innecesarios.",
-          featureTwoTitle: "Resultados claros",
-          featureTwoCopy: "Cada cálculo debe mostrar qué se usó y qué significa el resultado.",
-          featureThreeTitle: "Sin saber usar IA",
-          featureThreeCopy:
-            "Convertimos preguntas comunes en herramientas directas para quien solo necesita resolver algo práctico.",
-          availableTools: "herramientas disponibles"
-        };
+    homePageCopy[locale];
 
   const publishedToolsCount = useMemo(
     () => tools.filter((tool) => tool.status === "published").length,

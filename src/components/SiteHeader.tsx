@@ -2,7 +2,9 @@ import { ChevronDown, Languages, LayoutGrid } from "lucide-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { categories, tools } from "../data/catalog";
 import { getLocalizedText, setStoredLocalePreference, stripLocalePrefix, useLocale, type Locale } from "../i18n";
+import { localeLabels, supportedLocales } from "../locales/config";
 import { BrandLogo } from "./BrandLogo";
+import { siteHeaderCopy } from "../locales/uiCopy";
 
 type LanguageOption = {
   value: Locale;
@@ -18,40 +20,13 @@ export function SiteHeader() {
   const closeTimer = useRef<number | null>(null);
   const languageCloseTimer = useRef<number | null>(null);
   const copy =
-    locale === "en"
-      ? {
-          home: "Home",
-          browse: "Browse",
-          popular: "Popular",
-          categories: "Categories",
-          about: "About",
-          search: "Search",
-          categoriesTitle: "Tools by category",
-          categoriesHint: "Pick a live tool or see what is coming next.",
-          comingSoonShort: "Soon",
-          mobileCategories: "Open categories",
-          languageLabel: "Language",
-          mobileLanguage: "Open language menu"
-        }
-      : {
-          home: "Principal",
-          browse: "Explorar",
-          popular: "Más buscadas",
-          categories: "Categorías",
-          about: "Acerca",
-          search: "Buscar",
-          categoriesTitle: "Herramientas por categoría",
-          categoriesHint: "Elige una disponible o revisa lo que viene.",
-          comingSoonShort: "Próx.",
-          mobileCategories: "Abrir categorías",
-          languageLabel: "Idioma",
-          mobileLanguage: "Abrir menú de idioma"
-        };
+    siteHeaderCopy[locale];
 
-  const languageOptions: LanguageOption[] = [
-    { value: "es", label: locale === "en" ? "Spanish" : "Español", nativeLabel: "Español" },
-    { value: "en", label: locale === "en" ? "English" : "Inglés", nativeLabel: "English" }
-  ];
+  const languageOptions: LanguageOption[] = supportedLocales.map((value) => ({
+    value,
+    label: localeLabels[value].label[locale],
+    nativeLabel: localeLabels[value].nativeLabel
+  }));
 
   const currentLanguage = languageOptions.find((option) => option.value === locale) ?? languageOptions[0];
 

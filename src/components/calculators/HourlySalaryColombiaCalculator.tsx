@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { hourlySalaryColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateHourlySalaryColombia,
   type HourlySalaryColombiaResponse,
@@ -43,123 +44,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Salario por hora",
-    monthlySalary: "Salario mensual base",
-    monthlySalaryHelp: "El tipo de cálculo define si se usa bruto o neto.",
-    monthlySalaryTooltip: "Usa bruto si es antes de descuentos. Usa neto si es después de salud, pensión y otros descuentos de nómina.",
-    salaryHelperGross: "¿Solo sabes tu quincena?",
-    salaryHelperGrossAction: "Calcular salario",
-    salaryHelperNet: "¿No sabes el salario neto?",
-    salaryHelperNetAction: "Calcular salario",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar la jornada legal y los límites laborales vigentes de ese año en Colombia.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    weeklyHours: "Horas semanales",
-    weeklyHoursHelp: "Por defecto usamos la jornada legal vigente hoy en Colombia. Puedes editarla si tu horario real es distinto.",
-    editWeeklyHoursAria: "Editar horas semanales",
-    editWeeklyHoursTitle: "Editar horas",
-    salaryType: "Tipo de cálculo",
-    salaryTypeHelp: "Bruto divide el salario sin descuentos. Neto descuenta salud, pensión y Fondo de Solidaridad Pensional cuando aplica.",
-    gross: "Bruto",
-    net: "Neto",
-    salaryRequired: "Ingresa un salario mensual mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    weeklyHoursRange: "Ingresa horas semanales entre 1 y 168.",
-    requestError: "No se pudo calcular el salario por hora.",
-    preview: (salary: string, weeklyHours: string, year: string, salaryType: HourlySalaryType) =>
-      `Vas a calcular sobre ${salary} al mes con ${weeklyHours} horas semanales y reglas de ${year}. ${
-        salaryType === "net" ? "El neto estima descuentos legales." : "El bruto no descuenta nómina."
-      }`,
-    submit: "Calcular salario por hora",
-    reset: "Restablecer",
-    heroGross: "Valor bruto por hora",
-    heroNet: "Valor neto por hora",
-    dailyValue: "Por día laboral",
-    baseMonthlySalary: "Salario mensual base",
-    usedMonthlySalary: "Salario mensual usado",
-    weeklyHoursResult: "Horas semanales",
-    monthlyHoursResult: "Horas mensuales",
-    health: "Salud 4%",
-    pension: "Pensión 4%",
-    healthRate: "Salud",
-    pensionRate: "Pensión",
-    solidarityFund: "Fondo de solidaridad",
-    totalDeductions: "Total descuentos",
-    dailyValueLabel: "Valor por día laboral",
-    customRulesNote: (weeklyHours: number, year: number, legalWeeklyHours: number) =>
-      `Usa ${weeklyHours} horas semanales personalizadas. La referencia legal para ${year} es ${legalWeeklyHours} horas.`,
-    legalRulesNote: (year: number, legalWeeklyHours: number) =>
-      `Usa la jornada legal de referencia para ${year}: ${legalWeeklyHours} horas semanales.`,
-    salaryTypeResult: "Tipo de cálculo",
-    solidarityRate: "Solidaridad",
-    disclaimer:
-      "Estimación del valor por hora para un empleado dependiente en Colombia. El cálculo neto descuenta salud, pensión y Fondo de Solidaridad Pensional cuando aplica. No incluye horas extra, recargos, impuestos ni acuerdos especiales.",
-    emptyTitle: "Tu valor por hora aparecerá aquí",
-    emptyDescription: "Ingresa el salario mensual, elige si quieres ver bruto o neto y calcula para obtener la conversión por hora."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Hourly salary",
-    monthlySalary: "Base monthly salary",
-    monthlySalaryHelp: "The calculation type defines whether gross or net is used.",
-    monthlySalaryTooltip: "Use gross if it is before deductions. Use net if it is after health, pension, and other payroll deductions.",
-    salaryHelperGross: "Only know biweekly pay?",
-    salaryHelperGrossAction: "Calculate salary",
-    salaryHelperNet: "Don't know the net salary?",
-    salaryHelperNetAction: "Calculate salary",
-    payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply the legal workweek and labor limits in force for that year in Colombia.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    weeklyHours: "Weekly hours",
-    weeklyHoursHelp: "By default we use the legal workweek currently in force in Colombia. You can edit it if your real schedule is different.",
-    editWeeklyHoursAria: "Edit weekly hours",
-    editWeeklyHoursTitle: "Edit hours",
-    salaryType: "Calculation type",
-    salaryTypeHelp: "Gross divides the salary without deductions. Net subtracts health, pension, and the solidarity pension fund when applicable.",
-    gross: "Gross",
-    net: "Net",
-    salaryRequired: "Enter a monthly salary greater than zero.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    weeklyHoursRange: "Enter weekly hours between 1 and 168.",
-    requestError: "We couldn't calculate the hourly salary.",
-    preview: (salary: string, weeklyHours: string, year: string, salaryType: HourlySalaryType) =>
-      `You are calculating from ${salary} per month, using ${weeklyHours} weekly hours and ${year} rules. ${
-        salaryType === "net" ? "Net estimates legal deductions." : "Gross does not subtract payroll deductions."
-      }`,
-    submit: "Calculate hourly salary",
-    reset: "Reset",
-    heroGross: "Gross hourly value",
-    heroNet: "Net hourly value",
-    dailyValue: "Per workday",
-    baseMonthlySalary: "Base monthly salary",
-    usedMonthlySalary: "Monthly salary used",
-    weeklyHoursResult: "Weekly hours",
-    monthlyHoursResult: "Monthly hours",
-    health: "Health 4%",
-    pension: "Pension 4%",
-    healthRate: "Health",
-    pensionRate: "Pension",
-    solidarityFund: "Solidarity fund",
-    totalDeductions: "Total deductions",
-    dailyValueLabel: "Per workday value",
-    customRulesNote: (weeklyHours: number, year: number, legalWeeklyHours: number) =>
-      `Uses ${weeklyHours} custom weekly hours. The legal reference for ${year} is ${legalWeeklyHours} hours.`,
-    legalRulesNote: (year: number, legalWeeklyHours: number) =>
-      `Uses the legal reference workweek for ${year}: ${legalWeeklyHours} weekly hours.`,
-    salaryTypeResult: "Calculation type",
-    solidarityRate: "Solidarity",
-    disclaimer:
-      "Estimated hourly value for a dependent employee in Colombia. The net calculation subtracts health, pension, and the solidarity pension fund when applicable. It does not include overtime, surcharges, taxes, or special agreements.",
-    emptyTitle: "Your hourly value will appear here",
-    emptyDescription: "Enter the monthly salary, choose whether you want gross or net, and calculate to get the hourly conversion."
-  }
-} as const;
 
 export function HourlySalaryColombiaCalculator() {
   const { locale, localizePath } = useLocale();

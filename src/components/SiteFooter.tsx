@@ -1,20 +1,11 @@
 import { useLocale } from "../i18n";
 import { BrandLogo } from "./BrandLogo";
+import { siteFooterCopy } from "../locales/uiCopy";
 
 export function SiteFooter() {
   const { locale, localizePath } = useLocale();
   const copy =
-    locale === "en"
-      ? {
-          privacy: "Privacy",
-          terms: "Terms",
-          contact: "Contact"
-        }
-      : {
-          privacy: "Privacidad",
-          terms: "Términos",
-          contact: "Contacto"
-        };
+    siteFooterCopy[locale];
 
   return (
     <footer className="site-footer">

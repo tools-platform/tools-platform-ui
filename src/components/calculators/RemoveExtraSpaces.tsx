@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { removeExtraSpacesCopy as copy } from "../../locales/calculatorCopy";
 
 type SpaceCleanerResult = {
   input: string;
@@ -13,67 +14,6 @@ type SpaceCleanerResult = {
   removeEmptyLines: boolean;
   removedEmptyLines: number;
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Limpiar espacios",
-    inputLabel: "Texto con espacios",
-    placeholder: "Pega texto con espacios dobles, saltos vacíos, tabs o texto copiado de Excel...",
-    trimLines: "Eliminar espacios al inicio y final",
-    trimLinesHelp: "Limpia espacios antes y después de cada línea.",
-    collapseSpaces: "Reducir espacios repetidos",
-    collapseSpacesHelp: "Convierte varios espacios seguidos en uno solo.",
-    tabsToSpaces: "Convertir tabs en espacios",
-    tabsToSpacesHelp: "Útil cuando copias contenido desde tablas o editores.",
-    removeEmptyLines: "Eliminar líneas vacías",
-    removeEmptyLinesHelp: "Elimina filas vacías si solo quieres el contenido real.",
-    hint: "La limpieza se hace en tu navegador. Útil para columnas copiadas, listas, documentos y textos pegados.",
-    emptyError: "Pega un texto para limpiar espacios.",
-    submit: "Limpiar espacios",
-    reset: "Restablecer",
-    resultTitle: "Texto limpio",
-    result: "Resultado",
-    copy: "Copiar",
-    copied: "Resultado copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    removedChars: "Caracteres removidos",
-    removedEmptyLines: "Líneas vacías removidas",
-    rulesNote: "Conservamos los saltos de línea salvo que actives eliminar líneas vacías.",
-    disclaimer: "Resultado automático para limpieza de texto. Revisa el contenido si lo usarás en procesos definitivos.",
-    emptyTitle: "El texto limpio aparecerá aquí",
-    emptyDescription: "Pega contenido con espacios extra y genera una versión limpia en segundos."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Clean spaces",
-    inputLabel: "Text with spaces",
-    placeholder: "Paste text with double spaces, blank lines, tabs, or content copied from Excel...",
-    trimLines: "Trim leading and trailing spaces",
-    trimLinesHelp: "Cleans spaces before and after each line.",
-    collapseSpaces: "Reduce repeated spaces",
-    collapseSpacesHelp: "Turns multiple consecutive spaces into one.",
-    tabsToSpaces: "Convert tabs to spaces",
-    tabsToSpacesHelp: "Useful when copying content from tables or editors.",
-    removeEmptyLines: "Remove empty lines",
-    removeEmptyLinesHelp: "Removes blank rows when you only want real content.",
-    hint: "Cleanup happens in your browser. Useful for copied columns, lists, documents, and pasted text.",
-    emptyError: "Paste text to clean spaces.",
-    submit: "Clean spaces",
-    reset: "Reset",
-    resultTitle: "Clean text",
-    result: "Result",
-    copy: "Copy",
-    copied: "Result copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    removedChars: "Removed characters",
-    removedEmptyLines: "Removed empty lines",
-    rulesNote: "We keep line breaks unless you enable remove empty lines.",
-    disclaimer: "Automatic text cleanup result. Review the content if you will use it in final workflows.",
-    emptyTitle: "Clean text will appear here",
-    emptyDescription: "Paste content with extra spaces and generate a clean version in seconds."
-  }
-} as const;
 
 function cleanSpaces(
   value: string,

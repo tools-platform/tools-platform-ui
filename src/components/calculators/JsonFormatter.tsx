@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ExpandedTextTransform } from "../ExpandedTextTransform";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { jsonFormatterCopy as copy } from "../../locales/calculatorCopy";
 
 type JsonMode = "format" | "minify";
 
@@ -14,81 +15,6 @@ type JsonTransformResult = {
   keys: number;
   items: number;
 };
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "JSON para transformar",
-    inputLabel: "Código JSON",
-    placeholder: '{\n  "name": "Tools Platforms",\n  "type": "online tools",\n  "published": true\n}',
-    operation: "Operación",
-    format: "Formatear",
-    minify: "Minificar",
-    hint: "Formatea, minifica y valida JSON localmente en tu navegador. El contenido no se envía al servidor.",
-    emptyError: "Pega código JSON para formatear o minificar.",
-    invalidError: "El JSON no es válido. Revisa comillas, comas, llaves o corchetes.",
-    submitFormat: "Formatear JSON",
-    submitMinify: "Minificar JSON",
-    reset: "Restablecer",
-    result: "Resultado",
-    resultTitleFormat: "JSON formateado",
-    resultTitleMinify: "JSON minificado",
-    copy: "Copiar",
-    copied: "JSON copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    expand: "Expandir",
-    close: "Cerrar",
-    editorTitle: "Editor JSON",
-    updateResult: "Actualizar resultado",
-    autoUpdate: "Actualización automática",
-    updated: "Resultado actualizado.",
-    totalChars: "Total de caracteres",
-    keys: "Claves",
-    items: "Elementos",
-    mode: "Modo",
-    rulesNoteFormat: "Aplicamos indentación de dos espacios para que la estructura sea más fácil de leer.",
-    rulesNoteMinify: "Eliminamos saltos de línea y espacios innecesarios para obtener una versión compacta.",
-    disclaimer: "Valida estructura JSON estándar. No interpreta JSON5, comentarios ni comas finales.",
-    emptyTitle: "El JSON transformado aparecerá aquí",
-    emptyDescription: "Pega JSON válido, elige formatear o minificar y genera el resultado."
-  },
-  en: {
-    kicker: "Development",
-    title: "JSON to transform",
-    inputLabel: "JSON code",
-    placeholder: '{\n  "name": "Tools Platforms",\n  "type": "online tools",\n  "published": true\n}',
-    operation: "Operation",
-    format: "Format",
-    minify: "Minify",
-    hint: "Format, minify, and validate JSON locally in your browser. The content is not sent to a server.",
-    emptyError: "Paste JSON code to format or minify.",
-    invalidError: "The JSON is not valid. Check quotes, commas, braces, or brackets.",
-    submitFormat: "Format JSON",
-    submitMinify: "Minify JSON",
-    reset: "Reset",
-    result: "Result",
-    resultTitleFormat: "Formatted JSON",
-    resultTitleMinify: "Minified JSON",
-    copy: "Copy",
-    copied: "JSON copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    expand: "Expand",
-    close: "Close",
-    editorTitle: "JSON editor",
-    updateResult: "Update result",
-    autoUpdate: "Auto update",
-    updated: "Result updated.",
-    totalChars: "Total characters",
-    keys: "Keys",
-    items: "Items",
-    mode: "Mode",
-    rulesNoteFormat: "We apply two-space indentation so the structure is easier to read.",
-    rulesNoteMinify: "We remove line breaks and unnecessary spaces to produce a compact version.",
-    disclaimer: "Validates standard JSON syntax. It does not interpret JSON5, comments, or trailing commas.",
-    emptyTitle: "Transformed JSON will appear here",
-    emptyDescription: "Paste valid JSON, choose format or minify, and generate the result."
-  }
-} as const;
 
 function countJsonStats(value: unknown): { keys: number; items: number } {
   if (Array.isArray(value)) {

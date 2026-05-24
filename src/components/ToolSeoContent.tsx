@@ -1,12 +1,13 @@
 import type { ToolContent } from "../data/toolContent";
-import { getLocalizedText, useLocale } from "../i18n";
+import { getLocalizedText, useLocale, type Locale } from "../i18n";
+import { toolSeoContentCopy } from "../locales/uiCopy";
 
 type ToolSeoContentProps = {
   content: ToolContent;
   toolId: string;
 };
 
-const searchIntentsByToolId: Record<string, { es: string[]; en: string[] }> = {
+const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> = {
   "net-salary-colombia": {
     es: ["calculadora salarial Colombia", "salario neto Colombia 2026", "sueldo neto quincenal"],
     en: ["Colombia net salary calculator", "take-home pay Colombia", "Colombia payroll deductions"]
@@ -161,23 +162,7 @@ export function ToolSeoContent({ content, toolId }: ToolSeoContentProps) {
   const { locale } = useLocale();
   const searchIntents = searchIntentsByToolId[toolId]?.[locale] ?? [];
   const copy =
-    locale === "en"
-      ? {
-          ariaLabel: "Tool information",
-          kicker: "Quick guide",
-          title: "Before using this tool",
-          intentTitle: "Common searches this tool helps with",
-          faqKicker: "Frequently asked questions",
-          faqTitle: "Common questions"
-        }
-      : {
-          ariaLabel: "Información de la herramienta",
-          kicker: "Guía rápida",
-          title: "Antes de usar esta herramienta",
-          intentTitle: "Búsquedas comunes que resuelve",
-          faqKicker: "Preguntas frecuentes",
-          faqTitle: "Dudas comunes"
-        };
+    toolSeoContentCopy[locale];
 
   return (
     <section className="tool-seo-content" aria-label={copy.ariaLabel}>

@@ -5,6 +5,7 @@ import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { calculateSocialBenefitsColombia, type SocialBenefitsColombiaResponse } from "../../services/financeApi";
+import { socialBenefitsColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type SocialBenefitsData = SocialBenefitsColombiaResponse["data"];
 
@@ -26,103 +27,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Datos de prestaciones",
-    monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos.",
-    monthlySalaryTooltip: "Es el salario mensual bruto, antes de salud, pensión u otros descuentos. Se usa como base para estimar prestaciones sociales.",
-    salaryHelper: "¿Solo sabes tu quincena?",
-    salaryHelperAction: "Calcular salario",
-    startDate: "Desde",
-    startDateHelp: "Usa la fecha desde la que quieres estimar prestaciones acumuladas. No tiene que ser inicio de contrato si solo quieres calcular un periodo.",
-    endDate: "Hasta",
-    endDateHelp: "Usa la fecha final del periodo a estimar. La herramienta cuenta los días entre ambas fechas para calcular valores proporcionales.",
-    payrollYear: "Año",
-    payrollYearHelp: "Lo usamos para aplicar salario mínimo, auxilio de transporte y límites legales vigentes.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    transportationAllowance: "Auxilio de transporte",
-    transportationAllowanceHelp: "Se aplica solo si el salario cumple el límite legal.",
-    assumption: "Vacaciones causadas completas en el periodo. No se restan días ya disfrutados o pagados.",
-    salaryRequired: "Ingresa un salario mensual bruto mayor a cero.",
-    dateRequired: "Ingresa la fecha inicial y la fecha final.",
-    dateOrder: "La fecha final no puede ser anterior a la fecha inicial.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    requestError: "No se pudieron calcular las prestaciones.",
-    submit: "Calcular prestaciones",
-    reset: "Restablecer",
-    heroTitle: "Total estimado de prestaciones",
-    severancePay: "Cesantías",
-    severanceInterest: "Intereses de cesantías",
-    serviceBonus: "Prima de servicios",
-    vacationPay: "Vacaciones causadas",
-    totalBenefits: "Total prestaciones",
-    baseSalary: "Salario base",
-    benefitsBase: "Base prestaciones",
-    transportationAllowanceResult: "Auxilio transporte",
-    workedDays: "Días calculados",
-    rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Usa salario mínimo ${minWage}, auxilio de transporte ${allowance} y límite ${limit} para ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Usa salario mínimo ${minWage} para ${year}.`,
-    qualifiesForAllowance: "Cumple límite legal para auxilio",
-    yes: "Sí",
-    no: "No",
-    disclaimer:
-      "Este resultado es una estimación para un empleado dependiente en Colombia. No incluye retención en la fuente, salario variable, pagos no salariales, acuerdos especiales ni ajustes internos del empleador.",
-    emptyTitle: "Tus prestaciones aparecerán aquí",
-    emptyDescription: "Completa salario, fechas y año de reglas para ver cesantías, intereses, prima, vacaciones y total estimado."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Social benefits details",
-    monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "This is the salary before deductions.",
-    monthlySalaryTooltip: "This is the gross monthly salary before health, pension, or other deductions. It is used as the base to estimate social benefits.",
-    salaryHelper: "Only know biweekly pay?",
-    salaryHelperAction: "Calculate salary",
-    startDate: "From",
-    startDateHelp: "Use the date from which you want to estimate accrued benefits. It does not have to be the employment start date if you only need a period.",
-    endDate: "To",
-    endDateHelp: "Use the final date of the period. The tool counts days between both dates to calculate proportional values.",
-    payrollYear: "Year",
-    payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds in force.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    transportationAllowance: "Transportation allowance",
-    transportationAllowanceHelp: "Applied only when the salary meets the legal threshold.",
-    assumption: "Vacation is fully accrued for the period. Used or paid days are not subtracted.",
-    salaryRequired: "Enter a gross monthly salary greater than zero.",
-    dateRequired: "Enter the start date and the end date.",
-    dateOrder: "The end date cannot be earlier than the start date.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    requestError: "We couldn't calculate the social benefits.",
-    submit: "Calculate benefits",
-    reset: "Reset",
-    heroTitle: "Estimated social benefits total",
-    severancePay: "Severance pay",
-    severanceInterest: "Severance interest",
-    serviceBonus: "Service bonus",
-    vacationPay: "Accrued vacation",
-    totalBenefits: "Total benefits",
-    baseSalary: "Base salary",
-    benefitsBase: "Benefits base",
-    transportationAllowanceResult: "Transportation allowance",
-    workedDays: "Calculated days",
-    rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Uses minimum wage ${minWage}, transportation allowance ${allowance}, and threshold ${limit} for ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Uses minimum wage ${minWage} for ${year}.`,
-    qualifiesForAllowance: "Meets legal allowance threshold",
-    yes: "Yes",
-    no: "No",
-    disclaimer:
-      "This result is an estimate for a dependent employee in Colombia. It does not include withholding tax, variable salary, non-salary payments, special agreements, or employer-specific adjustments.",
-    emptyTitle: "Your benefits will appear here",
-    emptyDescription: "Complete salary, dates, and rule year to see severance, interest, service bonus, vacation, and estimated total."
-  }
-} as const;
 
 export function SocialBenefitsColombiaCalculator() {
   const { locale, localizePath } = useLocale();

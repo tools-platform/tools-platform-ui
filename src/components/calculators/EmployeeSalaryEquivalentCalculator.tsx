@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { employeeSalaryEquivalentCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateEmployeeSalaryEquivalent,
   type EmployeeSalaryEquivalentResponse
@@ -20,83 +21,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Sueldo equivalente",
-    hourlyRate: "Cuánto cobras por hora",
-    hourlyRateHelp: "Es el valor que facturas o cobras por cada hora de trabajo independiente.",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar los descuentos y umbrales legales vigentes de ese año en Colombia.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    weeklyHours: "Horas por semana",
-    weeklyHoursHelp: "Usa las horas reales que sí trabajas y cobras cada semana. Con eso proyectamos el equivalente como sueldo de empleado.",
-    hourlyRateRequired: "Ingresa cuánto cobras por hora.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    weeklyHoursRange: "Ingresa horas por semana entre 1 y 168.",
-    requestError: "No se pudo calcular el sueldo equivalente.",
-    preview: (hourlyRate: string, weeklyHours: string, year: string) =>
-      `Tomamos ${hourlyRate} por hora y ${weeklyHours} horas semanales para proyectarlo como sueldo de empleado en Colombia con reglas de ${year}.`,
-    submit: "Calcular sueldo equivalente",
-    reset: "Restablecer",
-    heroTitle: "Neto mensual estimado como empleado",
-    grossMonthlyEquivalent: "Bruto mensual equivalente",
-    weeklyIndependentIncome: "Ingreso semanal actual",
-    grossBiweeklyEquivalentSalary: "Sueldo quincenal bruto",
-    netBiweeklyEquivalentSalary: "Sueldo quincenal neto",
-    grossAnnualEquivalentSalary: "Sueldo anual bruto",
-    monthlyWorkingHours: "Horas mensuales equivalentes",
-    totalDeductions: "Descuentos mensuales estimados",
-    rulesNote: (hours: string) =>
-      `El cálculo usa ${hours} horas equivalentes al mes y los descuentos laborales vigentes para ese año.`,
-    health: "Salud",
-    pension: "Pensión",
-    solidarity: "Solidaridad",
-    disclaimer:
-      "Estimación para comparar lo que cobras como independiente frente a un sueldo de empleado en Colombia. No reemplaza una oferta laboral real ni incluye prestaciones, impuestos, recargos o pactos especiales.",
-    emptyTitle: "Tu sueldo equivalente aparecerá aquí",
-    emptyDescription: "Ingresa lo que cobras por hora y tus horas semanales para ver una referencia mensual y quincenal como empleado."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Equivalent salary",
-    hourlyRate: "How much you charge per hour",
-    hourlyRateHelp: "This is what you bill or charge for each hour of independent work.",
-    payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply the legal deductions and thresholds in force for that year in Colombia.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    weeklyHours: "Hours per week",
-    weeklyHoursHelp: "Use the real hours you actually work and charge each week. We use that to project the equivalent employee salary.",
-    hourlyRateRequired: "Enter how much you charge per hour.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    weeklyHoursRange: "Enter weekly hours between 1 and 168.",
-    requestError: "We couldn't calculate the equivalent salary.",
-    preview: (hourlyRate: string, weeklyHours: string, year: string) =>
-      `We use ${hourlyRate} per hour and ${weeklyHours} weekly hours to project it as an employee salary in Colombia using ${year} rules.`,
-    submit: "Calculate equivalent salary",
-    reset: "Reset",
-    heroTitle: "Estimated monthly net as employee",
-    grossMonthlyEquivalent: "Gross monthly equivalent",
-    weeklyIndependentIncome: "Current weekly income",
-    grossBiweeklyEquivalentSalary: "Gross biweekly salary",
-    netBiweeklyEquivalentSalary: "Net biweekly salary",
-    grossAnnualEquivalentSalary: "Gross annual salary",
-    monthlyWorkingHours: "Equivalent monthly hours",
-    totalDeductions: "Estimated monthly deductions",
-    rulesNote: (hours: string) =>
-      `This calculation uses ${hours} equivalent monthly hours and the labor deductions in force for that year.`,
-    health: "Health",
-    pension: "Pension",
-    solidarity: "Solidarity",
-    disclaimer:
-      "Estimate to compare what you charge as an independent worker against an employee salary in Colombia. It does not replace a real job offer and does not include benefits, taxes, surcharges, or special agreements.",
-    emptyTitle: "Your equivalent salary will appear here",
-    emptyDescription: "Enter what you charge per hour and your weekly hours to see a monthly and biweekly employee reference."
-  }
-} as const;
 
 export function EmployeeSalaryEquivalentCalculator() {
   const { locale } = useLocale();

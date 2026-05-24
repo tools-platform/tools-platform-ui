@@ -2,7 +2,8 @@ import { CheckCircle2, Clipboard, Info, KeyRound, RefreshCw, RotateCcw } from "l
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { securePasswordGeneratorCopy as copy } from "../../locales/calculatorCopy";
 
 type PasswordOptions = {
   uppercase: boolean;
@@ -22,85 +23,6 @@ const characterSets = {
 
 const easySymbols = "!@#$%*-_?";
 const ambiguousCharacters = new Set(["O", "0", "I", "l", "1", "|"]);
-
-const copy = {
-  es: {
-    kicker: "Generador",
-    title: "Contraseñas seguras",
-    length: "Longitud",
-    characters: "caracteres",
-    lengthHelp: "Entre 8 y 64 caracteres. Para la mayoría de cuentas, 16 o más es una buena base.",
-    quantity: "Cantidad de contraseñas",
-    uppercase: "Mayúsculas",
-    lowercase: "Minúsculas",
-    numbers: "Números",
-    symbols: "Símbolos",
-    avoidAmbiguous: "Evitar caracteres confusos",
-    avoidAmbiguousHelp: "Quita O, 0, I, l, 1 y símbolos similares.",
-    easyToRead: "Más fácil de leer",
-    easyToReadHelp: "Usa una lista más simple de símbolos.",
-    hint: "Las contraseñas se generan localmente en tu navegador. No se envían a ningún servidor.",
-    submit: "Generar contraseña",
-    reset: "Restablecer",
-    noTypeError: "Activa al menos un tipo de carácter para generar la contraseña.",
-    lengthError: "La longitud debe permitir incluir al menos un carácter de cada tipo activo.",
-    mainPassword: "Contraseña principal",
-    copied: "Copiada.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    copy: "Copiar",
-    main: "Principal",
-    alternative: "Alternativa",
-    strengthMedium: "Media",
-    strengthStrong: "Fuerte",
-    strengthVeryStrong: "Muy fuerte",
-    typesActive: "Tipos activos",
-    privacy: "Privacidad",
-    local: "Local",
-    saveNote: "Guarda la contraseña en un administrador seguro y evita reutilizarla en varias cuentas.",
-    disclaimer:
-      "Resultado generado automáticamente con aleatoriedad criptográfica del navegador. La seguridad final también depende de dónde guardes la contraseña y de no compartirla.",
-    emptyTitle: "Contraseña segura",
-    emptyDescription: "Configura la longitud y genera una o varias contraseñas al instante."
-  },
-  en: {
-    kicker: "Generator",
-    title: "Secure passwords",
-    length: "Length",
-    characters: "characters",
-    lengthHelp: "Between 8 and 64 characters. For most accounts, 16 or more is a strong baseline.",
-    quantity: "Number of passwords",
-    uppercase: "Uppercase",
-    lowercase: "Lowercase",
-    numbers: "Numbers",
-    symbols: "Symbols",
-    avoidAmbiguous: "Avoid ambiguous characters",
-    avoidAmbiguousHelp: "Removes O, 0, I, l, 1, and similar symbols.",
-    easyToRead: "Easier to read",
-    easyToReadHelp: "Uses a simpler list of symbols.",
-    hint: "Passwords are generated locally in your browser. They are not sent to any server.",
-    submit: "Generate password",
-    reset: "Reset",
-    noTypeError: "Enable at least one character type to generate the password.",
-    lengthError: "The length must allow at least one character from each active type.",
-    mainPassword: "Main password",
-    copied: "Copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    copy: "Copy",
-    main: "Main",
-    alternative: "Alternative",
-    strengthMedium: "Medium",
-    strengthStrong: "Strong",
-    strengthVeryStrong: "Very strong",
-    typesActive: "Active types",
-    privacy: "Privacy",
-    local: "Local",
-    saveNote: "Save the password in a secure manager and avoid reusing it across accounts.",
-    disclaimer:
-      "Result generated automatically using the browser's cryptographic randomness. Final security also depends on where you store the password and on not sharing it.",
-    emptyTitle: "Secure password",
-    emptyDescription: "Set the length and generate one or several passwords instantly."
-  }
-} as const;
 
 function randomIndex(max: number) {
   const values = new Uint32Array(1);
@@ -147,7 +69,7 @@ function createDefaultOptions(): PasswordOptions {
   return { uppercase: true, lowercase: true, numbers: true, symbols: true, avoidAmbiguous: false, easyToRead: false };
 }
 
-function evaluateStrength(password: string, options: PasswordOptions, locale: "es" | "en") {
+function evaluateStrength(password: string, options: PasswordOptions, locale: Locale) {
   const enabledTypes = [options.uppercase, options.lowercase, options.numbers, options.symbols].filter(Boolean).length;
   let score = 0;
   if (password.length >= 12) score += 1;

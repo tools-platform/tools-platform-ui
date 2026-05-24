@@ -3,6 +3,7 @@ import type { FormEvent, ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { findReplaceTextCopy as copy } from "../../locales/calculatorCopy";
 
 type ResultMode = "find" | "replace";
 
@@ -16,73 +17,6 @@ type ReplaceResult = {
   matches: number;
   mode: ResultMode;
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Buscar y reemplazar",
-    inputLabel: "Texto original",
-    placeholder: "Pega el texto donde quieres buscar o reemplazar palabras y fragmentos...",
-    searchLabel: "Buscar",
-    replacementLabel: "Reemplazar por",
-    matchCase: "Distinguir mayúsculas",
-    matchCaseHelp: "Diferencia Hola de hola.",
-    wholeWord: "Solo palabra completa",
-    wholeWordHelp: "Evita coincidencias dentro de otras palabras.",
-    emptyError: "Pega un texto y escribe qué quieres buscar.",
-    hint: "Si dejas reemplazar vacío, solo resaltamos las coincidencias encontradas.",
-    submitFind: "Buscar texto",
-    submitReplace: "Reemplazar texto",
-    reset: "Restablecer",
-    resultTitleFind: "Texto encontrado",
-    resultTitleReplace: "Texto reemplazado",
-    resultFind: "Coincidencias",
-    resultReplace: "Resultado",
-    copy: "Copiar",
-    copied: "Resultado copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    matches: "Coincidencias",
-    replacements: "Reemplazos",
-    characters: "Caracteres",
-    rulesNoteFind: "Marcamos las coincidencias en el texto original. El resultado no modifica tu contenido.",
-    rulesNoteReplace: "El resultado queda fijo hasta que vuelvas a presionar reemplazar.",
-    disclaimer: "Resultado automático para edición de texto. Revisa nombres propios, códigos o datos sensibles antes de usarlo.",
-    emptyTitle: "El resultado aparecerá aquí",
-    emptyDescription: "Pega texto, define qué buscar y elige si quieres solo encontrar o reemplazar."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Find and replace",
-    inputLabel: "Original text",
-    placeholder: "Paste the text where you want to find or replace words and fragments...",
-    searchLabel: "Find",
-    replacementLabel: "Replace with",
-    matchCase: "Match case",
-    matchCaseHelp: "Treats Hello and hello as different.",
-    wholeWord: "Whole word only",
-    wholeWordHelp: "Avoids matches inside other words.",
-    emptyError: "Paste text and enter what you want to find.",
-    hint: "If replace is empty, we only highlight the matches found.",
-    submitFind: "Find text",
-    submitReplace: "Replace text",
-    reset: "Reset",
-    resultTitleFind: "Found text",
-    resultTitleReplace: "Replaced text",
-    resultFind: "Matches",
-    resultReplace: "Result",
-    copy: "Copy",
-    copied: "Result copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    matches: "Matches",
-    replacements: "Replacements",
-    characters: "Characters",
-    rulesNoteFind: "We mark matches in the original text. The result does not modify your content.",
-    rulesNoteReplace: "The result stays fixed until you press replace again.",
-    disclaimer: "Automatic text editing result. Review names, code, or sensitive data before using it.",
-    emptyTitle: "The result will appear here",
-    emptyDescription: "Paste text, define what to find, and choose whether to only find or replace."
-  }
-} as const;
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

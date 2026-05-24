@@ -2,7 +2,8 @@ import { CalendarClock, CheckCircle2, ChevronDown, Clipboard, Info, RotateCcw } 
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { simpleCronGeneratorCopy as copy } from "../../locales/calculatorCopy";
 
 type CronMode = "minutes" | "hourly" | "daily" | "weekly" | "monthly" | "custom";
 type CronOperation = "generate" | "read";
@@ -14,113 +15,15 @@ type CronResult = {
 
 const weekdays = {
   es: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-  en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-} as const;
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "Cron simple",
-    operation: "Operación",
-    generate: "Generar",
-    read: "Leer cron",
-    mode: "Tipo",
-    modes: {
-      minutes: "Cada X minutos",
-      hourly: "Cada hora",
-      daily: "Diario",
-      weekly: "Semanal",
-      monthly: "Mensual",
-      custom: "Cron existente"
-    },
-    everyMinutes: "Cada cuántos minutos",
-    minute: "Minuto",
-    hour: "Hora",
-    hourHelp: "Usa formato de 24 horas: 9 para 9 a. m., 18 para 6 p. m., 20 para 8 p. m.",
-    day: "Día del mes",
-    weekday: "Día",
-    expression: "Expresión cron",
-    customPlaceholder: "Ej: 0 9 * * 1",
-    emptyError: "Completa los campos para generar o explicar el cron.",
-    cronError: "Escribe una expresión cron de 5 partes.",
-    hint: "Usa formato cron clásico de 5 partes: minuto hora día mes día-semana.",
-    submit: "Generar cron",
-    explainSubmit: "Leer cron",
-    reset: "Restablecer",
-    resultTitle: "Frecuencia configurada",
-    cronExpression: "Expresión cron",
-    copy: "Copiar cron",
-    copied: "Cron copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    minuteUnit: "min",
-    at: "a las",
-    everyHour: "cada hora",
-    everyDay: "todos los días",
-    everyMonth: "cada mes",
-    month: "Mes",
-    details: "Detalles",
-    format: "Formato",
-    fiveFields: "5 campos",
-    rulesNote: "Este generador usa cron estándar de 5 campos. Algunos servidores usan zona horaria del sistema.",
-    disclaimer: "Revisa la zona horaria y el formato exacto que pide tu proveedor antes de usarlo en producción.",
-    emptyTitle: "Tu cron aparecerá aquí",
-    emptyDescription: "Elige una frecuencia sencilla o pega una expresión para explicarla."
-  },
-  en: {
-    kicker: "Development",
-    title: "Simple cron",
-    operation: "Operation",
-    generate: "Generate",
-    read: "Read cron",
-    mode: "Type",
-    modes: {
-      minutes: "Every X minutes",
-      hourly: "Every hour",
-      daily: "Daily",
-      weekly: "Weekly",
-      monthly: "Monthly",
-      custom: "Existing cron"
-    },
-    everyMinutes: "Every how many minutes",
-    minute: "Minute",
-    hour: "Hour",
-    hourHelp: "Use 24-hour time: 9 for 9 AM, 18 for 6 PM, 20 for 8 PM.",
-    day: "Day of month",
-    weekday: "Day",
-    expression: "Cron expression",
-    customPlaceholder: "Ex: 0 9 * * 1",
-    emptyError: "Complete the fields to generate or explain the cron.",
-    cronError: "Enter a 5-part cron expression.",
-    hint: "Uses classic 5-part cron format: minute hour day month weekday.",
-    submit: "Generate cron",
-    explainSubmit: "Read cron",
-    reset: "Reset",
-    resultTitle: "Schedule ready",
-    cronExpression: "Cron expression",
-    copy: "Copy cron",
-    copied: "Cron copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    minuteUnit: "min",
-    at: "at",
-    everyHour: "every hour",
-    everyDay: "every day",
-    everyMonth: "every month",
-    month: "Month",
-    details: "Details",
-    format: "Format",
-    fiveFields: "5 fields",
-    rulesNote: "This generator uses standard 5-field cron. Some servers use the system timezone.",
-    disclaimer: "Review the timezone and exact format required by your provider before using it in production.",
-    emptyTitle: "Your cron will appear here",
-    emptyDescription: "Choose a simple frequency or paste an expression to explain it."
-  }
+  en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  hi: ["रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"]
 } as const;
 
 function pad(value: string) {
   return String(Math.max(0, Math.min(59, Number(value) || 0)));
 }
 
-function buildCron(mode: CronMode, options: { everyMinutes: string; minute: string; hour: string; day: string; weekday: string }, locale: "es" | "en"): CronResult {
+function buildCron(mode: CronMode, options: { everyMinutes: string; minute: string; hour: string; day: string; weekday: string }, locale: Locale): CronResult {
   const hour = String(Math.max(0, Math.min(23, Number(options.hour) || 0)));
   const minute = pad(options.minute);
   const day = String(Math.max(1, Math.min(31, Number(options.day) || 1)));
@@ -132,7 +35,7 @@ function buildCron(mode: CronMode, options: { everyMinutes: string; minute: stri
     return {
       mode,
       expression: `*/${everyMinutes} * * * *`,
-      explanation: locale === "es" ? `Se ejecuta cada ${everyMinutes} minutos.` : `Runs every ${everyMinutes} minutes.`
+      explanation: locale === "es" ? `Se ejecuta cada ${everyMinutes} minutos.` : locale === "hi" ? `हर ${everyMinutes} मिनट में चलता है.` : `Runs every ${everyMinutes} minutes.`
     };
   }
 
@@ -140,7 +43,7 @@ function buildCron(mode: CronMode, options: { everyMinutes: string; minute: stri
     return {
       mode,
       expression: `${minute} * * * *`,
-      explanation: locale === "es" ? `Se ejecuta en el minuto ${minute} de cada hora.` : `Runs at minute ${minute} of every hour.`
+      explanation: locale === "es" ? `Se ejecuta en el minuto ${minute} de cada hora.` : locale === "hi" ? `हर घंटे के ${minute}वें मिनट पर चलता है.` : `Runs at minute ${minute} of every hour.`
     };
   }
 
@@ -148,7 +51,7 @@ function buildCron(mode: CronMode, options: { everyMinutes: string; minute: stri
     return {
       mode,
       expression: `${minute} ${hour} * * *`,
-      explanation: locale === "es" ? `Se ejecuta todos los días a las ${hour}:${minute.padStart(2, "0")}.` : `Runs every day at ${hour}:${minute.padStart(2, "0")}.`
+      explanation: locale === "es" ? `Se ejecuta todos los días a las ${hour}:${minute.padStart(2, "0")}.` : locale === "hi" ? `हर दिन ${hour}:${minute.padStart(2, "0")} पर चलता है.` : `Runs every day at ${hour}:${minute.padStart(2, "0")}.`
     };
   }
 
@@ -156,18 +59,18 @@ function buildCron(mode: CronMode, options: { everyMinutes: string; minute: stri
     return {
       mode,
       expression: `${minute} ${hour} * * ${weekday}`,
-      explanation: locale === "es" ? `Se ejecuta cada ${weekdays.es[Number(weekday)]} a las ${hour}:${minute.padStart(2, "0")}.` : `Runs every ${weekdays.en[Number(weekday)]} at ${hour}:${minute.padStart(2, "0")}.`
+      explanation: locale === "es" ? `Se ejecuta cada ${weekdays.es[Number(weekday)]} a las ${hour}:${minute.padStart(2, "0")}.` : locale === "hi" ? `हर ${weekdays.hi[Number(weekday)]} को ${hour}:${minute.padStart(2, "0")} पर चलता है.` : `Runs every ${weekdays.en[Number(weekday)]} at ${hour}:${minute.padStart(2, "0")}.`
     };
   }
 
   return {
     mode,
     expression: `${minute} ${hour} ${day} * *`,
-    explanation: locale === "es" ? `Se ejecuta el día ${day} de cada mes a las ${hour}:${minute.padStart(2, "0")}.` : `Runs on day ${day} of every month at ${hour}:${minute.padStart(2, "0")}.`
+    explanation: locale === "es" ? `Se ejecuta el día ${day} de cada mes a las ${hour}:${minute.padStart(2, "0")}.` : locale === "hi" ? `हर महीने के दिन ${day} को ${hour}:${minute.padStart(2, "0")} पर चलता है.` : `Runs on day ${day} of every month at ${hour}:${minute.padStart(2, "0")}.`
   };
 }
 
-function explainCron(expression: string, locale: "es" | "en"): CronResult | null {
+function explainCron(expression: string, locale: Locale): CronResult | null {
   const parts = expression.trim().split(/\s+/);
   if (parts.length !== 5) return null;
   const [minute, hour, day, month, weekday] = parts;
@@ -180,7 +83,7 @@ function explainCron(expression: string, locale: "es" | "en"): CronResult | null
     return {
       mode: "minutes",
       expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta cada ${everyMinutes} minutos.` : `Runs every ${everyMinutes} minutes.`
+      explanation: locale === "es" ? `Se ejecuta cada ${everyMinutes} minutos.` : locale === "hi" ? `हर ${everyMinutes} मिनट में चलता है.` : `Runs every ${everyMinutes} minutes.`
     };
   }
 
@@ -188,7 +91,7 @@ function explainCron(expression: string, locale: "es" | "en"): CronResult | null
     return {
       mode: "hourly",
       expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta en el minuto ${minute} de cada hora.` : `Runs at minute ${minute} of every hour.`
+      explanation: locale === "es" ? `Se ejecuta en el minuto ${minute} de cada hora.` : locale === "hi" ? `हर घंटे के ${minute}वें मिनट पर चलता है.` : `Runs at minute ${minute} of every hour.`
     };
   }
 
@@ -196,7 +99,7 @@ function explainCron(expression: string, locale: "es" | "en"): CronResult | null
     return {
       mode: "daily",
       expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta todos los días a las ${time}.` : `Runs every day at ${time}.`
+      explanation: locale === "es" ? `Se ejecuta todos los días a las ${time}.` : locale === "hi" ? `हर दिन ${time} पर चलता है.` : `Runs every day at ${time}.`
     };
   }
 
@@ -207,6 +110,8 @@ function explainCron(expression: string, locale: "es" | "en"): CronResult | null
       explanation:
         locale === "es"
           ? `Se ejecuta cada ${weekdays.es[Number(weekday)] ?? `día ${weekday}`} a las ${time}.`
+          : locale === "hi"
+            ? `हर ${weekdays.hi[Number(weekday)] ?? `दिन ${weekday}`} को ${time} पर चलता है.`
           : `Runs every ${weekdays.en[Number(weekday)] ?? `weekday ${weekday}`} at ${time}.`
     };
   }
@@ -215,14 +120,14 @@ function explainCron(expression: string, locale: "es" | "en"): CronResult | null
     return {
       mode: "monthly",
       expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta el día ${day} de cada mes a las ${time}.` : `Runs on day ${day} of every month at ${time}.`
+      explanation: locale === "es" ? `Se ejecuta el día ${day} de cada mes a las ${time}.` : locale === "hi" ? `हर महीने के दिन ${day} को ${time} पर चलता है.` : `Runs on day ${day} of every month at ${time}.`
     };
   }
 
   return {
     mode: "custom",
     expression: normalizedExpression,
-    explanation: locale === "es" ? "Cron personalizado de 5 campos. Revisa los detalles antes de usarlo." : "Custom 5-field cron. Review the details before using it."
+    explanation: locale === "es" ? "Cron personalizado de 5 campos. Revisa los detalles antes de usarlo." : locale === "hi" ? "कस्टम 5-फ़ील्ड cron. उपयोग से पहले विवरण जांचें." : "Custom 5-field cron. Review the details before using it."
   };
 }
 
@@ -230,11 +135,12 @@ function formatTime(hour: string, minute: string) {
   return `${hour}:${minute.padStart(2, "0")}`;
 }
 
-function capitalizeDetail(value: string, locale: "es" | "en") {
-  return value.charAt(0).toLocaleUpperCase(locale === "es" ? "es-CO" : "en-US") + value.slice(1);
+function capitalizeDetail(value: string, locale: Locale) {
+  const localeCode = locale === "es" ? "es-CO" : locale === "hi" ? "hi-IN" : "en-US";
+  return value.charAt(0).toLocaleUpperCase(localeCode) + value.slice(1);
 }
 
-function getCronDetails(result: CronResult, text: typeof copy.es | typeof copy.en, locale: "es" | "en") {
+function getCronDetails(result: CronResult, text: (typeof copy)[Locale], locale: Locale) {
   const [minute, hour, day, month, weekday] = result.expression.split(/\s+/);
   const details: Array<{ label: string; value: string }> = [
     { label: text.mode, value: text.modes[result.mode] },

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { convertUnits, type UnitCategory, type UnitConverterResponse } from "../../services/utilityApi";
+import { unitConverterCopy as copy } from "../../locales/calculatorCopy";
 
 type UnitConverterData = UnitConverterResponse["data"];
 type UnitOption = { value: string; label: string; symbol: string };
@@ -58,6 +59,31 @@ const catalog = {
       fahrenheit: "Fahrenheit",
       kelvin: "Kelvin"
     }
+  },
+  hi: {
+    categories: {
+      length: "लंबाई",
+      mass: "वजन / द्रव्यमान",
+      temperature: "तापमान"
+    },
+    units: {
+      kilometer: "किलोमीटर",
+      meter: "मीटर",
+      centimeter: "सेंटीमीटर",
+      millimeter: "मिलीमीटर",
+      mile: "मील",
+      yard: "यार्ड",
+      foot: "फुट",
+      inch: "इंच",
+      kilogram: "किलोग्राम",
+      gram: "ग्राम",
+      milligram: "मिलीग्राम",
+      pound: "पाउंड",
+      ounce: "औंस",
+      celsius: "सेल्सियस",
+      fahrenheit: "फारेनहाइट",
+      kelvin: "केल्विन"
+    }
   }
 } as const;
 
@@ -91,63 +117,6 @@ const defaultUnits: Record<UnitCategory, { fromUnit: string; toUnit: string }> =
   mass: { fromUnit: "kilogram", toUnit: "pound" },
   temperature: { fromUnit: "celsius", toUnit: "fahrenheit" }
 };
-
-const copy = {
-  es: {
-    kicker: "Conversor",
-    title: "Unidades comunes",
-    category: "Tipo de conversión",
-    value: "Valor",
-    fromUnit: "Unidad origen",
-    toUnit: "Unidad destino",
-    swap: "Intercambiar unidades",
-    decimals: "Decimales",
-    decimalsHelp: "Controla cuántos decimales tendrá el resultado redondeado. El cálculo interno conserva más precisión.",
-    hint: "Convierte unidades de la misma categoría: longitud, peso/masa o temperatura.",
-    submit: "Convertir",
-    reset: "Restablecer",
-    valueError: "Ingresa un valor válido para convertir.",
-    decimalsError: "Los decimales deben estar entre 0 y 10.",
-    requestError: "No se pudo convertir la unidad.",
-    heroTitle: "Resultado convertido",
-    originalValue: "Valor original",
-    convertedValue: "Valor convertido",
-    baseUnit: "Unidad base",
-    decimalsUsed: "Decimales usados",
-    rulesNote: (from: string, to: string) => `Conversión de ${from} a ${to} usando factores estándar.`,
-    disclaimer:
-      "Conversión estimada con factores estándar. Puede variar si una industria, equipo o norma usa factores específicos.",
-    emptyTitle: "Resultado de conversión",
-    emptyDescription: "Elige las unidades y convierte el valor en segundos."
-  },
-  en: {
-    kicker: "Converter",
-    title: "Common units",
-    category: "Conversion type",
-    value: "Value",
-    fromUnit: "Source unit",
-    toUnit: "Target unit",
-    swap: "Swap units",
-    decimals: "Decimals",
-    decimalsHelp: "Controls how many decimals the rounded result will show. The internal calculation keeps more precision.",
-    hint: "Convert units within the same category: length, weight/mass, or temperature.",
-    submit: "Convert",
-    reset: "Reset",
-    valueError: "Enter a valid value to convert.",
-    decimalsError: "Decimals must be between 0 and 10.",
-    requestError: "We couldn't convert the unit.",
-    heroTitle: "Converted result",
-    originalValue: "Original value",
-    convertedValue: "Converted value",
-    baseUnit: "Base unit",
-    decimalsUsed: "Decimals used",
-    rulesNote: (from: string, to: string) => `Conversion from ${from} to ${to} using standard factors.`,
-    disclaimer:
-      "Estimated conversion using standard factors. It may vary if an industry, device, or rule uses specific factors.",
-    emptyTitle: "Conversion result",
-    emptyDescription: "Choose the units and convert the value in seconds."
-  }
-} as const;
 
 function parseNumber(value: string) {
   const normalized = value.replace(",", ".").replace(/[^\d.-]/g, "");

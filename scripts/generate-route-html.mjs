@@ -1,1038 +1,81 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import ts from "typescript";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
 const distRoot = path.join(projectRoot, "dist");
 const siteUrl = "https://toolsplatforms.com";
 const siteName = "Tools Platforms";
-const supportedLocales = ["es", "en"];
 const sitemapLastModified = "2026-05-18";
 
-const localizedPages = [
-  {
-    path: "/",
-    title: {
-      es: "Tools Platforms | Calculadoras y herramientas online",
-      en: "Tools Platforms | Online calculators and utilities"
-    },
-    description: {
-      es: "Herramientas online para resolver cálculos de salario, liquidación, créditos, trabajo, fechas, conversiones, texto y tareas prácticas.",
-      en: "Online tools for salaries, settlements, loans, work hours, dates, conversions, text utilities, and practical tasks."
+async function loadTsModule(relativePath) {
+  const source = await readFile(path.join(projectRoot, relativePath), "utf8");
+  const { outputText } = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.CommonJS,
+      target: ts.ScriptTarget.ES2022,
+      esModuleInterop: true
     }
-  },
-  {
-    path: "/privacy",
-    title: {
-      es: "Política de privacidad | Tools Platforms",
-      en: "Privacy Policy | Tools Platforms"
-    },
-    description: {
-      es: "Consulta cómo Tools Platforms trata información, cookies, datos técnicos, herramientas online, analítica y anuncios.",
-      en: "Learn how Tools Platforms handles information, cookies, technical data, analytics, online tools, and ads."
-    }
-  },
-  {
-    path: "/terms",
-    title: {
-      es: "Términos y condiciones | Tools Platforms",
-      en: "Terms and Conditions | Tools Platforms"
-    },
-    description: {
-      es: "Lee las condiciones de uso de Tools Platforms, el alcance de las herramientas, limitaciones y responsabilidades.",
-      en: "Read the terms that govern your use of Tools Platforms, its tools, limitations, and responsibilities."
-    }
-  },
-  {
-    path: "/tools/colombia-net-salary-calculator",
-    title: {
-      es: "Calculadora salarial Colombia 2026 | Salario neto",
-      en: "Colombia Net Salary Calculator 2026 | Take-Home Pay"
-    },
-    description: {
-      es: "Calcula tu salario neto en Colombia para 2026 y años disponibles con salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones.",
-      en: "Calculate your 2026 take-home pay in Colombia with health, pension, transport allowance, solidarity fund, and payroll deductions."
-    }
-  },
-  {
-    path: "/tools/colombia-gross-salary-calculator",
-    title: {
-      es: "Calculadora de salario bruto Colombia | Desde neto",
-      en: "Gross Salary Calculator (Colombia) | From Net Pay"
-    },
-    description: {
-      es: "Calcula el salario bruto mensual aproximado desde el neto que recibes mensual o quincenal en Colombia, con salud, pensión y descuentos de nómina.",
-      en: "Estimate gross monthly salary from the net amount you receive monthly or biweekly in Colombia, including health, pension, and payroll deductions."
-    }
-  },
-  {
-    path: "/tools/colombia-employment-settlement-calculator",
-    title: {
-      es: "Calculadora de liquidación laboral Colombia 2026 | Liquidación",
-      en: "Colombia Employment Settlement Calculator 2026 | Final Pay"
-    },
-    description: {
-      es: "Calcula cuánto equivale tu liquidación laboral en Colombia con cesantías, prima, vacaciones, salario pendiente e indemnización si aplica.",
-      en: "Estimate a Colombia employment settlement with severance, service bonus, vacation, pending salary, and dismissal compensation when applicable."
-    }
-  },
-  {
-    path: "/tools/social-benefits-colombia",
-    title: {
-      es: "Calculadora de prestaciones sociales Colombia 2026 | Cesantías y prima",
-      en: "Colombia Social Benefits Calculator 2026 | Severance and Bonus"
-    },
-    description: {
-      es: "Calcula prestaciones sociales en Colombia con salario mensual bruto, fechas, cesantías, intereses, prima de servicios y vacaciones causadas.",
-      en: "Calculate Colombia social benefits from gross monthly salary and dates, including severance, interest, service bonus, and accrued vacation."
-    }
-  },
-  {
-    path: "/tools/credit-interest-calculator",
-    title: {
-      es: "Calculadora de intereses de crédito online | Tools Platforms",
-      en: "Online Credit Interest Calculator | Tools Platforms"
-    },
-    description: {
-      es: "Calcula intereses de un crédito por monto, tasa anual, plazo en meses y tipo de interés para estimar cuánto pagarías en total.",
-      en: "Calculate credit interest by amount, annual rate, term in months, and interest type to estimate how much you would pay in total."
-    }
-  },
-  {
-    path: "/tools/loan-payment-calculator",
-    title: {
-      es: "Calculadora de cuota de préstamo online | Tools Platforms",
-      en: "Online Loan Payment Calculator | Tools Platforms"
-    },
-    description: {
-      es: "Calcula la cuota mensual de un préstamo con monto, tasa anual o mensual y plazo en meses, más intereses y total estimado.",
-      en: "Calculate a loan's monthly payment using amount, annual or monthly rate, and term in months, plus estimated interest and total paid."
-    }
-  },
-  {
-    path: "/tools/salary-increase-calculator",
-    title: {
-      es: "Calculadora de aumento salarial | Neto y bruto",
-      en: "Salary Increase Calculator | Net and Gross Raise"
-    },
-    description: {
-      es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo bruto, neto con descuentos Colombia, valor del aumento y diferencia anual.",
-      en: "Calculate your salary after a percentage raise. Estimate the new gross salary, Colombia net salary with deductions, increase amount, and annual difference."
-    }
-  },
-  {
-    path: "/tools/cop-to-usd-converter",
-    title: {
-      es: "Conversor COP a USD con TRM | Tools Platforms",
-      en: "COP to USD Converter with Reference Rate | Tools Platforms"
-    },
-    description: {
-      es: "Convierte pesos colombianos a dólares y dólares a pesos usando una TRM de referencia para estimar el valor de cambio.",
-      en: "Convert Colombian pesos to US dollars and back using a reference exchange rate."
-    }
-  },
-  {
-    path: "/tools/annual-salary-calculator",
-    title: {
-      es: "Calculadora de salario anual Colombia | Ingreso anual",
-      en: "Annual Salary Calculator (Colombia) | Yearly Income"
-    },
-    description: {
-      es: "Calcula tu salario anual en Colombia con salario mensual bruto, auxilio de transporte, prima de servicios y descuentos estimados de salud y pensión.",
-      en: "Calculate annual salary in Colombia with gross monthly salary, transportation allowance, service bonus, and estimated health and pension deductions."
-    }
-  },
-  {
-    path: "/tools/worked-hours-calculator",
-    title: {
-      es: "Calculadora de horas trabajadas | Horas laborales",
-      en: "Worked Hours Calculator | Add Work Hours Online"
-    },
-    description: {
-      es: "Calcula y suma horas trabajadas por día, jornada o semana. Útil para calcular horas de trabajo, horas laborales y tiempo total.",
-      en: "Calculate and add worked hours by day, shift, or week. Useful for work hours, labor time, and total time tracking."
-    }
-  },
-  {
-    path: "/tools/hourly-salary-calculator",
-    title: {
-      es: "Calculadora salario por hora Colombia | Valor hora",
-      en: "Hourly Salary Calculator (Colombia) | Hourly Pay"
-    },
-    description: {
-      es: "Calcula cuánto ganas por hora en Colombia desde tu salario mensual, jornada legal vigente, horas semanales reales o referencia de dividir entre 240.",
-      en: "Calculate how much you earn per hour in Colombia from a monthly salary, legal workweek, or custom weekly hours."
-    }
-  },
-  {
-    path: "/tools/colombia-overtime-calculator",
-    title: {
-      es: "Calculadora de horas extras Colombia | Recargos",
-      en: "Overtime Calculator (Colombia) | Night and Holiday Pay"
-    },
-    description: {
-      es: "Calcula horas extras en Colombia con salario mensual, jornada semanal, recargos nocturnos, dominicales, festivos y reglas laborales vigentes.",
-      en: "Calculate overtime pay in Colombia from monthly salary, weekly hours, night surcharges, Sunday, holiday, and labor rule references."
-    }
-  },
-  {
-    path: "/tools/employee-salary-for-independents-calculator",
-    title: {
-      es: "Calculadora de sueldo de empleado para independientes (Colombia) | Tools Platforms",
-      en: "Employee Salary Equivalent for Independents (Colombia) | Tools Platforms"
-    },
-    description: {
-      es: "Convierte lo que cobras por hora como independiente en sueldo semanal, quincenal y mensual como empleado, con neto estimado en Colombia.",
-      en: "Convert what you charge per hour as an independent worker into an equivalent employee salary in Colombia, including estimated net income."
-    }
-  },
-  {
-    path: "/tools/freelance-rate-calculator",
-    title: {
-      es: "Calculadora de cuánto cobrar freelance | Tarifa por hora",
-      en: "Freelance Rate Calculator | Hourly Rate"
-    },
-    description: {
-      es: "Calcula cuánto cobrar como freelance por hora, día, semana o mes según tu ingreso deseado, días y horas de trabajo.",
-      en: "Calculate how much to charge as a freelancer per hour, day, week, or month based on income target, work days, and hours."
-    }
-  },
-  {
-    path: "/tools/days-between-dates-calculator",
-    title: {
-      es: "Contador de días entre fechas | Calculador de días calendario",
-      en: "Days Between Dates Calculator Online | Date Counter"
-    },
-    description: {
-      es: "Cuenta días calendario entre dos fechas para trámites, viajes, entregas o planeación. Incluye semanas completas y días restantes.",
-      en: "Count calendar days between two dates for paperwork, trips, deliveries, or planning. Includes full weeks and remaining days."
-    }
-  },
-  {
-    path: "/tools/weeks-between-dates-calculator",
-    title: {
-      es: "Calculadora de semanas entre fechas | Semanas y dias",
-      en: "Weeks Between Dates Calculator Online | Weeks and Days"
-    },
-    description: {
-      es: "Calcula cuantas semanas hay entre dos fechas. Muestra semanas aproximadas, semanas completas, dias restantes y dias calendario.",
-      en: "Calculate how many weeks are between two dates. See approximate weeks, full weeks, remaining days, and calendar days."
-    }
-  },
-  {
-    path: "/tools/days-until-date-calculator",
-    title: {
-      es: "Cuántos días faltan para una fecha | Contador de días",
-      en: "Days Until a Date Calculator | Days Left Counter"
-    },
-    description: {
-      es: "Cuenta cuántos días faltan para una fecha, evento, entrega o plazo. Calcula días calendario, semanas completas y días restantes.",
-      en: "Count how many days are left until a date, event, delivery, or deadline. See calendar days, full weeks, and remaining days."
-    }
-  },
-  {
-    path: "/tools/exact-age-calculator",
-    title: {
-      es: "Calculadora de edad exacta online | Años, meses y días",
-      en: "Exact Age Calculator Online | Years, Months, Days"
-    },
-    description: {
-      es: "Calcula edad exacta desde una fecha de nacimiento en años, meses y días, con meses totales, días totales y próximo cumpleaños.",
-      en: "Calculate exact age from a birth date in years, months, and days, with total months, total days, and next birthday."
-    }
-  },
-  {
-    path: "/tools/unit-converter",
-    title: {
-      es: "Conversor de unidades online | kg, libras, km y millas",
-      en: "Online Unit Converter | kg to lb, km to Miles"
-    },
-    description: {
-      es: "Convierte unidades de longitud, peso, masa y temperatura: kilogramos, libras, kilómetros, millas, metros, centímetros y grados.",
-      en: "Convert length, mass, weight, and temperature units: kilograms, pounds, kilometers, miles, meters, centimeters, and degrees."
-    }
-  },
-  {
-    path: "/tools/text-case-converter",
-    title: {
-      es: "Convertidor de mayúsculas y minúsculas online | Texto",
-      en: "Uppercase and Lowercase Converter | Text Case"
-    },
-    description: {
-      es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Pasa mayúscula a minúscula y limpia textos rápido.",
-      en: "Convert text to uppercase, lowercase, title case, or sentence case. Format and clean text quickly in your browser."
-    }
-  },
-  {
-    path: "/tools/duplicate-counter",
-    title: {
-      es: "Contador de duplicados online | Lista de resultados",
-      en: "Duplicate Counter Online | Count Repeated Values"
-    },
-    description: {
-      es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista de resultados, total de líneas y ocurrencias por cada valor.",
-      en: "Count duplicate values in a list, get unique values, a distinct list, total lines, and occurrences for each value."
-    }
-  },
-  {
-    path: "/tools/word-character-counter",
-    title: {
-      es: "Contador de palabras, caracteres y líneas online",
-      en: "Word, Character, and Line Counter Online"
-    },
-    description: {
-      es: "Cuenta palabras, caracteres con y sin espacios, letras, números, líneas, párrafos, frases y tiempo de lectura de cualquier texto.",
-      en: "Count words, characters with and without spaces, letters, numbers, lines, paragraphs, sentences, and reading time for any text."
-    }
-  },
-  {
-    path: "/tools/find-replace-text",
-    title: {
-      es: "Buscar y reemplazar texto online | Reemplazar palabras",
-      en: "Find and Replace Text Online | Replace Words"
-    },
-    description: {
-      es: "Busca palabras o fragmentos en un texto y reemplázalos online. Opciones para distinguir mayúsculas y reemplazar solo palabras completas.",
-      en: "Find words or fragments in text and replace them online. Options for case matching and whole-word replacement."
-    }
-  },
-  {
-    path: "/tools/remove-extra-spaces",
-    title: {
-      es: "Eliminar espacios extra online | Limpiar texto",
-      en: "Remove Extra Spaces Online | Clean Text"
-    },
-    description: {
-      es: "Limpia espacios dobles, tabs, espacios al inicio y final o líneas vacías en textos, listas y columnas copiadas.",
-      en: "Clean double spaces, tabs, leading and trailing spaces, or blank lines from text, lists, and copied columns."
-    }
-  },
-  {
-    path: "/tools/remove-accents",
-    title: {
-      es: "Eliminar acentos en español online | Texto sin tildes",
-      en: "Remove Spanish Accents Online | Text Without Accents"
-    },
-    description: {
-      es: "Elimina tildes, diéresis y acentos de un texto en el navegador. Conserva la ñ o conviértela en n si lo necesitas.",
-      en: "Remove accents, diacritics, and umlauts from text in your browser. Preserve ñ or convert it to n when needed."
-    }
-  },
-  {
-    path: "/tools/secure-password-generator",
-    title: {
-      es: "Generador de contraseñas seguras online | Password generator",
-      en: "Secure Password Generator Online | Random Passwords"
-    },
-    description: {
-      es: "Genera contraseñas aleatorias y seguras con longitud personalizada, símbolos, números, mayúsculas y minúsculas.",
-      en: "Generate secure random passwords with custom length, symbols, numbers, uppercase, and lowercase letters."
-    }
-  },
-  {
-    path: "/tools/random-text-generator",
-    title: {
-      es: "Generador de texto aleatorio online | Texto de prueba",
-      en: "Random Text Generator Online | Sample Text"
-    },
-    description: {
-      es: "Genera texto aleatorio online con palabras, frases, párrafos o listas. Elige texto natural o Lorem ipsum en español e inglés.",
-      en: "Generate random text online with words, sentences, paragraphs, or lists. Choose natural text or Lorem ipsum in English and Spanish."
-    }
-  },
-  {
-    path: "/tools/alphabetical-line-sorter",
-    title: {
-      es: "Ordenador alfabético de líneas online | A-Z y Z-A",
-      en: "Alphabetical Line Sorter Online | A-Z and Z-A"
-    },
-    description: {
-      es: "Ordena líneas alfabéticamente online de A a Z o Z a A. Limpia espacios, elimina líneas vacías y quita duplicados si lo necesitas.",
-      en: "Sort lines alphabetically online from A to Z or Z to A. Trim spaces, remove empty lines, and remove duplicates when needed."
-    }
-  },
-  {
-    path: "/tools/percentage-calculator",
-    title: {
-      es: "Calculadora de porcentaje online | Descuentos y aumentos",
-      en: "Percentage Calculator Online | Discounts and Increases"
-    },
-    description: {
-      es: "Calcula porcentajes online: cuánto es X% de un número, qué porcentaje representa un valor, aumentos, descuentos y diferencia porcentual.",
-      en: "Calculate percentages online: X% of a number, what percentage a value represents, increases, discounts, and percentage change."
-    }
-  },
-  {
-    path: "/tools/json-formatter",
-    title: {
-      es: "Formateador JSON online | Validar y minificar JSON",
-      en: "JSON Formatter Online | Validate and Minify JSON"
-    },
-    description: {
-      es: "Formatea JSON online, valida su estructura y minifica código JSON en tu navegador sin enviarlo al servidor.",
-      en: "Format JSON online, validate its structure, and minify JSON code in your browser without sending it to a server."
-    }
-  },
-  {
-    path: "/tools/uuid-generator",
-    title: {
-      es: "Generador UUID online | UUID v4 y desde texto",
-      en: "UUID Generator Online | UUID v4 and From Text"
-    },
-    description: {
-      es: "Genera UUID v4 online en tu navegador o crea UUID mezclados con un texto base. Copia uno o varios identificadores al instante.",
-      en: "Generate UUID v4 values online in your browser or create UUIDs mixed with base text. Copy one or many identifiers instantly."
-    }
-  },
-  {
-    path: "/tools/hash-generator",
-    title: {
-      es: "Generador hash online | SHA-256, SHA-1 y SHA-512",
-      en: "Hash Generator Online | SHA-256, SHA-1 and SHA-512"
-    },
-    description: {
-      es: "Genera hashes SHA-256, SHA-1, SHA-384 y SHA-512 online en tu navegador. Procesa texto completo o cada línea por separado.",
-      en: "Generate SHA-256, SHA-1, SHA-384, and SHA-512 hashes online in your browser. Process full text or each line separately."
-    }
-  },
-  {
-    path: "/tools/simple-cron-generator",
-    title: {
-      es: "Generador de cron simple | Crear y explicar cron",
-      en: "Simple Cron Generator | Create and Explain Cron"
-    },
-    description: {
-      es: "Genera expresiones cron fáciles para tareas cada X minutos, por hora, diarias, semanales o mensuales, y explica cron de 5 partes.",
-      en: "Generate easy cron expressions for every X minutes, hourly, daily, weekly, or monthly tasks, and explain 5-part cron syntax."
-    }
-  },
-  {
-    path: "/tools/base64-encoder-decoder",
-    title: {
-      es: "Codificador y decodificador Base64 online | Tools Platforms",
-      en: "Base64 Encoder and Decoder Online | Tools Platforms"
-    },
-    description: {
-      es: "Codifica texto a Base64 o decodifica Base64 a texto online. Conversor Base64 con UTF-8, modo por líneas y formato URL-safe.",
-      en: "Encode text to Base64 or decode Base64 to text online. Base64 converter with UTF-8, per-line mode, and URL-safe format."
-    }
-  },
-  {
-    path: "/tools/html-preview-online",
-    title: {
-      es: "Vista previa de HTML online | Vista segura",
-      en: "Online HTML Preview | Safe Browser Preview"
-    },
-    description: {
-      es: "Pega código HTML y revisa cómo se renderiza en una vista previa segura. Elimina scripts, eventos inline y enlaces JavaScript en el navegador.",
-      en: "Paste HTML code and see how it renders in a safe preview. Removes scripts, inline events, and javascript links in the browser."
-    }
-  },
-  {
-    path: "/tools/html-formatter-minifier",
-    title: {
-      es: "Formateador y minificador HTML online | Tools Platforms",
-      en: "HTML Formatter and Minifier Online | Tools Platforms"
-    },
-    description: {
-      es: "Formatea HTML online para leerlo mejor o minifica código HTML en el navegador. Herramienta local para limpiar comentarios y compactar marcado.",
-      en: "Format HTML online for readability or minify HTML code in the browser. Local tool for cleaning comments and compacting markup."
-    }
-  },
-  {
-    path: "/tools/case-style-converter",
-    title: {
-      es: "Convertidor camelCase, PascalCase y snake_case | Tools Platforms",
-      en: "camelCase, PascalCase, and snake_case Converter | Tools Platforms"
-    },
-    description: {
-      es: "Convierte frases a camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE y otros estilos usados en código.",
-      en: "Convert phrases to camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, and other code naming styles."
-    }
+  });
+  const module = { exports: {} };
+  const localRequire = (id) => {
+    throw new Error(`Unexpected runtime import "${id}" while loading ${relativePath}. Keep locale modules data-only.`);
+  };
+
+  new Function("exports", "module", "require", outputText)(module.exports, module, localRequire);
+  return module.exports;
+}
+
+function readToolRoutes(catalogSource) {
+  const toolRoutes = [];
+  const toolsStart = catalogSource.indexOf("export const tools");
+  const toolsSource = toolsStart >= 0 ? catalogSource.slice(toolsStart) : catalogSource;
+  const toolPattern = /\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?slug:\s*"([^"]+)"[\s\S]*?\n\s*\}/g;
+  let match;
+
+  while ((match = toolPattern.exec(toolsSource)) !== null) {
+    toolRoutes.push({ id: match[1], slug: match[2] });
   }
+
+  return toolRoutes;
+}
+
+const { defaultLocale, supportedLocales } = await loadTsModule("src/locales/config.ts");
+const { homeSeo, legalSeo, toolSeoById } = await loadTsModule("src/locales/seoCopy.ts");
+const { toolContentById } = await loadTsModule("src/locales/toolContentCopy.ts");
+const catalogSource = await readFile(path.join(projectRoot, "src/data/catalog.ts"), "utf8");
+const toolRoutes = readToolRoutes(catalogSource);
+
+const localizedPages = [
+  { path: homeSeo.canonicalPath, title: homeSeo.title, description: homeSeo.description },
+  ...Object.values(legalSeo).map((page) => ({
+    path: page.canonicalPath,
+    title: page.title,
+    description: page.description
+  })),
+  ...toolRoutes.map((tool) => {
+    const seo = toolSeoById[tool.id];
+
+    if (!seo) {
+      throw new Error(`Missing SEO copy for tool id "${tool.id}".`);
+    }
+
+    return {
+      path: `/tools/${tool.slug}`,
+      title: seo.title,
+      description: seo.description
+    };
+  })
 ];
 
-const toolFaqsByPath = {
-  "/tools/colombia-net-salary-calculator": [
-    {
-      question: {
-        es: "¿Cómo calcular mi salario neto en Colombia?",
-        en: "How do I calculate my net salary in Colombia?"
-      },
-      answer: {
-        es: "Escribe tu salario mensual bruto y el año de reglas. La calculadora descuenta salud, pensión y otros conceptos aplicables para estimar el valor neto mensual y quincenal.",
-        en: "Enter your gross monthly salary and rule year. The calculator subtracts health, pension, and applicable items to estimate monthly and biweekly take-home pay."
-      }
-    },
-    {
-      question: {
-        es: "¿El auxilio de transporte siempre aplica?",
-        en: "Does the transport allowance always apply?"
-      },
-      answer: {
-        es: "No. Depende del salario y de los límites legales del año seleccionado. La herramienta valida si el salario cumple el límite.",
-        en: "No. It depends on the salary and the legal limits of the selected year. The tool checks whether the salary meets that threshold."
-      }
-    }
-  ],
-  "/tools/hourly-salary-calculator": [
-    {
-      question: {
-        es: "¿Se puede calcular el valor hora dividiendo el salario mensual entre 240?",
-        en: "Can I calculate hourly pay by dividing monthly salary by 240?"
-      },
-      answer: {
-        es: "Sí, es una referencia común cuando se usa una jornada mensual de 240 horas. La herramienta también permite ajustar las horas semanales para reflejar la jornada legal vigente o tu horario real.",
-        en: "Yes, it is a common reference when using a 240-hour monthly schedule. The tool also lets you adjust weekly hours to match the current legal workweek or your real schedule."
-      }
-    },
-    {
-      question: {
-        es: "¿Cómo saber cuánto gano por hora?",
-        en: "How do I know how much I earn per hour?"
-      },
-      answer: {
-        es: "Ingresa tu salario mensual y las horas semanales de trabajo. La herramienta divide el salario entre las horas estimadas del mes para mostrar el valor por hora.",
-        en: "Enter your monthly salary and weekly work hours. The tool divides salary by estimated monthly hours to show hourly pay."
-      }
-    }
-  ],
-  "/tools/colombia-overtime-calculator": [
-    {
-      question: {
-        es: "¿Cómo se calculan las horas extras en Colombia?",
-        en: "How is overtime calculated in Colombia?"
-      },
-      answer: {
-        es: "Primero se calcula el valor de la hora ordinaria desde el salario mensual y las horas mensuales estimadas. Luego se multiplica por el factor del tipo de hora: extra diurna, extra nocturna, recargo nocturno, dominical o festivo.",
-        en: "First, the regular hourly value is calculated from monthly salary and estimated monthly hours. Then it is multiplied by the factor for the hour type: daytime overtime, night overtime, night surcharge, Sunday, or holiday."
-      }
-    },
-    {
-      question: {
-        es: "¿La calculadora usa la jornada legal de Colombia?",
-        en: "Does the calculator use Colombia's legal workweek?"
-      },
-      answer: {
-        es: "Sí. Por defecto usa la jornada legal de referencia según el año seleccionado, pero puedes editar las horas semanales si necesitas calcular con tu jornada real.",
-        en: "Yes. By default it uses the legal reference workweek for the selected year, but you can edit weekly hours if you need to calculate with your real schedule."
-      }
-    }
-  ],
-  "/tools/colombia-gross-salary-calculator": [
-    {
-      question: {
-        es: "¿Cómo calcular mi salario bruto si sé mi neto?",
-        en: "How do I calculate gross salary if I know my net pay?"
-      },
-      answer: {
-        es: "Ingresa el valor neto que recibes y elige si es mensual o quincenal. La herramienta estima el salario bruto mensual necesario para llegar a ese neto.",
-        en: "Enter the net amount you receive and choose whether it is monthly or biweekly. The tool estimates the gross monthly salary needed to reach that net amount."
-      }
-    },
-    {
-      question: {
-        es: "¿Sirve para nómina Colombia?",
-        en: "Does it work for Colombia payroll?"
-      },
-      answer: {
-        es: "Sí. Usa salud, pensión, Fondo de Solidaridad cuando aplica, auxilio de transporte opcional y otros descuentos de nómina.",
-        en: "Yes. It uses health, pension, solidarity fund when applicable, optional transport allowance, and other payroll deductions."
-      }
-    }
-  ],
-  "/tools/colombia-employment-settlement-calculator": [
-    {
-      question: {
-        es: "¿A cuánto equivale la liquidación laboral?",
-        en: "What does an employment settlement include?"
-      },
-      answer: {
-        es: "Depende de salario, fechas, prestaciones pendientes, vacaciones, motivo de terminación y si aplica indemnización. La calculadora separa esos conceptos para darte una estimación.",
-        en: "It depends on salary, dates, pending benefits, vacation, termination reason, and whether dismissal compensation applies. The calculator separates those items to estimate the payout."
-      }
-    },
-    {
-      question: {
-        es: "¿Puedo calcular una liquidación de 2025?",
-        en: "Can I calculate a 2025 employment settlement?"
-      },
-      answer: {
-        es: "Sí, puedes elegir el año de reglas disponible. La herramienta usa ese año para valores legales como salario mínimo y auxilio de transporte cuando aplican.",
-        en: "Yes, you can choose an available rule year. The tool uses that year for legal values such as minimum wage and transport allowance when they apply."
-      }
-    }
-  ],
-  "/tools/social-benefits-colombia": [
-    {
-      question: {
-        es: "¿Qué salario debo ingresar?",
-        en: "Which salary should I enter?"
-      },
-      answer: {
-        es: "Ingresa el salario mensual bruto, antes de descuentos de salud, pensión u otros conceptos.",
-        en: "Enter the gross monthly salary, before health, pension, or other deductions."
-      }
-    },
-    {
-      question: {
-        es: "¿Para qué sirven las fechas?",
-        en: "What are the dates for?"
-      },
-      answer: {
-        es: "Sirven para calcular los días del periodo que quieres estimar. No tienen que representar una terminación del contrato.",
-        en: "They calculate the days in the period you want to estimate. They do not have to represent contract termination."
-      }
-    }
-  ],
-  "/tools/salary-increase-calculator": [
-    {
-      question: {
-        es: "¿Cómo calcular un aumento salarial?",
-        en: "How do I calculate a salary increase?"
-      },
-      answer: {
-        es: "Ingresa el salario actual y el porcentaje de aumento. La calculadora multiplica el salario por ese porcentaje y suma el resultado al salario actual.",
-        en: "Enter the current salary and increase percentage. The calculator multiplies the salary by that percentage and adds the result to the current salary."
-      }
-    },
-    {
-      question: {
-        es: "¿El resultado es salario neto?",
-        en: "Is the result net salary?"
-      },
-      answer: {
-        es: "La calculadora muestra el salario bruto. Si activas los descuentos de nómina Colombia, también estima el salario neto después de salud, pensión y Fondo de Solidaridad cuando aplique.",
-        en: "The calculator shows the gross salary. If you enable Colombia payroll deductions, it also estimates the net salary after health, pension, and solidarity fund when applicable."
-      }
-    }
-  ],
-  "/tools/annual-salary-calculator": [
-    {
-      question: { es: "¿Qué salario debo escribir?", en: "Which salary should I enter?" },
-      answer: { es: "Escribe el salario mensual bruto, antes de salud, pensión u otros descuentos.", en: "Enter the gross monthly salary before health, pension, or other deductions." }
-    },
-    {
-      question: { es: "¿Incluye prima de servicios?", en: "Does it include service bonus?" },
-      answer: { es: "Sí, si activas la opción de prima de servicios.", en: "Yes, if you enable the service bonus option." }
-    }
-  ],
-  "/tools/worked-hours-calculator": [
-    {
-      question: {
-        es: "¿Cómo sumar horas trabajadas?",
-        en: "How do I add worked hours?"
-      },
-      answer: {
-        es: "Crea una jornada por cada día o turno con hora de inicio y finalización. La calculadora suma todos los rangos y muestra el total acumulado.",
-        en: "Create one entry for each day or shift with start and end time. The calculator adds all ranges and shows the accumulated total."
-      }
-    },
-    {
-      question: {
-        es: "¿Calcula horas extra?",
-        en: "Does it calculate overtime?"
-      },
-      answer: {
-        es: "No. Solo suma tiempo trabajado; los recargos dependen de reglas laborales y acuerdos específicos.",
-        en: "No. It only adds worked time; overtime surcharges depend on labor rules and specific agreements."
-      }
-    }
-  ],
-  "/tools/days-between-dates-calculator": [
-    {
-      question: {
-        es: "¿Cómo calcular días entre dos fechas?",
-        en: "How do I calculate days between two dates?"
-      },
-      answer: {
-        es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula los días calendario entre ambas y puede incluir la fecha final si necesitas contar ambos extremos.",
-        en: "Select the start date and end date. The tool calculates calendar days between them and can include the end date when both endpoints should count."
-      }
-    },
-    {
-      question: {
-        es: "¿Cuenta días hábiles?",
-        en: "Does it count business days?"
-      },
-      answer: {
-        es: "No. Cuenta días calendario.",
-        en: "No. It counts calendar days."
-      }
-    }
-  ],
-  "/tools/weeks-between-dates-calculator": [
-    {
-      question: {
-        es: "Como calcular semanas entre dos fechas?",
-        en: "How do I calculate weeks between two dates?"
-      },
-      answer: {
-        es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula los dias calendario y los convierte en semanas completas, dias restantes y semanas aproximadas.",
-        en: "Select the start date and end date. The tool calculates calendar days and converts them into full weeks, remaining days, and approximate weeks."
-      }
-    },
-    {
-      question: {
-        es: "Cuenta dias habiles?",
-        en: "Does it count business days?"
-      },
-      answer: {
-        es: "No. Cuenta dias calendario.",
-        en: "No. It counts calendar days."
-      }
-    }
-  ],
-  "/tools/days-until-date-calculator": [
-    {
-      question: {
-        es: "¿Cómo saber cuántos días faltan para una fecha?",
-        en: "How do I know how many days are left until a date?"
-      },
-      answer: {
-        es: "Selecciona la fecha objetivo y la herramienta cuenta los días calendario desde hoy hasta esa fecha.",
-        en: "Select the target date and the tool counts calendar days from today until that date."
-      }
-    },
-    {
-      question: {
-        es: "¿Cuenta días hábiles?",
-        en: "Does it count business days?"
-      },
-      answer: {
-        es: "No. Cuenta días calendario. Si necesitas días hábiles, festivos o reglas legales, revisa la norma correspondiente.",
-        en: "No. It counts calendar days. If you need business days, holidays, or legal rules, check the relevant rule."
-      }
-    }
-  ],
-  "/tools/text-case-converter": [
-    {
-      question: {
-        es: "¿Cómo convertir texto a mayúsculas?",
-        en: "How do I convert text to uppercase?"
-      },
-      answer: {
-        es: "Pega tu texto, elige la opción de mayúsculas y pulsa convertir. La herramienta transforma todo el contenido en el navegador.",
-        en: "Paste your text, choose uppercase, and press convert. The tool transforms the content in your browser."
-      }
-    },
-    {
-      question: {
-        es: "¿Puedo convertir mayúsculas a minúsculas?",
-        en: "Can I convert uppercase to lowercase?"
-      },
-      answer: {
-        es: "Sí. Elige minúsculas, pega tu texto y pulsa convertir para transformar todo el contenido.",
-        en: "Yes. Choose lowercase, paste your text, and press convert to transform all content."
-      }
-    }
-  ],
-  "/tools/duplicate-counter": [
-    {
-      question: {
-        es: "¿Cómo contar duplicados en una lista?",
-        en: "How do I count duplicates in a list?"
-      },
-      answer: {
-        es: "Pega una lista con un valor por línea y pulsa contar duplicados. La herramienta muestra cuántas veces aparece cada valor y separa los valores únicos.",
-        en: "Paste a list with one value per line and press count duplicates. The tool shows how many times each value appears and separates unique values."
-      }
-    },
-    {
-      question: {
-        es: "¿Qué significa lista de resultados?",
-        en: "What does distinct list mean?"
-      },
-      answer: {
-        es: "Una lista de resultados contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en esa lista solo se muestra una vez.",
-        en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once."
-      }
-    }
-  ],
-  "/tools/word-character-counter": [
-    {
-      question: { es: "¿Cuenta caracteres con espacios?", en: "Does it count characters with spaces?" },
-      answer: { es: "Sí. Muestra caracteres totales y también caracteres sin espacios.", en: "Yes. It shows total characters and characters without spaces." }
-    },
-    {
-      question: { es: "¿El texto se envía al servidor?", en: "Is the text sent to a server?" },
-      answer: { es: "No. El conteo se hace en tu navegador.", en: "No. Counting happens in your browser." }
-    }
-  ],
-  "/tools/find-replace-text": [
-    {
-      question: { es: "¿Puedo reemplazar con texto vacío?", en: "Can I replace with empty text?" },
-      answer: { es: "Sí. Deja el reemplazo vacío para eliminar coincidencias.", en: "Yes. Leave replacement empty to remove matches." }
-    },
-    {
-      question: { es: "¿Usa expresiones regulares?", en: "Does it use regular expressions?" },
-      answer: { es: "No. Usa búsqueda de texto normal.", en: "No. It uses plain-text search." }
-    }
-  ],
-  "/tools/remove-extra-spaces": [
-    {
-      question: {
-        es: "¿Cómo eliminar espacios extra de un texto?",
-        en: "How do I remove extra spaces from text?"
-      },
-      answer: {
-        es: "Pega el texto, elige las opciones de limpieza y pulsa limpiar espacios. La herramienta genera una versión limpia en el navegador.",
-        en: "Paste the text, choose cleanup options, and press clean spaces. The tool generates a clean version in your browser."
-      }
-    },
-    {
-      question: {
-        es: "¿Elimina saltos de línea?",
-        en: "Does it remove line breaks?"
-      },
-      answer: {
-        es: "No elimina los saltos de línea normales. Solo quita líneas vacías si activas esa opción.",
-        en: "It does not remove normal line breaks. It only removes blank lines if you enable that option."
-      }
-    }
-  ],
-  "/tools/remove-accents": [
-    {
-      question: {
-        es: "¿Cómo eliminar tildes de un texto?",
-        en: "How do I remove accents from text?"
-      },
-      answer: {
-        es: "Pega el texto y pulsa eliminar acentos. La herramienta devuelve una versión sin tildes ni diéresis.",
-        en: "Paste the text and press remove accents. The tool returns a version without accents or umlauts."
-      }
-    },
-    {
-      question: {
-        es: "¿Qué pasa con la ñ?",
-        en: "What happens to ñ?"
-      },
-      answer: {
-        es: "Por defecto se conserva. Si activas convertir ñ en n, la herramienta también normaliza esa letra.",
-        en: "It is preserved by default. If you enable convert ñ to n, the tool also normalizes that letter."
-      }
-    }
-  ],
-  "/tools/random-text-generator": [
-    {
-      question: {
-        es: "¿Cómo generar texto aleatorio online?",
-        en: "How do I generate random text online?"
-      },
-      answer: {
-        es: "Elige si quieres texto natural o Lorem ipsum, selecciona palabras, frases, párrafos o lista, define la cantidad y pulsa generar texto.",
-        en: "Choose natural text or Lorem ipsum, select words, sentences, paragraphs, or list, set the quantity, and press generate text."
-      }
-    },
-    {
-      question: {
-        es: "¿El generador usa inteligencia artificial?",
-        en: "Does the generator use artificial intelligence?"
-      },
-      answer: {
-        es: "No. Usa bancos locales de palabras y plantillas simples dentro del navegador.",
-        en: "No. It uses local word banks and simple templates inside the browser."
-      }
-    }
-  ],
-  "/tools/alphabetical-line-sorter": [
-    {
-      question: {
-        es: "¿Cómo ordenar una lista alfabéticamente?",
-        en: "How do I sort a list alphabetically?"
-      },
-      answer: {
-        es: "Pega una lista con un valor por línea, elige A-Z o Z-A y pulsa ordenar líneas. La herramienta devuelve la lista ordenada.",
-        en: "Paste a list with one value per line, choose A-Z or Z-A, and press sort lines. The tool returns the sorted list."
-      }
-    },
-    {
-      question: {
-        es: "¿Puedo eliminar duplicados al ordenar?",
-        en: "Can I remove duplicates while sorting?"
-      },
-      answer: {
-        es: "Sí. Activa eliminar duplicados para conservar cada línea una sola vez en el resultado.",
-        en: "Yes. Turn on remove duplicates to keep each line only once in the result."
-      }
-    }
-  ],
-  "/tools/percentage-calculator": [
-    {
-      question: {
-        es: "¿Cómo calcular el porcentaje de un número?",
-        en: "How do I calculate a percentage of a number?"
-      },
-      answer: {
-        es: "Selecciona X% de un número, escribe el porcentaje y el número base. La herramienta multiplica el número por el porcentaje dividido entre 100.",
-        en: "Select X% of a number, enter the percentage and the base number. The tool multiplies the number by the percentage divided by 100."
-      }
-    },
-    {
-      question: {
-        es: "¿Cómo calcular un descuento porcentual?",
-        en: "How do I calculate a percentage discount?"
-      },
-      answer: {
-        es: "Selecciona aumento / descuento, elige descuento, escribe el porcentaje y el valor base. El resultado muestra el valor después de aplicar el descuento.",
-        en: "Select increase / discount, choose discount, enter the percentage and the base value. The result shows the value after applying the discount."
-      }
-    }
-  ],
-  "/tools/json-formatter": [
-    {
-      question: {
-        es: "¿Puedo validar JSON online?",
-        en: "Can I validate JSON online?"
-      },
-      answer: {
-        es: "Sí. Si el JSON no es válido, la herramienta muestra un error antes de generar el resultado.",
-        en: "Yes. If the JSON is not valid, the tool shows an error before generating the result."
-      }
-    },
-    {
-      question: {
-        es: "¿Cuál es la diferencia entre formatear y minificar JSON?",
-        en: "What is the difference between formatting and minifying JSON?"
-      },
-      answer: {
-        es: "Formatear agrega saltos de línea e indentación para leer mejor. Minificar elimina espacios innecesarios para dejar el JSON compacto.",
-        en: "Formatting adds line breaks and indentation for readability. Minifying removes unnecessary spaces to keep the JSON compact."
-      }
-    }
-  ],
-  "/tools/uuid-generator": [
-    {
-      question: {
-        es: "¿Qué es un UUID v4?",
-        en: "What is a UUID v4?"
-      },
-      answer: {
-        es: "Es un identificador de 128 bits generado con aleatoriedad. Se usa para crear IDs con una probabilidad muy baja de repetirse.",
-        en: "It is a 128-bit identifier generated with randomness. It is used to create IDs with a very low chance of collision."
-      }
-    },
-    {
-      question: {
-        es: "¿Puedo generar UUID desde texto?",
-        en: "Can I generate UUIDs from text?"
-      },
-      answer: {
-        es: "Sí. El modo desde texto mezcla tu texto base con aleatoriedad local para crear UUID nuevos en cada generación.",
-        en: "Yes. From text mode mixes your base text with local randomness to create new UUIDs on each generation."
-      }
-    }
-  ],
-  "/tools/hash-generator": [
-    {
-      question: {
-        es: "¿Un hash es lo mismo que cifrar?",
-        en: "Is hashing the same as encryption?"
-      },
-      answer: {
-        es: "No. El cifrado busca poder recuperar el contenido con una clave. Un hash es una huella de una sola vía para comparar o verificar datos.",
-        en: "No. Encryption is meant to recover content with a key. A hash is a one-way fingerprint for comparison or verification."
-      }
-    },
-    {
-      question: {
-        es: "¿Puedo generar SHA-256 online?",
-        en: "Can I generate SHA-256 online?"
-      },
-      answer: {
-        es: "Sí. Elige SHA-256, pega el texto y genera el hash localmente en tu navegador.",
-        en: "Yes. Choose SHA-256, paste the text, and generate the hash locally in your browser."
-      }
-    }
-  ],
-  "/tools/simple-cron-generator": [
-    {
-      question: { es: "¿Qué formato usa?", en: "Which format does it use?" },
-      answer: { es: "Usa cron clásico de cinco campos: minuto, hora, día, mes y día de semana.", en: "It uses classic five-field cron: minute, hour, day, month, and weekday." }
-    },
-    {
-      question: { es: "¿Puede explicar un cron existente?", en: "Can it explain an existing cron?" },
-      answer: { es: "Sí. Elige explicar cron y pega una expresión de cinco partes.", en: "Yes. Choose explain cron and paste a five-part expression." }
-    }
-  ],
-  "/tools/base64-encoder-decoder": [
-    {
-      question: {
-        es: "¿Base64 es cifrado?",
-        en: "Is Base64 encryption?"
-      },
-      answer: {
-        es: "No. Base64 es una codificación, no protege el contenido. Cualquier persona puede decodificarlo si tiene el texto.",
-        en: "No. Base64 is encoding, not protection. Anyone can decode it if they have the text."
-      }
-    },
-    {
-      question: {
-        es: "¿El texto se envía al servidor?",
-        en: "Is the text sent to a server?"
-      },
-      answer: {
-        es: "No. La codificación y decodificación se hacen en tu navegador.",
-        en: "No. Encoding and decoding happen in your browser."
-      }
-    },
-    {
-      question: {
-        es: "¿Qué es Base64 URL-safe?",
-        en: "What is URL-safe Base64?"
-      },
-      answer: {
-        es: "Es una variante que reemplaza caracteres problemáticos en URLs, normalmente + por - y / por _.",
-        en: "It is a variant that replaces URL-sensitive characters, usually + with - and / with _."
-      }
-    }
-  ],
-  "/tools/html-preview-online": [
-    {
-      question: {
-        es: "¿Puedo previsualizar HTML con CSS?",
-        en: "Can I preview HTML with CSS?"
-      },
-      answer: {
-        es: "Sí. Puedes incluir estilos inline o etiquetas style. La vista previa intenta renderizarlos junto con el HTML.",
-        en: "Yes. You can include inline styles or style tags. The preview attempts to render them together with the HTML."
-      }
-    },
-    {
-      question: {
-        es: "¿Ejecuta JavaScript?",
-        en: "Does it run JavaScript?"
-      },
-      answer: {
-        es: "No. Por seguridad, los scripts y eventos inline se eliminan y el iframe no tiene permisos para ejecutar JavaScript.",
-        en: "No. For safety, scripts and inline events are removed and the iframe has no permission to run JavaScript."
-      }
-    }
-  ],
-  "/tools/html-formatter-minifier": [
-    {
-      question: {
-        es: "¿El HTML se ejecuta?",
-        en: "Does the HTML execute?"
-      },
-      answer: {
-        es: "No. La herramienta trata el HTML como texto: lo formatea o lo minifica, pero no renderiza ni ejecuta scripts.",
-        en: "No. The tool treats HTML as text: it formats or minifies it, but it does not render or execute scripts."
-      }
-    },
-    {
-      question: {
-        es: "¿Puedo eliminar comentarios HTML?",
-        en: "Can I remove HTML comments?"
-      },
-      answer: {
-        es: "Sí. Puedes activar la opción para quitar bloques de comentarios antes de generar el resultado.",
-        en: "Yes. You can enable the option to remove comment blocks before generating the result."
-      }
-    }
-  ]
-};
+const toolFaqsByPath = Object.fromEntries(
+  toolRoutes.map((tool) => [
+    `/tools/${tool.slug}`,
+    toolContentById[tool.id]?.faqs ?? []
+  ])
+);
 
 function escapeHtml(value) {
   return value
@@ -1071,11 +114,11 @@ function setTagAttribute(html, selector, attribute, value) {
 }
 
 function getLocalizedPath(pathname, locale) {
-  if (locale === "en") {
-    return pathname === "/" ? "/en" : `/en${pathname}`;
+  if (locale === defaultLocale) {
+    return pathname;
   }
 
-  return pathname;
+  return pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
 }
 
 function getAbsoluteUrl(pathname, locale) {
@@ -1083,14 +126,15 @@ function getAbsoluteUrl(pathname, locale) {
 }
 
 function renderAlternateLinks(pathname) {
-  const spanishUrl = getAbsoluteUrl(pathname, "es");
-  const englishUrl = getAbsoluteUrl(pathname, "en");
+  const alternateLinks = supportedLocales.map(
+    (locale) => `<link rel="alternate" hreflang="${escapeHtml(locale)}" href="${escapeHtml(getAbsoluteUrl(pathname, locale))}" />`
+  );
 
-  return [
-    `<link rel="alternate" hreflang="es" href="${escapeHtml(spanishUrl)}" />`,
-    `<link rel="alternate" hreflang="en" href="${escapeHtml(englishUrl)}" />`,
-    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(spanishUrl)}" />`
-  ].join("\n    ");
+  alternateLinks.push(
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(getAbsoluteUrl(pathname, defaultLocale))}" />`
+  );
+
+  return alternateLinks.join("\n    ");
 }
 
 function setAlternateLinks(html, pathname) {
@@ -1227,8 +271,6 @@ await Promise.all(
 
 function renderSitemapUrl(page, locale) {
   const loc = getAbsoluteUrl(page.path, locale);
-  const spanishUrl = getAbsoluteUrl(page.path, "es");
-  const englishUrl = getAbsoluteUrl(page.path, "en");
   const changeFrequency =
     page.path === "/tools/cop-to-usd-converter"
       ? "daily"

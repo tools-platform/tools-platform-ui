@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { wordCharacterCounterCopy as copy } from "../../locales/calculatorCopy";
 
 type TextCountResult = {
   text: string;
@@ -17,65 +18,6 @@ type TextCountResult = {
   sentences: number;
   readingMinutes: number;
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Contar texto",
-    inputLabel: "Texto para contar",
-    placeholder: "Pega o escribe un texto para contar palabras, caracteres, letras, líneas, párrafos y frases...",
-    emptyError: "Pega un texto para contar.",
-    hint: "El conteo se hace en tu navegador. Sirve para textos, tareas, SEO, documentos y publicaciones.",
-    submit: "Contar texto",
-    reset: "Restablecer",
-    resultTitle: "Conteo del texto",
-    words: "Palabras",
-    characters: "Caracteres",
-    charactersNoSpaces: "Sin espacios",
-    letters: "Letras",
-    numbers: "Números",
-    lines: "Líneas",
-    emptyLines: "Líneas vacías",
-    paragraphs: "Párrafos",
-    sentences: "Frases",
-    readingTime: "Lectura aprox.",
-    minutes: "min",
-    rulesNote: "Contamos palabras por bloques de texto, frases por signos de puntuación y párrafos por bloques separados por líneas vacías.",
-    disclaimer: "Resultado automático para conteo de texto. Algunos textos técnicos, abreviaturas o listas pueden requerir revisión manual.",
-    helperText: "¿Necesitas texto para probar?",
-    helperAction: "Generar texto",
-    emptyTitle: "El conteo aparecerá aquí",
-    emptyDescription: "Pega un texto y obtén palabras, caracteres, letras, líneas, frases y párrafos."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Count text",
-    inputLabel: "Text to count",
-    placeholder: "Paste or write text to count words, characters, letters, lines, paragraphs, and sentences...",
-    emptyError: "Paste text to count.",
-    hint: "Counting happens in your browser. Use it for writing, SEO, documents, posts, and assignments.",
-    submit: "Count text",
-    reset: "Reset",
-    resultTitle: "Text count",
-    words: "Words",
-    characters: "Characters",
-    charactersNoSpaces: "No spaces",
-    letters: "Letters",
-    numbers: "Numbers",
-    lines: "Lines",
-    emptyLines: "Empty lines",
-    paragraphs: "Paragraphs",
-    sentences: "Sentences",
-    readingTime: "Reading approx.",
-    minutes: "min",
-    rulesNote: "We count words by text blocks, sentences by punctuation marks, and paragraphs by blocks separated by blank lines.",
-    disclaimer: "Automatic text count result. Technical text, abbreviations, or lists may require manual review.",
-    helperText: "Need text to test?",
-    helperAction: "Generate text",
-    emptyTitle: "The count will appear here",
-    emptyDescription: "Paste text and get words, characters, letters, lines, sentences, and paragraphs."
-  }
-} as const;
 
 function countText(text: string): TextCountResult {
   const trimmed = text.trim();

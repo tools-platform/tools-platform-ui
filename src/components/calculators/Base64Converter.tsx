@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { base64ConverterCopy as copy } from "../../locales/calculatorCopy";
 
 type Base64Mode = "decode" | "encode";
 
@@ -13,97 +14,6 @@ type Base64Result = {
   eachLine: boolean;
   urlSafe: boolean;
 };
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "Base64",
-    inputLabel: "Texto de entrada",
-    inputPlaceholder: "Pega texto normal o Base64...",
-    operation: "Operación",
-    decode: "Decodificar",
-    encode: "Codificar",
-    urlSafe: "Formato URL-safe",
-    urlSafeHelp: "Usa - y _ para URLs, tokens o JWT. Al codificar, omite el relleno =.",
-    eachLine: "Procesar cada línea por separado",
-    eachLineHelp: "Útil cuando pegaste varias entradas independientes.",
-    hint: "La conversión se ejecuta en tu navegador. No enviamos el texto a ningún servidor.",
-    emptyError: "Pega un texto para codificar o decodificar.",
-    decodeError: "El texto no parece ser Base64 válido para decodificar.",
-    submitDecode: "Decodificar Base64",
-    submitEncode: "Codificar a Base64",
-    reset: "Restablecer",
-    result: "Resultado",
-    resultTitleDecode: "Texto decodificado",
-    resultTitleEncode: "Texto codificado",
-    copy: "Copiar",
-    download: "Descargar TXT",
-    swap: "Intercambiar",
-    copied: "Resultado copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    inputChars: "Caracteres entrada",
-    outputChars: "Caracteres salida",
-    mode: "Modo",
-    privacy: "Privacidad",
-    local: "Local",
-    format: "Formato",
-    standardFormat: "Normal",
-    urlSafeFormat: "URL-safe",
-    lineMode: "Líneas",
-    lineModeOn: "Separadas",
-    lineModeOff: "Todo el texto",
-    rulesNoteDecode: "Decodificamos Base64 usando UTF-8 y mostramos el resultado como texto.",
-    rulesNoteEncode: "Codificamos el texto con UTF-8 para producir Base64 compatible con APIs y herramientas web.",
-    disclaimer:
-      "Resultado automático para texto. Si necesitas decodificar archivos binarios grandes, usa una herramienta especializada de archivos.",
-    emptyTitle: "El resultado Base64 aparecerá aquí",
-    emptyDescription: "Elige codificar o decodificar, pega el texto y ejecuta la conversión."
-  },
-  en: {
-    kicker: "Development",
-    title: "Base64",
-    inputLabel: "Input text",
-    inputPlaceholder: "Paste plain text or Base64...",
-    operation: "Operation",
-    decode: "Decode",
-    encode: "Encode",
-    urlSafe: "URL-safe format",
-    urlSafeHelp: "Uses - and _ for URLs, tokens, or JWTs. When encoding, it removes = padding.",
-    eachLine: "Process each line separately",
-    eachLineHelp: "Useful when you pasted multiple independent entries.",
-    hint: "The conversion runs in your browser. We do not send the text to any server.",
-    emptyError: "Paste text to encode or decode.",
-    decodeError: "The text does not look like valid Base64 to decode.",
-    submitDecode: "Decode Base64",
-    submitEncode: "Encode to Base64",
-    reset: "Reset",
-    result: "Result",
-    resultTitleDecode: "Decoded text",
-    resultTitleEncode: "Encoded text",
-    copy: "Copy",
-    download: "Download TXT",
-    swap: "Swap",
-    copied: "Result copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    inputChars: "Input characters",
-    outputChars: "Output characters",
-    mode: "Mode",
-    privacy: "Privacy",
-    local: "Local",
-    format: "Format",
-    standardFormat: "Standard",
-    urlSafeFormat: "URL-safe",
-    lineMode: "Lines",
-    lineModeOn: "Separate",
-    lineModeOff: "Whole text",
-    rulesNoteDecode: "We decode Base64 using UTF-8 and show the result as text.",
-    rulesNoteEncode: "We encode text with UTF-8 to produce Base64 compatible with APIs and web tools.",
-    disclaimer:
-      "Automatic result for text. If you need to decode large binary files, use a dedicated file tool.",
-    emptyTitle: "Your Base64 result will appear here",
-    emptyDescription: "Choose encode or decode, paste the text, and run the conversion."
-  }
-} as const;
 
 function bytesToBase64(bytes: Uint8Array) {
   let binary = "";

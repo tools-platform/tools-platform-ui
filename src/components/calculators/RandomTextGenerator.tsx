@@ -2,7 +2,8 @@ import { CheckCircle2, ChevronDown, Clipboard, Dice5, Info, RotateCcw } from "lu
 import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { randomTextGeneratorCopy as copy } from "../../locales/calculatorCopy";
 
 type TextSource = "natural" | "lorem";
 type TextMode = "words" | "sentences" | "paragraphs" | "list";
@@ -100,79 +101,6 @@ const naturalBank = {
   }
 } as const;
 
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Generar texto",
-    source: "Fuente del texto",
-    natural: "Texto natural",
-    lorem: "Lorem ipsum",
-    mode: "Tipo de salida",
-    modes: {
-      words: "Palabras",
-      sentences: "Frases",
-      paragraphs: "Párrafos",
-      list: "Lista"
-    },
-    quantity: "Cantidad",
-    punctuation: "Incluir puntuación",
-    punctuationHelp: "Agrega puntos y comas cuando aplica.",
-    capitalization: "Capitalizar frases",
-    capitalizationHelp: "Inicia cada frase con mayúscula.",
-    onePerLine: "Una línea por resultado",
-    onePerLineHelp: "Útil para pegar en hojas de cálculo o listas.",
-    hint: "El texto se genera en tu navegador desde bancos locales de palabras. No usa IA ni envía datos.",
-    submit: "Generar texto",
-    reset: "Restablecer",
-    resultTitle: "Texto generado",
-    result: "Resultado",
-    copy: "Copiar",
-    copied: "Texto copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    words: "Palabras",
-    characters: "Caracteres",
-    emptyTitle: "Texto aleatorio",
-    emptyDescription: "Elige la fuente, el tipo de salida y genera texto de prueba en segundos.",
-    rulesNote: "El resultado queda fijo hasta que vuelves a generar texto, así puedes cambiar opciones sin alterar la salida actual.",
-    disclaimer: "Texto automático para pruebas, diseño, formularios o contenido temporal. Revísalo si lo usarás de forma pública."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Generate text",
-    source: "Text source",
-    natural: "Natural text",
-    lorem: "Lorem ipsum",
-    mode: "Output type",
-    modes: {
-      words: "Words",
-      sentences: "Sentences",
-      paragraphs: "Paragraphs",
-      list: "List"
-    },
-    quantity: "Quantity",
-    punctuation: "Include punctuation",
-    punctuationHelp: "Adds periods and commas when useful.",
-    capitalization: "Capitalize sentences",
-    capitalizationHelp: "Starts each sentence with uppercase.",
-    onePerLine: "One result per line",
-    onePerLineHelp: "Useful for spreadsheets or lists.",
-    hint: "Text is generated in your browser from local word banks. It does not use AI or send data.",
-    submit: "Generate text",
-    reset: "Reset",
-    resultTitle: "Generated text",
-    result: "Result",
-    copy: "Copy",
-    copied: "Text copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    words: "Words",
-    characters: "Characters",
-    emptyTitle: "Random text",
-    emptyDescription: "Choose the source, output type, and generate sample text in seconds.",
-    rulesNote: "The result stays fixed until you generate again, so changing options does not alter the current output.",
-    disclaimer: "Automatic text for tests, design, forms, or temporary content. Review it before using it publicly."
-  }
-} as const;
-
 function randomItem<T>(items: readonly T[]) {
   const values = new Uint32Array(1);
   crypto.getRandomValues(values);
@@ -187,8 +115,12 @@ function capitalize(value: string, localeCode: string) {
   return value.charAt(0).toLocaleUpperCase(localeCode) + value.slice(1);
 }
 
-function buildNaturalSentence(locale: "es" | "en", includePunctuation: boolean, capitalizeSentence: boolean, localeCode: string) {
-  const bank = naturalBank[locale];
+function getNaturalBank(locale: Locale) {
+  return naturalBank[locale === "hi" ? "en" : locale];
+}
+
+function buildNaturalSentence(locale: Locale, includePunctuation: boolean, capitalizeSentence: boolean, localeCode: string) {
+  const bank = getNaturalBank(locale);
   const sentence = `${randomItem(bank.subjects)} ${randomItem(bank.verbs)} ${randomItem(bank.objects)} ${randomItem(bank.endings)}`;
   const withCapital = capitalizeSentence ? capitalize(sentence, localeCode) : sentence;
   return includePunctuation ? `${withCapital}.` : withCapital;
@@ -198,8 +130,8 @@ function buildLoremWords(count: number) {
   return Array.from({ length: count }, () => randomItem(loremWords));
 }
 
-function buildNaturalWords(locale: "es" | "en", count: number) {
-  const bank = naturalBank[locale];
+function buildNaturalWords(locale: Locale, count: number) {
+  const bank = getNaturalBank(locale);
   const pool = [...bank.subjects, ...bank.verbs, ...bank.objects, ...bank.endings, ...bank.listItems].flatMap((item) =>
     item.split(/\s+/).map((word) => word.replace(/[^\p{L}\p{N}-]/gu, "").toLocaleLowerCase(locale === "es" ? "es-CO" : "en-US"))
   );
@@ -217,7 +149,7 @@ function buildText({
   capitalizeSentences,
   onePerLine
 }: {
-  locale: "es" | "en";
+  locale: Locale;
   localeCode: string;
   source: TextSource;
   mode: TextMode;
@@ -233,7 +165,7 @@ function buildText({
   }
 
   if (mode === "list") {
-    const bank = naturalBank[locale];
+    const bank = getNaturalBank(locale);
     const lines = source === "lorem"
       ? Array.from({ length: quantity }, () => buildLoremWords(3 + Math.floor(Math.random() * 3)).join(" "))
       : Array.from({ length: quantity }, () => randomItem(bank.listItems));

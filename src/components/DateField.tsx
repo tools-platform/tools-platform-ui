@@ -1,6 +1,7 @@
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "../i18n";
+import { dateFieldCopy } from "../locales/uiCopy";
 
 type DateFieldProps = {
   ariaLabel: string;
@@ -75,24 +76,8 @@ export function DateField({ ariaLabel, onChange, placeholder, value }: DateField
     { length: new Date().getFullYear() - 1948 },
     (_, index) => new Date().getFullYear() + 1 - index
   );
-  const copy =
-    locale === "en"
-      ? {
-          placeholder: placeholder ?? "mm/dd/yyyy",
-          previousMonth: "Previous month",
-          selectMonth: "Select month",
-          selectYear: "Select year",
-          nextMonth: "Next month",
-          today: "Today"
-        }
-      : {
-          placeholder: placeholder ?? "dd/mm/aaaa",
-          previousMonth: "Mes anterior",
-          selectMonth: "Seleccionar mes",
-          selectYear: "Seleccionar año",
-          nextMonth: "Mes siguiente",
-          today: "Hoy"
-        };
+  const copy = dateFieldCopy[locale];
+  const placeholderText = placeholder ?? copy.defaultPlaceholder;
   const selectedDate = useMemo(() => fromDateKey(value), [value]);
   const [isOpen, setIsOpen] = useState(false);
   const [visibleMonth, setVisibleMonth] = useState(() => startOfMonth(selectedDate ?? new Date()));
@@ -168,7 +153,7 @@ export function DateField({ ariaLabel, onChange, placeholder, value }: DateField
       >
         <CalendarDays size={17} strokeWidth={2.1} />
         <span className={selectedDate ? "" : "date-field__placeholder"}>
-          {selectedDate ? displayFormatter.format(selectedDate) : copy.placeholder}
+          {selectedDate ? displayFormatter.format(selectedDate) : placeholderText}
         </span>
       </button>
 

@@ -2,7 +2,8 @@ import { ArrowLeftRight, CheckCircle2, ChevronDown, CircleDollarSign, Info, Load
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { copUsdConverterCopy as copy } from "../../locales/calculatorCopy";
 import {
   convertCopUsd,
   type CopUsdConverterResponse,
@@ -11,67 +12,12 @@ import {
 
 type CopUsdData = CopUsdConverterResponse["data"];
 
-const copy = {
-  es: {
-    kicker: "Conversor",
-    title: "Datos de conversión",
-    direction: "Dirección",
-    directionHelp: "Elige si quieres convertir pesos colombianos a dólares o dólares a pesos colombianos.",
-    copToUsd: "COP a USD",
-    usdToCop: "USD a COP",
-    amount: "Monto",
-    hint: "Usamos la TRM oficial vigente como referencia. Tu banco, tarjeta o casa de cambio puede aplicar otra tasa.",
-    amountError: "Ingresa un monto mayor a cero.",
-    requestError: "No se pudo convertir la moneda.",
-    submit: "Convertir",
-    reset: "Restablecer",
-    heroTitle: "Resultado estimado",
-    sourceAmount: "Monto origen",
-    targetAmount: "Monto convertido",
-    usedRate: "TRM usada",
-    activeFrom: "Vigente desde",
-    activeTo: "Vigente hasta",
-    staleNote: "La fuente oficial no respondió; usamos la última TRM guardada.",
-    freshNote: "La TRM fue consultada o validada contra la fuente oficial configurada.",
-    disclaimer:
-      "Resultado estimado. No incluye comisiones, spreads, tasas de tarjetas, impuestos, cargos de bancos ni condiciones específicas de una plataforma financiera.",
-    emptyTitle: "Resultado del conversor",
-    emptyDescription: "Ingresa un monto y elige la dirección para convertir usando la TRM oficial."
-  },
-  en: {
-    kicker: "Converter",
-    title: "Conversion details",
-    direction: "Direction",
-    directionHelp: "Choose whether you want to convert Colombian pesos to US dollars or US dollars to Colombian pesos.",
-    copToUsd: "COP to USD",
-    usdToCop: "USD to COP",
-    amount: "Amount",
-    hint: "We use the current official TRM as a reference. Your bank, card, or exchange house may apply a different rate.",
-    amountError: "Enter an amount greater than zero.",
-    requestError: "We couldn't convert the currency.",
-    submit: "Convert",
-    reset: "Reset",
-    heroTitle: "Estimated result",
-    sourceAmount: "Source amount",
-    targetAmount: "Converted amount",
-    usedRate: "TRM used",
-    activeFrom: "Valid from",
-    activeTo: "Valid until",
-    staleNote: "The official source did not respond; we used the last saved TRM.",
-    freshNote: "The TRM was queried or validated against the configured official source.",
-    disclaimer:
-      "Estimated result. It does not include fees, spreads, card rates, taxes, bank charges, or platform-specific conditions.",
-    emptyTitle: "Converter result",
-    emptyDescription: "Enter an amount and choose the direction to convert using the official TRM."
-  }
-} as const;
-
 function parseMoney(value: string) {
   const normalized = value.replace(/\./g, "").replace(",", ".").replace(/[^\d.]/g, "");
   return normalized.length > 0 ? Number(normalized) : 0;
 }
 
-function getDirectionLabel(direction: CopUsdDirection, locale: "es" | "en") {
+function getDirectionLabel(direction: CopUsdDirection, locale: Locale) {
   return direction === "COP_TO_USD" ? copy[locale].copToUsd : copy[locale].usdToCop;
 }
 

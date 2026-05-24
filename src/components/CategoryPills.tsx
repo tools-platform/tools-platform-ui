@@ -1,5 +1,6 @@
 import type { Category } from "../data/catalog";
 import { getLocalizedText, useLocale } from "../i18n";
+import { categoryPillsCopy } from "../locales/uiCopy";
 
 type CategoryPillsProps = {
   activeCategory: string;
@@ -10,15 +11,7 @@ type CategoryPillsProps = {
 export function CategoryPills({ activeCategory, categories, onChange }: CategoryPillsProps) {
   const { locale } = useLocale();
   const copy =
-    locale === "en"
-      ? {
-          all: "All",
-          ariaLabel: "Filter categories"
-        }
-      : {
-          all: "Todas",
-          ariaLabel: "Filtrar categorías"
-        };
+    categoryPillsCopy[locale];
 
   return (
     <div className="category-filter" aria-label={copy.ariaLabel}>

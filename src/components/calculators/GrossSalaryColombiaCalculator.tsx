@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { grossSalaryColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateGrossSalaryColombia,
   type GrossSalaryColombiaResponse,
@@ -21,99 +22,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Datos del neto recibido",
-    receivedNetSalary: "Salario neto recibido",
-    receivedNetSalaryHelp: "Es lo que te llega después de descuentos de nómina.",
-    paymentFrequency: "Frecuencia del valor recibido",
-    monthly: "Mensual",
-    biweekly: "Quincenal",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar salario mínimo, auxilio de transporte y límites legales vigentes.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    payrollDeductions: "Otros descuentos",
-    payrollDeductionsHelp:
-      "Valores extra descontados al mes en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios.",
-    transportationAllowance: "Incluir auxilio de transporte si aplica",
-    transportationAllowanceHelp: "Actívalo si ese neto incluye auxilio de transporte cuando el salario cumpla el límite legal.",
-    salaryRequired: "Ingresa un salario neto recibido mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    requestError: "No se pudo calcular el salario bruto.",
-    preview: (salary: string, frequency: string) => `Vas a estimar el bruto desde un neto ${frequency} de ${salary}.`,
-    submit: "Calcular salario bruto",
-    reset: "Restablecer",
-    heroTitle: "Salario bruto mensual estimado",
-    grossBiweekly: "Bruto quincenal",
-    netMonthly: "Neto mensual usado",
-    netBiweekly: "Neto quincenal",
-    transportationAllowanceResult: "Auxilio transporte",
-    health: "Salud 4%",
-    pension: "Pensión 4%",
-    healthRate: "Salud",
-    pensionRate: "Pensión",
-    solidarityFund: "Fondo de solidaridad",
-    totalDeductions: "Total descuentos",
-    rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Usa salario mínimo ${minWage}, auxilio de transporte ${allowance} y límite ${limit} para ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Usa salario mínimo ${minWage} para ${year}.`,
-    qualifiesForAllowance: "Cumple límite legal para auxilio",
-    yes: "Sí",
-    no: "No",
-    disclaimer:
-      "Este resultado es una estimación inversa para un empleado dependiente en Colombia. Puede variar por redondeos de nómina, retención en la fuente, pagos no salariales, beneficios o acuerdos especiales.",
-    emptyTitle: "Tu salario bruto aparecerá aquí",
-    emptyDescription: "Ingresa el neto que recibes mensual o quincenal para estimar el salario bruto mensual."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Net payment details",
-    receivedNetSalary: "Received net salary",
-    receivedNetSalaryHelp: "This is what you receive after payroll deductions.",
-    paymentFrequency: "Received value frequency",
-    monthly: "Monthly",
-    biweekly: "Biweekly",
-    payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    payrollDeductions: "Other deductions",
-    payrollDeductionsHelp:
-      "Extra monthly payroll deductions, such as salary loans, advances, garnishments, or voluntary contributions.",
-    transportationAllowance: "Include transportation allowance if applicable",
-    transportationAllowanceHelp: "Turn it on if that net value includes transportation allowance when the salary qualifies.",
-    salaryRequired: "Enter a received net salary greater than zero.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    requestError: "We couldn't calculate the gross salary.",
-    preview: (salary: string, frequency: string) => `You are estimating gross salary from a ${frequency} net value of ${salary}.`,
-    submit: "Calculate gross salary",
-    reset: "Reset",
-    heroTitle: "Estimated gross monthly salary",
-    grossBiweekly: "Gross biweekly",
-    netMonthly: "Monthly net used",
-    netBiweekly: "Biweekly net",
-    transportationAllowanceResult: "Transportation allowance",
-    health: "Health 4%",
-    pension: "Pension 4%",
-    healthRate: "Health",
-    pensionRate: "Pension",
-    solidarityFund: "Solidarity fund",
-    totalDeductions: "Total deductions",
-    rulesNoteWithAllowance: (minWage: string, allowance: string, limit: string, year: number) =>
-      `Uses minimum wage ${minWage}, transportation allowance ${allowance}, and threshold ${limit} for ${year}.`,
-    rulesNoteWithoutAllowance: (minWage: string, year: number) => `Uses minimum wage ${minWage} for ${year}.`,
-    qualifiesForAllowance: "Meets legal allowance threshold",
-    yes: "Yes",
-    no: "No",
-    disclaimer:
-      "This result is an inverse estimate for a dependent employee in Colombia. It may vary due to payroll rounding, withholding tax, non-salary payments, benefits, or special agreements.",
-    emptyTitle: "Your gross salary will appear here",
-    emptyDescription: "Enter the net amount you receive monthly or biweekly to estimate the gross monthly salary."
-  }
-} as const;
 
 export function GrossSalaryColombiaCalculator() {
   const { locale } = useLocale();

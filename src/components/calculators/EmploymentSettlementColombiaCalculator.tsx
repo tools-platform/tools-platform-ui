@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { employmentSettlementColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateEmploymentSettlementColombia,
   type EmploymentContractType,
@@ -23,6 +24,11 @@ const contractLabels = {
     fixed_term: "Fixed-term",
     indefinite: "Indefinite",
     work_or_labor: "Work or labor"
+  },
+  hi: {
+    fixed_term: "निश्चित अवधि",
+    indefinite: "अनिश्चित",
+    work_or_labor: "काम या श्रम"
   }
 } as const;
 
@@ -38,6 +44,12 @@ const terminationLabels = {
     without_just_cause: "Without just cause",
     with_just_cause: "With just cause",
     voluntary_resignation: "Voluntary resignation"
+  },
+  hi: {
+    mutual_agreement: "आपसी सहमति",
+    without_just_cause: "उचित कारण के बिना",
+    with_just_cause: "उचित कारण के साथ",
+    voluntary_resignation: "स्वैच्छिक इस्तीफा"
   }
 } as const;
 
@@ -55,143 +67,6 @@ function buildPayrollYears(currentYear: number) {
   for (let year = currentYear; year >= 2024; year -= 1) years.push(year);
   return years;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Datos de la liquidación",
-    monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos.",
-    monthlySalaryTooltip: "Es el salario mensual bruto, antes de salud, pensión u otros descuentos. Se usa como base para calcular la liquidación.",
-    salaryHelper: "¿Solo sabes tu quincena?",
-    salaryHelperAction: "Calcular salario",
-    startDate: "Fecha de inicio",
-    startDateHelp: "La usamos para calcular tu antigüedad si el contrato indefinido termina sin justa causa. Esa antigüedad define los días de indemnización.",
-    endDate: "Fecha de finalización",
-    contractType: "Tipo de contrato",
-    terminationReason: "Motivo de terminación",
-    fixedEndDate: "Fecha pactada de terminación",
-    fixedEndDateHelp: "Solo se pide para contrato fijo terminado sin justa causa.",
-    remainingWorkDays: "Días pendientes de obra o labor",
-    remainingWorkDaysHelp: "Solo se pide para obra o labor terminada sin justa causa.",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar salario mínimo, auxilio de transporte y límites legales vigentes.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    pendingSalaryDays: "Días de salario pendientes",
-    pendingVacationDays: "Días de vacaciones pendientes",
-    otherEarnings: "Pagos adicionales",
-    otherEarningsHelp: "Úsalo si te deben sumar valores extra no calculados aquí, como bonificaciones pendientes, comisiones aprobadas, recargos, horas extra o ajustes acordados.",
-    otherDeductions: "Deducciones de nómina",
-    otherDeductionsHelp: "Valores extra que te descuentan en nómina, como libranzas, préstamos, anticipos, embargos o aportes voluntarios. Si no tienes, déjalo en 0.",
-    includeServiceBonus: "Incluir prima de servicios",
-    includeServiceBonusHelp: "Desmárcalo si esa prima ya fue pagada o no quieres incluirla en este cálculo.",
-    includeTransportationAllowance: "Incluir auxilio de transporte si aplica",
-    includeTransportationAllowanceHelp: "Validaremos si el salario cumple el límite legal para usarlo en prestaciones.",
-    salaryError: "Ingresa un salario mensual mayor a cero.",
-    dateError: "Ingresa la fecha de inicio y la fecha de finalización.",
-    dateOrderError: "La fecha de finalización no puede ser anterior a la fecha de inicio.",
-    yearError: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    fixedEndDateError: "Ingresa la fecha pactada de terminación del contrato fijo.",
-    remainingWorkDaysError: "Ingresa los días de obra o labor que faltaban por ejecutar.",
-    requestError: "No se pudo calcular la liquidación.",
-    submit: "Calcular liquidación",
-    reset: "Restablecer",
-    heroTitle: "Total estimado de liquidación",
-    includesCompensation: (amount: string) => `Incluye indemnización de ${amount}`,
-    excludesCompensation: "No incluye indemnización por despido sin justa causa",
-    severancePay: "Cesantías",
-    severanceInterest: "Intereses de cesantías",
-    serviceBonus: "Prima de servicios",
-    vacationPay: "Vacaciones pendientes",
-    pendingSalary: "Salario pendiente",
-    transportationAllowanceResult: "Auxilio transporte",
-    dismissalCompensation: "Indemnización",
-    dismissalCompensationHelp:
-      "Nace cuando el contrato termina sin justa causa. No es una prestación ordinaria: compensa la terminación anticipada y se calcula según el tipo de contrato, salario y tiempo faltante o antigüedad.",
-    ordinarySettlement: "Liquidación ordinaria",
-    additionalPayments: "Pagos adicionales",
-    deductions: "Deducciones",
-    rulesNote: (severanceDays: number, includeServiceBonus: boolean, serviceBonusDays: number, totalEmploymentDays: number) =>
-      `Se calcularon ${severanceDays} días para cesantías${includeServiceBonus ? `, ${serviceBonusDays} días para prima` : ""} y ${totalEmploymentDays} días totales de relación laboral.`,
-    contract: "Contrato",
-    reason: "Motivo",
-    benefitsBase: "Base prestaciones",
-    dailySalary: "Salario diario",
-    compensationDays: "Días de indemnización",
-    disclaimer:
-      "Este resultado es una estimación para un empleado dependiente en Colombia. No incluye retención en la fuente, acuerdos especiales, salario variable, sanciones ni ajustes internos del empleador.",
-    emptyTitle: "Tu liquidación aparecerá aquí",
-    emptyDescription: "Completa los datos del contrato para ver cesantías, prima, vacaciones e indemnización si aplica."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Settlement details",
-    monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "This is the salary before deductions.",
-    monthlySalaryTooltip: "This is the gross monthly salary before health, pension, or other deductions. It is used as the base to calculate the settlement.",
-    salaryHelper: "Only know biweekly pay?",
-    salaryHelperAction: "Calculate salary",
-    startDate: "Start date",
-    startDateHelp: "We use it to calculate seniority if an indefinite contract ends without just cause. That seniority defines compensation days.",
-    endDate: "End date",
-    contractType: "Contract type",
-    terminationReason: "Termination reason",
-    fixedEndDate: "Agreed end date",
-    fixedEndDateHelp: "Only required for a fixed-term contract ended without just cause.",
-    remainingWorkDays: "Pending work or labor days",
-    remainingWorkDaysHelp: "Only required for a work-or-labor contract ended without just cause.",
-    payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply the minimum wage, transportation allowance, and legal thresholds in force.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    pendingSalaryDays: "Pending salary days",
-    pendingVacationDays: "Pending vacation days",
-    otherEarnings: "Additional payments",
-    otherEarningsHelp: "Use it if extra amounts must be added outside this calculation, such as pending bonuses, approved commissions, surcharges, overtime, or agreed adjustments.",
-    otherDeductions: "Payroll deductions",
-    otherDeductionsHelp: "Extra payroll deductions such as salary loans, advances, garnishments, or voluntary contributions. Leave it at 0 if you do not have any.",
-    includeServiceBonus: "Include service bonus",
-    includeServiceBonusHelp: "Turn it off if that bonus was already paid or you do not want to include it in this calculation.",
-    includeTransportationAllowance: "Include transportation allowance if applicable",
-    includeTransportationAllowanceHelp: "We will validate whether the salary meets the legal threshold to use it in benefits.",
-    salaryError: "Enter a monthly salary greater than zero.",
-    dateError: "Enter the start date and the end date.",
-    dateOrderError: "The end date cannot be earlier than the start date.",
-    yearError: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    fixedEndDateError: "Enter the agreed fixed-term contract end date.",
-    remainingWorkDaysError: "Enter the pending work or labor days that remained to be completed.",
-    requestError: "We couldn't calculate the settlement.",
-    submit: "Calculate settlement",
-    reset: "Reset",
-    heroTitle: "Estimated settlement total",
-    includesCompensation: (amount: string) => `Includes compensation of ${amount}`,
-    excludesCompensation: "Does not include dismissal compensation for termination without just cause",
-    severancePay: "Severance pay",
-    severanceInterest: "Severance interest",
-    serviceBonus: "Service bonus",
-    vacationPay: "Pending vacation",
-    pendingSalary: "Pending salary",
-    transportationAllowanceResult: "Transportation allowance",
-    dismissalCompensation: "Dismissal compensation",
-    dismissalCompensationHelp:
-      "It applies when the contract ends without just cause. It is not a regular labor benefit: it compensates early termination and depends on contract type, salary, and remaining time or seniority.",
-    ordinarySettlement: "Ordinary settlement",
-    additionalPayments: "Additional payments",
-    deductions: "Deductions",
-    rulesNote: (severanceDays: number, includeServiceBonus: boolean, serviceBonusDays: number, totalEmploymentDays: number) =>
-      `Calculated ${severanceDays} days for severance${includeServiceBonus ? `, ${serviceBonusDays} days for service bonus` : ""}, and ${totalEmploymentDays} total days of employment.`,
-    contract: "Contract",
-    reason: "Reason",
-    benefitsBase: "Benefits base",
-    dailySalary: "Daily salary",
-    compensationDays: "Compensation days",
-    disclaimer:
-      "This result is an estimate for a dependent employee in Colombia. It does not include withholding tax, special agreements, variable salary, penalties, or the employer's internal adjustments.",
-    emptyTitle: "Your settlement will appear here",
-    emptyDescription: "Complete the contract details to see severance, service bonus, vacation pay, and compensation when applicable."
-  }
-} as const;
 
 function ResultItem({
   label,

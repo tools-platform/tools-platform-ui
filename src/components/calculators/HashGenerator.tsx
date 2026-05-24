@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { hashGeneratorCopy as copy } from "../../locales/calculatorCopy";
 
 type HashAlgorithm = "SHA-1" | "SHA-256" | "SHA-384" | "SHA-512";
 type HashCase = "lowercase" | "uppercase" | "mixed";
@@ -16,77 +17,6 @@ type HashResult = {
   eachLine: boolean;
   processedLines: number;
 };
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "Generador hash",
-    inputLabel: "Texto de entrada",
-    inputPlaceholder: "Pega texto para generar un hash...",
-    algorithm: "Algoritmo",
-    letterCase: "Letras",
-    lowercase: "Minúsculas",
-    uppercase: "Mayúsculas",
-    mixed: "Ambas",
-    eachLine: "Procesar cada línea por separado",
-    eachLineHelp: "Genera un hash independiente para cada línea no vacía.",
-    hint: "El hash se genera localmente en tu navegador. No enviamos el texto a ningún servidor.",
-    emptyError: "Pega un texto para generar el hash.",
-    submit: "Generar hash",
-    reset: "Restablecer",
-    result: "Resultado",
-    resultTitle: "Hash generado",
-    copy: "Copiar",
-    copied: "Hash copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    lineResult: "Línea",
-    algorithmLabel: "Algoritmo",
-    inputChars: "Caracteres entrada",
-    outputChars: "Caracteres salida",
-    lineMode: "Líneas",
-    lineModeOn: "Separadas",
-    lineModeOff: "Todo el texto",
-    rulesNote: "Un hash es una huella del texto. Sirve para comparar contenido, no para ocultarlo.",
-    disclaimer:
-      "Un hash no es cifrado y no se debe usar como contraseña visible. Para contraseñas reales usa sistemas con sal y derivación de claves.",
-    emptyTitle: "Tu hash aparecerá aquí",
-    emptyDescription: "Pega texto, elige el algoritmo y genera una huella SHA localmente."
-  },
-  en: {
-    kicker: "Development",
-    title: "Hash generator",
-    inputLabel: "Input text",
-    inputPlaceholder: "Paste text to generate a hash...",
-    algorithm: "Algorithm",
-    letterCase: "Letters",
-    lowercase: "Lowercase",
-    uppercase: "Uppercase",
-    mixed: "Mixed",
-    eachLine: "Process each line separately",
-    eachLineHelp: "Generates an independent hash for each non-empty line.",
-    hint: "The hash is generated locally in your browser. We do not send the text to any server.",
-    emptyError: "Paste text to generate the hash.",
-    submit: "Generate hash",
-    reset: "Reset",
-    result: "Result",
-    resultTitle: "Generated hash",
-    copy: "Copy",
-    copied: "Hash copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    lineResult: "Line",
-    algorithmLabel: "Algorithm",
-    inputChars: "Input characters",
-    outputChars: "Output characters",
-    lineMode: "Lines",
-    lineModeOn: "Separate",
-    lineModeOff: "Whole text",
-    rulesNote: "A hash is a fingerprint of the text. It helps compare content, not hide it.",
-    disclaimer:
-      "A hash is not encryption and should not be used as a visible password. For real passwords, use salted key-derivation systems.",
-    emptyTitle: "Your hash will appear here",
-    emptyDescription: "Paste text, choose the algorithm, and generate a local SHA fingerprint."
-  }
-} as const;
 
 const algorithms: HashAlgorithm[] = ["SHA-256", "SHA-1", "SHA-384", "SHA-512"];
 

@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Category, ToolSummary } from "../data/catalog";
 import { getLocalizedText, useLocale } from "../i18n";
+import { toolCardCopy } from "../locales/uiCopy";
 
 type ToolCardProps = {
   category?: Category;
@@ -12,15 +13,7 @@ type ToolCardProps = {
 export function ToolCard({ category, featureBadge, tool }: ToolCardProps) {
   const { locale, localizePath } = useLocale();
   const copy =
-    locale === "en"
-      ? {
-          open: "Open tool",
-          comingSoon: "Coming soon"
-        }
-      : {
-          open: "Abrir herramienta",
-          comingSoon: "Próximamente"
-        };
+    toolCardCopy[locale];
 
   return (
     <article

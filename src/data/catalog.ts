@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import type { ComponentType } from "react";
 import type { LocalizedText } from "../i18n";
+import { categoryCopy, toolCopy } from "../locales/catalogCopy";
 
 export type CatalogIcon = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
 
@@ -53,47 +54,27 @@ export type ToolSummary = {
 export const categories: Category[] = [
   {
     id: "finance",
-    name: { es: "Finanzas", en: "Finance" },
-    description: {
-      es: "Calculadoras para salario, créditos, prestaciones y conversiones.",
-      en: "Calculators for salary, loans, benefits, and currency conversion."
-    },
+    ...categoryCopy["finance"],
     Icon: Calculator
   },
   {
     id: "work",
-    name: { es: "Trabajo", en: "Work" },
-    description: {
-      es: "Herramientas para horas, tarifas freelance y productividad.",
-      en: "Tools for hours worked, freelance rates, and productivity."
-    },
+    ...categoryCopy["work"],
     Icon: BriefcaseBusiness
   },
   {
     id: "time",
-    name: { es: "Tiempo", en: "Time" },
-    description: {
-      es: "Fechas, edades exactas, semanas y cuentas regresivas.",
-      en: "Dates, exact ages, weeks, and countdowns."
-    },
+    ...categoryCopy["time"],
     Icon: Clock3
   },
   {
     id: "utilities",
-    name: { es: "Utilidades", en: "Utilities" },
-    description: {
-      es: "Conversiones, texto, unidades y tareas repetitivas.",
-      en: "Conversions, text tools, units, and repetitive tasks."
-    },
+    ...categoryCopy["utilities"],
     Icon: Wrench
   },
   {
     id: "development",
-    name: { es: "Desarrollo", en: "Development" },
-    description: {
-      es: "JSON, UUID, hashes y utilidades para programadores.",
-      en: "JSON, UUIDs, hashes, and developer utilities."
-    },
+    ...categoryCopy["development"],
     Icon: Code2
   }
 ];
@@ -103,14 +84,7 @@ export const tools: ToolSummary[] = [
   {
     id: "net-salary-colombia",
     slug: "colombia-net-salary-calculator",
-    name: {
-      es: "Calculadora de salario neto (Colombia)",
-      en: "Net Salary Calculator (Colombia)"
-    },
-    description: {
-      es: "Cuánto recibes después de salud y pensión.",
-      en: "See what remains after health and pension deductions."
-    },
+    ...toolCopy["net-salary-colombia"],
     categoryId: "finance",
     status: "published",
     Icon: Banknote
@@ -118,14 +92,7 @@ export const tools: ToolSummary[] = [
   {
     id: "gross-salary-colombia",
     slug: "colombia-gross-salary-calculator",
-    name: {
-      es: "Calculadora de salario bruto (Colombia)",
-      en: "Gross Salary Calculator (Colombia)"
-    },
-    description: {
-      es: "Estima tu salario bruto desde lo que recibes neto mensual o quincenal.",
-      en: "Estimate gross salary from the net amount you receive monthly or biweekly."
-    },
+    ...toolCopy["gross-salary-colombia"],
     categoryId: "finance",
     status: "published",
     Icon: Banknote
@@ -133,14 +100,7 @@ export const tools: ToolSummary[] = [
   {
     id: "employment-settlement-colombia",
     slug: "colombia-employment-settlement-calculator",
-    name: {
-      es: "Calculadora de liquidación (Colombia)",
-      en: "Employment Settlement Calculator (Colombia)"
-    },
-    description: {
-      es: "Cesantías, prima y vacaciones al salir del trabajo.",
-      en: "Estimate severance, service bonus, and unused vacation at the end of employment."
-    },
+    ...toolCopy["employment-settlement-colombia"],
     categoryId: "finance",
     status: "published",
     Icon: HandCoins
@@ -148,14 +108,7 @@ export const tools: ToolSummary[] = [
   {
     id: "social-benefits-colombia",
     slug: "social-benefits-colombia",
-    name: {
-      es: "Calculadora de prestaciones sociales (Colombia)",
-      en: "Social Benefits Calculator (Colombia)"
-    },
-    description: {
-      es: "Desglosa beneficios como cesantías, prima y vacaciones.",
-      en: "Break down benefits such as severance, service bonus, and vacation."
-    },
+    ...toolCopy["social-benefits-colombia"],
     categoryId: "finance",
     status: "published",
     Icon: HandCoins
@@ -163,14 +116,7 @@ export const tools: ToolSummary[] = [
   {
     id: "credit-interest",
     slug: "credit-interest-calculator",
-    name: {
-      es: "Calculadora de intereses de crédito",
-      en: "Credit Interest Calculator"
-    },
-    description: {
-      es: "Cuánto pagas en total por un préstamo.",
-      en: "Estimate total interest paid on a loan."
-    },
+    ...toolCopy["credit-interest"],
     categoryId: "finance",
     status: "published",
     Icon: Landmark
@@ -178,14 +124,7 @@ export const tools: ToolSummary[] = [
   {
     id: "loan-payment",
     slug: "loan-payment-calculator",
-    name: {
-      es: "Cuota de préstamo",
-      en: "Loan Payment Calculator"
-    },
-    description: {
-      es: "Valor de la cuota mensual de un crédito.",
-      en: "Estimate the monthly payment of a loan."
-    },
+    ...toolCopy["loan-payment"],
     categoryId: "finance",
     status: "published",
     Icon: BadgeDollarSign
@@ -193,14 +132,7 @@ export const tools: ToolSummary[] = [
   {
     id: "cop-usd",
     slug: "cop-to-usd-converter",
-    name: {
-      es: "Conversor COP a USD",
-      en: "COP to USD Converter"
-    },
-    description: {
-      es: "Convierte pesos colombianos a dólares de forma rápida.",
-      en: "Convert Colombian pesos to US dollars quickly."
-    },
+    ...toolCopy["cop-usd"],
     categoryId: "finance",
     status: "published",
     Icon: Coins
@@ -208,11 +140,7 @@ export const tools: ToolSummary[] = [
   {
     id: "salary-increase",
     slug: "salary-increase-calculator",
-    name: { es: "Calculadora de aumento salarial", en: "Salary Increase Calculator" },
-    description: {
-      es: "Calcula cómo queda un salario después de un aumento porcentual.",
-      en: "Calculate what a salary looks like after a percentage increase."
-    },
+    ...toolCopy["salary-increase"],
     categoryId: "finance",
     status: "published",
     Icon: Repeat2
@@ -220,11 +148,7 @@ export const tools: ToolSummary[] = [
   {
     id: "annual-salary",
     slug: "annual-salary-calculator",
-    name: { es: "Calculadora de salario anual (Colombia)", en: "Annual Salary Calculator (Colombia)" },
-    description: {
-      es: "Estima tu ingreso anual con salario, auxilio, prima y descuentos.",
-      en: "Estimate annual income with salary, allowance, bonus, and deductions."
-    },
+    ...toolCopy["annual-salary"],
     categoryId: "finance",
     status: "published",
     Icon: Banknote
@@ -232,14 +156,7 @@ export const tools: ToolSummary[] = [
   {
     id: "worked-hours",
     slug: "worked-hours-calculator",
-    name: {
-      es: "Calculadora de horas trabajadas",
-      en: "Worked Hours Calculator"
-    },
-    description: {
-      es: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
-      en: "Add up worked hours across dates and shifts."
-    },
+    ...toolCopy["worked-hours"],
     categoryId: "work",
     status: "published",
     Icon: Timer
@@ -247,14 +164,7 @@ export const tools: ToolSummary[] = [
   {
     id: "hourly-salary",
     slug: "hourly-salary-calculator",
-    name: {
-      es: "Calculadora de salario por horas (Colombia)",
-      en: "Hourly Salary Calculator (Colombia)"
-    },
-    description: {
-      es: "Convierte un salario mensual en valor por hora para comparar ingresos.",
-      en: "Convert a monthly salary into an hourly value to compare income."
-    },
+    ...toolCopy["hourly-salary"],
     categoryId: "work",
     status: "published",
     Icon: Clock3
@@ -262,14 +172,7 @@ export const tools: ToolSummary[] = [
   {
     id: "employee-salary-equivalent",
     slug: "employee-salary-for-independents-calculator",
-    name: {
-      es: "Calculadora de sueldo de empleado para independientes (Colombia)",
-      en: "Employee Salary Calculator for Independent Workers (Colombia)"
-    },
-    description: {
-      es: "Convierte lo que cobras por hora en sueldo quincenal y mensual como empleado.",
-      en: "Convert what you charge per hour into an equivalent biweekly and monthly employee salary."
-    },
+    ...toolCopy["employee-salary-equivalent"],
     categoryId: "work",
     status: "published",
     Icon: BriefcaseBusiness
@@ -277,14 +180,7 @@ export const tools: ToolSummary[] = [
   {
     id: "freelance-rate",
     slug: "freelance-rate-calculator",
-    name: {
-      es: "Calculadora de cuánto cobrar freelance",
-      en: "Freelance Rate Calculator"
-    },
-    description: {
-      es: "Sugiere una tarifa según tu meta mensual y horas de trabajo.",
-      en: "Suggest a freelance rate based on your monthly income goal."
-    },
+    ...toolCopy["freelance-rate"],
     categoryId: "work",
     status: "published",
     Icon: BriefcaseBusiness
@@ -292,14 +188,7 @@ export const tools: ToolSummary[] = [
   {
     id: "overtime-colombia",
     slug: "colombia-overtime-calculator",
-    name: {
-      es: "Calculadora de horas extras (Colombia)",
-      en: "Overtime Calculator (Colombia)"
-    },
-    description: {
-      es: "Calcula horas extra, recargos nocturnos, dominicales y festivos.",
-      en: "Calculate overtime, night, Sunday, and holiday pay."
-    },
+    ...toolCopy["overtime-colombia"],
     categoryId: "work",
     status: "published",
     Icon: Timer
@@ -307,14 +196,7 @@ export const tools: ToolSummary[] = [
   {
     id: "days-between-dates",
     slug: "days-between-dates-calculator",
-    name: {
-      es: "Contador de días entre fechas",
-      en: "Days Between Dates Calculator"
-    },
-    description: {
-      es: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
-      en: "Count how many days are between two dates."
-    },
+    ...toolCopy["days-between-dates"],
     categoryId: "time",
     status: "published",
     Icon: CalendarDays
@@ -322,11 +204,7 @@ export const tools: ToolSummary[] = [
   {
     id: "weeks-between-dates",
     slug: "weeks-between-dates-calculator",
-    name: { es: "Calculadora de semanas entre fechas", en: "Weeks Between Dates Calculator" },
-    description: {
-      es: "Convierte el tiempo entre dos fechas a semanas y días.",
-      en: "Convert the time between two dates into weeks and days."
-    },
+    ...toolCopy["weeks-between-dates"],
     categoryId: "time",
     status: "published",
     Icon: Clock3
@@ -334,14 +212,7 @@ export const tools: ToolSummary[] = [
   {
     id: "exact-age",
     slug: "exact-age-calculator",
-    name: {
-      es: "Calculadora de edad exacta",
-      en: "Exact Age Calculator"
-    },
-    description: {
-      es: "Calcula edad en años, meses y días.",
-      en: "Calculate age in years, months, and days."
-    },
+    ...toolCopy["exact-age"],
     categoryId: "time",
     status: "published",
     Icon: Clock3
@@ -349,11 +220,7 @@ export const tools: ToolSummary[] = [
   {
     id: "days-until-date",
     slug: "days-until-date-calculator",
-    name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator" },
-    description: {
-      es: "Cuenta los días restantes para eventos importantes o entregas.",
-      en: "Count the days left until an event or deadline."
-    },
+    ...toolCopy["days-until-date"],
     categoryId: "time",
     status: "published",
     Icon: CalendarDays
@@ -361,14 +228,7 @@ export const tools: ToolSummary[] = [
   {
     id: "unit-converter",
     slug: "unit-converter",
-    name: {
-      es: "Conversor de unidades online",
-      en: "Online Unit Converter"
-    },
-    description: {
-      es: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
-      en: "Convert kilometers, miles, kilos, pounds, and other common units."
-    },
+    ...toolCopy["unit-converter"],
     categoryId: "utilities",
     status: "published",
     Icon: Ruler
@@ -376,14 +236,7 @@ export const tools: ToolSummary[] = [
   {
     id: "text-case-converter",
     slug: "text-case-converter",
-    name: {
-      es: "Convertidor de mayúsculas y minúsculas online",
-      en: "Uppercase and Lowercase Converter"
-    },
-    description: {
-      es: "Transforma texto a mayúsculas, minúsculas o capitalizado.",
-      en: "Transform text to uppercase, lowercase, or title case."
-    },
+    ...toolCopy["text-case-converter"],
     categoryId: "utilities",
     status: "published",
     Icon: LetterText
@@ -391,14 +244,7 @@ export const tools: ToolSummary[] = [
   {
     id: "duplicate-counter",
     slug: "duplicate-counter",
-    name: {
-      es: "Contador de duplicados",
-      en: "Duplicate Counter"
-    },
-    description: {
-      es: "Cuenta valores repetidos, únicos y resultados limpios en una lista.",
-      en: "Count repeated values, unique values, and distinct lines in a list."
-    },
+    ...toolCopy["duplicate-counter"],
     categoryId: "utilities",
     status: "published",
     Icon: ListChecks
@@ -406,11 +252,7 @@ export const tools: ToolSummary[] = [
   {
     id: "word-character-counter",
     slug: "word-character-counter",
-    name: { es: "Contador de palabras, caracteres y líneas", en: "Word, Character, and Line Counter" },
-    description: {
-      es: "Cuenta palabras, caracteres, letras, líneas, párrafos y frases.",
-      en: "Count words, characters, letters, lines, paragraphs, and sentences."
-    },
+    ...toolCopy["word-character-counter"],
     categoryId: "utilities",
     status: "published",
     Icon: FileText
@@ -418,11 +260,7 @@ export const tools: ToolSummary[] = [
   {
     id: "find-replace-text",
     slug: "find-replace-text",
-    name: { es: "Buscar y reemplazar texto", en: "Find and Replace Text" },
-    description: {
-      es: "Busca palabras o fragmentos y reemplázalos en un texto.",
-      en: "Find words or fragments and replace them in text."
-    },
+    ...toolCopy["find-replace-text"],
     categoryId: "utilities",
     status: "published",
     Icon: Replace
@@ -430,14 +268,7 @@ export const tools: ToolSummary[] = [
   {
     id: "remove-extra-spaces",
     slug: "remove-extra-spaces",
-    name: {
-      es: "Eliminar espacios extra",
-      en: "Remove Extra Spaces"
-    },
-    description: {
-      es: "Limpia espacios dobles, tabs y líneas vacías en textos o listas.",
-      en: "Clean double spaces, tabs, and blank lines from text or lists."
-    },
+    ...toolCopy["remove-extra-spaces"],
     categoryId: "utilities",
     status: "published",
     Icon: Eraser
@@ -445,14 +276,7 @@ export const tools: ToolSummary[] = [
   {
     id: "remove-accents",
     slug: "remove-accents",
-    name: {
-      es: "Eliminar acentos (Español)",
-      en: "Remove Accents (Spanish)"
-    },
-    description: {
-      es: "Convierte texto con tildes a una versión sin acentos, conservando la ñ si quieres.",
-      en: "Convert accented text into a version without accents, preserving ñ if needed."
-    },
+    ...toolCopy["remove-accents"],
     categoryId: "utilities",
     status: "published",
     Icon: Languages
@@ -460,14 +284,7 @@ export const tools: ToolSummary[] = [
   {
     id: "secure-password-generator",
     slug: "secure-password-generator",
-    name: {
-      es: "Generador de contraseñas seguras",
-      en: "Secure Password Generator"
-    },
-    description: {
-      es: "Crea contraseñas aleatorias y seguras en tu navegador.",
-      en: "Create random, secure passwords in your browser."
-    },
+    ...toolCopy["secure-password-generator"],
     categoryId: "utilities",
     status: "published",
     Icon: KeyRound
@@ -475,14 +292,7 @@ export const tools: ToolSummary[] = [
   {
     id: "random-text-generator",
     slug: "random-text-generator",
-    name: {
-      es: "Generador de texto aleatorio",
-      en: "Random Text Generator"
-    },
-    description: {
-      es: "Genera palabras, frases, párrafos o listas con texto natural o Lorem ipsum.",
-      en: "Generate words, sentences, paragraphs, or lists with natural text or Lorem ipsum."
-    },
+    ...toolCopy["random-text-generator"],
     categoryId: "utilities",
     status: "published",
     Icon: Shuffle
@@ -490,14 +300,7 @@ export const tools: ToolSummary[] = [
   {
     id: "alphabetical-line-sorter",
     slug: "alphabetical-line-sorter",
-    name: {
-      es: "Ordenador alfabético de líneas",
-      en: "Alphabetical Line Sorter"
-    },
-    description: {
-      es: "Ordena listas, nombres, correos o códigos de la A a la Z o de la Z a la A.",
-      en: "Sort lists, names, emails, or codes from A to Z or Z to A."
-    },
+    ...toolCopy["alphabetical-line-sorter"],
     categoryId: "utilities",
     status: "published",
     Icon: ArrowDownAZ
@@ -505,14 +308,7 @@ export const tools: ToolSummary[] = [
   {
     id: "percentage-calculator",
     slug: "percentage-calculator",
-    name: {
-      es: "Calculadora de porcentaje",
-      en: "Percentage Calculator"
-    },
-    description: {
-      es: "Calcula porcentajes, descuentos, aumentos y diferencias porcentuales.",
-      en: "Calculate percentages, discounts, increases, and percentage changes."
-    },
+    ...toolCopy["percentage-calculator"],
     categoryId: "utilities",
     status: "published",
     Icon: Percent
@@ -520,14 +316,7 @@ export const tools: ToolSummary[] = [
   {
     id: "case-style-converter",
     slug: "case-style-converter",
-    name: {
-      es: "Convertidor de estilos de texto para código",
-      en: "Code Case Style Converter"
-    },
-    description: {
-      es: "Convierte frases a camelCase, PascalCase, snake_case, kebab-case y más formatos.",
-      en: "Convert phrases to camelCase, PascalCase, snake_case, kebab-case, and more."
-    },
+    ...toolCopy["case-style-converter"],
     categoryId: "development",
     status: "published",
     Icon: Code2
@@ -535,14 +324,7 @@ export const tools: ToolSummary[] = [
   {
     id: "base64-converter",
     slug: "base64-encoder-decoder",
-    name: {
-      es: "Codificador y decodificador Base64",
-      en: "Base64 Encoder and Decoder"
-    },
-    description: {
-      es: "Codifica texto a Base64 o decodifica Base64 a texto en tu navegador.",
-      en: "Encode text to Base64 or decode Base64 to text in your browser."
-    },
+    ...toolCopy["base64-converter"],
     categoryId: "development",
     status: "published",
     Icon: Binary
@@ -550,14 +332,7 @@ export const tools: ToolSummary[] = [
   {
     id: "html-preview",
     slug: "html-preview-online",
-    name: {
-      es: "Vista previa de HTML online",
-      en: "Online HTML Preview"
-    },
-    description: {
-      es: "Pega código HTML y revisa cómo se renderiza en una vista previa segura.",
-      en: "Paste HTML code and see how it renders in a safe preview."
-    },
+    ...toolCopy["html-preview"],
     categoryId: "development",
     status: "published",
     Icon: Code2
@@ -565,14 +340,7 @@ export const tools: ToolSummary[] = [
   {
     id: "html-formatter-minifier",
     slug: "html-formatter-minifier",
-    name: {
-      es: "Formateador y minificador HTML",
-      en: "HTML Formatter and Minifier"
-    },
-    description: {
-      es: "Formatea HTML para leerlo mejor o minifícalo para obtener una versión compacta.",
-      en: "Format HTML for readability or minify it into a compact version."
-    },
+    ...toolCopy["html-formatter-minifier"],
     categoryId: "development",
     status: "published",
     Icon: Code2
@@ -580,11 +348,7 @@ export const tools: ToolSummary[] = [
   {
     id: "json-formatter",
     slug: "json-formatter",
-    name: { es: "Formateador JSON", en: "JSON Formatter" },
-    description: {
-      es: "Organiza JSON para hacerlo legible y fácil de revisar.",
-      en: "Format JSON to make it readable and easier to inspect."
-    },
+    ...toolCopy["json-formatter"],
     categoryId: "development",
     status: "published",
     Icon: FileJson
@@ -592,11 +356,7 @@ export const tools: ToolSummary[] = [
   {
     id: "uuid-generator",
     slug: "uuid-generator",
-    name: { es: "Generador UUID", en: "UUID Generator" },
-    description: {
-      es: "Crea identificadores únicos para sistemas y pruebas.",
-      en: "Generate unique identifiers for systems and tests."
-    },
+    ...toolCopy["uuid-generator"],
     categoryId: "development",
     status: "published",
     Icon: Binary
@@ -604,11 +364,7 @@ export const tools: ToolSummary[] = [
   {
     id: "hash-generator",
     slug: "hash-generator",
-    name: { es: "Generador hash", en: "Hash Generator" },
-    description: {
-      es: "Genera hashes como MD5 o SHA para desarrollo y seguridad.",
-      en: "Generate MD5, SHA, and similar hashes for development and security."
-    },
+    ...toolCopy["hash-generator"],
     categoryId: "development",
     status: "published",
     Icon: Hash
@@ -616,11 +372,7 @@ export const tools: ToolSummary[] = [
   {
     id: "simple-cron-generator",
     slug: "simple-cron-generator",
-    name: { es: "Generador de cron simple", en: "Simple Cron Generator" },
-    description: {
-      es: "Crea o explica expresiones cron sin complicarte con la sintaxis.",
-      en: "Create or explain cron expressions without wrestling with syntax."
-    },
+    ...toolCopy["simple-cron-generator"],
     categoryId: "development",
     status: "published",
     Icon: CalendarClock

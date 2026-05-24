@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { uuidGeneratorCopy as copy } from "../../locales/calculatorCopy";
 
 type UuidMode = "random" | "seed";
 type UuidFormat = "hyphenated" | "compact";
@@ -15,98 +16,6 @@ type UuidResult = {
   letterCase: UuidCase;
   seedText: string;
 };
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "Generador UUID",
-    method: "Método",
-    random: "Aleatorio",
-    seed: "Desde texto",
-    seedLabel: "Texto base",
-    seedPlaceholder: "mi-proyecto-cliente-123",
-    seedHelp: "El texto base se mezcla con aleatoriedad local para crear UUID nuevos en cada intento. Evita datos sensibles como contraseñas, cédulas, tokens o correos privados.",
-    quantity: "Cantidad de UUID",
-    quantityHelp: "Entre 1 y 100 UUID. Usa cantidades altas solo cuando necesites una lista para pruebas o carga de datos.",
-    format: "Formato",
-    hyphenated: "Con guiones",
-    compact: "Sin guiones",
-    compactHelp: "Quita los guiones y deja cada UUID en 32 caracteres.",
-    letterCase: "Letras",
-    lowercase: "Minúsculas",
-    uppercase: "Mayúsculas",
-    mixed: "Ambas",
-    hint: "Los UUID se generan localmente en tu navegador. No se publican ni se envían a ningún servidor.",
-    seedHint: "El texto base se procesa localmente con SHA-256 junto con aleatoriedad del navegador.",
-    emptySeedError: "Escribe un texto base para generar UUID desde texto.",
-    submitRandom: "Generar UUID",
-    submitSeed: "Generar desde texto",
-    reset: "Restablecer",
-    resultTitle: "UUID generado",
-    resultListTitle: "UUID generados",
-    copied: "UUID copiado.",
-    copiedAll: "Lista copiada.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    copy: "Copiar",
-    copyAll: "Copiar lista",
-    main: "Principal",
-    alternative: "Alternativo",
-    mode: "Método",
-    length: "Longitud",
-    privacy: "Privacidad",
-    local: "Local",
-    rulesNoteRandom: "El modo aleatorio usa aleatoriedad criptográfica del navegador para crear UUID v4.",
-    rulesNoteSeed: "El modo desde texto usa tu texto base como parte del cálculo, pero cada clic mezcla nueva aleatoriedad local.",
-    disclaimer:
-      "Un UUID no es una contraseña ni un token secreto. Úsalo como identificador, no como mecanismo de seguridad.",
-    emptyTitle: "Tus UUID aparecerán aquí",
-    emptyDescription: "Elige si quieres UUID aleatorios o UUID mezclados con un texto base."
-  },
-  en: {
-    kicker: "Development",
-    title: "UUID generator",
-    method: "Method",
-    random: "Random",
-    seed: "From text",
-    seedLabel: "Base text",
-    seedPlaceholder: "my-project-client-123",
-    seedHelp: "Base text is mixed with local randomness to create new UUIDs on each attempt. Avoid sensitive data such as passwords, IDs, tokens, or private emails.",
-    quantity: "Number of UUIDs",
-    quantityHelp: "Between 1 and 100 UUIDs. Use higher quantities only when you need a list for tests or data seeding.",
-    format: "Format",
-    hyphenated: "With hyphens",
-    compact: "Without hyphens",
-    compactHelp: "Removes hyphens and leaves each UUID as 32 characters.",
-    letterCase: "Letters",
-    lowercase: "Lowercase",
-    uppercase: "Uppercase",
-    mixed: "Mixed",
-    hint: "UUIDs are generated locally in your browser. They are not published or sent to any server.",
-    seedHint: "Base text is processed locally with SHA-256 together with browser randomness.",
-    emptySeedError: "Enter base text to generate UUIDs from text.",
-    submitRandom: "Generate UUID",
-    submitSeed: "Generate from text",
-    reset: "Reset",
-    resultTitle: "Generated UUID",
-    resultListTitle: "Generated UUIDs",
-    copied: "UUID copied.",
-    copiedAll: "List copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    copy: "Copy",
-    copyAll: "Copy list",
-    main: "Main",
-    alternative: "Alternative",
-    mode: "Method",
-    length: "Length",
-    privacy: "Privacy",
-    local: "Local",
-    rulesNoteRandom: "Random mode uses the browser's cryptographic randomness to create UUID v4 values.",
-    rulesNoteSeed: "From text mode uses your base text as part of the calculation, but each click mixes fresh local randomness.",
-    disclaimer: "A UUID is not a password or a secret token. Use it as an identifier, not as a security mechanism.",
-    emptyTitle: "Your UUIDs will appear here",
-    emptyDescription: "Choose random UUIDs or UUIDs mixed with base text."
-  }
-} as const;
 
 function bytesToUuid(bytes: Uint8Array) {
   const uuidBytes = bytes.slice(0, 16);

@@ -13,6 +13,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/privacy</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>yearly</changefreq>
@@ -20,6 +26,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/privacy</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/privacy</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -37,6 +49,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/terms</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/colombia-net-salary-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -44,6 +62,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/colombia-net-salary-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/colombia-net-salary-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -61,6 +85,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/colombia-gross-salary-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/colombia-employment-settlement-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -68,6 +98,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/colombia-employment-settlement-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/colombia-employment-settlement-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -85,6 +121,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/social-benefits-colombia</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/credit-interest-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -92,6 +134,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/credit-interest-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/credit-interest-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -109,13 +157,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/salary-increase-calculator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/en/tools/salary-increase-calculator</loc>
+    <loc>https://toolsplatforms.com/hi/tools/loan-payment-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -133,6 +175,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/cop-to-usd-converter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/salary-increase-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/salary-increase-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/salary-increase-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/annual-salary-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -140,6 +206,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/annual-salary-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/annual-salary-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -157,6 +229,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/worked-hours-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/hourly-salary-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -169,13 +247,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/colombia-overtime-calculator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/en/tools/colombia-overtime-calculator</loc>
+    <loc>https://toolsplatforms.com/hi/tools/hourly-salary-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -193,6 +265,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/employee-salary-for-independents-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/freelance-rate-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -200,6 +278,30 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/freelance-rate-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/freelance-rate-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/colombia-overtime-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/colombia-overtime-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/colombia-overtime-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -217,6 +319,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/days-between-dates-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/weeks-between-dates-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -229,13 +337,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/days-until-date-calculator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/en/tools/days-until-date-calculator</loc>
+    <loc>https://toolsplatforms.com/hi/tools/weeks-between-dates-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -253,6 +355,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/exact-age-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/days-until-date-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/days-until-date-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/days-until-date-calculator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/unit-converter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -260,6 +386,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/unit-converter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/unit-converter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -277,6 +409,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/text-case-converter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/duplicate-counter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -284,6 +422,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/duplicate-counter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/duplicate-counter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -301,6 +445,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/word-character-counter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/find-replace-text</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -308,6 +458,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/find-replace-text</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/find-replace-text</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -325,6 +481,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/remove-extra-spaces</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/remove-accents</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -332,6 +494,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/remove-accents</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/remove-accents</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -349,6 +517,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/secure-password-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/random-text-generator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -356,6 +530,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/random-text-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/random-text-generator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -373,6 +553,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/alphabetical-line-sorter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/percentage-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -385,49 +571,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/json-formatter</loc>
+    <loc>https://toolsplatforms.com/hi/tools/percentage-calculator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/en/tools/json-formatter</loc>
+    <loc>https://toolsplatforms.com/tools/case-style-converter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/uuid-generator</loc>
+    <loc>https://toolsplatforms.com/en/tools/case-style-converter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/en/tools/uuid-generator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/hash-generator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/en/tools/hash-generator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/tools/simple-cron-generator</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://toolsplatforms.com/en/tools/simple-cron-generator</loc>
+    <loc>https://toolsplatforms.com/hi/tools/case-style-converter</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -445,6 +607,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://toolsplatforms.com/hi/tools/base64-encoder-decoder</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://toolsplatforms.com/tools/html-preview-online</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -452,6 +620,12 @@
   </url>
   <url>
     <loc>https://toolsplatforms.com/en/tools/html-preview-online</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/html-preview-online</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -469,13 +643,79 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/tools/case-style-converter</loc>
+    <loc>https://toolsplatforms.com/hi/tools/html-formatter-minifier</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://toolsplatforms.com/en/tools/case-style-converter</loc>
+    <loc>https://toolsplatforms.com/tools/json-formatter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/json-formatter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/json-formatter</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/uuid-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/uuid-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/uuid-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/hash-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/hash-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/hash-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/tools/simple-cron-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/en/tools/simple-cron-generator</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://toolsplatforms.com/hi/tools/simple-cron-generator</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

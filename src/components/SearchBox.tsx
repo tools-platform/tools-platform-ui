@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import { useLocale } from "../i18n";
+import { searchBoxCopy } from "../locales/uiCopy";
 
 type SearchBoxProps = {
   value: string;
@@ -9,15 +10,7 @@ type SearchBoxProps = {
 export function SearchBox({ value, onChange }: SearchBoxProps) {
   const { locale } = useLocale();
   const copy =
-    locale === "en"
-      ? {
-          ariaLabel: "Search tool",
-          placeholder: "Search tool..."
-        }
-      : {
-          ariaLabel: "Buscar herramienta",
-          placeholder: "Buscar herramienta..."
-        };
+    searchBoxCopy[locale];
 
   return (
     <div className="search-panel" id="catalog">

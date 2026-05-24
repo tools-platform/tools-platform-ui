@@ -2,7 +2,8 @@ import { Calculator, CheckCircle2, ChevronDown, CircleDollarSign, Info, Loader2 
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
-import { useLocale } from "../../i18n";
+import { useLocale, type Locale } from "../../i18n";
+import { creditInterestCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateCreditInterest,
   type CompoundingFrequency,
@@ -12,109 +13,6 @@ import {
 } from "../../services/financeApi";
 
 type CreditInterestData = CreditInterestResponse["data"];
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Datos del crédito",
-    currency: "Moneda",
-    currencyHelp: "Elige si quieres hacer la proyección en pesos colombianos o en dólares.",
-    loanAmount: "Monto del préstamo",
-    loanAmountHelp: "Es el dinero que recibes o piensas solicitar antes de intereses y cargos.",
-    annualRate: "Tasa anual",
-    annualRateHelp:
-      "Usa la tasa anual del crédito. Si tu entidad te dio una tasa mensual, conviértela antes de usar esta calculadora.",
-    interestType: "Tipo de interés",
-    interestTypeHelp:
-      "Simple calcula interés sobre el capital inicial. Compuesto acumula intereses según la capitalización elegida.",
-    compound: "Interés compuesto",
-    simple: "Interés simple",
-    compounding: "Capitalización",
-    compoundingHelp: "Indica cada cuánto se acumula el interés compuesto.",
-    monthly: "Mensual",
-    annually: "Anual",
-    cop: "Peso colombiano (COP)",
-    usd: "Dólar estadounidense (USD)",
-    termMonths: "Plazo en meses",
-    termMonthsHelp: "Si tienes el plazo en años, multiplícalo por 12. Por ejemplo, 3 años son 36 meses.",
-    hint: "Este cálculo estima intereses totales. No calcula una cuota fija amortizada.",
-    submit: "Calcular intereses",
-    reset: "Restablecer",
-    amountError: "Ingresa un monto de préstamo mayor a cero.",
-    rateError: "Ingresa una tasa anual entre 0% y 1000%.",
-    termError: "Ingresa un plazo entre 1 y 600 meses.",
-    requestError: "No se pudo calcular el interés.",
-    totalToPay: "Total estimado a pagar",
-    estimatedInterest: "Intereses estimados",
-    totalInterest: "Intereses totales",
-    monthlyAverage: "Promedio mensual",
-    monthlyRate: "Tasa mensual estimada",
-    effectiveAnnualRate: "Tasa anual efectiva",
-    formulaUsed: "Fórmula usada",
-    currencyResult: "Moneda usada",
-    rulesNote: (periods: number, frequency: string) =>
-      `Se calcularon ${periods} periodos con ${frequency.toLowerCase()}.`,
-    disclaimer:
-      "Resultado estimado. No incluye seguros, comisiones, impuestos, cargos administrativos, mora ni condiciones específicas de una entidad financiera.",
-    emptyTitle: "Resultado del crédito",
-    emptyDescription: "Ingresa el monto, tasa y plazo para ver cuánto pagarías en intereses y el total estimado.",
-    sixMonths: "6 meses",
-    oneYear: "1 año",
-    twoYears: "2 años",
-    threeYears: "3 años",
-    fiveYears: "5 años"
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Credit details",
-    currency: "Currency",
-    currencyHelp: "Choose whether you want the estimate in Colombian pesos or US dollars.",
-    loanAmount: "Loan amount",
-    loanAmountHelp: "This is the money you receive or plan to borrow before interest and fees.",
-    annualRate: "Annual rate",
-    annualRateHelp:
-      "Use the annual credit rate. If your lender gave you a monthly rate, convert it before using this calculator.",
-    interestType: "Interest type",
-    interestTypeHelp:
-      "Simple calculates interest on the initial principal. Compound accumulates interest based on the selected compounding.",
-    compound: "Compound interest",
-    simple: "Simple interest",
-    compounding: "Compounding",
-    compoundingHelp: "Choose how often compound interest is added.",
-    monthly: "Monthly",
-    annually: "Annual",
-    cop: "Colombian peso (COP)",
-    usd: "US dollar (USD)",
-    termMonths: "Term in months",
-    termMonthsHelp: "If you have the term in years, multiply it by 12. For example, 3 years are 36 months.",
-    hint: "This calculation estimates total interest. It does not calculate a fixed amortized payment.",
-    submit: "Calculate interest",
-    reset: "Reset",
-    amountError: "Enter a loan amount greater than zero.",
-    rateError: "Enter an annual rate between 0% and 1000%.",
-    termError: "Enter a term between 1 and 600 months.",
-    requestError: "We couldn't calculate the interest.",
-    totalToPay: "Estimated total to pay",
-    estimatedInterest: "Estimated interest",
-    totalInterest: "Total interest",
-    monthlyAverage: "Monthly average",
-    monthlyRate: "Estimated monthly rate",
-    effectiveAnnualRate: "Effective annual rate",
-    formulaUsed: "Formula used",
-    currencyResult: "Currency used",
-    rulesNote: (periods: number, frequency: string) =>
-      `Calculated across ${periods} periods with ${frequency.toLowerCase()}.`,
-    disclaimer:
-      "Estimated result. It does not include insurance, fees, taxes, administrative charges, late interest, or institution-specific conditions.",
-    emptyTitle: "Credit result",
-    emptyDescription: "Enter the amount, rate, and term to see estimated interest and total repayment.",
-    sixMonths: "6 months",
-    oneYear: "1 year",
-    twoYears: "2 years",
-    threeYears: "3 years",
-    fiveYears: "5 years"
-  }
-} as const;
 
 function parseMoney(value: string) {
   const normalized = value.replace(/[^\d]/g, "");
@@ -131,11 +29,11 @@ function parseRate(value: string) {
   return normalized.length > 0 ? Number(normalized) : 0;
 }
 
-function getInterestTypeLabel(type: CreditInterestType, locale: "es" | "en") {
+function getInterestTypeLabel(type: CreditInterestType, locale: Locale) {
   return type === "simple" ? copy[locale].simple : copy[locale].compound;
 }
 
-function getFrequencyLabel(frequency: CompoundingFrequency, locale: "es" | "en") {
+function getFrequencyLabel(frequency: CompoundingFrequency, locale: Locale) {
   return frequency === "monthly" ? copy[locale].monthly : copy[locale].annually;
 }
 

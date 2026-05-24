@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { alphabeticalLineSorterCopy as copy } from "../../locales/calculatorCopy";
 
 type SortDirection = "asc" | "desc";
 
@@ -12,69 +13,6 @@ type SortResult = {
   direction: SortDirection;
   totalLines: number;
 };
-
-const copy = {
-  es: {
-    kicker: "Utilidad",
-    title: "Ordenar líneas",
-    inputLabel: "Líneas para ordenar",
-    placeholder: "Pega una lista, nombres, códigos, correos o valores de Excel...\nbanana\nManzana\npera\naguacate",
-    sortBy: "Orden",
-    directions: {
-      asc: "A-Z",
-      desc: "Z-A"
-    },
-    removeEmptyLines: "Eliminar líneas vacías",
-    removeEmptyLinesHelp: "Omite filas vacías del resultado.",
-    removeDuplicates: "Eliminar duplicados",
-    removeDuplicatesHelp: "Deja cada línea una sola vez en el resultado.",
-    hint: "El ordenamiento se hace en tu navegador. Útil para listas, columnas copiadas, correos, códigos o nombres.",
-    emptyError: "Pega líneas para ordenarlas.",
-    submit: "Ordenar líneas",
-    reset: "Restablecer",
-    resultTitle: "Lista ordenada",
-    result: "Resultado",
-    copy: "Copiar",
-    copied: "Resultado copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    totalLines: "Líneas",
-    characters: "Caracteres",
-    rulesNote: "El resultado no cambia mientras ajustas opciones. Vuelve a ordenar para generar una nueva salida.",
-    disclaimer: "Resultado automático para ordenar texto. Revisa listas sensibles antes de usarlas en procesos definitivos.",
-    emptyTitle: "La lista ordenada aparecerá aquí",
-    emptyDescription: "Pega líneas, elige el orden y genera una versión ordenada en segundos."
-  },
-  en: {
-    kicker: "Utility",
-    title: "Sort lines",
-    inputLabel: "Lines to sort",
-    placeholder: "Paste a list, names, codes, emails, or Excel values...\nbanana\nApple\npear\navocado",
-    sortBy: "Order",
-    directions: {
-      asc: "A-Z",
-      desc: "Z-A"
-    },
-    removeEmptyLines: "Remove empty lines",
-    removeEmptyLinesHelp: "Skips blank rows in the result.",
-    removeDuplicates: "Remove duplicates",
-    removeDuplicatesHelp: "Keeps each line once in the result.",
-    hint: "Sorting happens in your browser. Useful for lists, copied columns, emails, codes, or names.",
-    emptyError: "Paste lines to sort them.",
-    submit: "Sort lines",
-    reset: "Reset",
-    resultTitle: "Sorted list",
-    result: "Result",
-    copy: "Copy",
-    copied: "Result copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    totalLines: "Lines",
-    characters: "Characters",
-    rulesNote: "The result does not change while you adjust options. Sort again to generate a new output.",
-    disclaimer: "Automatic text sorting result. Review sensitive lists before using them in final workflows.",
-    emptyTitle: "The sorted list will appear here",
-    emptyDescription: "Paste lines, choose the order, and generate a sorted version in seconds."
-  }
-} as const;
 
 function sortLines(
   value: string,

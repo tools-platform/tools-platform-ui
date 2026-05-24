@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { calculateSalaryIncrease, type SalaryIncreaseResponse } from "../../services/financeApi";
+import { salaryIncreaseCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type SalaryIncreaseData = SalaryIncreaseResponse["data"];
 
@@ -17,73 +18,6 @@ function parsePercent(value: string) {
   const parsed = Number(normalized);
   return Number.isFinite(parsed) ? parsed : 0;
 }
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Aumento salarial",
-    currentSalary: "Salario actual",
-    salaryHelper: "¿Solo sabes tu quincena?",
-    salaryHelperAction: "Calcular salario",
-    increasePercent: "Porcentaje de aumento",
-    includeDeductions: "Aplicar descuentos de nómina (Colombia)",
-    includeDeductionsHelp: "Incluye salud, pensión y Fondo de Solidaridad cuando aplique.",
-    salaryRequired: "Ingresa un salario actual mayor a cero.",
-    percentRequired: "Ingresa un porcentaje de aumento mayor a cero.",
-    hint: "Calcula el nuevo salario después de un aumento porcentual. Si activas Colombia, estima descuentos obligatorios de nómina.",
-    submit: "Calcular aumento",
-    loading: "Calculando...",
-    reset: "Restablecer",
-    grossHero: "Nuevo salario bruto",
-    netHero: "Nuevo salario neto estimado",
-    increaseAmount: "Valor del aumento",
-    currentSalaryResult: "Salario actual",
-    increasePercentResult: "Aumento aplicado",
-    grossNewSalary: "Nuevo bruto",
-    netNewSalary: "Nuevo neto",
-    healthContribution: "Salud",
-    pensionContribution: "Pensión",
-    solidarityContribution: "Fondo de solidaridad",
-    totalDeductions: "Descuentos estimados",
-    annualGrossIncrease: "Aumento bruto anual",
-    rulesNoteGross: "Se calculó multiplicando el salario actual por el porcentaje de aumento.",
-    rulesNoteNet: "Se calculó el aumento y luego se descontó salud, pensión y solidaridad según reglas Colombia 2026.",
-    emptyTitle: "Tu nuevo salario aparecerá aquí",
-    emptyDescription: "Ingresa el salario actual y el porcentaje de aumento para ver el resultado."
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Salary increase",
-    currentSalary: "Current salary",
-    salaryHelper: "Only know biweekly pay?",
-    salaryHelperAction: "Calculate salary",
-    increasePercent: "Increase percentage",
-    includeDeductions: "Apply payroll deductions (Colombia)",
-    includeDeductionsHelp: "Includes health, pension, and solidarity fund when applicable.",
-    salaryRequired: "Enter a current salary greater than zero.",
-    percentRequired: "Enter an increase percentage greater than zero.",
-    hint: "Calculate the new salary after a percentage increase. If Colombia is enabled, it estimates mandatory payroll deductions.",
-    submit: "Calculate increase",
-    loading: "Calculating...",
-    reset: "Reset",
-    grossHero: "New gross salary",
-    netHero: "Estimated new net salary",
-    increaseAmount: "Increase amount",
-    currentSalaryResult: "Current salary",
-    increasePercentResult: "Applied increase",
-    grossNewSalary: "New gross",
-    netNewSalary: "New net",
-    healthContribution: "Health",
-    pensionContribution: "Pension",
-    solidarityContribution: "Solidarity fund",
-    totalDeductions: "Estimated deductions",
-    annualGrossIncrease: "Annual gross increase",
-    rulesNoteGross: "Calculated by multiplying the current salary by the increase percentage.",
-    rulesNoteNet: "Calculated the raise and then deducted health, pension, and solidarity according to Colombia 2026 rules.",
-    emptyTitle: "Your new salary will appear here",
-    emptyDescription: "Enter the current salary and increase percentage to see the result."
-  }
-} as const;
 
 export function SalaryIncreaseCalculator() {
   const { locale, localizePath } = useLocale();

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ExpandedTextTransform } from "../ExpandedTextTransform";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { htmlFormatterMinifierCopy as copy } from "../../locales/calculatorCopy";
 
 type HtmlMode = "format" | "minify";
 
@@ -14,85 +15,6 @@ type HtmlTransformResult = {
   removeComments: boolean;
   removedComments: number;
 };
-
-const copy = {
-  es: {
-    kicker: "Desarrollo",
-    title: "HTML para transformar",
-    inputLabel: "Código HTML",
-    placeholder: "<section>\n  <h1>Hola mundo</h1>\n  <p>Texto para revisar.</p>\n</section>",
-    operation: "Operación",
-    format: "Formatear",
-    minify: "Minificar",
-    removeComments: "Eliminar comentarios HTML",
-    removeCommentsHelp: "Quita bloques <!-- comentario --> antes de generar el resultado.",
-    helperText: "Quieres ver el resultado?",
-    helperAction: "Previsualizar HTML",
-    hint: "Transforma HTML como texto en tu navegador. No ejecuta ni renderiza el contenido.",
-    emptyError: "Pega código HTML para formatear o minificar.",
-    submitFormat: "Formatear HTML",
-    submitMinify: "Minificar HTML",
-    reset: "Restablecer",
-    result: "Resultado",
-    resultTitleFormat: "HTML formateado",
-    resultTitleMinify: "HTML minificado",
-    copy: "Copiar",
-    copied: "HTML copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    expand: "Expandir",
-    close: "Cerrar",
-    editorTitle: "Editor HTML",
-    updateResult: "Actualizar resultado",
-    autoUpdate: "Actualización automática",
-    updated: "Resultado actualizado.",
-    totalChars: "Total de caracteres",
-    mode: "Modo",
-    rulesNoteFormat: "Organizamos etiquetas en líneas e indentación para facilitar la lectura.",
-    rulesNoteMinify: "Reducimos espacios entre etiquetas para obtener una versión más compacta.",
-    disclaimer:
-      "Resultado automático para limpieza de HTML. Revisa plantillas complejas antes de usarlo en producción.",
-    emptyTitle: "El HTML transformado aparecerá aquí",
-    emptyDescription: "Pega código HTML, elige formatear o minificar y genera el resultado."
-  },
-  en: {
-    kicker: "Development",
-    title: "HTML to transform",
-    inputLabel: "HTML code",
-    placeholder: "<section>\n  <h1>Hello world</h1>\n  <p>Text to review.</p>\n</section>",
-    operation: "Operation",
-    format: "Format",
-    minify: "Minify",
-    removeComments: "Remove HTML comments",
-    removeCommentsHelp: "Removes <!-- comment --> blocks before generating the result.",
-    helperText: "Want to preview it?",
-    helperAction: "Preview HTML",
-    hint: "Transform HTML as text in your browser. It does not execute or render the content.",
-    emptyError: "Paste HTML code to format or minify.",
-    submitFormat: "Format HTML",
-    submitMinify: "Minify HTML",
-    reset: "Reset",
-    result: "Result",
-    resultTitleFormat: "Formatted HTML",
-    resultTitleMinify: "Minified HTML",
-    copy: "Copy",
-    copied: "HTML copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    expand: "Expand",
-    close: "Close",
-    editorTitle: "HTML editor",
-    updateResult: "Update result",
-    autoUpdate: "Auto update",
-    updated: "Result updated.",
-    totalChars: "Total characters",
-    mode: "Mode",
-    rulesNoteFormat: "We organize tags into lines and indentation so the HTML is easier to read.",
-    rulesNoteMinify: "We reduce whitespace between tags to produce a more compact version.",
-    disclaimer:
-      "Automatic HTML cleanup result. Review complex templates before using them in production.",
-    emptyTitle: "Transformed HTML will appear here",
-    emptyDescription: "Paste HTML code, choose format or minify, and generate the result."
-  }
-} as const;
 
 const voidTags = new Set([
   "area",

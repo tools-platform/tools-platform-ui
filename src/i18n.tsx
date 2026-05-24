@@ -1,12 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, type ReactNode } from "react";
+import { defaultLocale, isSupportedLocale, type Locale } from "./locales/config";
 
-export type Locale = "es" | "en";
+export type { Locale };
 
-export type LocalizedText = {
-  es: string;
-  en: string;
-};
+export type LocalizedText = Record<Locale, string>;
 
 export const LOCALE_PREFERENCE_KEY = "tools-platforms-locale";
 
@@ -19,16 +17,19 @@ type LocaleContextValue = {
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export function getLocaleFromPathname(pathname: string): Locale {
-  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "es";
+  const firstSegment = pathname.split("/").filter(Boolean)[0] ?? "";
+  return isSupportedLocale(firstSegment) ? firstSegment : defaultLocale;
 }
 
 export function stripLocalePrefix(pathname: string) {
-  if (pathname === "/en") {
+  const firstSegment = pathname.split("/").filter(Boolean)[0] ?? "";
+
+  if (isSupportedLocale(firstSegment) && firstSegment !== defaultLocale && pathname === `/${firstSegment}`) {
     return "/";
   }
 
-  if (pathname.startsWith("/en/")) {
-    return pathname.replace(/^\/en/, "") || "/";
+  if (isSupportedLocale(firstSegment) && firstSegment !== defaultLocale && pathname.startsWith(`/${firstSegment}/`)) {
+    return pathname.replace(new RegExp(`^/${firstSegment}`), "") || "/";
   }
 
   return pathname || "/";
@@ -41,7 +42,7 @@ export function getLocalizedText(value: LocalizedText | string, locale: Locale) 
 export function getStoredLocalePreference(): Locale | null {
   try {
     const storedLocale = window.localStorage.getItem(LOCALE_PREFERENCE_KEY);
-    return storedLocale === "es" || storedLocale === "en" ? storedLocale : null;
+    return storedLocale && isSupportedLocale(storedLocale) ? storedLocale : null;
   } catch {
     return null;
   }
@@ -63,7 +64,11 @@ export function detectBrowserLocale(): Locale {
         ? navigator.languages
         : [navigator.language];
 
-  return preferredLocales.some((entry) => entry.toLowerCase().startsWith("en")) ? "en" : "es";
+  const matchedLocale = preferredLocales
+    .map((entry) => entry.toLowerCase().split("-")[0])
+    .find((entry): entry is Locale => isSupportedLocale(entry));
+
+  return matchedLocale ?? defaultLocale;
 }
 
 export function localizePath(path: string, locale: Locale) {
@@ -71,12 +76,9 @@ export function localizePath(path: string, locale: Locale) {
   const [pathname = "/", queryPart = ""] = pathWithQuery.split("?");
   const normalizedPath = pathname || "/";
 
+  const basePath = stripLocalePrefix(normalizedPath);
   const localizedPathname =
-    locale === "en"
-      ? normalizedPath === "/"
-        ? "/en"
-        : `/en${normalizedPath}`
-      : stripLocalePrefix(normalizedPath);
+    locale === defaultLocale ? basePath : basePath === "/" ? `/${locale}` : `/${locale}${basePath}`;
 
   return `${localizedPathname}${queryPart ? `?${queryPart}` : ""}${hashPart ? `#${hashPart}` : ""}`;
 }

@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { overtimeColombiaCalculatorCopy as copy } from "../../locales/calculatorCopy";
 import {
   calculateOvertimeColombia,
   type OvertimeColombiaEntryType,
@@ -65,119 +66,6 @@ const entryTypes: OvertimeColombiaEntryType[] = [
   "sunday_holiday_daytime_overtime",
   "sunday_holiday_night_overtime"
 ];
-
-const copy = {
-  es: {
-    kicker: "Calculadora",
-    title: "Horas extras",
-    monthlySalary: "Salario mensual bruto",
-    monthlySalaryHelp: "Es el salario antes de descuentos.",
-    monthlySalaryTooltip: "Usa el salario mensual bruto, antes de salud, pensión, Fondo de Solidaridad u otros descuentos. Con ese valor se calcula la hora ordinaria.",
-    salaryHelper: "¿Solo sabes tu quincena?",
-    salaryHelperAction: "Calcular salario",
-    payrollYear: "Año de reglas",
-    payrollYearHelp: "Lo usamos para aplicar la jornada legal vigente de Colombia en ese año.",
-    editYearAria: "Editar año de reglas",
-    editYearTitle: "Editar año",
-    weeklyHours: "Horas semanales",
-    weeklyHoursHelp: "Por defecto usamos la jornada legal vigente. Edita este valor si tu contrato maneja otra jornada.",
-    editWeeklyHoursAria: "Editar horas semanales",
-    editWeeklyHoursTitle: "Editar horas",
-    entryType: "Tipo de hora",
-    entryHours: "Cantidad de horas",
-    addEntry: "Agregar",
-    removeEntry: "Eliminar registro",
-    salaryRequired: "Ingresa un salario mensual mayor a cero.",
-    yearRange: (currentYear: number) => `Ingresa un año entre 2024 y ${currentYear}.`,
-    weeklyHoursRange: "Ingresa horas semanales entre 1 y 84.",
-    entriesRequired: "Agrega al menos un tipo de hora con cantidad mayor a cero.",
-    requestError: "No se pudieron calcular las horas extras.",
-    hint: "Calcula horas extra, recargos nocturnos, dominicales y festivos con referencia laboral de Colombia.",
-    submit: "Calcular horas extras",
-    reset: "Restablecer",
-    heroTitle: "Total estimado a pagar",
-    ordinaryHourlyRate: "Valor hora ordinaria",
-    totalHours: "Total horas",
-    weeklyHoursResult: "Horas semanales",
-    rulesYearResult: "Año de reglas",
-    monthlyHoursResult: "Horas mensuales",
-    detailTitle: "Detalle por tipo de hora",
-    typeColumn: "Tipo",
-    hoursColumn: "Horas",
-    rateColumn: "Recargo",
-    valueColumn: "Valor",
-    rulesNoteCustom: (weeklyHours: number, year: number, legalWeeklyHours: number) =>
-      `Usa ${weeklyHours} horas semanales personalizadas. La referencia legal para ${year} es ${legalWeeklyHours} horas.`,
-    rulesNoteLegal: (year: number, legalWeeklyHours: number) =>
-      `Usa la jornada legal de referencia para ${year}: ${legalWeeklyHours} horas semanales.`,
-    emptyTitle: "Tu cálculo de horas extras aparecerá aquí",
-    emptyDescription: "Ingresa tu salario, agrega las horas trabajadas por tipo y calcula el valor estimado.",
-    entryLabels: {
-      daytime_overtime: "Hora extra diurna",
-      night_overtime: "Hora extra nocturna",
-      night_surcharge: "Recargo nocturno",
-      sunday_holiday_daytime: "Dominical/festivo diurno",
-      sunday_holiday_night: "Dominical/festivo nocturno",
-      sunday_holiday_daytime_overtime: "Extra dominical/festiva diurna",
-      sunday_holiday_night_overtime: "Extra dominical/festiva nocturna"
-    }
-  },
-  en: {
-    kicker: "Calculator",
-    title: "Overtime pay",
-    monthlySalary: "Gross monthly salary",
-    monthlySalaryHelp: "This is the salary before deductions.",
-    monthlySalaryTooltip: "Use the gross monthly salary before health, pension, solidarity fund, or other deductions. This value is used to calculate the regular hourly rate.",
-    salaryHelper: "Only know biweekly pay?",
-    salaryHelperAction: "Calculate salary",
-    payrollYear: "Rule year",
-    payrollYearHelp: "We use it to apply Colombia's legal workweek for that year.",
-    editYearAria: "Edit rule year",
-    editYearTitle: "Edit year",
-    weeklyHours: "Weekly hours",
-    weeklyHoursHelp: "By default we use the legal workweek. Edit this value if your contract uses a different schedule.",
-    editWeeklyHoursAria: "Edit weekly hours",
-    editWeeklyHoursTitle: "Edit hours",
-    entryType: "Hour type",
-    entryHours: "Hours",
-    addEntry: "Add",
-    removeEntry: "Remove entry",
-    salaryRequired: "Enter a monthly salary greater than zero.",
-    yearRange: (currentYear: number) => `Enter a year between 2024 and ${currentYear}.`,
-    weeklyHoursRange: "Enter weekly hours between 1 and 84.",
-    entriesRequired: "Add at least one hour type with hours greater than zero.",
-    requestError: "We couldn't calculate the overtime pay.",
-    hint: "Calculate overtime, night surcharges, Sunday, and holiday pay with Colombia labor references.",
-    submit: "Calculate overtime",
-    reset: "Reset",
-    heroTitle: "Estimated total pay",
-    ordinaryHourlyRate: "Regular hourly value",
-    totalHours: "Total hours",
-    weeklyHoursResult: "Weekly hours",
-    rulesYearResult: "Rule year",
-    monthlyHoursResult: "Monthly hours",
-    detailTitle: "Breakdown by hour type",
-    typeColumn: "Type",
-    hoursColumn: "Hours",
-    rateColumn: "Surcharge",
-    valueColumn: "Value",
-    rulesNoteCustom: (weeklyHours: number, year: number, legalWeeklyHours: number) =>
-      `Uses ${weeklyHours} custom weekly hours. The legal reference for ${year} is ${legalWeeklyHours} hours.`,
-    rulesNoteLegal: (year: number, legalWeeklyHours: number) =>
-      `Uses the legal reference workweek for ${year}: ${legalWeeklyHours} weekly hours.`,
-    emptyTitle: "Your overtime calculation will appear here",
-    emptyDescription: "Enter your salary, add the worked hours by type, and calculate the estimated amount.",
-    entryLabels: {
-      daytime_overtime: "Daytime overtime",
-      night_overtime: "Night overtime",
-      night_surcharge: "Night surcharge",
-      sunday_holiday_daytime: "Sunday/holiday daytime",
-      sunday_holiday_night: "Sunday/holiday night",
-      sunday_holiday_daytime_overtime: "Sunday/holiday daytime overtime",
-      sunday_holiday_night_overtime: "Sunday/holiday night overtime"
-    }
-  }
-} as const;
 
 export function OvertimeColombiaCalculator() {
   const { locale, localizePath } = useLocale();

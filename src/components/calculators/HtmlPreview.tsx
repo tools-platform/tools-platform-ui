@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
+import { htmlPreviewCopy as copy } from "../../locales/calculatorCopy";
 
 type HtmlPreviewResult = {
   input: string;
@@ -12,71 +13,6 @@ type HtmlPreviewResult = {
   removedEventHandlers: number;
   removedJavascriptUrls: number;
 };
-
-const copy = {
-  es: {
-    kicker: "DESARROLLO",
-    title: "HTML para revisar",
-    inputLabel: "Código HTML",
-    inputPlaceholder: "<section>\n  <h1>Hola mundo</h1>\n  <p>Vista previa segura.</p>\n</section>",
-    hint:
-      "La vista previa se genera en un iframe aislado. Eliminamos scripts, eventos inline y enlaces JavaScript antes de mostrar el resultado.",
-    emptyError: "Pega código HTML para generar la vista previa.",
-    submit: "Ver vista previa",
-    reset: "Restablecer",
-    previewTitle: "Vista previa",
-    heroTitle: "Vista previa generada",
-    heroValue: "HTML",
-    copy: "Copiar",
-    copied: "HTML copiado.",
-    copyFailed: "No se pudo copiar automáticamente.",
-    sample: "Usar HTML de ejemplo",
-    expand: "Expandir",
-    close: "Cerrar",
-    editorTitle: "Editor HTML",
-    updatePreview: "Actualizar vista previa",
-    autoUpdate: "Actualización automática",
-    updated: "Vista previa actualizada.",
-    characters: "Caracteres",
-    lines: "Líneas",
-    rulesNote: "El HTML se renderiza sin permiso para ejecutar JavaScript.",
-    disclaimer:
-      "Vista previa local para revisar marcado HTML y CSS básico. No reemplaza pruebas completas en un navegador con JavaScript real.",
-    emptyTitle: "La vista previa aparecerá aquí",
-    emptyDescription: "Pega HTML y genera una vista segura en segundos."
-  },
-  en: {
-    kicker: "DEVELOPMENT",
-    title: "HTML to preview",
-    inputLabel: "HTML code",
-    inputPlaceholder: "<section>\n  <h1>Hello world</h1>\n  <p>Safe preview.</p>\n</section>",
-    hint:
-      "The preview runs in an isolated iframe. We remove scripts, inline events, and javascript: links before showing the result.",
-    emptyError: "Paste HTML code to generate the preview.",
-    submit: "Preview HTML",
-    reset: "Reset",
-    previewTitle: "Preview",
-    heroTitle: "Preview generated",
-    heroValue: "HTML",
-    copy: "Copy",
-    copied: "HTML copied.",
-    copyFailed: "We couldn't copy it automatically.",
-    sample: "Use sample HTML",
-    expand: "Expand",
-    close: "Close",
-    editorTitle: "HTML editor",
-    updatePreview: "Update preview",
-    autoUpdate: "Auto update",
-    updated: "Preview updated.",
-    characters: "Characters",
-    lines: "Lines",
-    rulesNote: "The HTML renders without permission to execute JavaScript.",
-    disclaimer:
-      "Local preview for reviewing HTML markup and basic CSS. It does not replace full browser testing with real JavaScript.",
-    emptyTitle: "Your preview will appear here",
-    emptyDescription: "Paste HTML and generate a safe preview in seconds."
-  }
-} as const;
 
 const sampleHtml = {
   es: `<!DOCTYPE html>
@@ -400,7 +336,7 @@ export function HtmlPreview() {
   }
 
   function handleSample() {
-    const nextInput = sampleHtml[locale];
+    const nextInput = sampleHtml[locale === "hi" ? "en" : locale];
     setInputText(nextInput);
     setError("");
     setCopyStatus("");

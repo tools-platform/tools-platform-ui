@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { categories, tools, type ToolSummary } from "../data/catalog";
 import { getLocalizedText, useLocale } from "../i18n";
+import { relatedToolsCopy } from "../locales/uiCopy";
 
 const relatedToolIds: Record<string, string[]> = {
   "net-salary-colombia": ["gross-salary-colombia", "salary-increase", "hourly-salary"],
@@ -49,19 +50,7 @@ type RelatedToolsProps = {
 export function RelatedTools({ currentTool }: RelatedToolsProps) {
   const { locale, localizePath } = useLocale();
   const copy =
-    locale === "en"
-      ? {
-          kicker: "Keep going",
-          title: "Related tools",
-          description: "Useful calculators and utilities that connect with this task.",
-          action: "Open tool"
-        }
-      : {
-          kicker: "Sigue calculando",
-          title: "Herramientas relacionadas",
-          description: "Calculadoras y utilidades que suelen usarse junto con esta tarea.",
-          action: "Abrir herramienta"
-        };
+    relatedToolsCopy[locale];
 
   const publishedTools = tools.filter((tool) => tool.status === "published" && tool.id !== currentTool.id);
   const explicitTools = (relatedToolIds[currentTool.id] ?? [])

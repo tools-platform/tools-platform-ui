@@ -5,6 +5,7 @@ import { DateField } from "../DateField";
 import { useMobileResultScroll } from "../../hooks/useMobileResultScroll";
 import { useLocale } from "../../i18n";
 import { calculateDaysBetweenDates, type DaysBetweenDatesResponse } from "../../services/timeApi";
+import { daysBetweenDatesCalculatorCopy as copy } from "../../locales/calculatorCopy";
 
 type DaysBetweenDatesData = DaysBetweenDatesResponse["data"];
 
@@ -25,71 +26,6 @@ function addDays(date: Date, days: number) {
   nextDate.setDate(nextDate.getDate() + days);
   return nextDate;
 }
-
-const copy = {
-  es: {
-    kicker: "Contador",
-    title: "Días entre fechas",
-    startDate: "Fecha inicial",
-    endDate: "Fecha final",
-    startDateAria: "Seleccionar fecha inicial",
-    endDateAria: "Seleccionar fecha final",
-    includeEndDate: "Incluir fecha final",
-    includeEndDateHelp: "Actívalo si quieres contar también el último día del periodo.",
-    helperText: "\u00bfLo necesitas en semanas?",
-    helperAction: "Calcular semanas",
-    selectBothDates: "Selecciona la fecha inicial y la fecha final.",
-    endAfterStart: "La fecha final debe ser igual o posterior a la fecha inicial.",
-    hint: "Cuenta días calendario entre dos fechas. No descuenta fines de semana ni festivos.",
-    submit: "Contar días",
-    reset: "Restablecer",
-    totalBetweenDates: "Total entre fechas",
-    days: "días",
-    approximateWeeks: "semanas aproximadas",
-    fullWeeks: "Semanas completas",
-    remainingDays: "Días restantes",
-    calendarDifference: "Diferencia calendario",
-    includesEndDate: "Incluye fecha final",
-    yes: "Sí",
-    no: "No",
-    rulesNote: "Se contó desde {start} hasta {end}{suffix}",
-    withEndSuffix: ", incluyendo la fecha final.",
-    withoutEndSuffix: ", sin incluir la fecha final.",
-    emptyTitle: "Resultado del conteo",
-    emptyDescription: "Selecciona dos fechas para ver cuántos días hay entre ellas."
-  },
-  en: {
-    kicker: "Counter",
-    title: "Days between dates",
-    startDate: "Start date",
-    endDate: "End date",
-    startDateAria: "Select start date",
-    endDateAria: "Select end date",
-    includeEndDate: "Include end date",
-    includeEndDateHelp: "Turn it on if you also want to count the last day of the period.",
-    helperText: "Need it in weeks?",
-    helperAction: "Calculate weeks",
-    selectBothDates: "Select the start date and the end date.",
-    endAfterStart: "The end date must be the same as or later than the start date.",
-    hint: "Counts calendar days between two dates. It does not exclude weekends or holidays.",
-    submit: "Count days",
-    reset: "Reset",
-    totalBetweenDates: "Total between dates",
-    days: "days",
-    approximateWeeks: "approximate weeks",
-    fullWeeks: "Full weeks",
-    remainingDays: "Remaining days",
-    calendarDifference: "Calendar difference",
-    includesEndDate: "Includes end date",
-    yes: "Yes",
-    no: "No",
-    rulesNote: "Counted from {start} to {end}{suffix}",
-    withEndSuffix: ", including the end date.",
-    withoutEndSuffix: ", excluding the end date.",
-    emptyTitle: "Count result",
-    emptyDescription: "Select two dates to see how many days are between them."
-  }
-} as const;
 
 export function DaysBetweenDatesCalculator() {
   const { locale, localizePath } = useLocale();
