@@ -45,25 +45,37 @@ function buildCalendarDays(monthDate: Date) {
   });
 }
 
+function getDateLocale(locale: string) {
+  if (locale === "en") return "en-US";
+  if (locale === "hi") return "hi-IN";
+  return "es-CO";
+}
+
 export function DateField({ ariaLabel, onChange, placeholder, value }: DateFieldProps) {
   const { locale } = useLocale();
+  const dateLocale = getDateLocale(locale);
   const monthFormatter = useMemo(
     () =>
-      new Intl.DateTimeFormat(locale === "en" ? "en-US" : "es-CO", {
+      new Intl.DateTimeFormat(dateLocale, {
         month: "long"
       }),
-    [locale]
+    [dateLocale]
   );
   const displayFormatter = useMemo(
     () =>
-      new Intl.DateTimeFormat(locale === "en" ? "en-CA" : "es-CO", {
+      new Intl.DateTimeFormat(locale === "en" ? "en-CA" : dateLocale, {
         day: "2-digit",
         month: "2-digit",
         year: "numeric"
       }),
-    [locale]
+    [dateLocale, locale]
   );
-  const weekDays = locale === "en" ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] : ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+  const weekDays =
+    locale === "en"
+      ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      : locale === "hi"
+        ? ["सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि", "रवि"]
+        : ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
   const months = useMemo(
     () =>
       Array.from({ length: 12 }, (_, monthIndex) => ({

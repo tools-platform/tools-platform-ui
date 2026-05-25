@@ -2482,5 +2482,82 @@ export const toolContentById: Record<string, ToolContent> = {
                 }
             }
         ]
+    },
+    "resignation-letter-generator": {
+        intro: {
+            es: "Este generador de carta de renuncia crea un borrador editable para comunicar una salida laboral de forma clara y profesional.",
+            en: "This resignation letter generator creates an editable draft to communicate a job departure clearly and professionally.",
+            hi: "\u092F\u0939 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u091C\u0928\u0930\u0947\u091F\u0930 \u0928\u094C\u0915\u0930\u0940 \u091B\u094B\u0921\u093C\u0928\u0947 \u0915\u0940 \u0938\u0942\u091A\u0928\u093E \u0915\u094B \u0938\u094D\u092A\u0937\u094D\u091F \u0914\u0930 \u092A\u0947\u0936\u0947\u0935\u0930 \u0922\u0902\u0917 \u0938\u0947 \u0926\u0947\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u092C\u0928\u093E\u0924\u093E \u0939\u0948\u0964"
+        },
+        sections: [
+            {
+                title: { es: "Qué genera", en: "What it generates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u092C\u0928\u093E\u0924\u093E \u0939\u0948" },
+                body: [
+                    {
+                        es: "Crea una carta con fecha, empresa, cargo, último día de trabajo, destinatario opcional, motivo opcional y cierre.",
+                        en: "It creates a letter with date, company, role, last working day, optional recipient, optional reason, and closing.",
+                        hi: "\u092F\u0939 \u0924\u093F\u0925\u093F, \u0915\u0902\u092A\u0928\u0940, \u092A\u0926, \u0905\u0902\u0924\u093F\u092E \u0915\u093E\u0930\u094D\u092F \u0926\u093F\u0935\u0938, \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u092A\u094D\u0930\u093E\u092A\u094D\u0924\u0915\u0930\u094D\u0924\u093E, \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0915\u093E\u0930\u0923 \u0914\u0930 \u0938\u092E\u093E\u092A\u0928 \u0915\u0947 \u0938\u093E\u0925 \u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u0924\u093E \u0939\u0948\u0964"
+                    },
+                    {
+                        es: "Puedes elegir un tono formal, breve o agradecido y editar el texto final antes de copiarlo o descargarlo.",
+                        en: "You can choose a formal, brief, or grateful tone and edit the final text before copying or downloading it.",
+                        hi: "\u0906\u092A \u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0936\u0948\u0932\u0940 \u091A\u0941\u0928 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0915\u0949\u092A\u0940 \u092F\u093E \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0928\u0947 \u0938\u0947 \u092A\u0939\u0932\u0947 \u0905\u0902\u0924\u093F\u092E \u092A\u093E\u0920 \u0938\u0902\u092A\u093E\u0926\u093F\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
+                    }
+                ]
+            },
+            {
+                title: { es: "Cuándo usarla", en: "When to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u092C \u0915\u0930\u0947\u0902" },
+                body: [
+                    {
+                        es: "Úsala cuando necesitas un punto de partida para informar una renuncia por escrito sin empezar desde cero.",
+                        en: "Use it when you need a starting point to submit a written resignation without starting from scratch.",
+                        hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0924\u092C \u0915\u0930\u0947\u0902 \u091C\u092C \u0906\u092A\u0915\u094B \u0936\u0942\u0928\u094D\u092F \u0938\u0947 \u0936\u0941\u0930\u0942 \u0915\u093F\u090F \u092C\u093F\u0928\u093E \u0932\u093F\u0916\u093F\u0924 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0926\u0947\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0906\u0927\u093E\u0930 \u091A\u093E\u0939\u093F\u090F\u0964"
+                    },
+                    {
+                        es: "El resultado es una plantilla práctica, no una revisión legal. Ajusta nombres, fechas y condiciones según tu caso.",
+                        en: "The result is a practical template, not a legal review. Adjust names, dates, and conditions for your case.",
+                        hi: "\u092A\u0930\u093F\u0923\u093E\u092E \u090F\u0915 \u0935\u094D\u092F\u093E\u0935\u0939\u093E\u0930\u093F\u0915 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u0939\u0948, \u0915\u093E\u0928\u0942\u0928\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0928\u0939\u0940\u0902\u0964 \u0905\u092A\u0928\u0947 \u092E\u093E\u092E\u0932\u0947 \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u0928\u093E\u092E, \u0924\u093F\u0925\u093F\u092F\u093E\u0901 \u0914\u0930 \u0936\u0930\u094D\u0924\u0947\u0902 \u0938\u092E\u093E\u092F\u094B\u091C\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
+                    }
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: {
+                    es: "¿Hay un formato único de carta de renuncia?",
+                    en: "Is there one universal resignation letter format?",
+                    hi: "\u0915\u094D\u092F\u093E \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0915\u093E \u090F\u0915 \u0939\u0940 \u0938\u093E\u0930\u094D\u0935\u092D\u094C\u092E \u092B\u0949\u0930\u094D\u092E\u0948\u091F \u0939\u0948?"
+                },
+                answer: {
+                    es: "No hay un formato global único. La mayoría incluye fecha, destinatario, declaración de renuncia, último día y firma.",
+                    en: "There is no single global format. Most letters include date, recipient, resignation statement, last working day, and signature.",
+                    hi: "\u090F\u0915 \u0939\u0940 \u0935\u0948\u0936\u094D\u0935\u093F\u0915 \u092B\u0949\u0930\u094D\u092E\u0948\u091F \u0928\u0939\u0940\u0902 \u0939\u0948\u0964 \u0905\u0927\u093F\u0915\u093E\u0902\u0936 \u092A\u0924\u094D\u0930\u094B\u0902 \u092E\u0947\u0902 \u0924\u093F\u0925\u093F, \u092A\u094D\u0930\u093E\u092A\u094D\u0924\u0915\u0930\u094D\u0924\u093E, \u0924\u094D\u092F\u093E\u0917 \u0915\u0940 \u0918\u094B\u0937\u0923\u093E, \u0905\u0902\u0924\u093F\u092E \u0915\u093E\u0930\u094D\u092F \u0926\u093F\u0935\u0938 \u0914\u0930 \u0939\u0938\u094D\u0924\u093E\u0915\u094D\u0937\u0930 \u0936\u093E\u092E\u093F\u0932 \u0939\u094B\u0924\u0947 \u0939\u0948\u0902\u0964"
+                }
+            },
+            {
+                question: {
+                    es: "¿La carta generada es válida legalmente?",
+                    en: "Is the generated letter legally valid?",
+                    hi: "\u0915\u094D\u092F\u093E \u092C\u0928\u093E\u092F\u093E \u0917\u092F\u093E \u092A\u0924\u094D\u0930 \u0915\u093E\u0928\u0942\u0928\u0940 \u0930\u0942\u092A \u0938\u0947 \u0935\u0948\u0927 \u0939\u0948?"
+                },
+                answer: {
+                    es: "Es un borrador editable. La validez y los requisitos pueden cambiar por país, contrato, empresa o política interna.",
+                    en: "It is an editable draft. Validity and requirements may vary by country, contract, company, or internal policy.",
+                    hi: "\u092F\u0939 \u090F\u0915 \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u0939\u0948\u0964 \u0935\u0948\u0927\u0924\u093E \u0914\u0930 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E\u090F\u0901 \u0926\u0947\u0936, \u0905\u0928\u0941\u092C\u0902\u0927, \u0915\u0902\u092A\u0928\u0940 \u092F\u093E \u0906\u0902\u0924\u0930\u093F\u0915 \u0928\u0940\u0924\u093F \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u092C\u0926\u0932 \u0938\u0915\u0924\u0940 \u0939\u0948\u0964"
+                }
+            },
+            {
+                question: {
+                    es: "¿Debo poner el motivo de mi renuncia?",
+                    en: "Should I include the reason for resigning?",
+                    hi: "\u0915\u094D\u092F\u093E \u092E\u0941\u091D\u0947 \u0924\u094D\u092F\u093E\u0917 \u0915\u093E \u0915\u093E\u0930\u0923 \u0932\u093F\u0916\u0928\u093E \u091A\u093E\u0939\u093F\u090F?"
+                },
+                answer: {
+                    es: "Es opcional. Si lo usas, conviene mantenerlo corto, claro y profesional.",
+                    en: "It is optional. If you include it, keep it short, clear, and professional.",
+                    hi: "\u092F\u0939 \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0939\u0948\u0964 \u0905\u0917\u0930 \u0906\u092A \u0907\u0938\u0947 \u0936\u093E\u092E\u093F\u0932 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094B \u0907\u0938\u0947 \u091B\u094B\u091F\u093E, \u0938\u094D\u092A\u0937\u094D\u091F \u0914\u0930 \u092A\u0947\u0936\u0947\u0935\u0930 \u0930\u0916\u0947\u0902\u0964"
+                }
+            }
+        ]
     }
 };

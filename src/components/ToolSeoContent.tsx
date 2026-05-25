@@ -161,6 +161,11 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
   "simple-cron-generator": {
     es: ["generador cron", "crear cron simple", "explicar expresion cron"],
     en: ["cron generator", "simple cron expression", "explain cron expression"]
+  },
+  "resignation-letter-generator": {
+    es: ["carta de renuncia", "modelo de carta de renuncia", "renuncia voluntaria"],
+    en: ["resignation letter generator", "resignation letter template", "formal resignation letter"],
+    hi: ["त्यागपत्र जनरेटर", "इस्तीफा पत्र टेम्पलेट", "औपचारिक त्यागपत्र"]
   }
 };
 

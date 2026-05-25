@@ -76,6 +76,11 @@ export const categories: Category[] = [
     id: "development",
     ...categoryCopy["development"],
     Icon: Code2
+  },
+  {
+    id: "documents",
+    ...categoryCopy["documents"],
+    Icon: FileText
   }
 ];
 
@@ -376,5 +381,13 @@ export const tools: ToolSummary[] = [
     categoryId: "development",
     status: "published",
     Icon: CalendarClock
+  },
+  {
+    id: "resignation-letter-generator",
+    slug: "resignation-letter-generator",
+    ...toolCopy["resignation-letter-generator"],
+    categoryId: "documents",
+    status: "published",
+    Icon: FileText
   }
 ];

@@ -25,6 +25,7 @@ import { OvertimeColombiaCalculator } from "../components/calculators/OvertimeCo
 import { PercentageCalculator } from "../components/calculators/PercentageCalculator";
 import { RemoveAccents } from "../components/calculators/RemoveAccents";
 import { RemoveExtraSpaces } from "../components/calculators/RemoveExtraSpaces";
+import { ResignationLetterGenerator } from "../components/calculators/ResignationLetterGenerator";
 import { RandomTextGenerator } from "../components/calculators/RandomTextGenerator";
 import { SecurePasswordGenerator } from "../components/calculators/SecurePasswordGenerator";
 import { SalaryIncreaseCalculator } from "../components/calculators/SalaryIncreaseCalculator";
@@ -168,6 +169,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <FindReplaceText />
       ) : tool.id === "simple-cron-generator" ? (
         <SimpleCronGenerator />
+      ) : tool.id === "resignation-letter-generator" ? (
+        <ResignationLetterGenerator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

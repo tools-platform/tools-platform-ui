@@ -4158,3 +4158,247 @@ export const workedHoursCalculatorCopy = {
     }
 } as const;
 
+const formatResignationReason = (reason: string, endMark = ".") => {
+    const cleanReason = reason.trim().replace(/[.!?।]+$/u, "").trim();
+
+    if (!cleanReason) {
+        return "";
+    }
+
+    const [first = "", ...rest] = Array.from(cleanReason);
+    return `${first.toLocaleUpperCase()}${rest.join("")}${endMark}`;
+};
+
+export const resignationLetterGeneratorCopy = {
+    es: {
+        kicker: "Documento",
+        title: "Carta de renuncia",
+        fullName: "Nombre completo",
+        fullNamePlaceholder: "Ej: Laura Gómez",
+        identityDocument: "Documento de identidad",
+        identityDocumentPlaceholder: "Ej: CC 1.234.567.890",
+        jobTitle: "Cargo",
+        jobTitlePlaceholder: "Ej: Analista de operaciones",
+        companyName: "Empresa",
+        companyNamePlaceholder: "Ej: Empresa S.A.S.",
+        letterDate: "Fecha de la carta",
+        letterDateAria: "Seleccionar fecha de la carta",
+        lastDay: "Último día de trabajo",
+        lastDayShort: "Último día",
+        lastDayAria: "Seleccionar último día de trabajo",
+        city: "Ciudad",
+        cityPlaceholder: "Ej: Bogotá",
+        recipient: "Destinatario",
+        recipientPlaceholder: "Ej: Recursos Humanos",
+        tone: "Tono",
+        tones: {
+            formal: "Formal",
+            brief: "Breve",
+            grateful: "Agradecido"
+        },
+        reason: "Motivo opcional",
+        reasonPlaceholder: "Ej: El motivo de mi renuncia es asumir una nueva oportunidad profesional.",
+        hint: "La carta se genera en tu navegador como borrador editable. Ajusta el texto antes de enviarlo, copiarlo o descargarlo.",
+        emptyError: "Completa nombre, documento, cargo, empresa y fechas para generar la carta.",
+        submit: "Generar carta",
+        reset: "Restablecer",
+        resultTitle: "Carta lista",
+        editableDraft: "Borrador editable",
+        result: "Resultado",
+        copy: "Copiar",
+        copied: "Copiado.",
+        copyFailed: "No se pudo copiar automáticamente.",
+        moreOptions: "Más opciones",
+        downloadPdf: "Descargar PDF",
+        downloadDoc: "Descargar Word",
+        pdfReady: "PDF descargado.",
+        docReady: "Word descargado.",
+        fileName: "carta-renuncia",
+        documentTitle: "Carta de renuncia",
+        characters: "Caracteres",
+        rulesNote: "Usamos una estructura común de renuncia: fecha, destinatario, declaración, último día, cierre y firma.",
+        disclaimer: "Borrador informativo. Revisa tu contrato, políticas internas o requisitos del país antes de enviarla.",
+        emptyTitle: "Tu carta aparecerá aquí",
+        emptyDescription: "Completa los datos básicos y genera una carta de renuncia editable para copiar o descargar.",
+        templates: {
+            formal: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason)}` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nAsunto: Renuncia voluntaria\n\nCordial saludo:\n\nPor medio de la presente, yo, ${fullName}, presento mi renuncia voluntaria al cargo de ${jobTitle} que desempeño en ${companyName}. Mi último día de trabajo será el ${lastDay}.${reasonLine}\n\nHasta esa fecha, mantengo mi disposición para entregar pendientes relevantes, compartir la información necesaria y apoyar una transición ordenada con el equipo que la compañía designe.\n\nAgradezco la oportunidad brindada y solicito confirmar la recepción de esta comunicación para adelantar los trámites administrativos correspondientes.\n\nAtentamente,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            },
+            brief: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason)}` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nAsunto: Renuncia\n\nCordial saludo:\n\nYo, ${fullName}, presento mi renuncia al cargo de ${jobTitle} en ${companyName}. Mi último día de trabajo será el ${lastDay}.${reasonLine}\n\nHasta esa fecha, apoyaré la entrega de mis responsabilidades, la organización de pendientes y la información necesaria para que la transición sea clara y ordenada.\n\nAgradezco la oportunidad brindada, el aprendizaje recibido y la gestión de los trámites correspondientes para formalizar mi retiro.\n\nAtentamente,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            },
+            grateful: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason)} La comparto de manera transparente, procurando que el proceso de cierre sea respetuoso y ordenado.` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nAsunto: Carta de renuncia\n\nCordial saludo:\n\nPor medio de la presente, yo, ${fullName}, comunico mi decisión de renunciar al cargo de ${jobTitle} en ${companyName}. Mi último día de trabajo será el ${lastDay}.${reasonLine}\n\nQuiero expresar mi agradecimiento por la oportunidad de haber formado parte de la organización. Durante mi tiempo en ${companyName} he podido aprender, aportar y compartir con personas importantes para mi experiencia profesional.\n\nCon el fin de facilitar una transición adecuada, quedo con disposición para apoyar la entrega de responsabilidades, documentar pendientes y compartir el estado de las actividades en curso.\n\nAgradezco el acompañamiento recibido y deseo que el equipo y la compañía continúen alcanzando sus objetivos. Solicito amablemente adelantar los trámites administrativos correspondientes para formalizar mi retiro.\n\nCordialmente,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            }
+        }
+    },
+    en: {
+        kicker: "Document",
+        title: "Resignation letter",
+        fullName: "Full name",
+        fullNamePlaceholder: "E.g. Laura Gomez",
+        identityDocument: "Identity document",
+        identityDocumentPlaceholder: "E.g. ID 123456789",
+        jobTitle: "Job title",
+        jobTitlePlaceholder: "E.g. Operations analyst",
+        companyName: "Company",
+        companyNamePlaceholder: "E.g. Acme Inc.",
+        letterDate: "Letter date",
+        letterDateAria: "Select letter date",
+        lastDay: "Last working day",
+        lastDayShort: "Last day",
+        lastDayAria: "Select last working day",
+        city: "City",
+        cityPlaceholder: "E.g. London",
+        recipient: "Recipient",
+        recipientPlaceholder: "E.g. Human Resources",
+        tone: "Tone",
+        tones: {
+            formal: "Formal",
+            brief: "Brief",
+            grateful: "Grateful"
+        },
+        reason: "Optional reason",
+        reasonPlaceholder: "E.g. The reason for my resignation is to pursue a new professional opportunity.",
+        hint: "The letter is generated in your browser as an editable draft. Review the text before sending, copying, or downloading it.",
+        emptyError: "Complete name, identity document, role, company, and dates to generate the letter.",
+        submit: "Generate letter",
+        reset: "Reset",
+        resultTitle: "Letter ready",
+        editableDraft: "Editable draft",
+        result: "Result",
+        copy: "Copy",
+        copied: "Copied.",
+        copyFailed: "We couldn't copy it automatically.",
+        moreOptions: "More options",
+        downloadPdf: "Download PDF",
+        downloadDoc: "Download Word",
+        pdfReady: "PDF downloaded.",
+        docReady: "Word downloaded.",
+        fileName: "resignation-letter",
+        documentTitle: "Resignation letter",
+        characters: "Characters",
+        rulesNote: "We use a common resignation structure: date, recipient, statement, last day, closing, and signature.",
+        disclaimer: "Informational draft. Review your contract, internal policies, or country requirements before sending it.",
+        emptyTitle: "Your letter will appear here",
+        emptyDescription: "Complete the basic details and generate an editable resignation letter to copy or download.",
+        templates: {
+            formal: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason)}` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nSubject: Voluntary resignation\n\nDear team,\n\nPlease accept this letter as formal notice that I, ${fullName}, am resigning from my position as ${jobTitle} at ${companyName}. My last working day will be ${lastDay}.${reasonLine}\n\nUntil that date, I remain available to hand over relevant pending matters, share the necessary information, and support an orderly transition with the team appointed by the company.\n\nI appreciate the opportunity received and kindly request confirmation of this communication so the corresponding administrative steps can be completed.\n\nSincerely,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            },
+            brief: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason)}` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nSubject: Resignation\n\nDear team,\n\nI, ${fullName}, resign from my position as ${jobTitle} at ${companyName}. My last working day will be ${lastDay}.${reasonLine}\n\nUntil that date, I will support the handover of my responsibilities, organize pending matters, and share the information needed for a clear transition.\n\nThank you for the opportunity and for processing the corresponding administrative steps to formalize my departure.\n\nSincerely,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            },
+            grateful: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason)} I share it transparently and with the intention of making the closing process respectful and orderly.` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nSubject: Resignation letter\n\nDear team,\n\nI, ${fullName}, hereby submit my resignation from my position as ${jobTitle} at ${companyName}. My last working day will be ${lastDay}.${reasonLine}\n\nI would like to express my sincere gratitude for the opportunity to have been part of the organization. During my time at ${companyName}, I have had the chance to learn, contribute, and work with people who have been an important part of my professional experience.\n\nTo help make the transition smooth, I remain available to hand over responsibilities, document pending matters, and share the status of ongoing activities.\n\nThank you for the support received throughout this period. I wish the team and the company continued progress, and I kindly request that the corresponding administrative steps be completed to formalize my departure.\n\nKind regards,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            }
+        }
+    },
+    hi: {
+        kicker: "\u0926\u0938\u094D\u0924\u093E\u0935\u0947\u091C\u093C",
+        title: "\u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930",
+        fullName: "\u092A\u0942\u0930\u093E \u0928\u093E\u092E",
+        fullNamePlaceholder: "\u0909\u0926\u093E. Laura Gomez",
+        identityDocument: "\u092A\u0939\u091A\u093E\u0928 \u0926\u0938\u094D\u0924\u093E\u0935\u0947\u091C\u093C",
+        identityDocumentPlaceholder: "\u0909\u0926\u093E. ID 123456789",
+        jobTitle: "\u092A\u0926",
+        jobTitlePlaceholder: "\u0909\u0926\u093E. Operations analyst",
+        companyName: "\u0915\u0902\u092A\u0928\u0940",
+        companyNamePlaceholder: "\u0909\u0926\u093E. Acme Inc.",
+        letterDate: "\u092A\u0924\u094D\u0930 \u0915\u0940 \u0924\u093F\u0925\u093F",
+        letterDateAria: "\u092A\u0924\u094D\u0930 \u0915\u0940 \u0924\u093F\u0925\u093F \u091A\u0941\u0928\u0947\u0902",
+        lastDay: "\u0905\u0902\u0924\u093F\u092E \u0915\u093E\u0930\u094D\u092F \u0926\u093F\u0935\u0938",
+        lastDayShort: "\u0905\u0902\u0924\u093F\u092E \u0926\u093F\u0928",
+        lastDayAria: "\u0905\u0902\u0924\u093F\u092E \u0915\u093E\u0930\u094D\u092F \u0926\u093F\u0935\u0938 \u091A\u0941\u0928\u0947\u0902",
+        city: "\u0936\u0939\u0930",
+        cityPlaceholder: "\u0909\u0926\u093E. \u0926\u093F\u0932\u094D\u0932\u0940",
+        recipient: "\u092A\u094D\u0930\u093E\u092A\u094D\u0924\u0915\u0930\u094D\u0924\u093E",
+        recipientPlaceholder: "\u0909\u0926\u093E. \u092E\u093E\u0928\u0935 \u0938\u0902\u0938\u093E\u0927\u0928",
+        tone: "\u0936\u0948\u0932\u0940",
+        tones: {
+            formal: "\u0914\u092A\u091A\u093E\u0930\u093F\u0915",
+            brief: "\u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924",
+            grateful: "\u0906\u092D\u093E\u0930\u0940"
+        },
+        reason: "\u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0915\u093E\u0930\u0923",
+        reasonPlaceholder: "\u0909\u0926\u093E. \u092E\u0947\u0930\u0947 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0915\u093E \u0915\u093E\u0930\u0923 \u090F\u0915 \u0928\u092F\u093E \u092A\u0947\u0936\u0947\u0935\u0930 \u0905\u0935\u0938\u0930 \u0905\u092A\u0928\u093E\u0928\u093E \u0939\u0948\u0964",
+        hint: "\u092A\u0924\u094D\u0930 \u0906\u092A\u0915\u0947 \u092C\u094D\u0930\u093E\u0909\u091C\u093C\u0930 \u092E\u0947\u0902 \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u092C\u0928\u0924\u093E \u0939\u0948\u0964 \u092D\u0947\u091C\u0928\u0947, \u0915\u0949\u092A\u0940 \u092F\u093E \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0928\u0947 \u0938\u0947 \u092A\u0939\u0932\u0947 \u092A\u093E\u0920 \u091C\u093E\u0901\u091A\u0947\u0902\u0964",
+        emptyError: "\u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0928\u093E\u092E, \u092A\u0939\u091A\u093E\u0928 \u0926\u0938\u094D\u0924\u093E\u0935\u0947\u091C\u093C, \u092A\u0926, \u0915\u0902\u092A\u0928\u0940 \u0914\u0930 \u0924\u093F\u0925\u093F\u092F\u093E\u0901 \u092A\u0942\u0930\u0940 \u0915\u0930\u0947\u0902\u0964",
+        submit: "\u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u090F\u0901",
+        reset: "\u0930\u0940\u0938\u0947\u091F \u0915\u0930\u0947\u0902",
+        resultTitle: "\u092A\u0924\u094D\u0930 \u0924\u0948\u092F\u093E\u0930",
+        editableDraft: "\u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0921\u094D\u0930\u093E\u092B\u094D\u091F",
+        result: "\u092A\u0930\u093F\u0923\u093E\u092E",
+        copy: "\u0915\u0949\u092A\u0940 \u0915\u0930\u0947\u0902",
+        copied: "\u0915\u0949\u092A\u0940 \u0939\u094B \u0917\u092F\u093E\u0964",
+        copyFailed: "\u0939\u092E \u0907\u0938\u0947 \u0938\u094D\u0935\u091A\u093E\u0932\u093F\u0924 \u0930\u0942\u092A \u0938\u0947 \u0915\u0949\u092A\u0940 \u0928\u0939\u0940\u0902 \u0915\u0930 \u0938\u0915\u0947\u0964",
+        moreOptions: "\u0905\u0927\u093F\u0915 \u0935\u093F\u0915\u0932\u094D\u092A",
+        downloadPdf: "PDF \u0921\u093E\u0909\u0928\u0932\u094B\u0921",
+        downloadDoc: "Word \u0921\u093E\u0909\u0928\u0932\u094B\u0921",
+        pdfReady: "PDF \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0939\u094B \u0917\u092F\u093E\u0964",
+        docReady: "Word \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0939\u094B \u0917\u092F\u093E\u0964",
+        fileName: "resignation-letter",
+        documentTitle: "\u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930",
+        characters: "\u0905\u0915\u094D\u0937\u0930",
+        rulesNote: "\u0939\u092E \u090F\u0915 \u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0938\u0902\u0930\u091A\u0928\u093E \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902: \u0924\u093F\u0925\u093F, \u092A\u094D\u0930\u093E\u092A\u094D\u0924\u0915\u0930\u094D\u0924\u093E, \u0918\u094B\u0937\u0923\u093E, \u0905\u0902\u0924\u093F\u092E \u0926\u093F\u0928, \u0938\u092E\u093E\u092A\u0928 \u0914\u0930 \u0939\u0938\u094D\u0924\u093E\u0915\u094D\u0937\u0930\u0964",
+        disclaimer: "\u0938\u0942\u091A\u0928\u093E\u0924\u094D\u092E\u0915 \u0921\u094D\u0930\u093E\u092B\u094D\u091F\u0964 \u092D\u0947\u091C\u0928\u0947 \u0938\u0947 \u092A\u0939\u0932\u0947 \u0905\u092A\u0928\u093E \u0905\u0928\u0941\u092C\u0902\u0927, \u0906\u0902\u0924\u0930\u093F\u0915 \u0928\u0940\u0924\u093F\u092F\u093E\u0901 \u092F\u093E \u0926\u0947\u0936 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E\u090F\u0901 \u091C\u093E\u0901\u091A\u0947\u0902\u0964",
+        emptyTitle: "\u0906\u092A\u0915\u093E \u092A\u0924\u094D\u0930 \u092F\u0939\u093E\u0901 \u0926\u093F\u0916\u0947\u0917\u093E",
+        emptyDescription: "\u092E\u0942\u0932 \u0935\u093F\u0935\u0930\u0923 \u092D\u0930\u0947\u0902 \u0914\u0930 \u0915\u0949\u092A\u0940 \u092F\u093E \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u090F\u0901\u0964",
+        templates: {
+            formal: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason, "।")}` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nविषय: स्वैच्छिक त्यागपत्र\n\nसादर नमस्कार,\n\nमैं, ${fullName}, ${companyName} में ${jobTitle} के पद से अपना त्यागपत्र प्रस्तुत करता/करती हूँ। मेरा अंतिम कार्य दिवस ${lastDay} होगा।${reasonLine}\n\nउस तिथि तक मैं लंबित कार्यों का हस्तांतरण, आवश्यक जानकारी साझा करने और कंपनी द्वारा नामित टीम के साथ व्यवस्थित परिवर्तन में सहयोग करने के लिए उपलब्ध रहूँगा/रहूँगी।\n\nइस अवसर के लिए धन्यवाद। कृपया इस पत्र की प्राप्ति की पुष्टि करें और मेरे कार्यमुक्ति प्रक्रिया को औपचारिक रूप देने के लिए आवश्यक प्रशासनिक कदम आगे बढ़ाएँ।\n\nसादर,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            },
+            brief: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason, "।")}` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nविषय: त्यागपत्र\n\nसादर नमस्कार,\n\nमैं, ${fullName}, ${companyName} में ${jobTitle} के पद से अपना त्यागपत्र प्रस्तुत करता/करती हूँ। मेरा अंतिम कार्य दिवस ${lastDay} होगा।${reasonLine}\n\nउस तिथि तक मैं अपनी जिम्मेदारियों के हस्तांतरण, लंबित कार्यों की व्यवस्था और आवश्यक जानकारी साझा करने में सहयोग करूँगा/करूँगी ताकि परिवर्तन स्पष्ट और व्यवस्थित रहे।\n\nइस अवसर और प्राप्त सीख के लिए धन्यवाद। कृपया मेरे कार्यमुक्ति प्रक्रिया को औपचारिक रूप देने के लिए संबंधित प्रशासनिक कदम आगे बढ़ाएँ।\n\nसादर,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            },
+            grateful: ({ fullName, identityDocument, jobTitle, companyName, recipient, city, letterDate, lastDay, reason }: {
+                fullName: string; identityDocument: string; jobTitle: string; companyName: string; recipient: string; city: string; letterDate: string; lastDay: string; reason: string;
+            }) => {
+                const headerDate = city ? `${city}, ${letterDate}` : letterDate;
+                const recipientLine = recipient ? `${recipient}\n${companyName}` : companyName;
+                const reasonLine = reason ? `\n\n${formatResignationReason(reason, "।")} मैं इसे पारदर्शिता के साथ साझा कर रहा/रही हूँ ताकि समापन प्रक्रिया सम्मानजनक और व्यवस्थित रहे।` : "";
+                return `${headerDate}\n\n${recipientLine}\n\nविषय: त्यागपत्र\n\nसादर नमस्कार,\n\nमैं, ${fullName}, ${companyName} में ${jobTitle} के पद से अपना त्यागपत्र प्रस्तुत करता/करती हूँ। मेरा अंतिम कार्य दिवस ${lastDay} होगा।${reasonLine}\n\nमैं संगठन का हिस्सा बनने के अवसर के लिए ईमानदारी से धन्यवाद देता/देती हूँ। ${companyName} में अपने समय के दौरान मुझे सीखने, योगदान देने और ऐसे लोगों के साथ काम करने का अवसर मिला जो मेरे पेशेवर अनुभव का महत्वपूर्ण हिस्सा रहे हैं।\n\nपरिवर्तन को सुचारु बनाने के लिए मैं जिम्मेदारियों का हस्तांतरण करने, लंबित विषयों को दस्तावेजित करने और चल रही गतिविधियों की स्थिति साझा करने के लिए उपलब्ध रहूँगा/रहूँगी।\n\nइस अवधि में मिले सहयोग के लिए धन्यवाद। मैं टीम और कंपनी की आगे की प्रगति की कामना करता/करती हूँ और अनुरोध करता/करती हूँ कि मेरे कार्यमुक्ति प्रक्रिया को औपचारिक रूप देने के लिए संबंधित प्रशासनिक कदम पूरे किए जाएँ।\n\nसादर,\n\n\n\n\n${fullName}\n${identityDocument}`;
+            }
+        }
+    }
+} as const;

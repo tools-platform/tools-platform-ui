@@ -43,6 +43,14 @@ export const categoryCopy: Record<string, CatalogText> = {
             en: "JSON, UUIDs, hashes, and developer utilities.",
             hi: "JSON, UUIDs, \u0939\u0948\u0936 \u0914\u0930 \u0921\u0947\u0935\u0932\u092A\u0930 \u0909\u092A\u092F\u094B\u0917\u093F\u0924\u093E\u090F\u0901\u0964"
         }
+    },
+    "documents": {
+        name: { es: "Documentos", en: "Documents", hi: "\u0926\u0938\u094D\u0924\u093E\u0935\u0947\u091C\u093C" },
+        description: {
+            es: "Borradores, cartas y plantillas editables para tareas cotidianas.",
+            en: "Drafts, letters, and editable templates for everyday tasks.",
+            hi: "\u0930\u094B\u091C\u093C\u092E\u0930\u094D\u0930\u093E \u0915\u0947 \u0915\u093E\u0930\u094D\u092F\u094B\u0902 \u0915\u0947 \u0932\u093F\u090F \u0921\u094D\u0930\u093E\u092B\u094D\u091F, \u092A\u0924\u094D\u0930 \u0914\u0930 \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F\u0964"
+        }
     }
 };
 export const toolCopy: Record<string, CatalogText> = {
@@ -449,6 +457,17 @@ export const toolCopy: Record<string, CatalogText> = {
             en: "Create or explain cron expressions without wrestling with syntax.",
             hi: "\u0938\u093F\u0902\u091F\u0948\u0915\u094D\u0938 \u0915\u0947 \u0938\u093E\u0925 \u0938\u0902\u0918\u0930\u094D\u0937 \u0915\u093F\u090F \u092C\u093F\u0928\u093E \u0915\u094D\u0930\u094B\u0928 \u0905\u092D\u093F\u0935\u094D\u092F\u0915\u094D\u0924\u093F \u092C\u0928\u093E\u090F\u0902 \u092F\u093E \u0938\u092E\u091D\u093E\u090F\u0902\u0964"
         }
+    },
+    "resignation-letter-generator": {
+        name: {
+            es: "Generador de carta de renuncia",
+            en: "Resignation Letter Generator",
+            hi: "\u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u091C\u0928\u0930\u0947\u091F\u0930"
+        },
+        description: {
+            es: "Crea un borrador editable de carta de renuncia con tono formal, breve o agradecido.",
+            en: "Create an editable resignation letter draft with a formal, brief, or grateful tone.",
+            hi: "\u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0936\u0948\u0932\u0940 \u092E\u0947\u0902 \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u092C\u0928\u093E\u090F\u0901\u0964"
+        }
     }
 };
-
