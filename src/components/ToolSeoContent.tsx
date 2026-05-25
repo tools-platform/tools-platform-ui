@@ -33,16 +33,19 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["loan payment calculator", "monthly loan payment", "loan installment calculator"]
   },
   "cop-usd": {
-    es: ["conversor COP a USD", "pesos colombianos a dólares", "convertir dólares a pesos"],
-    en: ["COP to USD converter", "Colombian pesos to dollars", "USD to COP converter"]
+    es: ["conversor COP a USD", "pesos colombianos a dólares", "dólares a pesos colombianos"],
+    en: ["COP to USD converter", "Colombian pesos to dollars", "USD to COP converter"],
+    hi: ["COP से USD कनवर्टर", "कोलंबियाई पेसो से डॉलर", "USD से COP कनवर्टर"]
   },
   "salary-increase": {
     es: ["calculadora de aumento salarial", "calcular aumento de sueldo", "salario después de aumento"],
-    en: ["salary increase calculator", "pay raise calculator", "salary after percentage increase"]
+    en: ["pay increase calculator", "salary increase calculator", "pay raise calculator"],
+    hi: ["वेतन वृद्धि कैलकुलेटर", "पे इंक्रीज कैलकुलेटर", "प्रतिशत वेतन वृद्धि"]
   },
   "worked-hours": {
-    es: ["calculadora de horas trabajadas", "sumar horas trabajadas", "calcular horas de trabajo"],
-    en: ["worked hours calculator", "add work hours", "calculate work time"]
+    es: ["calculadora de horas trabajadas", "sumar horas trabajadas", "cómo calcular horas de trabajo"],
+    en: ["worked hours calculator", "add work hours", "calculate work time"],
+    hi: ["काम के घंटे कैलकुलेटर", "कार्य घंटे जोड़ें", "काम का समय गणना"]
   },
   "hourly-salary": {
     es: ["calculadora de salario por hora", "valor hora salario mensual", "salario mensual dividido en horas"],
@@ -70,19 +73,22 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
   },
   "days-until-date": {
     es: ["cuántos días faltan para una fecha", "contador de días restantes", "días hasta un evento"],
-    en: ["days until date calculator", "days left counter", "days until an event"]
+    en: ["days until calculator", "days till calculator", "days left counter"],
+    hi: ["कितने दिन बाकी हैं", "दिन बाकी कैलकुलेटर", "घटना तक दिन"]
   },
   "unit-converter": {
     es: ["conversor de unidades", "convertir kilos a libras", "convertir kilómetros a millas"],
     en: ["unit converter", "kg to lb converter", "kilometers to miles converter"]
   },
   "text-case-converter": {
-    es: ["convertidor de mayúsculas", "convertir a minúsculas", "mayúsculas y minúsculas online"],
-    en: ["uppercase converter", "lowercase converter", "text case converter"]
+    es: ["convertidor de mayúsculas", "minúsculas a mayúsculas", "capitalizar letras"],
+    en: ["lower case to upper case", "capital letter converter", "text case converter"],
+    hi: ["लोअरकेस से अपरकेस", "कैपिटल लेटर कनवर्टर", "टेक्स्ट केस कनवर्टर"]
   },
   "duplicate-counter": {
     es: ["contador de duplicados", "buscar valores repetidos", "contar repetidos en lista"],
-    en: ["duplicate counter", "find repeated values", "count duplicates in a list"]
+    en: ["count duplicates online", "duplicate counter", "find repeated values"],
+    hi: ["डुप्लीकेट गिनें", "दोहराए मान खोजें", "सूची में डुप्लीकेट"]
   },
   "remove-extra-spaces": {
     es: ["quitar espacios extra", "limpiar espacios en texto", "eliminar espacios dobles"],

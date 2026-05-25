@@ -679,8 +679,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "cop-usd": {
         intro: {
-            es: "Convierte pesos colombianos a dólares o dólares a pesos usando una TRM de referencia.",
-            en: "Convert Colombian pesos to US dollars or dollars to pesos using a reference exchange rate.",
+            es: "Convierte pesos colombianos a dólares o dólares a pesos usando una tasa de referencia para calcular COP a USD y USD a COP.",
+            en: "Convert Colombian pesos to US dollars or dollars to pesos with a reference rate for COP to USD and USD to COP estimates.",
             hi: "\u0938\u0902\u0926\u0930\u094D\u092D \u0935\u093F\u0928\u093F\u092E\u092F \u0926\u0930 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0915\u0947 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E\u0908 \u092A\u0947\u0938\u094B\u0938 \u0915\u094B \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u092F\u093E \u0921\u0949\u0932\u0930 \u0915\u094B \u092A\u0947\u0938\u094B\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         },
         sections: [
@@ -688,8 +688,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Cuándo usarlo", en: "When to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u092C \u0915\u0930\u0928\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Sirve para estimar compras internacionales, pagos, viajes, ahorros, facturas o valores expresados en dólares.",
-                        en: "Use it to estimate international purchases, payments, travel, savings, invoices, or values expressed in US dollars.",
+                        es: "Sirve para estimar compras internacionales, pagos, viajes, ahorros, facturas o valores expresados en dólares y pesos colombianos.",
+                        en: "Use it to estimate international purchases, payments, travel, savings, invoices, or values expressed in Colombian pesos and US dollars.",
                         hi: "\u0905\u0902\u0924\u0930\u094D\u0930\u093E\u0937\u094D\u091F\u094D\u0930\u0940\u092F \u0916\u0930\u0940\u0926\u093E\u0930\u0940, \u092D\u0941\u0917\u0924\u093E\u0928, \u092F\u093E\u0924\u094D\u0930\u093E, \u092C\u091A\u0924, \u091A\u093E\u0932\u093E\u0928, \u092F\u093E \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u092E\u0947\u0902 \u0935\u094D\u092F\u0915\u094D\u0924 \u092E\u0942\u0932\u094D\u092F\u094B\u0902 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902\u0964"
                     },
                     {
@@ -737,7 +737,7 @@ export const toolContentById: Record<string, ToolContent> = {
     "salary-increase": {
         intro: {
             es: "Calcula cómo queda un salario después de aplicar un aumento porcentual.",
-            en: "Calculate what a salary looks like after applying a percentage raise.",
+            en: "Use this pay increase calculator to see what a salary looks like after applying a percentage raise.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0932\u093E\u0917\u0942 \u0915\u0930\u0928\u0947 \u0915\u0947 \u092C\u093E\u0926 \u0935\u0947\u0924\u0928 \u0915\u0948\u0938\u093E \u0926\u093F\u0916\u0947\u0917\u093E\u0964"
         },
         sections: [
@@ -761,7 +761,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 body: [
                     {
                         es: "Sirve para revisar propuestas de aumento salarial, comparar escenarios o entender cuánto representa un porcentaje sobre tu sueldo.",
-                        en: "Use it to review salary raise proposals, compare scenarios, or understand what a percentage means on your pay.",
+                        en: "Use it to review pay increase or salary raise proposals, compare scenarios, or understand what a percentage means on your pay.",
                         hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u092A\u094D\u0930\u0938\u094D\u0924\u093E\u0935\u094B\u0902 \u0915\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0915\u0930\u0928\u0947, \u092A\u0930\u093F\u0926\u0943\u0936\u094D\u092F\u094B\u0902 \u0915\u0940 \u0924\u0941\u0932\u0928\u093E \u0915\u0930\u0928\u0947, \u092F\u093E \u092F\u0939 \u0938\u092E\u091D\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0915\u0930\u0947\u0902 \u0915\u093F \u0906\u092A\u0915\u0947 \u0935\u0947\u0924\u0928 \u092A\u0930 \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0915\u093E \u0915\u094D\u092F\u093E \u0905\u0930\u094D\u0925 \u0939\u0948\u0964"
                     },
                     {
@@ -774,7 +774,7 @@ export const toolContentById: Record<string, ToolContent> = {
         ],
         faqs: [
             {
-                question: { es: "¿Cómo calcular un aumento salarial?", en: "How do I calculate a salary increase?", hi: "\u092E\u0948\u0902 \u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
+                question: { es: "¿Cómo calcular un aumento salarial?", en: "How do I use a pay increase calculator?", hi: "\u092E\u0948\u0902 \u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
                 answer: {
                     es: "Ingresa el salario actual y el porcentaje de aumento. La calculadora multiplica el salario por ese porcentaje y suma el resultado al salario actual.",
                     en: "Enter the current salary and increase percentage. The calculator multiplies the salary by that percentage and adds the result to the current salary.",
@@ -793,7 +793,7 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "worked-hours": {
         intro: {
-            es: "Esta calculadora de horas trabajadas suma jornadas por día, semana o periodo para saber cuánto tiempo trabajaste en total.",
+            es: "Esta calculadora de horas trabajadas suma jornadas por día, semana o periodo para saber cuánto tiempo trabajaste en total y cómo calcular horas de trabajo.",
             en: "This worked hours calculator adds daily, weekly, or period work entries so you can see the total time worked.",
             hi: "\u092F\u0939 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0926\u0948\u0928\u093F\u0915, \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u092F\u093E \u0905\u0935\u0927\u093F \u0915\u093E\u0930\u094D\u092F \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0924\u093E \u0939\u0948 \u0924\u093E\u0915\u093F \u0906\u092A \u0915\u093E\u092E \u0915\u093F\u090F \u0917\u090F \u0915\u0941\u0932 \u0938\u092E\u092F \u0915\u094B \u0926\u0947\u0916 \u0938\u0915\u0947\u0902\u0964"
         },
@@ -870,7 +870,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 }
             },
             {
-                question: { es: "¿Cómo contar las horas de trabajo diarias?", en: "How do I count daily work hours?", hi: "\u092E\u0948\u0902 \u0926\u0948\u0928\u093F\u0915 \u0915\u093E\u0930\u094D\u092F \u0918\u0902\u091F\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
+                question: { es: "¿Cómo calcular horas de trabajo diarias?", en: "How do I calculate daily work hours?", hi: "\u092E\u0948\u0902 \u0926\u0948\u0928\u093F\u0915 \u0915\u093E\u0930\u094D\u092F \u0918\u0902\u091F\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
                 answer: {
                     es: "Selecciona la fecha, escribe la hora de inicio y la hora de finalización. La calculadora resta esos tiempos y suma el resultado con las demás jornadas.",
                     en: "Choose the date, enter the start time and end time. The calculator subtracts those times and adds the result to the other entries.",
@@ -1077,7 +1077,7 @@ export const toolContentById: Record<string, ToolContent> = {
     "days-until-date": {
         intro: {
             es: "Cuenta cuántos días faltan para una fecha futura, evento, entrega o plazo personal.",
-            en: "Count how many days are left until a future date, event, delivery, or personal deadline.",
+            en: "Use this days until calculator to count how many days are left until a future date, event, delivery, or personal deadline.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u092D\u0935\u093F\u0937\u094D\u092F \u0915\u0940 \u0924\u093E\u0930\u0940\u0916, \u0918\u091F\u0928\u093E, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0917\u0924 \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902\u0964"
         },
         sections: [
@@ -1101,7 +1101,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 body: [
                     {
                         es: "Sirve para saber cuántos días faltan para una fecha, un viaje, un cumpleaños, una entrega o un evento importante.",
-                        en: "It helps you know how many days are left until a date, trip, birthday, delivery, or important event.",
+                        en: "It helps you know how many days are left until a date, trip, birthday, delivery, or important event, similar to a days till calculator.",
                         hi: "\u092F\u0939 \u0906\u092A\u0915\u094B \u092F\u0939 \u091C\u093E\u0928\u0928\u0947 \u092E\u0947\u0902 \u092E\u0926\u0926 \u0915\u0930\u0924\u093E \u0939\u0948 \u0915\u093F \u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u092F\u093E\u0924\u094D\u0930\u093E, \u091C\u0928\u094D\u092E\u0926\u093F\u0928, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u092E\u0939\u0924\u094D\u0935\u092A\u0942\u0930\u094D\u0923 \u0918\u091F\u0928\u093E \u092E\u0947\u0902 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
@@ -1268,7 +1268,7 @@ export const toolContentById: Record<string, ToolContent> = {
     "text-case-converter": {
         intro: {
             es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración sin enviarlo a ningún servidor.",
-            en: "Convert text to uppercase, lowercase, title case, or sentence case without sending it to any server.",
+            en: "Convert text from lower case to upper case, uppercase to lowercase, title case, or sentence case without sending it to any server.",
             hi: "\u0915\u093F\u0938\u0940 \u092D\u0940 \u0938\u0930\u094D\u0935\u0930 \u092A\u0930 \u092D\u0947\u091C\u0947 \u092C\u093F\u0928\u093E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0935\u093E\u0915\u094D\u092F \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         },
         sections: [
@@ -1277,7 +1277,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 body: [
                     {
                         es: "Puedes convertir texto a mayúsculas, pasar mayúscula a minúscula, cambiar minúsculas a mayúsculas, capitalizar palabras o ajustar frases tipo oración.",
-                        en: "You can convert text to uppercase, change uppercase to lowercase, switch lowercase to uppercase, title case words, or format sentences.",
+                        en: "You can convert text to uppercase, change uppercase to lowercase, switch lowercase to uppercase, title case words, or use it as a capital letter converter.",
                         hi: "\u0906\u092A \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0905\u092A\u0930\u0915\u0947\u0938 \u0915\u094B \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0936\u0940\u0930\u094D\u0937\u0915 \u0915\u0947\u0938 \u0936\u092C\u094D\u0926, \u092F\u093E \u0935\u093E\u0915\u094D\u092F\u094B\u0902 \u0915\u094B \u092A\u094D\u0930\u093E\u0930\u0942\u092A\u093F\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
@@ -1356,7 +1356,7 @@ export const toolContentById: Record<string, ToolContent> = {
     "duplicate-counter": {
         intro: {
             es: "Cuenta duplicados en una lista y genera una vista de resultados con los valores únicos y sus ocurrencias.",
-            en: "Count duplicates in a list and generate a distinct view with unique values and their occurrences.",
+            en: "Count duplicates online in a list and generate a distinct view with unique values and their occurrences.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0914\u0930 \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928\u094B\u0902 \u0914\u0930 \u0909\u0928\u0915\u0940 \u0918\u091F\u0928\u093E\u0913\u0902 \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0926\u0943\u0936\u094D\u092F \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\u0964"
         },
         sections: [
@@ -1393,7 +1393,7 @@ export const toolContentById: Record<string, ToolContent> = {
         ],
         faqs: [
             {
-                question: { es: "¿Cómo contar duplicados en una lista?", en: "How do I count duplicates in a list?", hi: "\u092E\u0948\u0902 \u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u093F\u0928\u0924\u0940 \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
+                question: { es: "¿Cómo contar duplicados en una lista?", en: "How do I count duplicates online in a list?", hi: "\u092E\u0948\u0902 \u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u093F\u0928\u0924\u0940 \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
                 answer: {
                     es: "Pega una lista con un valor por línea y pulsa contar duplicados. La herramienta muestra cuántas veces aparece cada valor y separa los valores únicos.",
                     en: "Paste a list with one value per line and press count duplicates. The tool shows how many times each value appears and separates unique values.",
@@ -2484,4 +2484,3 @@ export const toolContentById: Record<string, ToolContent> = {
         ]
     }
 };
-

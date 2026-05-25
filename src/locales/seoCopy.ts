@@ -117,36 +117,36 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "salary-increase": {
         title: {
-            es: "Calculadora de aumento salarial | Neto y bruto",
-            en: "Salary Increase Calculator | Net and Gross Raise",
+            es: "Calculadora de aumento salarial | Bruto y neto",
+            en: "Pay Increase Calculator | Net and Gross Raise",
             hi: "\u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 | \u0936\u0941\u0926\u094D\u0927 \u0914\u0930 \u0938\u0915\u0932 \u0935\u0943\u0926\u094D\u0927\u093F"
         },
         description: {
             es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo bruto, neto con descuentos Colombia, valor del aumento y diferencia anual.",
-            en: "Calculate your salary after a percentage raise. Estimate the new gross salary, Colombia net salary with deductions, increase amount, and annual difference.",
+            en: "Use this pay increase calculator to estimate salary after a raise: new gross pay, Colombia net salary with deductions, increase amount, and annual difference.",
             hi: "\u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0947 \u092C\u093E\u0926 \u0905\u092A\u0928\u0947 \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964 \u0928\u090F \u0938\u0915\u0932 \u0935\u0947\u0924\u0928, \u0915\u091F\u094C\u0924\u093F\u092F\u094B\u0902, \u0935\u0943\u0926\u094D\u0927\u093F \u0930\u093E\u0936\u093F \u0914\u0930 \u0935\u093E\u0930\u094D\u0937\u093F\u0915 \u0905\u0902\u0924\u0930 \u0915\u0947 \u0938\u093E\u0925 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u090F\u0902\u0964"
         }
     },
     "cop-usd": {
         title: {
-            es: "Conversor COP a USD con TRM | Tools Platforms",
+            es: "Conversor COP a USD | Pesos colombianos a dólares",
             en: "COP to USD Converter with Reference Rate | Tools Platforms",
             hi: "\u0938\u0902\u0926\u0930\u094D\u092D \u0926\u0930 \u0915\u0947 \u0938\u093E\u0925 \u0938\u0940\u0913\u092A\u0940 \u0938\u0947 \u092F\u0942\u090F\u0938\u0921\u0940 \u0915\u0928\u0935\u0930\u094D\u091F\u0930 | \u0909\u092A\u0915\u0930\u0923 \u092A\u094D\u0932\u0947\u091F\u092B\u093E\u0930\u094D\u092E"
         },
         description: {
-            es: "Convierte pesos colombianos a dólares y dólares a pesos usando una TRM de referencia para estimar el valor de cambio.",
-            en: "Convert Colombian pesos to US dollars and back using a reference exchange rate.",
+            es: "Convierte pesos colombianos a dólares y dólares a pesos con tasa de referencia. Calcula COP a USD, USD a COP y el valor aproximado de cambio.",
+            en: "Convert Colombian pesos to US dollars and back with a reference rate. Calculate COP to USD, USD to COP, and estimated exchange value.",
             hi: "\u0938\u0902\u0926\u0930\u094D\u092D \u0935\u093F\u0928\u093F\u092E\u092F \u0926\u0930 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0915\u0947 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E\u0908 \u092A\u0947\u0938\u094B\u0938 \u0915\u094B \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u0914\u0930 \u0935\u093E\u092A\u0938 \u092E\u0947\u0902 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
     },
     "worked-hours": {
         title: {
-            es: "Calculadora de horas trabajadas | Horas laborales",
+            es: "Calculadora de horas trabajadas | Sumar horas de trabajo",
             en: "Worked Hours Calculator | Add Work Hours Online",
             hi: "\u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 | \u0915\u093E\u0930\u094D\u092F \u0915\u0947 \u0918\u0902\u091F\u0947 \u0911\u0928\u0932\u093E\u0907\u0928 \u091C\u094B\u0921\u093C\u0947\u0902"
         },
         description: {
-            es: "Calcula y suma horas trabajadas por día, jornada o semana. Útil para calcular horas de trabajo, horas laborales y tiempo total.",
+            es: "Calcula y suma horas trabajadas por día, jornada o semana. Útil para saber cómo calcular horas de trabajo, horas laborales y tiempo total.",
             en: "Calculate and add worked hours by day, shift, or week. Useful for work hours, labor time, and total time tracking.",
             hi: "\u0926\u093F\u0928, \u092A\u093E\u0932\u0940 \u092F\u093E \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0914\u0930 \u091C\u094B\u0921\u093C\u0947\u0902\u0964 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u0936\u094D\u0930\u092E \u0938\u092E\u092F \u0914\u0930 \u0915\u0941\u0932 \u0938\u092E\u092F \u091F\u094D\u0930\u0948\u0915\u093F\u0902\u0917 \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940\u0964"
         }
@@ -189,13 +189,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "days-until-date": {
         title: {
-            es: "Cuántos días faltan para una fecha | Contador de días",
-            en: "Days Until a Date Calculator | Days Left Counter",
+            es: "Calculadora de días hasta una fecha | Días restantes",
+            en: "Days Until Calculator | Days Till Date Counter",
             hi: "\u0926\u093F\u0928\u093E\u0902\u0915 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0924\u0915 \u0915\u0947 \u0926\u093F\u0928 | \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902 \u0915\u093E\u0909\u0902\u091F\u0930"
         },
         description: {
             es: "Cuenta cuántos días faltan para una fecha, evento, entrega o plazo. Calcula días calendario, semanas completas y días restantes.",
-            en: "Count how many days are left until a date, event, delivery, or deadline. See calendar days, full weeks, and remaining days.",
+            en: "Use this days until calculator to count days left until a date, event, delivery, or deadline. See calendar days, full weeks, and remaining days.",
             hi: "\u0917\u093F\u0928\u0947\u0902 \u0915\u093F \u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u0918\u091F\u0928\u093E, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902\u0964 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0915\u0947 \u0926\u093F\u0928, \u092A\u0942\u0930\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928 \u0926\u0947\u0916\u0947\u0902\u0964"
         }
     },
@@ -226,24 +226,24 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     "text-case-converter": {
         title: {
             es: "Convertidor de mayúsculas y minúsculas online | Texto",
-            en: "Uppercase and Lowercase Converter | Text Case",
+            en: "Lowercase to Uppercase Converter | Text Case",
             hi: "\u0905\u092A\u0930\u0915\u0947\u0938 \u0914\u0930 \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u0928\u0935\u0930\u094D\u091F\u0930 | \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u0947\u0938"
         },
         description: {
             es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Pasa mayúscula a minúscula y limpia textos rápido.",
-            en: "Convert text to uppercase, lowercase, title case, or sentence case. Format and clean text quickly in your browser.",
+            en: "Convert lower case to upper case, uppercase to lowercase, title case, or sentence case. Use it as a capital letter converter for clean text.",
             hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0935\u093E\u0915\u094D\u092F \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964 \u0905\u092A\u0928\u0947 \u092C\u094D\u0930\u093E\u0909\u091C\u093C\u0930 \u092E\u0947\u0902 \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0936\u0940\u0918\u094D\u0930\u0924\u093E \u0938\u0947 \u092B\u093C\u0949\u0930\u094D\u092E\u0947\u091F \u0915\u0930\u0947\u0902 \u0914\u0930 \u0938\u093E\u092B\u093C \u0915\u0930\u0947\u0902\u0964"
         }
     },
     "duplicate-counter": {
         title: {
-            es: "Contador de duplicados online | Lista de resultados",
-            en: "Duplicate Counter Online | Count Repeated Values",
+            es: "Contador de duplicados online | Valores repetidos",
+            en: "Count Duplicates Online | Duplicate Counter",
             hi: "\u0921\u0941\u092A\u094D\u0932\u0940\u0915\u0947\u091F \u0915\u093E\u0909\u0902\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0926\u094B\u0939\u0930\u093E\u090F \u0917\u090F \u092E\u093E\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902"
         },
         description: {
             es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista de resultados, total de líneas y ocurrencias por cada valor.",
-            en: "Count duplicate values in a list, get unique values, a distinct list, total lines, and occurrences for each value.",
+            en: "Count duplicates online from any list. Get repeated values, unique values, a distinct result list, total lines, and occurrences for each item.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u092E\u093E\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902, \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u092E\u093E\u0928 \u0915\u0947 \u0932\u093F\u090F \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928, \u090F\u0915 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0938\u0942\u091A\u0940, \u0915\u0941\u0932 \u092A\u0902\u0915\u094D\u0924\u093F\u092F\u093E\u0901 \u0914\u0930 \u0918\u091F\u0928\u093E\u090F\u0901 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
     },
@@ -497,4 +497,3 @@ export const legalSeo: Record<"privacy" | "terms", SeoCopy & {
         canonicalPath: "/terms"
     }
 };
-
