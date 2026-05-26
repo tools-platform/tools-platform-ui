@@ -2428,9 +2428,9 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "simple-cron-generator": {
         intro: {
-            es: "Genera expresiones cron sencillas o pega una expresion cron de 5 partes para entender que significa.",
-            en: "Generate simple cron expressions or paste a 5-part cron expression to understand what it means.",
-            hi: "\u0907\u0938\u0915\u093E \u092E\u0924\u0932\u092C \u0938\u092E\u091D\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0938\u0930\u0932 \u0915\u094D\u0930\u0949\u0928 \u090F\u0915\u094D\u0938\u092A\u094D\u0930\u0947\u0936\u0928 \u092C\u0928\u093E\u090F\u0902 \u092F\u093E 5-\u092D\u093E\u0917 \u0935\u093E\u0932\u093E \u0915\u094D\u0930\u0949\u0928 \u090F\u0915\u094D\u0938\u092A\u094D\u0930\u0947\u0936\u0928 \u091A\u093F\u092A\u0915\u093E\u090F\u0901\u0964"
+            es: "Genera expresiones cron sencillas o pega una expresion cron de 5, 6 o 7 partes para entender que significa.",
+            en: "Generate simple cron expressions or paste a 5-, 6-, or 7-part cron expression to understand what it means.",
+            hi: "\u0907\u0938\u0915\u093E \u092E\u0924\u0932\u092C \u0938\u092E\u091D\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0938\u0930\u0932 \u0915\u094D\u0930\u0949\u0928 \u090F\u0915\u094D\u0938\u092A\u094D\u0930\u0947\u0936\u0928 \u092C\u0928\u093E\u090F\u0902 \u092F\u093E 5, 6 \u092F\u093E 7-\u092D\u093E\u0917 \u0935\u093E\u0932\u093E \u0915\u094D\u0930\u0949\u0928 \u090F\u0915\u094D\u0938\u092A\u094D\u0930\u0947\u0936\u0928 \u091A\u093F\u092A\u0915\u093E\u090F\u0901\u0964"
         },
         sections: [
             {
@@ -2442,9 +2442,9 @@ export const toolContentById: Record<string, ToolContent> = {
                         hi: "\u091A\u0941\u0928\u0947\u0902 \u0915\u093F \u0915\u094D\u092F\u093E \u0906\u092A \u0939\u0930 \u0915\u0941\u091B \u092E\u093F\u0928\u091F\u094B\u0902 \u092E\u0947\u0902 \u090F\u0915 \u0915\u093E\u0930\u094D\u092F \u091A\u093E\u0939\u0924\u0947 \u0939\u0948\u0902, \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E, \u0926\u0948\u0928\u093F\u0915, \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u092F\u093E \u092E\u093E\u0938\u093F\u0915, \u0914\u0930 \u091F\u0942\u0932 \u0915\u094D\u0930\u0949\u0928 \u092C\u0928\u093E\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
-                        es: "También puedes pegar una expresión cron para ver una explicación simple de sus cinco partes.",
-                        en: "You can also paste a cron expression to see a simple explanation of its five parts.",
-                        hi: "\u0906\u092A \u0907\u0938\u0915\u0947 \u092A\u093E\u0901\u091A \u092D\u093E\u0917\u094B\u0902 \u0915\u0940 \u0938\u0930\u0932 \u0935\u094D\u092F\u093E\u0916\u094D\u092F\u093E \u0926\u0947\u0916\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u090F\u0915 \u0915\u094D\u0930\u094B\u0928 \u0905\u092D\u093F\u0935\u094D\u092F\u0915\u094D\u0924\u093F \u092D\u0940 \u091A\u093F\u092A\u0915\u093E \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
+                        es: "También puedes pegar una expresión cron estándar, con segundos o Quartz para ver una explicación simple.",
+                        en: "You can also paste a standard, seconds-based, or Quartz cron expression to see a simple explanation.",
+                        hi: "\u0906\u092A \u0938\u094D\u091F\u0948\u0902\u0921\u0930\u094D\u0921, \u0938\u0947\u0915\u0902\u0921 \u0935\u093E\u0932\u093E \u092F\u093E Quartz \u0915\u094D\u0930\u0949\u0928 \u091A\u093F\u092A\u0915\u093E\u0915\u0930 \u0938\u0930\u0932 \u0935\u094D\u092F\u093E\u0916\u094D\u092F\u093E \u0926\u0947\u0916 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
                     }
                 ]
             },
@@ -2468,17 +2468,17 @@ export const toolContentById: Record<string, ToolContent> = {
             {
                 question: { es: "Sirve para cualquier sistema?", en: "Does it work for every system?", hi: "\u0915\u094D\u092F\u093E \u092F\u0939 \u0939\u0930 \u0938\u093F\u0938\u094D\u091F\u092E \u0915\u0947 \u0932\u093F\u090F \u0915\u093E\u092E \u0915\u0930\u0924\u093E \u0939\u0948?" },
                 answer: {
-                    es: "Sirve como base para cron de 5 campos. Algunos sistemas usan segundos o reglas especiales.",
-                    en: "It works as a base for 5-field cron. Some systems use seconds or special rules.",
-                    hi: "\u092F\u0939 5-\u092B\u0940\u0932\u094D\u0921 \u0915\u094D\u0930\u094B\u0928 \u0915\u0947 \u0932\u093F\u090F \u0906\u0927\u093E\u0930 \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u0915\u093E\u092E \u0915\u0930\u0924\u093E \u0939\u0948\u0964 \u0915\u0941\u091B \u092A\u094D\u0930\u0923\u093E\u0932\u093F\u092F\u093E\u0901 \u0938\u0947\u0915\u0902\u0921 \u092F\u093E \u0935\u093F\u0936\u0947\u0937 \u0928\u093F\u092F\u092E\u094B\u0902 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0924\u0940 \u0939\u0948\u0902\u0964"
+                    es: "Sirve como base para cron de 5 campos y también puede leer formatos con segundos o Quartz. Revisa siempre el formato que pide tu proveedor.",
+                    en: "It works as a base for 5-field cron and can also read formats with seconds or Quartz. Always review the format your provider requires.",
+                    hi: "\u092F\u0939 5-\u092B\u093C\u0940\u0932\u094D\u0921 \u0915\u094D\u0930\u0949\u0928 \u0915\u0947 \u0932\u093F\u090F \u0906\u0927\u093E\u0930 \u0939\u0948 \u0914\u0930 \u0938\u0947\u0915\u0902\u0921 \u092F\u093E Quartz \u092B\u0949\u0930\u094D\u092E\u0947\u091F \u092D\u0940 \u092A\u0922\u093C \u0938\u0915\u0924\u093E \u0939\u0948\u0964 \u0939\u092E\u0947\u0936\u093E \u0905\u092A\u0928\u0947 \u092A\u094D\u0930\u0926\u093E\u0924\u093E \u0915\u093E \u092B\u0949\u0930\u094D\u092E\u0947\u091F \u091C\u093E\u0901\u091A\u0947\u0902\u0964"
                 }
             },
             {
                 question: { es: "Puede explicar un cron existente?", en: "Can it explain an existing cron?", hi: "\u0915\u094D\u092F\u093E \u092F\u0939 \u092E\u094C\u091C\u0942\u0926\u093E \u0915\u094D\u0930\u0949\u0928 \u0915\u0940 \u0935\u094D\u092F\u093E\u0916\u094D\u092F\u093E \u0915\u0930 \u0938\u0915\u0924\u093E \u0939\u0948?" },
                 answer: {
-                    es: "Sí. Elige explicar cron y pega una expresión de cinco partes.",
-                    en: "Yes. Choose explain cron and paste a five-part expression.",
-                    hi: "\u0939\u093E\u0901\u0964 \u0915\u094D\u0930\u094B\u0928 \u0938\u092E\u091D\u093E\u090F\u0901 \u091A\u0941\u0928\u0947\u0902 \u0914\u0930 \u092A\u093E\u0901\u091A-\u092D\u093E\u0917 \u0935\u093E\u0932\u093E \u0905\u092D\u093F\u0935\u094D\u092F\u0915\u094D\u0924\u093F \u091A\u093F\u092A\u0915\u093E\u090F\u0901\u0964"
+                    es: "Sí. Elige explicar cron y pega una expresión de 5, 6 o 7 partes, incluyendo ejemplos con ? o segundos.",
+                    en: "Yes. Choose explain cron and paste a 5-, 6-, or 7-part expression, including examples with ? or seconds.",
+                    hi: "\u0939\u093E\u0901\u0964 \u0915\u094D\u0930\u0949\u0928 \u0938\u092E\u091D\u093E\u090F\u0901 \u091A\u0941\u0928\u0947\u0902 \u0914\u0930 ? \u092F\u093E \u0938\u0947\u0915\u0902\u0921 \u0935\u093E\u0932\u0947 5, 6 \u092F\u093E 7-\u092D\u093E\u0917 \u090F\u0915\u094D\u0938\u092A\u094D\u0930\u0947\u0936\u0928 \u091A\u093F\u092A\u0915\u093E\u090F\u0901\u0964"
                 }
             }
         ]

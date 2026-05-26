@@ -10,7 +10,30 @@ type CronOperation = "generate" | "read";
 type CronResult = {
   expression: string;
   explanation: string;
+  fields?: CronFieldDetail[];
+  formatLabel?: string;
   mode: CronMode;
+};
+
+type CronFieldDetail = {
+  label: string;
+  meaning: string;
+  value: string;
+};
+
+type ParsedCron = {
+  expression: string;
+  fields: CronFieldDetail[];
+  formatLabel: string;
+  parts: {
+    second?: string;
+    minute?: string;
+    hour?: string;
+    day?: string;
+    month?: string;
+    weekday?: string;
+    year?: string;
+  };
 };
 
 const weekdays = {
@@ -70,64 +93,216 @@ function buildCron(mode: CronMode, options: { everyMinutes: string; minute: stri
   };
 }
 
-function explainCron(expression: string, locale: Locale): CronResult | null {
-  const parts = expression.trim().split(/\s+/);
-  if (parts.length !== 5) return null;
-  const [minute, hour, day, month, weekday] = parts;
-  const normalizedExpression = parts.join(" ");
-  const isNumber = (value: string) => /^\d+$/.test(value);
-  const time = isNumber(hour) && isNumber(minute) ? formatTime(hour, minute) : "";
+function getFormatLabel(partsCount: number, locale: Locale) {
+  if (partsCount === 5) return copy[locale].fiveFields;
+  if (partsCount === 6) return copy[locale].sixFields;
+  if (partsCount === 7) return copy[locale].sevenFields;
+  return copy[locale].macroFormat;
+}
 
-  if (/^\*\/\d+$/.test(minute) && hour === "*" && day === "*" && month === "*" && weekday === "*") {
-    const everyMinutes = minute.slice(2);
+function isBroadValue(value?: string) {
+  return !value || value === "*" || value === "?" || value === "1/1" || value === "*/1" || value === "0/1";
+}
+
+function isNumber(value?: string) {
+  return typeof value === "string" && /^\d+$/.test(value);
+}
+
+function getStepValue(value?: string) {
+  return value?.match(/^(?:\*|0)\/(\d+)$/)?.[1] ?? "";
+}
+
+function isCronFieldToken(value: string) {
+  return /^[a-z0-9*?,/#LW.-]+$/i.test(value);
+}
+
+function parseCronExpression(expression: string, locale: Locale): ParsedCron | null {
+  const normalizedExpression = expression.trim().replace(/\s+/g, " ");
+  if (!normalizedExpression) return null;
+
+  if (/^@[a-z]+$/i.test(normalizedExpression)) {
+    return {
+      expression: normalizedExpression,
+      fields: [{ label: copy[locale].mode, value: normalizedExpression, meaning: describeCronMacro(normalizedExpression, locale) }],
+      formatLabel: getFormatLabel(1, locale),
+      parts: {}
+    };
+  }
+
+  const parts = normalizedExpression.split(" ");
+  if (![5, 6, 7].includes(parts.length) || parts.some((part) => !isCronFieldToken(part))) return null;
+
+  const labels = copy[locale];
+  const keys =
+    parts.length === 5
+      ? ["minute", "hour", "day", "month", "weekday"]
+      : parts.length === 6
+        ? ["second", "minute", "hour", "day", "month", "weekday"]
+        : ["second", "minute", "hour", "day", "month", "weekday", "year"];
+  const partsByKey = Object.fromEntries(keys.map((key, index) => [key, parts[index]])) as ParsedCron["parts"];
+  const fieldLabels: Record<string, string> = {
+    second: labels.second,
+    minute: labels.minute,
+    hour: labels.hour,
+    day: labels.day,
+    month: labels.month,
+    weekday: labels.weekday,
+    year: labels.year
+  };
+
+  return {
+    expression: normalizedExpression,
+    fields: keys.map((key) => ({
+      label: fieldLabels[key],
+      value: partsByKey[key as keyof ParsedCron["parts"]] ?? "",
+      meaning: describeCronField(key, partsByKey[key as keyof ParsedCron["parts"]] ?? "", locale)
+    })),
+    formatLabel: getFormatLabel(parts.length, locale),
+    parts: partsByKey
+  };
+}
+
+function describeCronMacro(value: string, locale: Locale) {
+  const lower = value.toLowerCase();
+  if (locale === "es") {
+    const macros: Record<string, string> = {
+      "@yearly": "Una vez al año",
+      "@annually": "Una vez al año",
+      "@monthly": "Una vez al mes",
+      "@weekly": "Una vez por semana",
+      "@daily": "Una vez al día",
+      "@midnight": "Una vez al día",
+      "@hourly": "Una vez por hora",
+      "@reboot": "Al iniciar el sistema"
+    };
+    return macros[lower] ?? "Macro cron";
+  }
+
+  if (locale === "hi") {
+    const macros: Record<string, string> = {
+      "@yearly": "साल में एक बार",
+      "@annually": "साल में एक बार",
+      "@monthly": "महीने में एक बार",
+      "@weekly": "सप्ताह में एक बार",
+      "@daily": "दिन में एक बार",
+      "@midnight": "दिन में एक बार",
+      "@hourly": "हर घंटे एक बार",
+      "@reboot": "सिस्टम शुरू होने पर"
+    };
+    return macros[lower] ?? "क्रॉन मैक्रो";
+  }
+
+  const macros: Record<string, string> = {
+    "@yearly": "Once a year",
+    "@annually": "Once a year",
+    "@monthly": "Once a month",
+    "@weekly": "Once a week",
+    "@daily": "Once a day",
+    "@midnight": "Once a day",
+    "@hourly": "Once an hour",
+    "@reboot": "When the system starts"
+  };
+  return macros[lower] ?? "Cron macro";
+}
+
+function describeCronField(key: string, value: string, locale: Locale) {
+  const every = locale === "es" ? "cualquier valor" : locale === "hi" ? "कोई भी मान" : "any value";
+  const noSpecific = locale === "es" ? "sin valor específico" : locale === "hi" ? "कोई विशेष मान नहीं" : "no specific value";
+  if (value === "*") return every;
+  if (value === "?") return noSpecific;
+
+  const step = value.match(/^(.*)\/(\d+)$/);
+  if (step) {
+    const amount = step[2];
+    const unit =
+      key === "second"
+        ? locale === "es" ? "segundos" : locale === "hi" ? "सेकंड" : "seconds"
+        : key === "minute"
+          ? locale === "es" ? "minutos" : locale === "hi" ? "मिनट" : "minutes"
+          : key === "hour"
+            ? locale === "es" ? "horas" : locale === "hi" ? "घंटे" : "hours"
+            : key === "day"
+              ? locale === "es" ? "días" : locale === "hi" ? "दिन" : "days"
+              : key === "month"
+                ? locale === "es" ? "meses" : locale === "hi" ? "महीने" : "months"
+                : locale === "es" ? "valores" : locale === "hi" ? "मान" : "values";
+    return locale === "es" ? `cada ${amount} ${unit}` : locale === "hi" ? `हर ${amount} ${unit}` : `every ${amount} ${unit}`;
+  }
+
+  if (value.includes(",")) return locale === "es" ? `valores ${value}` : locale === "hi" ? `${value} मान` : `values ${value}`;
+  if (value.includes("-")) return locale === "es" ? `rango ${value}` : locale === "hi" ? `${value} रेंज` : `range ${value}`;
+  return value;
+}
+
+function explainCron(expression: string, locale: Locale): CronResult | null {
+  const parsed = parseCronExpression(expression, locale);
+  if (!parsed) return null;
+  const { day, hour, minute, month, weekday, year } = parsed.parts;
+  const time = isNumber(hour) && isNumber(minute) ? formatTime(hour ?? "", minute ?? "") : "";
+  const minuteStep = getStepValue(minute);
+  const broadSchedule = isBroadValue(hour) && isBroadValue(day) && isBroadValue(month) && isBroadValue(weekday) && isBroadValue(year);
+
+  if (minuteStep && broadSchedule) {
     return {
       mode: "minutes",
-      expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta cada ${everyMinutes} minutos.` : locale === "hi" ? `हर ${everyMinutes} मिनट में चलता है.` : `Runs every ${everyMinutes} minutes.`
+      expression: parsed.expression,
+      explanation: locale === "es" ? `Se ejecuta cada ${minuteStep} minutos.` : locale === "hi" ? `हर ${minuteStep} मिनट में चलता है.` : `Runs every ${minuteStep} minutes.`,
+      fields: parsed.fields,
+      formatLabel: parsed.formatLabel
     };
   }
 
-  if (isNumber(minute) && hour === "*" && day === "*" && month === "*" && weekday === "*") {
+  if (isNumber(minute) && isBroadValue(hour) && isBroadValue(day) && isBroadValue(month) && isBroadValue(weekday) && isBroadValue(year)) {
     return {
       mode: "hourly",
-      expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta en el minuto ${minute} de cada hora.` : locale === "hi" ? `हर घंटे के ${minute}वें मिनट पर चलता है.` : `Runs at minute ${minute} of every hour.`
+      expression: parsed.expression,
+      explanation: locale === "es" ? `Se ejecuta en el minuto ${minute} de cada hora.` : locale === "hi" ? `हर घंटे के ${minute}वें मिनट पर चलता है.` : `Runs at minute ${minute} of every hour.`,
+      fields: parsed.fields,
+      formatLabel: parsed.formatLabel
     };
   }
 
-  if (isNumber(minute) && isNumber(hour) && day === "*" && month === "*" && weekday === "*") {
+  if (isNumber(minute) && isNumber(hour) && isBroadValue(day) && isBroadValue(month) && isBroadValue(weekday) && isBroadValue(year)) {
     return {
       mode: "daily",
-      expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta todos los días a las ${time}.` : locale === "hi" ? `हर दिन ${time} पर चलता है.` : `Runs every day at ${time}.`
+      expression: parsed.expression,
+      explanation: locale === "es" ? `Se ejecuta todos los días a las ${time}.` : locale === "hi" ? `हर दिन ${time} पर चलता है.` : `Runs every day at ${time}.`,
+      fields: parsed.fields,
+      formatLabel: parsed.formatLabel
     };
   }
 
-  if (isNumber(minute) && isNumber(hour) && day === "*" && month === "*" && isNumber(weekday)) {
+  if (isNumber(minute) && isNumber(hour) && isBroadValue(day) && isBroadValue(month) && isNumber(weekday) && isBroadValue(year)) {
     return {
       mode: "weekly",
-      expression: normalizedExpression,
+      expression: parsed.expression,
       explanation:
         locale === "es"
           ? `Se ejecuta cada ${weekdays.es[Number(weekday)] ?? `día ${weekday}`} a las ${time}.`
           : locale === "hi"
             ? `हर ${weekdays.hi[Number(weekday)] ?? `दिन ${weekday}`} को ${time} पर चलता है.`
-          : `Runs every ${weekdays.en[Number(weekday)] ?? `weekday ${weekday}`} at ${time}.`
+          : `Runs every ${weekdays.en[Number(weekday)] ?? `weekday ${weekday}`} at ${time}.`,
+      fields: parsed.fields,
+      formatLabel: parsed.formatLabel
     };
   }
 
-  if (isNumber(minute) && isNumber(hour) && isNumber(day) && month === "*" && weekday === "*") {
+  if (isNumber(minute) && isNumber(hour) && isNumber(day) && isBroadValue(month) && isBroadValue(weekday) && isBroadValue(year)) {
     return {
       mode: "monthly",
-      expression: normalizedExpression,
-      explanation: locale === "es" ? `Se ejecuta el día ${day} de cada mes a las ${time}.` : locale === "hi" ? `हर महीने के दिन ${day} को ${time} पर चलता है.` : `Runs on day ${day} of every month at ${time}.`
+      expression: parsed.expression,
+      explanation: locale === "es" ? `Se ejecuta el día ${day} de cada mes a las ${time}.` : locale === "hi" ? `हर महीने के दिन ${day} को ${time} पर चलता है.` : `Runs on day ${day} of every month at ${time}.`,
+      fields: parsed.fields,
+      formatLabel: parsed.formatLabel
     };
   }
 
   return {
     mode: "custom",
-    expression: normalizedExpression,
-    explanation: locale === "es" ? "Cron personalizado de 5 campos. Revisa los detalles antes de usarlo." : locale === "hi" ? "कस्टम 5-फ़ील्ड cron. उपयोग से पहले विवरण जांचें." : "Custom 5-field cron. Review the details before using it."
+    expression: parsed.expression,
+    explanation: locale === "es" ? "Cron aceptado. Revisa los campos antes de usarlo en producción." : locale === "hi" ? "क्रॉन स्वीकार किया गया. उपयोग से पहले फ़ील्ड जांचें." : "Cron accepted. Review the fields before using it in production.",
+    fields: parsed.fields,
+    formatLabel: parsed.formatLabel
   };
 }
 
@@ -141,13 +316,18 @@ function capitalizeDetail(value: string, locale: Locale) {
 }
 
 function getCronDetails(result: CronResult, text: (typeof copy)[Locale], locale: Locale) {
-  const [minute, hour, day, month, weekday] = result.expression.split(/\s+/);
+  const parts = result.expression.split(/\s+/);
+  const [minute, hour, day, month, weekday] = parts;
   const details: Array<{ label: string; value: string }> = [
     { label: text.mode, value: text.modes[result.mode] },
-    { label: text.format, value: text.fiveFields }
+    { label: text.format, value: result.formatLabel ?? text.fiveFields }
   ];
 
-  if (result.mode === "minutes") {
+  if (result.fields && (parts.length !== 5 || result.expression.startsWith("@"))) {
+    result.fields.forEach((field) => {
+      details.push({ label: field.label, value: field.value });
+    });
+  } else if (result.mode === "minutes") {
     details.push({ label: text.everyMinutes, value: `${minute.replace("*/", "")} ${text.minuteUnit}` });
   } else if (result.mode === "hourly") {
     details.push({ label: text.minute, value: minute });
@@ -373,7 +553,7 @@ export function SimpleCronGenerator() {
               <div className="case-result-item">
                 <div>
                   <span>{text.cronExpression}</span>
-                  <small>{text.fiveFields}</small>
+                  <small>{result.formatLabel ?? text.fiveFields}</small>
                   <strong>{result.expression}</strong>
                 </div>
                 <button onClick={handleCopy} type="button">
