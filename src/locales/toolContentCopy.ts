@@ -2559,5 +2559,82 @@ export const toolContentById: Record<string, ToolContent> = {
                 }
             }
         ]
+    },
+    "email-template-generator": {
+        intro: {
+            es: "Este creador de plantillas HTML de correo arma mensajes visuales para responder, solicitar, vender, agradecer o hacer seguimiento sin empezar desde cero.",
+            en: "This HTML email template generator builds visual messages for replies, requests, sales, thank-yous, and follow-ups without starting from scratch.",
+            hi: "\u092F\u0939 HTML \u0908\u092E\u0947\u0932 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u091C\u0928\u0930\u0947\u091F\u0930 \u091C\u0935\u093E\u092C, \u0905\u0928\u0941\u0930\u094B\u0927, \u0938\u0947\u0932\u094D\u0938, \u0927\u0928\u094D\u092F\u0935\u093E\u0926 \u0914\u0930 \u092B\u0949\u0932\u094B-\u0905\u092A \u0915\u0947 \u0932\u093F\u090F \u0935\u093F\u091C\u093C\u0941\u0905\u0932 \u0938\u0902\u0926\u0947\u0936 \u092C\u0928\u093E\u0924\u093E \u0939\u0948\u0964"
+        },
+        sections: [
+            {
+                title: { es: "Diseños HTML", en: "HTML layouts", hi: "HTML \u0921\u093F\u091C\u093C\u093E\u0907\u0928" },
+                body: [
+                    {
+                        es: "Puedes elegir diseño, cabecera, cuerpo, botón y footer para crear una plantilla HTML con marca, colores y vista previa.",
+                        en: "You can choose layout, header, body, button, and footer styles to create an HTML template with brand, colors, and preview.",
+                        hi: "\u0906\u092A \u092C\u094D\u0930\u093E\u0902\u0921, \u0930\u0902\u0917 \u0914\u0930 \u092A\u094D\u0930\u0940\u0935\u094D\u092F\u0942 \u0915\u0947 \u0938\u093E\u0925 HTML \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u092C\u0928\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0921\u093F\u091C\u093C\u093E\u0907\u0928, \u0939\u0947\u0921\u0930, \u092C\u0949\u0921\u0940, \u092C\u091F\u0928 \u0914\u0930 \u092B\u0941\u091F\u0930 \u091A\u0941\u0928 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
+                    },
+                    {
+                        es: "La vista previa puede actualizarse automáticamente mientras cambias campos o quedar fija si desactivas esa opción.",
+                        en: "The preview can update automatically while you change fields or stay fixed if you turn that option off.",
+                        hi: "\u092A\u094D\u0930\u0940\u0935\u094D\u092F\u0942 \u092B\u0940\u0932\u094D\u0921 \u092C\u0926\u0932\u0924\u0947 \u0938\u092E\u092F \u0905\u092A\u0928\u0947 \u0906\u092A \u0905\u092A\u0921\u0947\u091F \u0939\u094B \u0938\u0915\u0924\u093E \u0939\u0948 \u092F\u093E \u0906\u092A \u091A\u093E\u0939\u0947\u0902 \u0924\u094B \u0938\u094D\u0925\u093F\u0930 \u0930\u0939 \u0938\u0915\u0924\u093E \u0939\u0948\u0964"
+                    }
+                ]
+            },
+            {
+                title: { es: "Casos de uso", en: "Use cases", hi: "\u0909\u092A\u092F\u094B\u0917 \u0915\u0947 \u092E\u093E\u092E\u0932\u0947" },
+                body: [
+                    {
+                        es: "Sirve para solicitudes, seguimientos, propuestas, recordatorios, agradecimientos y disculpas con tono formal, amable o directo.",
+                        en: "Use it for requests, follow-ups, proposals, reminders, thank-yous, and apologies in a formal, friendly, or direct tone.",
+                        hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0905\u0928\u0941\u0930\u094B\u0927, \u092B\u0949\u0932\u094B-\u0905\u092A, \u092A\u094D\u0930\u0938\u094D\u0924\u093E\u0935, \u0930\u093F\u092E\u093E\u0907\u0902\u0921\u0930, \u0927\u0928\u094D\u092F\u0935\u093E\u0926 \u0914\u0930 \u0915\u094D\u0937\u092E\u093E \u0915\u0947 \u0932\u093F\u090F \u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u092E\u093F\u0924\u094D\u0930\u0935\u0924 \u092F\u093E \u0938\u0940\u0927\u0947 \u091F\u094B\u0928 \u092E\u0947\u0902 \u0915\u0930\u0947\u0902\u0964"
+                    },
+                    {
+                        es: "Antes de enviarlo, revisa nombres, enlaces, condiciones comerciales y cualquier dato sensible.",
+                        en: "Before sending it, review names, links, business terms, and any sensitive data.",
+                        hi: "\u092D\u0947\u091C\u0928\u0947 \u0938\u0947 \u092A\u0939\u0932\u0947 \u0928\u093E\u092E, \u0932\u093F\u0902\u0915, \u0935\u094D\u092F\u093E\u0935\u0938\u093E\u092F\u093F\u0915 \u0936\u0930\u094D\u0924\u0947\u0902 \u0914\u0930 \u0915\u093F\u0938\u0940 \u092D\u0940 \u0938\u0902\u0935\u0947\u0926\u0928\u0936\u0940\u0932 \u0921\u0947\u091F\u093E \u0915\u0940 \u091C\u093E\u0902\u091A \u0915\u0930\u0947\u0902\u0964"
+                    }
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: {
+                    es: "¿Puedo generar correos HTML?",
+                    en: "Can I generate HTML emails?",
+                    hi: "\u0915\u094D\u092F\u093E \u092E\u0948\u0902 HTML \u0908\u092E\u0947\u0932 \u092C\u0928\u093E \u0938\u0915\u0924\u093E \u0939\u0942\u0901?"
+                },
+                answer: {
+                    es: "S\u00ED. Puedes agregar marca, logo, color, bot\u00F3n, cabecera, footer y vista previa antes de copiar el c\u00F3digo.",
+                    en: "Yes. You can add brand, logo, color, button, header, footer, and preview before copying the code.",
+                    hi: "\u0939\u093E\u0901\u0964 \u0915\u094B\u0921 \u0915\u0949\u092A\u0940 \u0915\u0930\u0928\u0947 \u0938\u0947 \u092A\u0939\u0932\u0947 \u092C\u094D\u0930\u093E\u0902\u0921, \u0932\u094B\u0917\u094B, \u0930\u0902\u0917, \u092C\u091F\u0928, \u0939\u0947\u0921\u0930, \u092B\u0941\u091F\u0930 \u0914\u0930 \u092A\u094D\u0930\u0940\u0935\u094D\u092F\u0942 \u091C\u094B\u0921\u093C \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
+                }
+            },
+            {
+                question: {
+                    es: "¿El correo se envía automáticamente?",
+                    en: "Is the email sent automatically?",
+                    hi: "\u0915\u094D\u092F\u093E \u0908\u092E\u0947\u0932 \u0905\u092A\u0928\u0947 \u0906\u092A \u092D\u0947\u091C\u093E \u091C\u093E\u0924\u093E \u0939\u0948?"
+                },
+                answer: {
+                    es: "No. La herramienta solo genera el HTML para que lo revises, copies, descargues y pegues en tu editor o plataforma de correo.",
+                    en: "No. The tool only generates the HTML so you can review, copy, download, and paste it into your email editor or platform.",
+                    hi: "\u0928\u0939\u0940\u0902\u0964 \u091F\u0942\u0932 \u0938\u093F\u0930\u094D\u092B HTML \u092C\u0928\u093E\u0924\u093E \u0939\u0948 \u0924\u093E\u0915\u093F \u0906\u092A \u0909\u0938\u0947 \u091C\u093E\u0902\u091A\u0947\u0902, \u0915\u0949\u092A\u0940 \u0915\u0930\u0947\u0902, \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0947\u0902 \u0914\u0930 \u0905\u092A\u0928\u0947 \u0908\u092E\u0947\u0932 \u090F\u0921\u093F\u091F\u0930 \u092E\u0947\u0902 \u092A\u0947\u0938\u094D\u091F \u0915\u0930\u0947\u0902\u0964"
+                }
+            },
+            {
+                question: {
+                    es: "¿El HTML funciona igual en todos los clientes de correo?",
+                    en: "Does the HTML work the same in every email client?",
+                    hi: "\u0915\u094D\u092F\u093E HTML \u0939\u0930 \u0908\u092E\u0947\u0932 \u0915\u094D\u0932\u093E\u0907\u0902\u091F \u092E\u0947\u0902 \u090F\u0915 \u091C\u0948\u0938\u093E \u091A\u0932\u0924\u093E \u0939\u0948?"
+                },
+                answer: {
+                    es: "No siempre. Usamos estilos inline para mejorar compatibilidad, pero conviene probar el correo en el cliente real antes de enviarlo.",
+                    en: "Not always. We use inline styles for better compatibility, but you should test the email in the real client before sending.",
+                    hi: "\u0939\u092E\u0947\u0936\u093E \u0928\u0939\u0940\u0902\u0964 \u092C\u0947\u0939\u0924\u0930 \u0938\u0902\u0917\u0924\u0924\u093E \u0915\u0947 \u0932\u093F\u090F \u0907\u0928\u0932\u093E\u0907\u0928 \u0938\u094D\u091F\u093E\u0907\u0932 \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0932\u0947\u0915\u093F\u0928 \u092D\u0947\u091C\u0928\u0947 \u0938\u0947 \u092A\u0939\u0932\u0947 \u0930\u093F\u092F\u0932 \u0915\u094D\u0932\u093E\u0907\u0902\u091F \u092E\u0947\u0902 \u091F\u0947\u0938\u094D\u091F \u0915\u0930\u0928\u093E \u0905\u091A\u094D\u091B\u093E \u0939\u0948\u0964"
+                }
+            }
+        ]
     }
 };

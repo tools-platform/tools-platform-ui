@@ -462,6 +462,18 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
             en: "Generate a formal, brief, or grateful resignation letter with name, role, company, dates, and optional reason. Copy and edit the draft.",
             hi: "\u0928\u093E\u092E, \u092A\u0926, \u0915\u0902\u092A\u0928\u0940, \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0914\u0930 \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0915\u093E\u0930\u0923 \u0915\u0947 \u0938\u093E\u0925 \u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u090F\u0901\u0964 \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u0915\u0949\u092A\u0940 \u0914\u0930 \u0938\u0902\u092A\u093E\u0926\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
+    },
+    "email-template-generator": {
+        title: {
+            es: "Creador de plantillas HTML de correo online",
+            en: "HTML Email Template Generator Online",
+            hi: "\u0911\u0928\u0932\u093E\u0907\u0928 HTML \u0908\u092E\u0947\u0932 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u091C\u0928\u0930\u0947\u091F\u0930"
+        },
+        description: {
+            es: "Crea plantillas HTML de correo con dise\u00F1os, cabeceras, cuerpo, bot\u00F3n, footer, colores, marca, vista previa y copia r\u00E1pida.",
+            en: "Create HTML email templates with layouts, headers, body styles, button, footer, colors, branding, preview, and quick copy.",
+            hi: "\u0921\u093F\u091C\u093C\u093E\u0907\u0928, \u0939\u0947\u0921\u0930, \u092C\u0949\u0921\u0940, \u092C\u091F\u0928, \u092B\u0941\u091F\u0930, \u0930\u0902\u0917, \u092C\u094D\u0930\u093E\u0902\u0921, \u092A\u094D\u0930\u0940\u0935\u094D\u092F\u0942 \u0914\u0930 \u0915\u0949\u092A\u0940 \u0915\u0947 \u0938\u093E\u0925 HTML \u0908\u092E\u0947\u0932 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u092C\u0928\u093E\u090F\u0901\u0964"
+        }
     }
 };
 export const homeSeo: SeoCopy & {

@@ -469,5 +469,17 @@ export const toolCopy: Record<string, CatalogText> = {
             en: "Create an editable resignation letter draft with a formal, brief, or grateful tone.",
             hi: "\u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0936\u0948\u0932\u0940 \u092E\u0947\u0902 \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u092C\u0928\u093E\u090F\u0901\u0964"
         }
+    },
+    "email-template-generator": {
+        name: {
+            es: "Creador de plantillas de correo",
+            en: "Email Template Generator",
+            hi: "\u0908\u092E\u0947\u0932 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u091C\u0928\u0930\u0947\u091F\u0930"
+        },
+        description: {
+            es: "Dise\u00F1a plantillas HTML de correo con cabecera, cuerpo, bot\u00F3n, footer y vista previa.",
+            en: "Design HTML email templates with header, body, button, footer, and preview.",
+            hi: "\u0939\u0947\u0921\u0930, \u092C\u0949\u0921\u0940, \u092C\u091F\u0928, \u092B\u0941\u091F\u0930 \u0914\u0930 \u092A\u094D\u0930\u0940\u0935\u094D\u092F\u0942 \u0915\u0947 \u0938\u093E\u0925 HTML \u0908\u092E\u0947\u0932 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F \u0921\u093F\u091C\u093C\u093E\u0907\u0928 \u0915\u0930\u0947\u0902\u0964"
+        }
     }
 };

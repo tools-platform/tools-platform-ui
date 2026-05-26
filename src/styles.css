@@ -1950,6 +1950,87 @@ select {
   outline: none;
 }
 
+.field > .email-color-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--background);
+  padding: 7px 12px;
+  font-weight: 400;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field > .email-color-input:focus-within {
+  border-color: color-mix(in oklch, var(--primary), transparent 28%);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary), transparent 88%);
+}
+
+.field > .email-color-input input {
+  min-height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.field > .email-color-input input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.field > .email-color-input input[type="color"] {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  cursor: pointer;
+  padding: 3px;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+.field > .email-color-input input[type="color"]::-webkit-color-swatch-wrapper {
+  border-radius: 8px;
+  padding: 0;
+}
+
+.field > .email-color-input input[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: 8px;
+}
+
+.field > .email-color-input input[type="color"]::-moz-color-swatch {
+  border: 0;
+  border-radius: 8px;
+}
+
+.field > .email-color-input input.email-color-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  height: 40px;
+  min-height: 40px;
+  color: var(--foreground);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0;
+}
+
+.email-template-controls .work-entry__body > .field + .field,
+.email-template-controls .work-entry__body > .field + .form-grid,
+.email-template-controls .work-entry__body > .form-grid + .field,
+.email-template-controls .work-entry__body > .form-grid + .form-grid {
+  margin-top: 18px;
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2512,6 +2593,12 @@ select {
   padding: 0 14px;
 }
 
+.html-preview-wide__actions .secondary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
 .html-preview-live-toggle {
   display: inline-flex;
   align-items: center;
@@ -2606,6 +2693,10 @@ select {
   padding: 16px;
 }
 
+.html-preview-wide__grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .html-preview-wide__pane {
   display: flex;
   min-height: 0;
@@ -2637,6 +2728,21 @@ select {
   font: 14px/1.65 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   padding: 18px;
   resize: none;
+}
+
+.email-template-expanded-controls {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.email-template-expanded-controls .email-template-controls > .field:first-child {
+  margin-top: 0;
+}
+
+.email-template-expanded-controls .email-template-controls > .work-entry-list {
+  margin-top: 14px;
 }
 
 .html-preview-wide__frame-wrap {
@@ -3929,6 +4035,31 @@ select {
 
   .case-result-item button {
     width: 100%;
+  }
+
+  .text-result__header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .text-result__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    width: 100%;
+  }
+
+  .text-result__header button {
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .result-action-menu {
+    justify-self: end;
+  }
+
+  .result-action-menu summary {
+    width: 40px;
   }
 
   .html-preview-frame-wrap {

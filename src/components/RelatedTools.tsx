@@ -40,7 +40,9 @@ const relatedToolIds: Record<string, string[]> = {
   "json-formatter": ["uuid-generator", "html-formatter-minifier", "base64-converter"],
   "uuid-generator": ["hash-generator", "json-formatter", "base64-converter"],
   "hash-generator": ["uuid-generator", "json-formatter", "simple-cron-generator"],
-  "simple-cron-generator": ["json-formatter", "uuid-generator", "hash-generator"]
+  "simple-cron-generator": ["json-formatter", "uuid-generator", "hash-generator"],
+  "resignation-letter-generator": ["email-template-generator", "find-replace-text", "word-character-counter"],
+  "email-template-generator": ["resignation-letter-generator", "find-replace-text", "html-preview"]
 };
 
 type RelatedToolsProps = {

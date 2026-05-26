@@ -166,6 +166,11 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     es: ["carta de renuncia", "modelo de carta de renuncia", "renuncia voluntaria"],
     en: ["resignation letter generator", "resignation letter template", "formal resignation letter"],
     hi: ["त्यागपत्र जनरेटर", "इस्तीफा पत्र टेम्पलेट", "औपचारिक त्यागपत्र"]
+  },
+  "email-template-generator": {
+    es: ["plantillas de correo", "crear correo formal", "email HTML con vista previa"],
+    en: ["email template generator", "formal email template", "HTML email preview"],
+    hi: ["\u0908\u092E\u0947\u0932 \u091F\u0947\u092E\u094D\u092A\u0932\u0947\u091F", "\u0914\u092A\u091A\u093E\u0930\u093F\u0915 \u0908\u092E\u0947\u0932", "HTML \u0908\u092E\u0947\u0932 \u092A\u094D\u0930\u0940\u0935\u094D\u092F\u0942"]
   }
 };
 

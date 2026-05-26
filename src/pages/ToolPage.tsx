@@ -9,6 +9,7 @@ import { DaysBetweenDatesCalculator } from "../components/calculators/DaysBetwee
 import { DaysUntilDateCalculator } from "../components/calculators/DaysUntilDateCalculator";
 import { DuplicateCounter } from "../components/calculators/DuplicateCounter";
 import { EmployeeSalaryEquivalentCalculator } from "../components/calculators/EmployeeSalaryEquivalentCalculator";
+import { EmailTemplateGenerator } from "../components/calculators/EmailTemplateGenerator";
 import { EmploymentSettlementColombiaCalculator } from "../components/calculators/EmploymentSettlementColombiaCalculator";
 import { ExactAgeCalculator } from "../components/calculators/ExactAgeCalculator";
 import { FindReplaceText } from "../components/calculators/FindReplaceText";
@@ -171,6 +172,8 @@ export function ToolPage({ slug }: ToolPageProps) {
         <SimpleCronGenerator />
       ) : tool.id === "resignation-letter-generator" ? (
         <ResignationLetterGenerator />
+      ) : tool.id === "email-template-generator" ? (
+        <EmailTemplateGenerator />
       ) : (
         <div className="tool-placeholder">
           <Clock3 size={28} strokeWidth={2.05} />

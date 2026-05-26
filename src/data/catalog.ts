@@ -20,6 +20,7 @@ import {
   LetterText,
   ListChecks,
   ArrowDownAZ,
+  Mail,
   Percent,
   Repeat2,
   Replace,
@@ -389,5 +390,13 @@ export const tools: ToolSummary[] = [
     categoryId: "documents",
     status: "published",
     Icon: FileText
+  },
+  {
+    id: "email-template-generator",
+    slug: "email-template-generator",
+    ...toolCopy["email-template-generator"],
+    categoryId: "documents",
+    status: "published",
+    Icon: Mail
   }
 ];
