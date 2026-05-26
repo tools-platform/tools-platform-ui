@@ -6,6 +6,8 @@ import { localeLabels, supportedLocales } from "../locales/config";
 import { BrandLogo } from "./BrandLogo";
 import { siteHeaderCopy } from "../locales/uiCopy";
 
+const NAV_CATEGORY_VISIBLE_LIMIT = 3;
+
 type LanguageOption = {
   value: Locale;
   label: string;
@@ -16,6 +18,7 @@ export function SiteHeader() {
   const { locale, localizePath, switchLocalePath } = useLocale();
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [showAllCategoryTools, setShowAllCategoryTools] = useState(false);
   const [hoverEnabled, setHoverEnabled] = useState(false);
   const closeTimer = useRef<number | null>(null);
   const languageCloseTimer = useRef<number | null>(null);
@@ -116,41 +119,66 @@ export function SiteHeader() {
     <div className="nav-dropdown__panel">
       <div className="nav-dropdown__header">
         <span>{copy.categoriesTitle}</span>
-        <small>{copy.categoriesHint}</small>
+        <div className="nav-dropdown__header-side">
+          <small>{copy.categoriesHint}</small>
+          <button
+            aria-pressed={showAllCategoryTools}
+            className={showAllCategoryTools ? "nav-dropdown__view-toggle is-active" : "nav-dropdown__view-toggle"}
+            onClick={() => setShowAllCategoryTools((current) => !current)}
+            role="switch"
+            type="button"
+          >
+            <span className="nav-dropdown__switch-track" aria-hidden="true">
+              <span className="nav-dropdown__switch-thumb" />
+            </span>
+            <span>{copy.showAllTools}</span>
+          </button>
+        </div>
       </div>
 
       <div className="nav-dropdown__grid">
-        {groupedTools.map((category) => (
-          <section className="nav-category" key={category.id}>
-            <a className="nav-category__title" href={localizePath("/#categories")}>
-              <span>
-                <category.Icon size={16} strokeWidth={2.15} />
-              </span>
-              {getLocalizedText(category.name, locale)}
-            </a>
+        {groupedTools.map((category) => {
+          const visibleTools = showAllCategoryTools ? category.tools : category.tools.slice(0, NAV_CATEGORY_VISIBLE_LIMIT);
+          const hiddenToolsCount = category.tools.length - visibleTools.length;
+          const categoryPath = localizePath(`/categories/${category.id}`);
 
-            <div className="nav-category__tools">
-              {category.tools.map((tool) => (
-                <a
-                  aria-disabled={tool.status === "draft" ? true : undefined}
-                  className={tool.status === "draft" ? "nav-tool is-draft" : "nav-tool"}
-                  href={tool.status === "published" ? localizePath(`/tools/${tool.slug}`) : localizePath("/#tools")}
-                  key={tool.id}
-                  onClick={(event) => {
-                    if (tool.status === "draft") {
-                      event.preventDefault();
-                    }
-                  }}
-                  tabIndex={tool.status === "draft" ? -1 : undefined}
-                >
-                  <tool.Icon size={14} strokeWidth={2.05} />
-                  <span>{getLocalizedText(tool.name, locale)}</span>
-                  {tool.status === "draft" ? <small>{copy.comingSoonShort}</small> : null}
-                </a>
-              ))}
-            </div>
-          </section>
-        ))}
+          return (
+            <section className="nav-category" key={category.id}>
+              <a className="nav-category__title" href={categoryPath}>
+                <span>
+                  <category.Icon size={16} strokeWidth={2.15} />
+                </span>
+                {getLocalizedText(category.name, locale)}
+              </a>
+
+              <div className="nav-category__tools">
+                {visibleTools.map((tool) => (
+                  <a
+                    aria-disabled={tool.status === "draft" ? true : undefined}
+                    className={tool.status === "draft" ? "nav-tool is-draft" : "nav-tool"}
+                    href={tool.status === "published" ? localizePath(`/tools/${tool.slug}`) : localizePath("/#tools")}
+                    key={tool.id}
+                    onClick={(event) => {
+                      if (tool.status === "draft") {
+                        event.preventDefault();
+                      }
+                    }}
+                    tabIndex={tool.status === "draft" ? -1 : undefined}
+                  >
+                    <tool.Icon size={14} strokeWidth={2.05} />
+                    <span>{getLocalizedText(tool.name, locale)}</span>
+                    {tool.status === "draft" ? <small>{copy.comingSoonShort}</small> : null}
+                  </a>
+                ))}
+                {hiddenToolsCount > 0 ? (
+                  <a className="nav-category__more" href={categoryPath}>
+                    {copy.moreTools.replace("{category}", getLocalizedText(category.name, locale))}
+                  </a>
+                ) : null}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );

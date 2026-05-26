@@ -42,10 +42,30 @@ function readToolRoutes(catalogSource) {
   return toolRoutes;
 }
 
+function readCategoryRoutes(catalogSource) {
+  const categoryRoutes = [];
+  const categoriesStart = catalogSource.indexOf("export const categories");
+  const toolsStart = catalogSource.indexOf("export const tools");
+  const categoriesSource =
+    categoriesStart >= 0 && toolsStart > categoriesStart
+      ? catalogSource.slice(categoriesStart, toolsStart)
+      : catalogSource;
+  const categoryPattern = /\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?\n\s*\}/g;
+  let match;
+
+  while ((match = categoryPattern.exec(categoriesSource)) !== null) {
+    categoryRoutes.push({ id: match[1] });
+  }
+
+  return categoryRoutes;
+}
+
 const { defaultLocale, supportedLocales } = await loadTsModule("src/locales/config.ts");
 const { homeSeo, legalSeo, toolSeoById } = await loadTsModule("src/locales/seoCopy.ts");
 const { toolContentById } = await loadTsModule("src/locales/toolContentCopy.ts");
+const { categoryCopy } = await loadTsModule("src/locales/catalogCopy.ts");
 const catalogSource = await readFile(path.join(projectRoot, "src/data/catalog.ts"), "utf8");
+const categoryRoutes = readCategoryRoutes(catalogSource);
 const toolRoutes = readToolRoutes(catalogSource);
 
 const localizedPages = [
@@ -55,6 +75,23 @@ const localizedPages = [
     title: page.title,
     description: page.description
   })),
+  ...categoryRoutes.map((category) => {
+    const copy = categoryCopy[category.id];
+
+    if (!copy) {
+      throw new Error(`Missing category copy for category id "${category.id}".`);
+    }
+
+    return {
+      path: `/categories/${category.id}`,
+      title: {
+        es: `Herramientas de ${copy.name.es} | Tools Platforms`,
+        en: `${copy.name.en} Tools | Tools Platforms`,
+        hi: `${copy.name.hi} \u0909\u092A\u0915\u0930\u0923 | Tools Platforms`
+      },
+      description: copy.description
+    };
+  }),
   ...toolRoutes.map((tool) => {
     const seo = toolSeoById[tool.id];
 
@@ -279,7 +316,14 @@ function renderSitemapUrl(page, locale) {
         : page.path === "/privacy" || page.path === "/terms"
           ? "yearly"
           : "monthly";
-  const priority = page.path === "/" ? "1.0" : page.path.startsWith("/tools/") ? "0.8" : "0.3";
+  const priority =
+    page.path === "/"
+      ? "1.0"
+      : page.path.startsWith("/tools/")
+        ? "0.8"
+        : page.path.startsWith("/categories/")
+          ? "0.6"
+          : "0.3";
 
   return [
     "  <url>",

@@ -101,6 +101,9 @@ export const siteHeaderCopy = {
         categoriesTitle: "Herramientas por categoría",
         categoriesHint: "Elige una disponible o revisa lo que viene.",
         comingSoonShort: "Próx.",
+        moreTools: "Ver más herramientas de {category}",
+        showAllTools: "Ver todo",
+        showLessTools: "Ver menos",
         mobileCategories: "Abrir categorías",
         languageLabel: "Idioma",
         mobileLanguage: "Abrir menú de idioma"
@@ -115,6 +118,9 @@ export const siteHeaderCopy = {
         categoriesTitle: "Tools by category",
         categoriesHint: "Pick a live tool or see what is coming next.",
         comingSoonShort: "Soon",
+        moreTools: "See more {category} tools",
+        showAllTools: "Show all",
+        showLessTools: "Show less",
         mobileCategories: "Open categories",
         languageLabel: "Language",
         mobileLanguage: "Open language menu"
@@ -129,6 +135,9 @@ export const siteHeaderCopy = {
         categoriesTitle: "\u0936\u094D\u0930\u0947\u0923\u0940 \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u0909\u092A\u0915\u0930\u0923",
         categoriesHint: "\u0915\u094B\u0908 \u0932\u093E\u0907\u0935 \u091F\u0942\u0932 \u091A\u0941\u0928\u0947\u0902 \u092F\u093E \u0926\u0947\u0916\u0947\u0902 \u0915\u093F \u0906\u0917\u0947 \u0915\u094D\u092F\u093E \u0939\u094B\u0928\u0947 \u0935\u093E\u0932\u093E \u0939\u0948\u0964",
         comingSoonShort: "\u091C\u0932\u094D\u0926 \u0939\u0940",
+        moreTools: "{category} \u0915\u0947 \u0914\u0930 \u0909\u092A\u0915\u0930\u0923 \u0926\u0947\u0916\u0947\u0902",
+        showAllTools: "\u0938\u092D\u0940 \u0926\u093F\u0916\u093E\u090F\u0901",
+        showLessTools: "\u0915\u092E \u0926\u093F\u0916\u093E\u090F\u0901",
         mobileCategories: "\u0936\u094D\u0930\u0947\u0923\u093F\u092F\u093E\u0901 \u0916\u094B\u0932\u0947\u0902",
         languageLabel: "\u092D\u093E\u0937\u093E",
         mobileLanguage: "\u092D\u093E\u0937\u093E \u092E\u0947\u0928\u0942 \u0916\u094B\u0932\u0947\u0902"
@@ -289,6 +298,38 @@ export const homePageCopy = {
         availableTools: "\u0909\u092A\u0915\u0930\u0923 \u0909\u092A\u0932\u092C\u094D\u0927 \u0939\u0948\u0902"
     }
 };
+export const categoryPageCopy = {
+    es: {
+        back: "Todas las herramientas",
+        kicker: "Categoría",
+        countSingular: "herramienta",
+        countPlural: "herramientas",
+        emptySearchTitle: "No encontramos herramientas",
+        emptySearchCopy: "Prueba otra búsqueda dentro de {category}.",
+        notFoundTitle: "Categoría no encontrada",
+        notFoundCopy: "Esta categoría todavía no existe en el catálogo."
+    },
+    en: {
+        back: "All tools",
+        kicker: "Category",
+        countSingular: "tool",
+        countPlural: "tools",
+        emptySearchTitle: "No tools found",
+        emptySearchCopy: "Try another search inside {category}.",
+        notFoundTitle: "Category not found",
+        notFoundCopy: "This category does not exist in the catalog yet."
+    },
+    hi: {
+        back: "\u0938\u092D\u0940 \u0909\u092A\u0915\u0930\u0923",
+        kicker: "\u0936\u094D\u0930\u0947\u0923\u0940",
+        countSingular: "\u0909\u092A\u0915\u0930\u0923",
+        countPlural: "\u0909\u092A\u0915\u0930\u0923",
+        emptySearchTitle: "\u0915\u094B\u0908 \u0909\u092A\u0915\u0930\u0923 \u0928\u0939\u0940\u0902 \u092E\u093F\u0932\u093E",
+        emptySearchCopy: "{category} \u0915\u0947 \u0905\u0902\u0926\u0930 \u0915\u094B\u0908 \u0905\u0928\u094D\u092F \u0916\u094B\u091C \u0906\u091C\u093C\u092E\u093E\u090F\u0901\u0964",
+        notFoundTitle: "\u0936\u094D\u0930\u0947\u0923\u0940 \u0928\u0939\u0940\u0902 \u092E\u093F\u0932\u0940",
+        notFoundCopy: "\u092F\u0939 \u0936\u094D\u0930\u0947\u0923\u0940 \u0905\u092D\u0940 \u0915\u0948\u091F\u0932\u0949\u0917 \u092E\u0947\u0902 \u092E\u094C\u091C\u0942\u0926 \u0928\u0939\u0940\u0902 \u0939\u0948."
+    }
+};
 export const toolPageCopy = {
     es: {
         back: "Todas las herramientas",
@@ -312,4 +353,3 @@ export const toolPageCopy = {
         preparedCopy: "\u091C\u092C \u092F\u0939 \u091F\u0942\u0932 \u0932\u093E\u0907\u0935 \u0939\u094B\u0917\u093E \u0924\u094B \u0939\u092E \u092B\u0949\u0930\u094D\u092E, \u090F\u0915\u094D\u0936\u0928 \u092C\u091F\u0928, \u092A\u0930\u093F\u0923\u093E\u092E \u0914\u0930 \u090F\u0938\u0908\u0913 \u0938\u093E\u092E\u0917\u094D\u0930\u0940 \u092F\u0939\u093E\u0902 \u0930\u0916\u0947\u0902\u0917\u0947\u0964"
     }
 };
-

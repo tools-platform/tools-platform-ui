@@ -1,7 +1,8 @@
-import { tools } from "./catalog";
+import { categories, tools } from "./catalog";
 import { toolContentById } from "./toolContent";
 import { homeSeo, legalSeo, toolSeoById } from "../locales/seoCopy";
 import { getLocalizedText, localizePath, type Locale, type LocalizedText } from "../i18n";
+import { defaultLocale, supportedLocales } from "../locales/config";
 
 const siteName = "Tools Platforms";
 const siteUrl = "https://toolsplatforms.com";
@@ -51,6 +52,37 @@ export function getToolSeo(slug: string, locale: Locale): SeoMetadata {
   };
 }
 
+export function getCategorySeo(categoryId: string, locale: Locale): SeoMetadata {
+  const category = categories.find((item) => item.id === categoryId);
+
+  if (!category) {
+    return {
+      title: {
+        es: "Categoría no encontrada | Tools Platforms",
+        en: "Category Not Found | Tools Platforms",
+        hi: "\u0936\u094D\u0930\u0947\u0923\u0940 \u0928\u0939\u0940\u0902 \u092E\u093F\u0932\u0940 | Tools Platforms"
+      },
+      description: {
+        es: "Esta categoría todavía no está disponible en Tools Platforms.",
+        en: "This category is not available yet on Tools Platforms.",
+        hi: "\u092F\u0939 \u0936\u094D\u0930\u0947\u0923\u0940 \u0905\u092D\u0940 Tools Platforms \u092A\u0930 \u0909\u092A\u0932\u092C\u094D\u0927 \u0928\u0939\u0940\u0902 \u0939\u0948."
+      },
+      canonicalPath: "/",
+      robots: "noindex, follow"
+    };
+  }
+
+  return {
+    title: {
+      es: `Herramientas de ${category.name.es} | Tools Platforms`,
+      en: `${category.name.en} Tools | Tools Platforms`,
+      hi: `${category.name.hi} \u0909\u092A\u0915\u0930\u0923 | Tools Platforms`
+    },
+    description: category.description,
+    canonicalPath: `/categories/${category.id}`
+  };
+}
+
 function setMetaAttribute(selector: string, attribute: "content" | "href", value: string) {
   const element = document.head.querySelector(selector);
 
@@ -85,8 +117,6 @@ export function applySeo(metadata: SeoMetadata, locale: Locale) {
   const description = getLocalizedText(metadata.description, locale);
   const canonicalPath = localizePath(metadata.canonicalPath, locale);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
-  const spanishUrl = `${siteUrl}${localizePath(metadata.canonicalPath, "es")}`;
-  const englishUrl = `${siteUrl}${localizePath(metadata.canonicalPath, "en")}`;
 
   document.documentElement.lang = locale;
   document.title = title;
@@ -98,9 +128,18 @@ export function applySeo(metadata: SeoMetadata, locale: Locale) {
   setMetaAttribute('meta[property="og:type"]', "content", metadata.type ?? "website");
   setMetaAttribute('meta[property="og:url"]', "content", canonicalUrl);
   setMetaAttribute('meta[property="og:site_name"]', "content", siteName);
-  setMetaAttribute('link[rel="alternate"][hreflang="es"]', "href", spanishUrl);
-  setMetaAttribute('link[rel="alternate"][hreflang="en"]', "href", englishUrl);
-  setMetaAttribute('link[rel="alternate"][hreflang="x-default"]', "href", spanishUrl);
+  supportedLocales.forEach((supportedLocale) => {
+    setMetaAttribute(
+      `link[rel="alternate"][hreflang="${supportedLocale}"]`,
+      "href",
+      `${siteUrl}${localizePath(metadata.canonicalPath, supportedLocale)}`
+    );
+  });
+  setMetaAttribute(
+    'link[rel="alternate"][hreflang="x-default"]',
+    "href",
+    `${siteUrl}${localizePath(metadata.canonicalPath, defaultLocale)}`
+  );
 }
 
 function removeStructuredData() {

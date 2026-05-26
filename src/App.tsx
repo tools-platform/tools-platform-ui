@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from "react";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
-import { applySeo, applyToolStructuredData, clearStructuredData, getToolSeo, homeSeo, legalSeo } from "./data/seo";
+import { applySeo, applyToolStructuredData, clearStructuredData, getCategorySeo, getToolSeo, homeSeo, legalSeo } from "./data/seo";
 import { getLocaleFromPathname, LocaleProvider, stripLocalePrefix, type Locale } from "./i18n";
+import { CategoryPage } from "./pages/CategoryPage";
 import { HomePage } from "./pages/HomePage";
 import { LegalPage, type LegalPageType } from "./pages/LegalPage";
 import { ToolPage } from "./pages/ToolPage";
@@ -12,9 +13,14 @@ export function App() {
     const locale = getLocaleFromPathname(window.location.pathname);
     const normalizedPath = stripLocalePrefix(window.location.pathname).replace(/\/+$/, "") || "/";
     const toolMatch = normalizedPath.match(/^\/tools\/([^/]+)$/);
+    const categoryMatch = normalizedPath.match(/^\/categories\/([^/]+)$/);
 
     if (toolMatch?.[1]) {
       return { locale, type: "tool" as const, slug: toolMatch[1] };
+    }
+
+    if (categoryMatch?.[1]) {
+      return { locale, type: "category" as const, categoryId: categoryMatch[1] };
     }
 
     if (normalizedPath === "/privacy") {
@@ -41,6 +47,12 @@ export function App() {
       return;
     }
 
+    if (route.type === "category") {
+      applySeo(getCategorySeo(route.categoryId, route.locale), route.locale);
+      clearStructuredData();
+      return;
+    }
+
     applySeo(homeSeo, route.locale);
     clearStructuredData();
   }, [route]);
@@ -51,6 +63,7 @@ export function App() {
         <SiteHeader />
         <main>
           {route.type === "tool" ? <ToolPage slug={route.slug} /> : null}
+          {route.type === "category" ? <CategoryPage categoryId={route.categoryId} /> : null}
           {route.type === "legal" ? <LegalPage page={route.page} /> : null}
           {route.type === "home" ? <HomePage /> : null}
         </main>
