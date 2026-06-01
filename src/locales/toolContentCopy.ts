@@ -1076,8 +1076,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "days-until-date": {
         intro: {
-            es: "Cuenta cuántos días faltan para una fecha futura, evento, entrega o plazo personal.",
-            en: "Use this days until calculator to count how many days are left until a future date, event, delivery, or personal deadline.",
+            es: "Cuenta cuántos días faltan para una fecha futura, evento, entrega o plazo personal, con resultado claro en días y semanas.",
+            en: "Use this days until calculator to count how many days are left until a future date, event, delivery, or personal deadline, like a simple days till date counter.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u092D\u0935\u093F\u0937\u094D\u092F \u0915\u0940 \u0924\u093E\u0930\u0940\u0916, \u0918\u091F\u0928\u093E, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0917\u0924 \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902\u0964"
         },
         sections: [
@@ -1100,8 +1100,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Usos comunes", en: "Common uses", hi: "\u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0909\u092A\u092F\u094B\u0917" },
                 body: [
                     {
-                        es: "Sirve para saber cuántos días faltan para una fecha, un viaje, un cumpleaños, una entrega o un evento importante.",
-                        en: "It helps you know how many days are left until a date, trip, birthday, delivery, or important event, similar to a days till calculator.",
+                        es: "Sirve para saber cuántos días faltan para una fecha, un viaje, un cumpleaños, una entrega, un examen o un evento importante.",
+                        en: "It helps you know how many days are left until a date, trip, birthday, delivery, exam, or important event, similar to a days till calculator.",
                         hi: "\u092F\u0939 \u0906\u092A\u0915\u094B \u092F\u0939 \u091C\u093E\u0928\u0928\u0947 \u092E\u0947\u0902 \u092E\u0926\u0926 \u0915\u0930\u0924\u093E \u0939\u0948 \u0915\u093F \u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u092F\u093E\u0924\u094D\u0930\u093E, \u091C\u0928\u094D\u092E\u0926\u093F\u0928, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u092E\u0939\u0924\u094D\u0935\u092A\u0942\u0930\u094D\u0923 \u0918\u091F\u0928\u093E \u092E\u0947\u0902 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
@@ -1116,8 +1116,8 @@ export const toolContentById: Record<string, ToolContent> = {
             {
                 question: { es: "¿Cómo saber cuántos días faltan para una fecha?", en: "How do I know how many days are left until a date?", hi: "\u092E\u0941\u091D\u0947 \u0915\u0948\u0938\u0947 \u092A\u0924\u093E \u091A\u0932\u0947\u0917\u093E \u0915\u093F \u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916 \u092E\u0947\u0902 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u091A\u0947 \u0939\u0948\u0902?" },
                 answer: {
-                    es: "Selecciona la fecha objetivo y la herramienta cuenta los días calendario desde hoy hasta esa fecha.",
-                    en: "Select the target date and the tool counts calendar days from today until that date.",
+                    es: "Selecciona la fecha objetivo y la herramienta cuenta los días calendario desde hoy hasta esa fecha, además de semanas completas y días restantes.",
+                    en: "Select the target date and the tool counts calendar days from today until that date, plus full weeks and remaining days.",
                     hi: "\u0932\u0915\u094D\u0937\u094D\u092F \u0924\u093F\u0925\u093F \u0915\u093E \u091A\u092F\u0928 \u0915\u0930\u0947\u0902 \u0914\u0930 \u091F\u0942\u0932 \u0906\u091C \u0938\u0947 \u0909\u0938 \u0924\u093F\u0925\u093F \u0924\u0915 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                 }
             },

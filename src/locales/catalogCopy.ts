@@ -249,8 +249,8 @@ export const toolCopy: Record<string, CatalogText> = {
     "days-until-date": {
         name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator", hi: "\u0926\u093F\u0928\u093E\u0902\u0915 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0924\u0915 \u0915\u0947 \u0926\u093F\u0928" },
         description: {
-            es: "Cuenta los días restantes para eventos importantes o entregas.",
-            en: "Count the days left until an event or deadline.",
+            es: "Calcula días restantes para eventos, entregas o fechas clave.",
+            en: "Count days left until events, deadlines, or key dates.",
             hi: "\u0915\u093F\u0938\u0940 \u0918\u091F\u0928\u093E \u092F\u093E \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u092C\u091A\u0947 \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
         }
     },

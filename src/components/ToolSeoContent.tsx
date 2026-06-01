@@ -72,8 +72,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["exact age calculator", "age in years months days", "calculate age from birth date"]
   },
   "days-until-date": {
-    es: ["cuántos días faltan para una fecha", "contador de días restantes", "días hasta un evento"],
-    en: ["days until calculator", "days till calculator", "days left counter"],
+    es: ["cuántos días faltan para una fecha", "días hasta una fecha", "contador de días restantes"],
+    en: ["days until date calculator", "days till calculator", "how many days until"],
     hi: ["कितने दिन बाकी हैं", "दिन बाकी कैलकुलेटर", "घटना तक दिन"]
   },
   "unit-converter": {
