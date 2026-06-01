@@ -1282,7 +1282,7 @@ export const toolContentById: Record<string, ToolContent> = {
                     },
                     {
                         es: "Es útil para títulos, documentos, formularios, correos, publicaciones, limpiar texto copiado y tareas repetitivas de edición.",
-                        en: "It is useful for titles, documents, forms, emails, posts, and repetitive editing tasks.",
+                        en: "It is useful for titles, documents, forms, emails, posts, copied text cleanup, and repetitive editing tasks.",
                         hi: "\u092F\u0939 \u0936\u0940\u0930\u094D\u0937\u0915\u094B\u0902, \u0926\u0938\u094D\u0924\u093E\u0935\u0947\u091C\u093C\u094B\u0902, \u092A\u094D\u0930\u092A\u0924\u094D\u0930\u094B\u0902, \u0908\u092E\u0947\u0932, \u092A\u094B\u0938\u094D\u091F \u0914\u0930 \u0926\u094B\u0939\u0930\u093E\u090F \u091C\u093E\u0928\u0947 \u0935\u093E\u0932\u0947 \u0938\u0902\u092A\u093E\u0926\u0928 \u0915\u093E\u0930\u094D\u092F\u094B\u0902 \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940 \u0939\u0948\u0964"
                     }
                 ]

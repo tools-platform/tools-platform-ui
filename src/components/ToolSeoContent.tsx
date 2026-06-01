@@ -81,8 +81,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["unit converter", "kg to lb converter", "kilometers to miles converter"]
   },
   "text-case-converter": {
-    es: ["convertidor de mayúsculas", "minúsculas a mayúsculas", "capitalizar letras"],
-    en: ["lower case to upper case", "capital letter converter", "text case converter"],
+    es: ["minúsculas a mayúsculas", "mayúsculas a minúsculas", "convertidor de mayúsculas"],
+    en: ["lower case to upper case", "uppercase to lowercase", "capital letter converter"],
     hi: ["लोअरकेस से अपरकेस", "कैपिटल लेटर कनवर्टर", "टेक्स्ट केस कनवर्टर"]
   },
   "duplicate-counter": {
