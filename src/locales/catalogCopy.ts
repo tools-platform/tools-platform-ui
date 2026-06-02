@@ -161,9 +161,9 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Suma horas trabajadas por turno, día o semana.",
-            en: "Add worked hours by shift, day, or week.",
-            hi: "\u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0914\u0930 \u0936\u093F\u092B\u094D\u091F\u094B\u0902 \u092E\u0947\u0902 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
+            es: "Suma horas de trabajo, descansos y turnos.",
+            en: "Add work hours, breaks, and shifts.",
+            hi: "\u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u092C\u094D\u0930\u0947\u0915 \u0914\u0930 \u0936\u093F\u092B\u094D\u091F \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
         }
     },
     "hourly-salary": {

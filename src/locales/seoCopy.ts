@@ -141,14 +141,14 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "worked-hours": {
         title: {
-            es: "Calculadora de horas trabajadas | Sumar horas de trabajo",
-            en: "Worked Hours Calculator | Add Work Hours Online",
+            es: "Calculadora de horas trabajadas | Horas de trabajo",
+            en: "Worked Hours Calculator | Time Card Calculator",
             hi: "\u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 | \u0915\u093E\u0930\u094D\u092F \u0915\u0947 \u0918\u0902\u091F\u0947 \u0911\u0928\u0932\u093E\u0907\u0928 \u091C\u094B\u0921\u093C\u0947\u0902"
         },
         description: {
-            es: "Calcula y suma horas trabajadas por día, turno o semana. Sirve para sumar horas de trabajo, calcular jornadas laborales y ver el tiempo total.",
-            en: "Calculate and add worked hours by day, shift, or week. Useful as a worked hours calculator, time worked calculator, and time card helper.",
-            hi: "\u0926\u093F\u0928, \u092A\u093E\u0932\u0940 \u092F\u093E \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0914\u0930 \u091C\u094B\u0921\u093C\u0947\u0902\u0964 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u0936\u094D\u0930\u092E \u0938\u092E\u092F \u0914\u0930 \u0915\u0941\u0932 \u0938\u092E\u092F \u091F\u094D\u0930\u0948\u0915\u093F\u0902\u0917 \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940\u0964"
+            es: "Calcula horas trabajadas por día, turno o semana. Suma horas de trabajo, descansos y jornadas laborales para saber el tiempo total.",
+            en: "Calculate worked hours by day, shift, or week. Add work hours, breaks, and time card entries to see the total time worked.",
+            hi: "\u0926\u093F\u0928, \u0936\u093F\u092B\u094D\u091F \u092F\u093E \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0928\u093F\u0915\u093E\u0932\u0947\u0902\u0964 \u0915\u0941\u0932 \u0938\u092E\u092F \u0926\u0947\u0916\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u092C\u094D\u0930\u0947\u0915 \u0914\u0930 \u091F\u093E\u0907\u092E \u0915\u093E\u0930\u094D\u0921 \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
         }
     },
     "freelance-rate": {

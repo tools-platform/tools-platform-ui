@@ -43,9 +43,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["वेतन वृद्धि कैलकुलेटर", "पे इंक्रीज कैलकुलेटर", "प्रतिशत वेतन वृद्धि"]
   },
   "worked-hours": {
-    es: ["calculadora de horas trabajadas", "sumar horas de trabajo", "cómo calcular horas de trabajo"],
-    en: ["worked hours calculator", "time worked calculator", "time card calculator"],
-    hi: ["काम के घंटे कैलकुलेटर", "कार्य घंटे जोड़ें", "काम का समय गणना"]
+    es: ["calculadora de horas trabajadas", "calculadora de horas de trabajo", "sumar horas de trabajo"],
+    en: ["worked hours calculator", "time card calculator", "work hours calculator"],
+    hi: ["काम के घंटे कैलकुलेटर", "काम के घंटे जोड़ें", "टाइम कार्ड कैलकुलेटर"]
   },
   "hourly-salary": {
     es: ["calculadora de salario por hora", "valor hora salario mensual", "salario mensual dividido en horas"],

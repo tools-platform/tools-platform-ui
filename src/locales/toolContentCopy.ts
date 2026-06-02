@@ -801,18 +801,18 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "worked-hours": {
         intro: {
-            es: "Esta calculadora de horas trabajadas suma jornadas por día, turno, semana o periodo para saber cuánto tiempo trabajaste en total y cómo calcular horas de trabajo.",
-            en: "This worked hours calculator adds daily, shift, weekly, or period work entries so you can see the total time worked.",
-            hi: "\u092F\u0939 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0926\u0948\u0928\u093F\u0915, \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u092F\u093E \u0905\u0935\u0927\u093F \u0915\u093E\u0930\u094D\u092F \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0924\u093E \u0939\u0948 \u0924\u093E\u0915\u093F \u0906\u092A \u0915\u093E\u092E \u0915\u093F\u090F \u0917\u090F \u0915\u0941\u0932 \u0938\u092E\u092F \u0915\u094B \u0926\u0947\u0916 \u0938\u0915\u0947\u0902\u0964"
+            es: "Calcula horas trabajadas por día, turno, semana o periodo para saber cuánto tiempo trabajaste en total.",
+            en: "Calculate worked hours by day, shift, week, or period to see the total time worked.",
+            hi: "\u0926\u093F\u0928, \u0936\u093F\u092B\u094D\u091F, \u0938\u092A\u094D\u0924\u093E\u0939 \u092F\u093E \u0905\u0935\u0927\u093F \u0915\u0947 \u0905\u0928\u0941\u0938\u093E\u0930 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0928\u093F\u0915\u093E\u0932\u0947\u0902 \u0914\u0930 \u0915\u0941\u0932 \u0915\u093E\u092E \u0915\u093F\u092F\u093E \u0939\u0941\u0906 \u0938\u092E\u092F \u0926\u0947\u0916\u0947\u0902\u0964"
         },
         sections: [
             {
                 title: { es: "Qué puedes calcular", en: "What you can calculate", hi: "\u0906\u092A \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902" },
                 body: [
                     {
-                        es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización para sumar horas trabajadas, horas laborales, turnos y descansos sin hacer cuentas manuales.",
-                        en: "Add one or more work entries with date, start time, and end time to add worked hours, labor hours, shifts, and breaks without manual math.",
-                        hi: "\u092E\u0948\u0928\u094D\u092F\u0941\u0905\u0932 \u0917\u0923\u093F\u0924 \u0915\u0947 \u092C\u093F\u0928\u093E \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u0936\u094D\u0930\u092E \u0918\u0902\u091F\u0947 \u092F\u093E \u0936\u093F\u092B\u094D\u091F \u091C\u094B\u0921\u093C\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0926\u093F\u0928\u093E\u0902\u0915, \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0938\u092E\u092F \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0938\u092E\u092F \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u092F\u093E \u0905\u0927\u093F\u0915 \u0915\u093E\u0930\u094D\u092F \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
+                        es: "Agrega jornadas con fecha, hora de inicio, hora de finalización y descanso para sumar horas de trabajo sin hacer cuentas manuales.",
+                        en: "Add entries with date, start time, end time, and break time to calculate work hours without manual math.",
+                        hi: "\u092C\u093F\u0928\u093E \u0939\u093E\u0925 \u0938\u0947 \u0939\u093F\u0938\u093E\u092C \u0932\u0917\u093E\u090F \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u091C\u094B\u0921\u093C\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0924\u093E\u0930\u0940\u0916, \u0936\u0941\u0930\u0942 \u0938\u092E\u092F, \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0938\u092E\u092F \u0914\u0930 \u092C\u094D\u0930\u0947\u0915 \u0935\u093E\u0932\u0940 \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
                     },
                     {
                         es: "La herramienta suma los minutos y los presenta como horas totales, minutos totales y tiempo trabajado por cada jornada.",
@@ -825,9 +825,9 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Para qué sirve", en: "What it is for", hi: "\u092F\u0939 \u0915\u093F\u0938 \u0932\u093F\u090F \u0939\u0948" },
                 body: [
                     {
-                        es: "Es útil para calcular mis horas de trabajo, sumar horas trabajadas, preparar reportes, cobrar por hora, controlar tiempo y revisar jornadas laborales.",
-                        en: "Use it as a work hours calculator for reports, hourly billing, time card review, personal time tracking, and work shift checks.",
-                        hi: "\u092F\u0939 \u092E\u0947\u0930\u0947 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u0930\u093F\u092A\u094B\u0930\u094D\u091F, \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u092C\u093F\u0932\u093F\u0902\u0917, \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0917\u0924 \u0938\u092E\u092F \u091F\u094D\u0930\u0948\u0915\u093F\u0902\u0917 \u0914\u0930 \u0915\u093E\u0930\u094D\u092F \u0936\u093F\u092B\u094D\u091F \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940 \u0939\u0948\u0964"
+                        es: "Es útil para calcular horas de trabajo, sumar turnos, preparar reportes, cobrar por hora, controlar tiempo y revisar jornadas laborales.",
+                        en: "Use it to calculate work hours, add shifts, prepare reports, charge by the hour, track time, and review work schedules.",
+                        hi: "\u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0928\u093F\u0915\u093E\u0932\u0928\u0947, \u0936\u093F\u092B\u094D\u091F \u091C\u094B\u0921\u093C\u0928\u0947, \u0930\u093F\u092A\u094B\u0930\u094D\u091F \u0924\u0948\u092F\u093E\u0930 \u0915\u0930\u0928\u0947, \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0936\u0941\u0932\u094D\u0915 \u0924\u092F \u0915\u0930\u0928\u0947, \u0938\u092E\u092F \u091F\u094D\u0930\u0948\u0915 \u0915\u0930\u0928\u0947 \u0914\u0930 \u0915\u093E\u0930\u094D\u092F \u0936\u0947\u0921\u094D\u092F\u0942\u0932 \u0926\u0947\u0916\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902\u0964"
                     },
                     {
                         es: "No evalúa recargos, horas extra legales, festivos ni reglas laborales especiales.",
