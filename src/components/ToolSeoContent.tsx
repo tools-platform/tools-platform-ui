@@ -13,8 +13,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["Colombia net salary calculator", "gross to net salary Colombia", "take-home pay Colombia"]
   },
   "gross-salary-colombia": {
-    es: ["calcular salario bruto desde neto", "salario bruto Colombia", "neto quincenal a salario bruto"],
-    en: ["gross salary from net pay", "Colombia gross salary calculator", "biweekly net to gross salary"]
+    es: ["calcular salario bruto desde neto", "neto a bruto Colombia", "neto quincenal a salario bruto"],
+    en: ["Colombia gross salary calculator", "net salary to gross pay", "biweekly net to gross salary"]
   },
   "employment-settlement-colombia": {
     es: ["calculadora de liquidación laboral", "a cuánto equivale la liquidación", "calcular liquidación Colombia"],

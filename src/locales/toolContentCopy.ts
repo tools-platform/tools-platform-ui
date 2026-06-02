@@ -79,8 +79,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "gross-salary-colombia": {
         intro: {
-            es: "Esta calculadora estima el salario bruto mensual en Colombia a partir del neto que recibes mensual o quincenal.",
-            en: "This calculator estimates gross monthly salary in Colombia from the net amount you receive monthly or biweekly.",
+            es: "Esta calculadora estima el salario bruto mensual en Colombia desde el neto que recibes mensual o quincenal.",
+            en: "This calculator estimates monthly gross salary in Colombia from the net amount you receive monthly or biweekly.",
             hi: "\u092F\u0939 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E \u092E\u0947\u0902 \u0906\u092A\u0915\u094B \u092E\u093E\u0938\u093F\u0915 \u092F\u093E \u0926\u094D\u0935\u093F\u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0939\u094B\u0928\u0947 \u0935\u093E\u0932\u0940 \u0936\u0941\u0926\u094D\u0927 \u0930\u093E\u0936\u093F \u0938\u0947 \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0924\u093E \u0939\u0948\u0964"
         },
         sections: [
@@ -88,8 +88,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Parte del salario neto recibido y busca el salario bruto mensual aproximado que, después de salud, pensión y otros descuentos, produce ese neto.",
-                        en: "It starts from the received net salary and estimates the gross monthly salary that produces that net amount after health, pension, and other deductions.",
+                        es: "Parte del neto que recibes y calcula el bruto aproximado necesario para llegar a ese pago después de salud, pensión y descuentos aplicables.",
+                        en: "It starts from the net amount you receive and estimates the gross salary needed to reach that pay after health, pension, and applicable deductions.",
                         hi: "\u092F\u0939 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0938\u0947 \u0936\u0941\u0930\u0942 \u0939\u094B\u0924\u093E \u0939\u0948 \u0914\u0930 \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0924\u093E \u0939\u0948 \u091C\u094B \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F, \u092A\u0947\u0902\u0936\u0928 \u0914\u0930 \u0905\u0928\u094D\u092F \u0915\u091F\u094C\u0924\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u093E\u0926 \u0909\u0938 \u0936\u0941\u0926\u094D\u0927 \u0930\u093E\u0936\u093F \u0915\u093E \u0909\u0924\u094D\u092A\u093E\u0926\u0928 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
@@ -103,8 +103,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Cuándo usarla", en: "When to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u092C \u0915\u0930\u0928\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Úsala cuando solo sabes cuánto te consignan o cuánto recibes quincenalmente y quieres aproximar cuál es tu salario bruto mensual.",
-                        en: "Use it when you only know how much is deposited or how much you receive biweekly and want to estimate your gross monthly salary.",
+                        es: "Úsala cuando solo sabes cuánto te consignan al mes o a la quincena y necesitas aproximar tu salario bruto para una oferta, contrato o comparación laboral.",
+                        en: "Use it when you only know the amount deposited monthly or biweekly and need to estimate gross salary for an offer, contract, or job comparison.",
                         hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0924\u092C \u0915\u0930\u0947\u0902 \u091C\u092C \u0906\u092A \u0915\u0947\u0935\u0932 \u092F\u0939 \u091C\u093E\u0928\u0924\u0947 \u0939\u094B\u0902 \u0915\u093F \u0915\u093F\u0924\u0928\u093E \u091C\u092E\u093E \u0915\u093F\u092F\u093E \u0917\u092F\u093E \u0939\u0948 \u092F\u093E \u0906\u092A \u092A\u094D\u0930\u0924\u093F \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u093F\u0924\u0928\u093E \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0905\u092A\u0928\u0947 \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u093E \u091A\u093E\u0939\u0924\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
@@ -118,8 +118,8 @@ export const toolContentById: Record<string, ToolContent> = {
         faqs: [
             {
                 question: {
-                    es: "¿Cómo calcular mi salario bruto si sé mi neto?",
-                    en: "How do I calculate gross salary if I know my net pay?",
+                    es: "¿Cómo calcular salario bruto desde neto?",
+                    en: "How do I calculate gross salary from net pay?",
                     hi: "\u092F\u0926\u093F \u092E\u0941\u091D\u0947 \u0905\u092A\u0928\u093E \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u092A\u0924\u093E \u0939\u0948 \u0924\u094B \u092E\u0948\u0902 \u0938\u0915\u0932 \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?"
                 },
                 answer: {

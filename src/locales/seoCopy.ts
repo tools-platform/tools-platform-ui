@@ -21,13 +21,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "gross-salary-colombia": {
         title: {
-            es: "Calculadora de salario bruto Colombia | Desde neto",
-            en: "Gross Salary Calculator (Colombia) | From Net Pay",
+            es: "Calculadora de salario bruto Colombia | Neto a bruto",
+            en: "Gross Salary Calculator Colombia | Net to Gross",
             hi: "\u0938\u0915\u0932 \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 (\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E) | \u0928\u0947\u091F \u092A\u0947 \u0938\u0947"
         },
         description: {
-            es: "Calcula el salario bruto mensual aproximado desde el neto que recibes mensual o quincenal en Colombia, con salud, pensión y descuentos de nómina.",
-            en: "Estimate gross monthly salary from the net amount you receive monthly or biweekly in Colombia, including health, pension, and payroll deductions.",
+            es: "Calcula salario bruto mensual desde el neto que recibes mensual o quincenal en Colombia. Incluye salud, pensión, solidaridad y auxilio si aplica.",
+            en: "Calculate monthly gross salary from net monthly or biweekly pay in Colombia. Includes health, pension, solidarity fund, and allowance when applicable.",
             hi: "\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u092E\u0947\u0902 \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F, \u092A\u0947\u0902\u0936\u0928 \u0914\u0930 \u092A\u0947\u0930\u094B\u0932 \u0915\u091F\u094C\u0924\u0940 \u0938\u0939\u093F\u0924 \u0906\u092A\u0915\u094B \u092E\u093E\u0938\u093F\u0915 \u092F\u093E \u0926\u094D\u0935\u093F\u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0939\u094B\u0928\u0947 \u0935\u093E\u0932\u0940 \u0936\u0941\u0926\u094D\u0927 \u0930\u093E\u0936\u093F \u0938\u0947 \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u090F\u0902\u0964"
         }
     },
