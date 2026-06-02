@@ -285,13 +285,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "random-text-generator": {
         title: {
-            es: "Generador de texto aleatorio online | Texto de prueba",
-            en: "Random Text Generator Online | Sample Text",
+            es: "Generador de texto aleatorio | Texto de prueba online",
+            en: "Random Text Generator | Generate Random Text Online",
             hi: "\u0930\u0948\u0902\u0921\u092E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u091C\u0947\u0928\u0930\u0947\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0928\u092E\u0942\u0928\u093E \u092A\u093E\u0920"
         },
         description: {
-            es: "Genera texto aleatorio online con palabras, frases, párrafos o listas. Elige texto natural o Lorem ipsum en español e inglés.",
-            en: "Generate random text online with words, sentences, paragraphs, or lists. Choose natural text or Lorem ipsum in English and Spanish.",
+            es: "Genera texto aleatorio online para pruebas, diseños, formularios o listas. Crea palabras, frases, párrafos y Lorem ipsum.",
+            en: "Generate random text online for tests, designs, forms, and lists. Create random words, sentences, paragraphs, and Lorem ipsum.",
             hi: "\u0936\u092C\u094D\u0926\u094B\u0902, \u0935\u093E\u0915\u094D\u092F\u094B\u0902, \u0905\u0928\u0941\u091A\u094D\u091B\u0947\u0926\u094B\u0902 \u092F\u093E \u0938\u0942\u091A\u093F\u092F\u094B\u0902 \u0915\u0947 \u0938\u093E\u0925 \u0911\u0928\u0932\u093E\u0907\u0928 \u092F\u093E\u0926\u0943\u091A\u094D\u091B\u093F\u0915 \u092A\u093E\u0920 \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\u0964 \u0905\u0902\u0917\u094D\u0930\u0947\u091C\u0940 \u0914\u0930 \u0938\u094D\u092A\u0947\u0928\u093F\u0936 \u092E\u0947\u0902 \u092A\u094D\u0930\u093E\u0915\u0943\u0924\u093F\u0915 \u092A\u093E\u0920 \u092F\u093E \u0932\u094B\u0930\u0947\u092E \u0907\u092A\u094D\u0938\u092E \u091A\u0941\u0928\u0947\u0902\u0964"
         }
     },

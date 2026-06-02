@@ -1615,8 +1615,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "random-text-generator": {
         intro: {
-            es: "Genera texto aleatorio para pruebas, formularios, diseños, hojas de cálculo o contenido temporal sin usar IA ni enviar datos a un servidor.",
-            en: "Generate random text for tests, forms, designs, spreadsheets, or temporary content without using AI or sending data to a server.",
+            es: "Genera texto aleatorio para pruebas, formularios, diseños, hojas de cálculo o contenido temporal. Crea palabras, frases, párrafos y listas sin usar IA.",
+            en: "Generate random text for tests, forms, designs, spreadsheets, or temporary content. Create random words, sentences, paragraphs, and lists without using AI.",
             hi: "\u090F\u0906\u0908 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u093F\u090F \u092C\u093F\u0928\u093E \u092F\u093E \u0938\u0930\u094D\u0935\u0930 \u092A\u0930 \u0921\u0947\u091F\u093E \u092D\u0947\u091C\u0947 \u092C\u093F\u0928\u093E \u092A\u0930\u0940\u0915\u094D\u0937\u0923, \u092B\u0949\u0930\u094D\u092E, \u0921\u093F\u091C\u093C\u093E\u0907\u0928, \u0938\u094D\u092A\u094D\u0930\u0947\u0921\u0936\u0940\u091F \u092F\u093E \u0905\u0938\u094D\u0925\u093E\u092F\u0940 \u0938\u093E\u092E\u0917\u094D\u0930\u0940 \u0915\u0947 \u0932\u093F\u090F \u092F\u093E\u0926\u0943\u091A\u094D\u091B\u093F\u0915 \u092A\u093E\u0920 \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\u0964"
         },
         sections: [
@@ -1624,8 +1624,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué puedes generar", en: "What you can generate", hi: "\u0906\u092A \u0915\u094D\u092F\u093E \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902" },
                 body: [
                     {
-                        es: "Puedes crear palabras, frases, párrafos o listas. La herramienta permite elegir entre texto natural desde bancos locales o Lorem ipsum tradicional.",
-                        en: "You can create words, sentences, paragraphs, or lists. The tool lets you choose between natural text from local banks or traditional Lorem ipsum.",
+                        es: "Puedes crear palabras aleatorias, frases, párrafos o listas. La herramienta permite elegir entre texto natural desde bancos locales o Lorem ipsum tradicional.",
+                        en: "You can create random words, sentences, paragraphs, or lists. The tool lets you choose between natural sample text from local banks or traditional Lorem ipsum.",
                         hi: "\u0906\u092A \u0936\u092C\u094D\u0926, \u0935\u093E\u0915\u094D\u092F, \u092A\u0948\u0930\u093E\u0917\u094D\u0930\u093E\u092B \u092F\u093E \u0938\u0942\u091A\u093F\u092F\u093E\u0901 \u092C\u0928\u093E \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964 \u092F\u0939 \u091F\u0942\u0932 \u0906\u092A\u0915\u094B \u0938\u094D\u0925\u093E\u0928\u0940\u092F \u092C\u0948\u0902\u0915\u094B\u0902 \u092F\u093E \u092A\u093E\u0930\u0902\u092A\u0930\u093F\u0915 \u0932\u094B\u0930\u0947\u092E \u0907\u092A\u094D\u0938\u092E \u0938\u0947 \u092A\u094D\u0930\u093E\u0915\u0943\u0924\u093F\u0915 \u092A\u093E\u0920 \u0915\u0947 \u092C\u0940\u091A \u091A\u092F\u0928 \u0915\u0930\u0928\u0947 \u0926\u0947\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
@@ -1656,7 +1656,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 question: { es: "¿Cómo generar texto aleatorio online?", en: "How do I generate random text online?", hi: "\u092E\u0948\u0902 \u0911\u0928\u0932\u093E\u0907\u0928 \u092F\u093E\u0926\u0943\u091A\u094D\u091B\u093F\u0915 \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u0948\u0938\u0947 \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0942\u0902?" },
                 answer: {
                     es: "Elige si quieres texto natural o Lorem ipsum, selecciona palabras, frases, párrafos o lista, define la cantidad y pulsa generar texto.",
-                    en: "Choose natural text or Lorem ipsum, select words, sentences, paragraphs, or list, set the quantity, and press generate text.",
+                    en: "Choose natural text or Lorem ipsum, select random words, sentences, paragraphs, or list, set the quantity, and press generate text.",
                     hi: "\u092A\u094D\u0930\u093E\u0915\u0943\u0924\u093F\u0915 \u092A\u093E\u0920 \u092F\u093E \u0932\u094B\u0930\u0947\u092E \u0907\u092A\u094D\u0938\u092E \u091A\u0941\u0928\u0947\u0902, \u0936\u092C\u094D\u0926\u094B\u0902, \u0935\u093E\u0915\u094D\u092F\u094B\u0902, \u0905\u0928\u0941\u091A\u094D\u091B\u0947\u0926\u094B\u0902 \u092F\u093E \u0938\u0942\u091A\u0940 \u0915\u093E \u091A\u092F\u0928 \u0915\u0930\u0947\u0902, \u092E\u093E\u0924\u094D\u0930\u093E \u0928\u093F\u0930\u094D\u0927\u093E\u0930\u093F\u0924 \u0915\u0930\u0947\u0902, \u0914\u0930 \u092A\u093E\u0920 \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902 \u0926\u092C\u093E\u090F\u0901\u0964"
                 }
             },

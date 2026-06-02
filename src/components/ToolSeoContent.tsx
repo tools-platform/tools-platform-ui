@@ -103,8 +103,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["secure password generator", "random password generator", "strong password generator"]
   },
   "random-text-generator": {
-    es: ["generador de texto aleatorio", "texto de prueba online", "generar lorem ipsum"],
-    en: ["random text generator", "sample text generator", "lorem ipsum generator"]
+    es: ["texto aleatorio", "generador de texto aleatorio", "texto de prueba online"],
+    en: ["random text", "random text generator", "sample text generator"]
   },
   "alphabetical-line-sorter": {
     es: ["ordenar líneas alfabéticamente", "ordenar lista A-Z", "ordenar texto online"],

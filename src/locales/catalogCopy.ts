@@ -349,8 +349,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0930\u0948\u0902\u0921\u092E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u091C\u0947\u0928\u0930\u0947\u091F\u0930"
         },
         description: {
-            es: "Genera palabras, frases, párrafos o listas con texto natural o Lorem ipsum.",
-            en: "Generate words, sentences, paragraphs, or lists with natural text or Lorem ipsum.",
+            es: "Genera texto aleatorio con palabras, frases, párrafos o listas.",
+            en: "Generate random text with words, sentences, paragraphs, or lists.",
             hi: "\u092A\u094D\u0930\u093E\u0915\u0943\u0924\u093F\u0915 \u092A\u093E\u0920 \u092F\u093E \u0932\u094B\u0930\u0947\u092E \u0907\u092A\u094D\u0938\u092E \u0915\u0947 \u0938\u093E\u0925 \u0936\u092C\u094D\u0926, \u0935\u093E\u0915\u094D\u092F, \u092A\u0948\u0930\u093E\u0917\u094D\u0930\u093E\u092B \u092F\u093E \u0938\u0942\u091A\u093F\u092F\u093E\u0901 \u092C\u0928\u093E\u090F\u0901\u0964"
         }
     },
