@@ -33,13 +33,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "hourly-salary": {
         title: {
-            es: "Calculadora salario por hora Colombia | Valor hora",
-            en: "Hourly Salary Calculator (Colombia) | Hourly Pay",
+            es: "Calculadora de salario por hora | Valor hora Colombia",
+            en: "Hourly Salary Calculator | Monthly Salary to Hourly",
             hi: "\u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 (\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E) | \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0935\u0947\u0924\u0928"
         },
         description: {
-            es: "Calcula cuánto ganas por hora en Colombia desde tu salario mensual, jornada legal vigente, horas semanales reales o referencia de dividir entre 240.",
-            en: "Calculate how much you earn per hour in Colombia from a monthly salary, legal workweek, or custom weekly hours.",
+            es: "Convierte salario mensual a valor por hora en Colombia. Calcula cuánto ganas por hora con jornada legal, horas semanales o referencia de 240 horas.",
+            en: "Convert monthly salary to hourly pay in Colombia. Calculate how much you earn per hour with legal weekly hours, custom hours, or a 240-hour reference.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u092E\u0947\u0902 \u0906\u092A \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928, \u0915\u093E\u0928\u0942\u0928\u0940 \u0915\u093E\u0930\u094D\u092F\u0938\u092A\u094D\u0924\u093E\u0939, \u092F\u093E \u0915\u0938\u094D\u091F\u092E \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u0918\u0902\u091F\u094B\u0902 \u0938\u0947 \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u0947 \u0915\u093F\u0924\u0928\u093E \u0915\u092E\u093E\u0924\u0947 \u0939\u0948\u0902\u0964"
         }
     },

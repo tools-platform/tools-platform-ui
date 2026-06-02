@@ -144,8 +144,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "hourly-salary": {
         intro: {
-            es: "Esta calculadora de salario por hora convierte un salario mensual en cuánto ganas por hora usando la jornada legal vigente en Colombia o una jornada personalizada.",
-            en: "This hourly salary calculator converts a monthly salary into how much you earn per hour using Colombia's current legal workweek or a custom schedule.",
+            es: "Esta calculadora de salario por hora convierte salario mensual a valor hora en Colombia usando la jornada legal vigente, horas semanales reales o referencia de 240 horas.",
+            en: "This hourly salary calculator converts monthly salary to hourly pay in Colombia using the current legal workweek, custom weekly hours, or a 240-hour reference.",
             hi: "\u092F\u0939 \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u094B \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u0915\u0947 \u0935\u0930\u094D\u0924\u092E\u093E\u0928 \u0915\u093E\u0928\u0942\u0928\u0940 \u0915\u093E\u0930\u094D\u092F \u0938\u092A\u094D\u0924\u093E\u0939 \u092F\u093E \u0915\u0938\u094D\u091F\u092E \u0936\u0947\u0921\u094D\u092F\u0942\u0932 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0915\u0947 \u0906\u092A \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u0947 \u0915\u093F\u0924\u0928\u093E \u0915\u092E\u093E\u0924\u0947 \u0939\u0948\u0902, \u092E\u0947\u0902 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
         },
         sections: [
@@ -153,8 +153,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Transforma un salario mensual en valor por hora y por día laboral para ayudarte a responder cuánto gano por hora y comparar ofertas o cambios de jornada.",
-                        en: "It turns a monthly salary into hourly and daily pay so you can answer how much you earn per hour and compare offers or schedule changes.",
+                        es: "Transforma un salario mensual en valor por hora, por día laboral y promedio quincenal para comparar ofertas, cambios de jornada o pagos reales.",
+                        en: "It turns a monthly salary into hourly pay, daily pay, and biweekly averages so you can compare offers, schedule changes, or real pay.",
                         hi: "\u092F\u0939 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u094B \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0914\u0930 \u0926\u0948\u0928\u093F\u0915 \u0935\u0947\u0924\u0928 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0926\u0947\u0924\u093E \u0939\u0948 \u0924\u093E\u0915\u093F \u0906\u092A \u0909\u0924\u094D\u0924\u0930 \u0926\u0947 \u0938\u0915\u0947\u0902 \u0915\u093F \u0906\u092A \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u0947 \u0915\u093F\u0924\u0928\u093E \u0915\u092E\u093E\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0911\u092B\u093C\u0930 \u092F\u093E \u0936\u0947\u0921\u094D\u092F\u0942\u0932 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u0928\u094B\u0902 \u0915\u0940 \u0924\u0941\u0932\u0928\u093E \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
@@ -188,8 +188,8 @@ export const toolContentById: Record<string, ToolContent> = {
                     hi: "\u092E\u0941\u091D\u0947 \u0915\u0948\u0938\u0947 \u092A\u0924\u093E \u091A\u0932\u0947\u0917\u093E \u0915\u093F \u092E\u0948\u0902 \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u0947 \u0915\u093F\u0924\u0928\u093E \u0915\u092E\u093E\u0924\u093E \u0939\u0942\u0901?"
                 },
                 answer: {
-                    es: "Ingresa tu salario mensual y las horas semanales de trabajo. La herramienta divide el salario entre las horas estimadas del mes para mostrar el valor por hora.",
-                    en: "Enter your monthly salary and weekly work hours. The tool divides salary by estimated monthly hours to show hourly pay.",
+                    es: "Ingresa tu salario mensual y las horas semanales de trabajo. La herramienta convierte ese salario a horas mensuales estimadas y muestra el valor por hora.",
+                    en: "Enter your monthly salary and weekly work hours. The tool converts that salary into estimated monthly hours and shows hourly pay.",
                     hi: "\u0905\u092A\u0928\u093E \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0914\u0930 \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u0915\u093E\u0930\u094D\u092F \u0918\u0902\u091F\u0947 \u0926\u0930\u094D\u091C \u0915\u0930\u0947\u0902\u0964 \u0909\u092A\u0915\u0930\u0923 \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0935\u0947\u0924\u0928 \u0926\u093F\u0916\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0935\u0947\u0924\u0928 \u0915\u094B \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u092E\u093E\u0938\u093F\u0915 \u0918\u0902\u091F\u094B\u0902 \u0938\u0947 \u0935\u093F\u092D\u093E\u091C\u093F\u0924 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                 }
             },

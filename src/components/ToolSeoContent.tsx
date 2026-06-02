@@ -48,8 +48,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["काम के घंटे कैलकुलेटर", "काम के घंटे जोड़ें", "टाइम कार्ड कैलकुलेटर"]
   },
   "hourly-salary": {
-    es: ["calculadora de salario por hora", "valor hora salario mensual", "salario mensual dividido en horas"],
-    en: ["hourly salary calculator", "monthly salary to hourly pay", "hourly wage from salary"]
+    es: ["calculadora de salario por hora", "valor hora salario mensual", "salario mensual a hora"],
+    en: ["hourly salary calculator", "monthly salary to hourly pay", "hourly wage from salary"],
+    hi: ["प्रति घंटा वेतन कैलकुलेटर", "मासिक वेतन से प्रति घंटा", "प्रति घंटा मजदूरी"]
   },
   "overtime-colombia": {
     es: ["calculadora de horas extras Colombia", "recargos nocturnos Colombia", "hora extra diurna nocturna"],

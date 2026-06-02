@@ -173,8 +173,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 (\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E)"
         },
         description: {
-            es: "Convierte un salario mensual en valor por hora para comparar ingresos.",
-            en: "Convert a monthly salary into an hourly value to compare income.",
+            es: "Convierte salario mensual a valor por hora en Colombia.",
+            en: "Convert monthly salary into hourly pay in Colombia.",
             hi: "\u0906\u092F \u0915\u0940 \u0924\u0941\u0932\u0928\u093E \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u094B \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u0947 \u0915\u0947 \u092E\u093E\u0928 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         }
     },
