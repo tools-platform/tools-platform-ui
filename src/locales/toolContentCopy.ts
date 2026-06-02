@@ -1202,33 +1202,33 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "unit-converter": {
         intro: {
-            es: "Convierte unidades comunes de longitud, peso, masa y temperatura de forma rápida.",
-            en: "Convert common length, mass, weight, and temperature units quickly.",
-            hi: "\u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0932\u0902\u092C\u093E\u0908, \u0926\u094D\u0930\u0935\u094D\u092F\u092E\u093E\u0928, \u0935\u091C\u0928 \u0914\u0930 \u0924\u093E\u092A\u092E\u093E\u0928 \u0907\u0915\u093E\u0907\u092F\u094B\u0902 \u0915\u094B \u0936\u0940\u0918\u094D\u0930\u0924\u093E \u0938\u0947 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
+            es: "Convierte unidades online de longitud, peso, masa y temperatura para pasar de kg a lb, km a millas, metros, centímetros o grados en segundos.",
+            en: "Convert units online for length, weight, mass, and temperature, including kg to lb, km to miles, meters, centimeters, and degrees.",
+            hi: "लंबाई, वजन, द्रव्यमान और तापमान की इकाइयाँ ऑनलाइन बदलें, जैसे kg से lb, km से मील, मीटर, सेंटीमीटर और डिग्री।"
         },
         sections: [
             {
                 title: { es: "Cómo funciona", en: "How it works", hi: "\u092F\u0939 \u0915\u0948\u0938\u0947 \u0915\u093E\u092E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Elige el tipo de conversión, escribe el valor, selecciona la unidad de origen y la unidad destino.",
-                        en: "Choose the conversion type, enter the value, and select the source and destination units.",
-                        hi: "\u0930\u0942\u092A\u093E\u0902\u0924\u0930\u0923 \u092A\u094D\u0930\u0915\u093E\u0930 \u091A\u0941\u0928\u0947\u0902, \u092E\u093E\u0928 \u0926\u0930\u094D\u091C \u0915\u0930\u0947\u0902, \u0914\u0930 \u0938\u094D\u0930\u094B\u0924 \u0914\u0930 \u0917\u0902\u0924\u0935\u094D\u092F \u0907\u0915\u093E\u0907\u092F\u094B\u0902 \u0915\u093E \u091A\u092F\u0928 \u0915\u0930\u0947\u0902\u0964"
+                        es: "Elige la categoría, escribe el valor y selecciona la unidad de origen y destino. Puedes convertir longitud, peso, masa y temperatura.",
+                        en: "Choose the category, enter the value, and select the source and destination units. You can convert length, weight, mass, and temperature.",
+                        hi: "श्रेणी चुनें, मान दर्ज करें और स्रोत तथा गंतव्य इकाइयाँ चुनें। आप लंबाई, वजन, द्रव्यमान और तापमान बदल सकते हैं।"
                     },
                     {
-                        es: "Puedes ajustar los decimales para ver un resultado más redondeado o más preciso.",
-                        en: "You can adjust the decimals to get a more rounded or more precise result.",
-                        hi: "\u0905\u0927\u093F\u0915 \u0917\u094B\u0932\u093E\u0915\u093E\u0930 \u092F\u093E \u0905\u0927\u093F\u0915 \u0938\u091F\u0940\u0915 \u092A\u0930\u093F\u0923\u093E\u092E \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0906\u092A \u0926\u0936\u092E\u0932\u0935 \u0915\u094B \u0938\u092E\u093E\u092F\u094B\u091C\u093F\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
+                        es: "Ajusta los decimales para obtener un resultado más redondeado o más preciso en conversiones como kg a lb, km a millas o Celsius a Fahrenheit.",
+                        en: "Adjust decimals to get a more rounded or precise result for conversions like kg to lb, km to miles, or Celsius to Fahrenheit.",
+                        hi: "kg से lb, km से मील या Celsius से Fahrenheit जैसी conversion में अधिक गोल या सटीक परिणाम पाने के लिए दशमलव बदलें।"
                     }
                 ]
             },
             {
-                title: { es: "Cuándo usarlo", en: "When to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u092C \u0915\u0930\u0928\u093E \u0939\u0948" },
+                title: { es: "Conversiones comunes", en: "Common conversions", hi: "सामान्य रूपांतरण" },
                 body: [
                     {
-                        es: "Sirve para tareas, compras, medidas de cocina, viajes, trabajo técnico o conversiones rápidas como kilos a libras, kilómetros a millas o grados Celsius a Fahrenheit.",
-                        en: "Use it for homework, shopping, cooking measurements, trips, technical work, or quick conversions such as kilograms to pounds, kilometers to miles, or Celsius to Fahrenheit.",
-                        hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0939\u094B\u092E\u0935\u0930\u094D\u0915, \u0916\u0930\u0940\u0926\u093E\u0930\u0940, \u0916\u093E\u0928\u093E \u092A\u0915\u093E\u0928\u0947 \u0915\u0947 \u092E\u093E\u092A, \u092F\u093E\u0924\u094D\u0930\u093E\u090F\u0902, \u0924\u0915\u0928\u0940\u0915\u0940 \u0915\u093E\u0930\u094D\u092F \u092F\u093E \u0915\u093F\u0932\u094B\u0917\u094D\u0930\u093E\u092E \u0938\u0947 \u092A\u093E\u0909\u0902\u0921, \u0915\u093F\u0932\u094B\u092E\u0940\u091F\u0930 \u0938\u0947 \u092E\u0940\u0932, \u092F\u093E \u0938\u0947\u0932\u094D\u0938\u093F\u092F\u0938 \u0938\u0947 \u092B\u093C\u093E\u0930\u0947\u0928\u0939\u093E\u0907\u091F \u091C\u0948\u0938\u0947 \u0924\u094D\u0935\u0930\u093F\u0924 \u0930\u0942\u092A\u093E\u0902\u0924\u0930\u0923 \u0915\u0947 \u0932\u093F\u090F \u0915\u0930\u0947\u0902\u0964"
+                        es: "Sirve para tareas, compras, medidas de cocina, viajes, trabajo técnico y conversiones rápidas entre kilogramos, libras, kilómetros, millas, metros, centímetros y grados.",
+                        en: "Use it for homework, shopping, cooking measurements, travel, technical work, and quick conversions between kilograms, pounds, kilometers, miles, meters, centimeters, and degrees.",
+                        hi: "यह होमवर्क, खरीदारी, खाना पकाने के माप, यात्रा, तकनीकी काम और kg, lb, km, मील, मीटर, सेंटीमीटर तथा डिग्री के बीच तेज conversion के लिए उपयोगी है।"
                     },
                     {
                         es: "Usa factores estándar; algunas industrias pueden usar factores o tolerancias específicas.",
@@ -1240,11 +1240,11 @@ export const toolContentById: Record<string, ToolContent> = {
         ],
         faqs: [
             {
-                question: { es: "¿Puedo intercambiar las unidades?", en: "Can I swap the units?", hi: "\u0915\u094D\u092F\u093E \u092E\u0948\u0902 \u0907\u0915\u093E\u0907\u092F\u094B\u0902 \u0915\u0940 \u0905\u0926\u0932\u093E-\u092C\u0926\u0932\u0940 \u0915\u0930 \u0938\u0915\u0924\u093E \u0939\u0942\u0901?" },
+                question: { es: "¿Cómo convertir kg a lb o km a millas?", en: "How do I convert kg to lb or km to miles?", hi: "kg से lb या km से मील कैसे बदलें?" },
                 answer: {
-                    es: "Sí. Usa el botón de intercambio para cambiar origen y destino rápidamente.",
-                    en: "Yes. Use the swap button to change source and destination quickly.",
-                    hi: "\u0939\u093E\u0901\u0964 \u0938\u094D\u0930\u094B\u0924 \u0914\u0930 \u0917\u0902\u0924\u0935\u094D\u092F \u0915\u094B \u0936\u0940\u0918\u094D\u0930\u0924\u093E \u0938\u0947 \u092C\u0926\u0932\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0938\u094D\u0935\u0948\u092A \u092C\u091F\u0928 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902\u0964"
+                    es: "Selecciona la categoría correcta, elige la unidad de origen y la unidad destino, escribe el valor y revisa el resultado automático. También puedes intercambiar origen y destino.",
+                    en: "Select the right category, choose the source and destination units, enter the value, and check the automatic result. You can also swap source and destination.",
+                    hi: "सही श्रेणी चुनें, स्रोत और गंतव्य इकाइयाँ चुनें, मान दर्ज करें और स्वचालित परिणाम देखें। आप स्रोत और गंतव्य को बदल भी सकते हैं।"
                 }
             },
             {

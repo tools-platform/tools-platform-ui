@@ -213,14 +213,14 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "unit-converter": {
         title: {
-            es: "Conversor de unidades online | kg, libras, km y millas",
-            en: "Online Unit Converter | kg to lb, km to Miles",
-            hi: "\u0911\u0928\u0932\u093E\u0907\u0928 \u092F\u0942\u0928\u093F\u091F \u0915\u0928\u094D\u0935\u0930\u094D\u091F\u0930 | \u0915\u093F\u0932\u094B\u0917\u094D\u0930\u093E\u092E \u0938\u0947 \u092A\u094C\u0902\u0921, \u0915\u093F\u092E\u0940 \u0938\u0947 \u092E\u0940\u0932"
+            es: "Conversor de unidades online | kg, lb, km, millas y grados",
+            en: "Online Unit Converter | kg, lb, km, Miles and Degrees",
+            hi: "ऑनलाइन यूनिट कन्वर्टर | kg, lb, km, मील और डिग्री"
         },
         description: {
-            es: "Convierte unidades de longitud, peso, masa y temperatura: kilogramos, libras, kilómetros, millas, metros, centímetros y grados.",
-            en: "Convert length, mass, weight, and temperature units: kilograms, pounds, kilometers, miles, meters, centimeters, and degrees.",
-            hi: "\u0932\u0902\u092C\u093E\u0908, \u0926\u094D\u0930\u0935\u094D\u092F\u092E\u093E\u0928, \u0935\u091C\u0928 \u0914\u0930 \u0924\u093E\u092A\u092E\u093E\u0928 \u0907\u0915\u093E\u0907\u092F\u094B\u0902 \u0915\u094B \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0947\u0902: \u0915\u093F\u0932\u094B\u0917\u094D\u0930\u093E\u092E, \u092A\u093E\u0909\u0902\u0921, \u0915\u093F\u0932\u094B\u092E\u0940\u091F\u0930, \u092E\u0940\u0932, \u092E\u0940\u091F\u0930, \u0938\u0947\u0902\u091F\u0940\u092E\u0940\u091F\u0930 \u0914\u0930 \u0921\u093F\u0917\u094D\u0930\u0940\u0964"
+            es: "Convierte unidades online de longitud, peso, masa y temperatura. Pasa kg a lb, km a millas, metros a centímetros y Celsius a Fahrenheit.",
+            en: "Convert units online for length, weight, mass, and temperature. Convert kg to lb, km to miles, meters to centimeters, and Celsius to Fahrenheit.",
+            hi: "लंबाई, वजन, द्रव्यमान और तापमान की इकाइयाँ ऑनलाइन बदलें। kg से lb, km से मील, मीटर से सेंटीमीटर और Celsius से Fahrenheit बदलें।"
         }
     },
     "text-case-converter": {

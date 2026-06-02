@@ -77,8 +77,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["कितने दिन बाकी हैं", "दिन बाकी कैलकुलेटर", "घटना तक दिन"]
   },
   "unit-converter": {
-    es: ["conversor de unidades", "convertir kilos a libras", "convertir kilómetros a millas"],
-    en: ["unit converter", "kg to lb converter", "kilometers to miles converter"]
+    es: ["conversor de unidades online", "convertir kg a lb", "convertir kilómetros a millas"],
+    en: ["online unit converter", "kg to lb converter", "km to miles converter"],
+    hi: ["ऑनलाइन यूनिट कन्वर्टर", "kg से lb कन्वर्टर", "km से मील कन्वर्टर"]
   },
   "text-case-converter": {
     es: ["minúsculas a mayúsculas", "mayúsculas a minúsculas", "convertidor de mayúsculas"],

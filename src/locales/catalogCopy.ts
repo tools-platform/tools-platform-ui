@@ -261,9 +261,9 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0911\u0928\u0932\u093E\u0907\u0928 \u092F\u0942\u0928\u093F\u091F \u0915\u0928\u0935\u0930\u094D\u091F\u0930"
         },
         description: {
-            es: "Convierte kilómetros, millas, kilos, libras y más unidades comunes.",
-            en: "Convert kilometers, miles, kilos, pounds, and other common units.",
-            hi: "\u0915\u093F\u0932\u094B\u092E\u0940\u091F\u0930, \u092E\u0940\u0932, \u0915\u093F\u0932\u094B, \u092A\u093E\u0909\u0902\u0921 \u0914\u0930 \u0905\u0928\u094D\u092F \u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0907\u0915\u093E\u0907\u092F\u094B\u0902 \u0915\u094B \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
+            es: "Convierte kg a lb, km a millas, metros, centímetros y grados.",
+            en: "Convert kg to lb, km to miles, meters, centimeters, and degrees.",
+            hi: "kg से lb, km से मील, मीटर, सेंटीमीटर और डिग्री बदलें।"
         }
     },
     "text-case-converter": {
