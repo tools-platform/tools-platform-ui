@@ -61,8 +61,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 (\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E)"
         },
         description: {
-            es: "Cuánto recibes después de salud y pensión.",
-            en: "See what remains after health and pension deductions.",
+            es: "Calcula tu neto mensual y quincenal después de salud y pensión.",
+            en: "Calculate monthly and biweekly take-home pay after health and pension.",
             hi: "\u0926\u0947\u0916\u0947\u0902 \u0915\u093F \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F \u0914\u0930 \u092A\u0947\u0902\u0936\u0928 \u0915\u091F\u094C\u0924\u0940 \u0915\u0947 \u092C\u093E\u0926 \u0915\u094D\u092F\u093E \u092C\u091A\u0924\u093E \u0939\u0948\u0964"
         }
     },

@@ -2,8 +2,8 @@ import type { ToolContent } from "../data/toolContent";
 export const toolContentById: Record<string, ToolContent> = {
     "net-salary-colombia": {
         intro: {
-            es: "Esta calculadora de salario neto Colombia ayuda a estimar cuánto dinero recibirías realmente después de los descuentos básicos de nómina.",
-            en: "This Colombia net salary calculator helps estimate how much money you would actually receive after basic payroll deductions.",
+            es: "Esta calculadora de salario neto Colombia estima cuánto te queda al mes y a la quincena después de salud, pensión y otros descuentos de nómina.",
+            en: "This Colombia net salary calculator estimates monthly and biweekly take-home pay after health, pension, and other payroll deductions.",
             hi: "\u092F\u0939 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u092F\u0939 \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u092E\u0947\u0902 \u092E\u0926\u0926 \u0915\u0930\u0924\u093E \u0939\u0948 \u0915\u093F \u092E\u0942\u0932 \u092A\u0947\u0930\u094B\u0932 \u0915\u091F\u094C\u0924\u0940 \u0915\u0947 \u092C\u093E\u0926 \u0906\u092A\u0915\u094B \u0935\u093E\u0938\u094D\u0924\u0935 \u092E\u0947\u0902 \u0915\u093F\u0924\u0928\u093E \u092A\u0948\u0938\u093E \u092E\u093F\u0932\u0947\u0917\u093E\u0964"
         },
         sections: [
@@ -11,13 +11,13 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Parte del salario mensual bruto y descuenta los aportes del empleado a salud y pensión para estimar el sueldo neto mensual y quincenal.",
-                        en: "It starts from the gross monthly salary and subtracts employee health and pension contributions to estimate monthly and biweekly take-home pay.",
+                        es: "Parte del salario mensual bruto y descuenta los aportes del empleado a salud y pensión para convertir salario bruto a neto en Colombia.",
+                        en: "It starts from gross monthly salary and subtracts employee health and pension contributions to convert gross to net salary in Colombia.",
                         hi: "\u092F\u0939 \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0938\u0947 \u0936\u0941\u0930\u0942 \u0939\u094B\u0924\u093E \u0939\u0948 \u0914\u0930 \u092E\u093E\u0938\u093F\u0915 \u0914\u0930 \u0926\u094D\u0935\u093F\u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u091F\u0947\u0915-\u0939\u094B\u092E \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0915\u0930\u094D\u092E\u091A\u093E\u0930\u0940 \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F \u0914\u0930 \u092A\u0947\u0902\u0936\u0928 \u092F\u094B\u0917\u0926\u093E\u0928 \u0915\u094B \u0918\u091F\u093E\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
-                        es: "También puede mostrar auxilio de transporte, Fondo de Solidaridad Pensional y deducciones adicionales cuando aplican. No reemplaza el desprendible oficial de nómina.",
-                        en: "It can also show transport allowance, the solidarity pension fund, and extra deductions when they apply. It does not replace an official payslip.",
+                        es: "También muestra neto mensual, neto quincenal, auxilio de transporte, Fondo de Solidaridad Pensional y deducciones adicionales cuando aplican.",
+                        en: "It also shows monthly take-home pay, biweekly take-home pay, transport allowance, solidarity pension fund, and extra deductions when they apply.",
                         hi: "\u092F\u0939 \u0932\u093E\u0917\u0942 \u0939\u094B\u0928\u0947 \u092A\u0930 \u092A\u0930\u093F\u0935\u0939\u0928 \u092D\u0924\u094D\u0924\u093E, \u090F\u0915\u091C\u0941\u091F\u0924\u093E \u092A\u0947\u0902\u0936\u0928 \u0928\u093F\u0927\u093F \u0914\u0930 \u0905\u0924\u093F\u0930\u093F\u0915\u094D\u0924 \u0915\u091F\u094C\u0924\u0940 \u092D\u0940 \u0926\u093F\u0916\u093E \u0938\u0915\u0924\u093E \u0939\u0948\u0964 \u092F\u0939 \u0906\u0927\u093F\u0915\u093E\u0930\u093F\u0915 \u0935\u0947\u0924\u0928-\u092A\u0930\u094D\u091A\u0940 \u0915\u093E \u0938\u094D\u0925\u093E\u0928 \u0928\u0939\u0940\u0902 \u0932\u0947\u0924\u093E\u0964"
                     }
                 ]
@@ -26,13 +26,13 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Cómo usarla", en: "How to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0948\u0938\u0947 \u0915\u0930\u0947\u0902" },
                 body: [
                     {
-                        es: "Ingresa tu salario mensual bruto, el año de reglas y cualquier descuento de nómina adicional que quieras considerar para calcular el salario neto.",
-                        en: "Enter your gross monthly salary, the rule year, and any extra payroll deductions you want to include when calculating net salary.",
+                        es: "Ingresa tu salario mensual bruto, el año de reglas y cualquier descuento de nómina adicional para calcular el salario neto mensual y quincenal.",
+                        en: "Enter your gross monthly salary, the rule year, and any extra payroll deductions to calculate monthly and biweekly net salary.",
                         hi: "\u0905\u092A\u0928\u093E \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928, \u0928\u093F\u092F\u092E \u0935\u0930\u094D\u0937 \u0914\u0930 \u0915\u094B\u0908 \u092D\u0940 \u0905\u0924\u093F\u0930\u093F\u0915\u094D\u0924 \u092A\u0947\u0930\u094B\u0932 \u0915\u091F\u094C\u0924\u0940 \u0926\u0930\u094D\u091C \u0915\u0930\u0947\u0902 \u091C\u093F\u0938\u0947 \u0906\u092A \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u0947 \u0938\u092E\u092F \u0936\u093E\u092E\u093F\u0932 \u0915\u0930\u0928\u093E \u091A\u093E\u0939\u0924\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
-                        es: "Activa el auxilio de transporte o el Fondo de Solidaridad solo si quieres ver ese detalle en el resultado.",
-                        en: "Enable transport allowance or the solidarity fund only if you want to see that detail in the result.",
+                        es: "Activa el auxilio de transporte o el Fondo de Solidaridad si quieres revisar esos valores dentro del detalle del cálculo.",
+                        en: "Enable transport allowance or the solidarity fund if you want those values included in the calculation detail.",
                         hi: "\u092A\u0930\u093F\u0935\u0939\u0928 \u092D\u0924\u094D\u0924\u093E \u092F\u093E \u090F\u0915\u091C\u0941\u091F\u0924\u093E \u0928\u093F\u0927\u093F \u0924\u092D\u0940 \u0938\u0915\u094D\u0937\u092E \u0915\u0930\u0947\u0902 \u091C\u092C \u0906\u092A \u092A\u0930\u093F\u0923\u093E\u092E \u092E\u0947\u0902 \u0935\u0939 \u0935\u093F\u0935\u0930\u0923 \u0926\u0947\u0916\u0928\u093E \u091A\u093E\u0939\u0924\u0947 \u0939\u094B\u0902\u0964"
                     }
                 ]
@@ -41,12 +41,12 @@ export const toolContentById: Record<string, ToolContent> = {
         faqs: [
             {
                 question: {
-                    es: "¿Cómo calcular mi salario neto en Colombia?",
+                    es: "¿Cómo calcular salario neto en Colombia?",
                     en: "How do I calculate my net salary in Colombia?",
                     hi: "\u092E\u0948\u0902 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E \u092E\u0947\u0902 \u0905\u092A\u0928\u0947 \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?"
                 },
                 answer: {
-                    es: "Escribe tu salario mensual bruto y el año de reglas. La calculadora descuenta salud, pensión y otros conceptos aplicables para estimar el valor neto mensual y quincenal.",
+                    es: "Escribe tu salario mensual bruto y el año de reglas. La calculadora descuenta salud, pensión y otros conceptos aplicables para estimar el neto mensual y quincenal.",
                     en: "Enter your gross monthly salary and rule year. The calculator subtracts health, pension, and applicable items to estimate monthly and biweekly take-home pay.",
                     hi: "\u0905\u092A\u0928\u093E \u0938\u0915\u0932 \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0914\u0930 \u0928\u093F\u092F\u092E \u0935\u0930\u094D\u0937 \u0926\u0930\u094D\u091C \u0915\u0930\u0947\u0902\u0964 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u092E\u093E\u0938\u093F\u0915 \u0914\u0930 \u0926\u094D\u0935\u093F\u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u091F\u0947\u0915-\u0939\u094B\u092E \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F, \u092A\u0947\u0902\u0936\u0928 \u0914\u0930 \u0932\u093E\u0917\u0942 \u0935\u0938\u094D\u0924\u0941\u0913\u0902 \u0915\u094B \u0918\u091F\u093E \u0926\u0947\u0924\u093E \u0939\u0948\u0964"
                 }

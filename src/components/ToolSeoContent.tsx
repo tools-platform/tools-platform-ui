@@ -9,8 +9,8 @@ type ToolSeoContentProps = {
 
 const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> = {
   "net-salary-colombia": {
-    es: ["calculadora salarial Colombia", "salario neto Colombia 2026", "sueldo neto quincenal"],
-    en: ["Colombia net salary calculator", "take-home pay Colombia", "Colombia payroll deductions"]
+    es: ["salario neto Colombia", "calculadora salario neto Colombia", "salario bruto a neto Colombia"],
+    en: ["Colombia net salary calculator", "gross to net salary Colombia", "take-home pay Colombia"]
   },
   "gross-salary-colombia": {
     es: ["calcular salario bruto desde neto", "salario bruto Colombia", "neto quincenal a salario bruto"],

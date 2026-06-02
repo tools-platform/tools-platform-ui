@@ -9,13 +9,13 @@ type SeoCopy = {
 export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     "net-salary-colombia": {
         title: {
-            es: "Calculadora salarial Colombia 2026 | Salario neto",
-            en: "Net Salary Calculator (Colombia) 2026 | Take-Home Pay",
+            es: "Calculadora de salario neto Colombia 2026 | Bruto a neto",
+            en: "Colombia Net Salary Calculator 2026 | Gross to Net",
             hi: "\u0928\u0947\u091F \u0935\u0947\u0924\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 (\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E) 2026 | \u0918\u0930 \u0932\u0947 \u091C\u093E\u0913 \u092D\u0941\u0917\u0924\u093E\u0928"
         },
         description: {
-            es: "Calcula tu salario neto en Colombia para 2026 y años disponibles con salud, pensión, auxilio de transporte, Fondo de Solidaridad y deducciones.",
-            en: "Calculate your 2026 take-home pay in Colombia with health, pension, transport allowance, solidarity fund, and payroll deductions.",
+            es: "Calcula salario neto en Colombia desde tu salario bruto mensual. Incluye salud, pensión, auxilio, solidaridad, neto mensual y quincenal.",
+            en: "Calculate net salary in Colombia from gross monthly pay. Includes health, pension, allowance, solidarity fund, monthly and biweekly take-home pay.",
             hi: "\u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F, \u092A\u0947\u0902\u0936\u0928, \u092A\u0930\u093F\u0935\u0939\u0928 \u092D\u0924\u094D\u0924\u093E, \u090F\u0915\u091C\u0941\u091F\u0924\u093E \u0928\u093F\u0927\u093F \u0914\u0930 \u092A\u0947\u0930\u094B\u0932 \u0915\u091F\u094C\u0924\u0940 \u0915\u0947 \u0938\u093E\u0925 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u092E\u0947\u0902 \u0905\u092A\u0928\u0947 2026 \u091F\u0947\u0915-\u0939\u094B\u092E \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
         }
     },
