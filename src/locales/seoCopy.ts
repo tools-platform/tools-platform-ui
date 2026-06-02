@@ -225,14 +225,14 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "text-case-converter": {
         title: {
-            es: "Convertidor de mayúsculas y minúsculas | Texto online",
-            en: "Lower Case to Upper Case Converter | Capital Letters",
-            hi: "\u0905\u092A\u0930\u0915\u0947\u0938 \u0914\u0930 \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u0928\u0935\u0930\u094D\u091F\u0930 | \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u0947\u0938"
+            es: "Minúsculas a mayúsculas | Convertidor de texto",
+            en: "Lower Case to Upper Case | Uppercase Converter",
+            hi: "\u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0938\u0947 \u0905\u092A\u0930\u0915\u0947\u0938 | \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u0947\u0938 \u0915\u0928\u0935\u0930\u094D\u091F\u0930"
         },
         description: {
-            es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración. Pasa de minúsculas a mayúsculas y de mayúsculas a minúsculas rápido.",
-            en: "Convert lower case to upper case, uppercase to lowercase, title case, or sentence case. Use it as a capital letter converter for clean text.",
-            hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0935\u093E\u0915\u094D\u092F \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964 \u0905\u092A\u0928\u0947 \u092C\u094D\u0930\u093E\u0909\u091C\u093C\u0930 \u092E\u0947\u0902 \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0936\u0940\u0918\u094D\u0930\u0924\u093E \u0938\u0947 \u092B\u093C\u0949\u0930\u094D\u092E\u0947\u091F \u0915\u0930\u0947\u0902 \u0914\u0930 \u0938\u093E\u092B\u093C \u0915\u0930\u0947\u0902\u0964"
+            es: "Convierte minúsculas a mayúsculas, mayúsculas a minúsculas, capitalizado o tipo oración. Limpia títulos, frases y texto copiado rápido.",
+            en: "Convert lowercase to uppercase, uppercase to lowercase, title case, or sentence case. Use this uppercase converter and capital letter converter online.",
+            hi: "\u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0905\u092A\u0930\u0915\u0947\u0938 \u0915\u094B \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0938\u0947\u0902\u091F\u0947\u0902\u0938 \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964 \u0936\u0940\u0930\u094D\u0937\u0915, \u0935\u093E\u0915\u094D\u092F \u0914\u0930 \u0915\u0949\u092A\u0940 \u0915\u093F\u092F\u093E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0938\u093E\u092B \u0915\u0930\u0947\u0902\u0964"
         }
     },
     "duplicate-counter": {

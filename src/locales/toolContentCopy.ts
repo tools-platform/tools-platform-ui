@@ -1283,18 +1283,18 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "text-case-converter": {
         intro: {
-            es: "Convierte texto a mayúsculas, minúsculas, capitalizado o tipo oración sin enviarlo a ningún servidor.",
-            en: "Convert text from lower case to upper case, uppercase to lowercase, title case, or sentence case without sending it to any server.",
-            hi: "\u0915\u093F\u0938\u0940 \u092D\u0940 \u0938\u0930\u094D\u0935\u0930 \u092A\u0930 \u092D\u0947\u091C\u0947 \u092C\u093F\u0928\u093E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0935\u093E\u0915\u094D\u092F \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
+            es: "Convierte texto de minúsculas a mayúsculas, mayúsculas a minúsculas, capitalizado o tipo oración en el navegador.",
+            en: "Convert text from lower case to upper case, uppercase to lowercase, title case, or sentence case in your browser.",
+            hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0938\u0947 \u0905\u092A\u0930\u0915\u0947\u0938, \u0905\u092A\u0930\u0915\u0947\u0938 \u0938\u0947 \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0935\u093E\u0915\u094D\u092F \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u094D\u0930\u093E\u0909\u091C\u093C\u0930 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         },
         sections: [
             {
                 title: { es: "Formatos disponibles", en: "Available formats", hi: "\u0909\u092A\u0932\u092C\u094D\u0927 \u092A\u094D\u0930\u093E\u0930\u0942\u092A" },
                 body: [
                     {
-                        es: "Puedes convertir texto a mayúsculas, pasar mayúscula a minúscula, cambiar minúsculas a mayúsculas, capitalizar palabras o ajustar frases tipo oración.",
-                        en: "You can convert text to uppercase, change uppercase to lowercase, switch lowercase to uppercase, title case words, or use it as a capital letter converter.",
-                        hi: "\u0906\u092A \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0905\u092A\u0930\u0915\u0947\u0938 \u0915\u094B \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0936\u0940\u0930\u094D\u0937\u0915 \u0915\u0947\u0938 \u0936\u092C\u094D\u0926, \u092F\u093E \u0935\u093E\u0915\u094D\u092F\u094B\u0902 \u0915\u094B \u092A\u094D\u0930\u093E\u0930\u0942\u092A\u093F\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964"
+                        es: "Pega un texto y cambia minúsculas a mayúsculas, mayúsculas a minúsculas, capitaliza palabras o aplica tipo oración sin editar línea por línea.",
+                        en: "Paste text and switch lowercase to uppercase, uppercase to lowercase, capitalize words, or apply sentence case without editing line by line.",
+                        hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u092A\u0947\u0938\u094D\u091F \u0915\u0930\u0947\u0902 \u0914\u0930 \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0938\u0947 \u0905\u092A\u0930\u0915\u0947\u0938, \u0905\u092A\u0930\u0915\u0947\u0938 \u0938\u0947 \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u0936\u092C\u094D\u0926 \u0915\u0948\u092A\u093F\u091F\u0932\u093E\u0907\u091C \u092F\u093E \u0935\u093E\u0915\u094D\u092F \u0915\u0947\u0938 \u0932\u093E\u0917\u0942 \u0915\u0930\u0947\u0902\u0964"
                     },
                     {
                         es: "Es útil para títulos, documentos, formularios, correos, publicaciones, limpiar texto copiado y tareas repetitivas de edición.",

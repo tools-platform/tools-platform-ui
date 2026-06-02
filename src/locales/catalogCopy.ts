@@ -273,9 +273,9 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0905\u092A\u0930\u0915\u0947\u0938 \u0914\u0930 \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u0928\u0935\u0930\u094D\u091F\u0930"
         },
         description: {
-            es: "Convierte texto a mayúsculas, minúsculas o capitalizado.",
-            en: "Convert text to uppercase, lowercase, or title case.",
-            hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u092F\u093E \u0936\u0940\u0930\u094D\u0937\u0915 \u0915\u0947\u0938 \u092E\u0947\u0902 \u0930\u0942\u092A\u093E\u0902\u0924\u0930\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
+            es: "Cambia texto entre mayúsculas, minúsculas y capitalizado.",
+            en: "Switch text between uppercase, lowercase, and title case.",
+            hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0914\u0930 \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         }
     },
     "duplicate-counter": {

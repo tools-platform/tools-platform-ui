@@ -84,9 +84,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["ऑनलाइन यूनिट कन्वर्टर", "kg से lb कन्वर्टर", "km से मील कन्वर्टर"]
   },
   "text-case-converter": {
-    es: ["minúsculas a mayúsculas", "mayúsculas a minúsculas", "convertidor de mayúsculas"],
-    en: ["lower case to upper case", "uppercase to lowercase", "capital letter converter"],
-    hi: ["लोअरकेस से अपरकेस", "कैपिटल लेटर कनवर्टर", "टेक्स्ट केस कनवर्टर"]
+    es: ["minúsculas a mayúsculas", "convertidor de mayúsculas", "mayúsculas a minúsculas"],
+    en: ["lower case to upper case", "uppercase converter", "capital letter converter"],
+    hi: ["लोअरकेस से अपरकेस", "अपरकेस कनवर्टर", "टेक्स्ट केस कनवर्टर"]
   },
   "duplicate-counter": {
     es: ["contador de duplicados online", "buscar valores repetidos", "contar valores únicos"],
