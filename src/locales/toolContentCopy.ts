@@ -736,8 +736,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "salary-increase": {
         intro: {
-            es: "Calcula cómo queda un salario después de aplicar un aumento porcentual.",
-            en: "Use this pay increase calculator to see what a salary looks like after applying a percentage raise.",
+            es: "Esta calculadora de aumento salarial estima tu nuevo sueldo después de aplicar un porcentaje de aumento.",
+            en: "Use this pay increase calculator to estimate your new salary after applying a percentage raise.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0932\u093E\u0917\u0942 \u0915\u0930\u0928\u0947 \u0915\u0947 \u092C\u093E\u0926 \u0935\u0947\u0924\u0928 \u0915\u0948\u0938\u093E \u0926\u093F\u0916\u0947\u0917\u093E\u0964"
         },
         sections: [
@@ -745,13 +745,13 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "La herramienta toma el salario actual y el porcentaje de aumento para estimar el nuevo salario mensual.",
-                        en: "The tool takes the current salary and increase percentage to estimate the new monthly salary.",
+                        es: "La herramienta toma el salario actual y el porcentaje de aumento para estimar el nuevo salario mensual y cuánto subiría tu sueldo.",
+                        en: "The tool takes the current salary and increase percentage to estimate the new monthly salary and the exact pay raise amount.",
                         hi: "\u0928\u090F \u092E\u093E\u0938\u093F\u0915 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u091F\u0942\u0932 \u0935\u0930\u094D\u0924\u092E\u093E\u0928 \u0935\u0947\u0924\u0928 \u0914\u0930 \u0935\u0943\u0926\u094D\u0927\u093F \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0932\u0947\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
                         es: "También muestra el valor exacto del aumento, el nuevo salario bruto, el salario neto con descuentos Colombia cuando los activas y la diferencia anual si ese aumento se mantiene durante doce meses.",
-                        en: "It also shows the exact increase amount, the new gross salary, the net salary with Colombia deductions when enabled, and the annual difference if that raise stays in place for twelve months.",
+                        en: "It also shows the increase amount, new gross salary, net pay with Colombia deductions when enabled, and the annual difference if that raise stays in place for twelve months.",
                         hi: "\u092F\u0939 \u0938\u091F\u0940\u0915 \u0935\u0943\u0926\u094D\u0927\u093F \u0930\u093E\u0936\u093F, \u0928\u092F\u093E \u0938\u0915\u0932 \u0935\u0947\u0924\u0928, \u0938\u0915\u094D\u0937\u092E \u0939\u094B\u0928\u0947 \u092A\u0930 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E \u0915\u091F\u094C\u0924\u0940 \u0915\u0947 \u0938\u093E\u0925 \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0914\u0930 \u092F\u0926\u093F \u0935\u0939 \u0935\u0943\u0926\u094D\u0927\u093F \u092C\u093E\u0930\u0939 \u092E\u0939\u0940\u0928\u0947 \u0924\u0915 \u092C\u0928\u0940 \u0930\u0939\u0924\u0940 \u0939\u0948 \u0924\u094B \u0935\u093E\u0930\u094D\u0937\u093F\u0915 \u0905\u0902\u0924\u0930 \u092D\u0940 \u0926\u0930\u094D\u0936\u093E\u0924\u093E \u0939\u0948\u0964"
                     }
                 ]
@@ -760,8 +760,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Cuándo usarla", en: "When to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u092C \u0915\u0930\u0928\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Sirve para revisar propuestas de aumento salarial, comparar escenarios o entender cuánto representa un porcentaje sobre tu sueldo.",
-                        en: "Use it to review pay increase or salary raise proposals, compare scenarios, or understand what a percentage means on your pay.",
+                        es: "Sirve para revisar propuestas de aumento salarial, comparar escenarios o entender cuánto representa un porcentaje sobre tu sueldo mensual.",
+                        en: "Use it to review pay increase proposals, compare salary raise scenarios, or understand what a percentage means on your monthly pay.",
                         hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u092A\u094D\u0930\u0938\u094D\u0924\u093E\u0935\u094B\u0902 \u0915\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0915\u0930\u0928\u0947, \u092A\u0930\u093F\u0926\u0943\u0936\u094D\u092F\u094B\u0902 \u0915\u0940 \u0924\u0941\u0932\u0928\u093E \u0915\u0930\u0928\u0947, \u092F\u093E \u092F\u0939 \u0938\u092E\u091D\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0915\u0930\u0947\u0902 \u0915\u093F \u0906\u092A\u0915\u0947 \u0935\u0947\u0924\u0928 \u092A\u0930 \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0915\u093E \u0915\u094D\u092F\u093E \u0905\u0930\u094D\u0925 \u0939\u0948\u0964"
                     },
                     {

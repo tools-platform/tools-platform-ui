@@ -38,7 +38,7 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["COP से USD कनवर्टर", "कोलंबियाई पेसो से डॉलर", "USD से COP कनवर्टर"]
   },
   "salary-increase": {
-    es: ["calculadora de aumento salarial", "calcular aumento de sueldo", "salario después de aumento"],
+    es: ["calculadora de aumento salarial", "calcular aumento de sueldo", "nuevo salario con aumento"],
     en: ["pay increase calculator", "salary increase calculator", "pay raise calculator"],
     hi: ["वेतन वृद्धि कैलकुलेटर", "पे इंक्रीज कैलकुलेटर", "प्रतिशत वेतन वृद्धि"]
   },

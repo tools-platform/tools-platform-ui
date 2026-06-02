@@ -117,13 +117,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "salary-increase": {
         title: {
-            es: "Calculadora de aumento salarial | Bruto y neto",
-            en: "Pay Increase Calculator | Net and Gross Raise",
+            es: "Calculadora de aumento salarial | Nuevo sueldo bruto y neto",
+            en: "Pay Increase Calculator | Salary Raise and New Pay",
             hi: "\u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 | \u0936\u0941\u0926\u094D\u0927 \u0914\u0930 \u0938\u0915\u0932 \u0935\u0943\u0926\u094D\u0927\u093F"
         },
         description: {
-            es: "Calcula cómo queda tu salario después de un aumento porcentual. Estima el nuevo sueldo bruto, neto con descuentos Colombia, valor del aumento y diferencia anual.",
-            en: "Use this pay increase calculator to estimate salary after a raise: new gross pay, Colombia net salary with deductions, increase amount, and annual difference.",
+            es: "Calcula tu nuevo sueldo después de un aumento porcentual. Estima aumento salarial, salario bruto, neto con descuentos Colombia y diferencia anual.",
+            en: "Use this pay increase calculator to estimate your new salary after a raise, including raise amount, gross pay, Colombia net pay, and annual difference.",
             hi: "\u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0947 \u092C\u093E\u0926 \u0905\u092A\u0928\u0947 \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964 \u0928\u090F \u0938\u0915\u0932 \u0935\u0947\u0924\u0928, \u0915\u091F\u094C\u0924\u093F\u092F\u094B\u0902, \u0935\u0943\u0926\u094D\u0927\u093F \u0930\u093E\u0936\u093F \u0914\u0930 \u0935\u093E\u0930\u094D\u0937\u093F\u0915 \u0905\u0902\u0924\u0930 \u0915\u0947 \u0938\u093E\u0925 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u090F\u0902\u0964"
         }
     },

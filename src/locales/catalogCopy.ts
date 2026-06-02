@@ -141,8 +141,8 @@ export const toolCopy: Record<string, CatalogText> = {
     "salary-increase": {
         name: { es: "Calculadora de aumento salarial", en: "Salary Increase Calculator", hi: "\u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930" },
         description: {
-            es: "Calcula cómo queda un salario después de un aumento porcentual.",
-            en: "Calculate what a salary looks like after a percentage increase.",
+            es: "Calcula tu nuevo sueldo después de un aumento.",
+            en: "Calculate new pay after a salary increase.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0947 \u092C\u093E\u0926 \u0935\u0947\u0924\u0928 \u0915\u0948\u0938\u093E \u0926\u093F\u0916\u0947\u0917\u093E\u0964"
         }
     },
