@@ -1011,17 +1011,17 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "weeks-between-dates": {
         intro: {
-            es: "Calcula cuantas semanas hay entre dos fechas y convierte el periodo en semanas completas, dias restantes y dias calendario.",
-            en: "Calculate how many weeks are between two dates and convert the period into full weeks, remaining days, and calendar days.",
+            es: "Calcula cuántas semanas hay entre dos fechas y convierte el periodo en semanas completas, días restantes y días calendario.",
+            en: "Use this week calculator to calculate weeks between dates and convert the period into full weeks, remaining days, and calendar days.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u093F\u0924\u0928\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u0939\u0948\u0902 \u0914\u0930 \u0905\u0935\u0927\u093F \u0915\u094B \u092A\u0942\u0930\u094D\u0923 \u0938\u092A\u094D\u0924\u093E\u0939, \u0936\u0947\u0937 \u0926\u093F\u0928 \u0914\u0930 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928\u094B\u0902 \u092E\u0947\u0902 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
         },
         sections: [
             {
-                title: { es: "Que muestra", en: "What it shows", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948" },
+                title: { es: "Qué muestra", en: "What it shows", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Entrega semanas aproximadas, semanas completas, dias restantes y total de dias calendario entre la fecha inicial y la fecha final.",
-                        en: "It returns approximate weeks, full weeks, remaining days, and total calendar days between the start and end dates.",
+                        es: "Entrega semanas aproximadas, semanas completas, días restantes y total de días calendario entre la fecha inicial y la fecha final.",
+                        en: "It returns approximate weeks, full weeks, remaining days, and total calendar days between the start and end dates, so you can count weeks without manual math.",
                         hi: "\u092F\u0939 \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u0938\u092A\u094D\u0924\u093E\u0939, \u092A\u0942\u0930\u094D\u0923 \u0938\u092A\u094D\u0924\u093E\u0939, \u0936\u0947\u0937 \u0926\u093F\u0928 \u0914\u0930 \u0915\u0941\u0932 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928 \u0932\u094C\u091F\u093E\u0924\u093E \u0939\u0948\u0964"
                     },
                     {

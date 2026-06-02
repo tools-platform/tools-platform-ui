@@ -229,8 +229,8 @@ export const toolCopy: Record<string, CatalogText> = {
     "weeks-between-dates": {
         name: { es: "Calculadora de semanas entre fechas", en: "Weeks Between Dates Calculator", hi: "\u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930" },
         description: {
-            es: "Convierte el tiempo entre dos fechas a semanas y días.",
-            en: "Convert the time between two dates into weeks and days.",
+            es: "Calcula semanas completas y días entre fechas.",
+            en: "Calculate weeks and days between dates.",
             hi: "\u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u0947 \u0938\u092E\u092F \u0915\u094B \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0926\u093F\u0928\u094B\u0902 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         }
     },

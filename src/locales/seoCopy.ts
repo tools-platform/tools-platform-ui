@@ -177,13 +177,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "weeks-between-dates": {
         title: {
-            es: "Calculadora de semanas entre fechas | Semanas y dias",
-            en: "Weeks Between Dates Calculator Online | Weeks and Days",
+            es: "Calculadora de semanas | Semanas entre fechas",
+            en: "Week Calculator | Weeks Between Dates",
             hi: "\u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0926\u093F\u0928"
         },
         description: {
-            es: "Calcula cuantas semanas hay entre dos fechas. Muestra semanas aproximadas, semanas completas, dias restantes y dias calendario.",
-            en: "Calculate how many weeks are between two dates. See approximate weeks, full weeks, remaining days, and calendar days.",
+            es: "Calcula cuántas semanas hay entre dos fechas. Convierte fechas a semanas completas, días restantes y días calendario.",
+            en: "Use this week calculator to calculate weeks between dates, count full weeks, convert dates to weeks, and see remaining calendar days.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u093F\u0924\u0928\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u0939\u0948\u0902\u0964 \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u0938\u092A\u094D\u0924\u093E\u0939, \u092A\u0942\u0930\u094D\u0923 \u0938\u092A\u094D\u0924\u093E\u0939, \u0936\u0947\u0937 \u0926\u093F\u0928 \u0914\u0930 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928 \u0926\u0947\u0916\u0947\u0902\u0964"
         }
     },

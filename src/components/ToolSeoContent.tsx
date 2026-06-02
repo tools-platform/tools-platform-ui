@@ -143,8 +143,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["HTML formatter online", "minify HTML", "format HTML code"]
   },
   "weeks-between-dates": {
-    es: ["calculadora de semanas entre fechas", "cuantas semanas hay entre fechas", "convertir fechas a semanas"],
-    en: ["weeks between dates calculator", "how many weeks between dates", "convert dates to weeks"]
+    es: ["calculadora de semanas", "cuántas semanas hay entre fechas", "convertir fechas a semanas"],
+    en: ["week calculator", "calculate weeks", "count weeks"]
   },
   "annual-salary": {
     es: ["calculadora salario anual Colombia", "salario anual desde mensual", "ingreso anual Colombia"],
