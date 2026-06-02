@@ -74,9 +74,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["सटीक आयु कैलकुलेटर", "जन्मतिथि से आयु निकालें", "साल महीने दिन में उम्र"]
   },
   "days-until-date": {
-    es: ["cuántos días faltan para una fecha", "días hasta una fecha", "contador de días restantes"],
-    en: ["days until date calculator", "days till calculator", "how many days until"],
-    hi: ["कितने दिन बाकी हैं", "दिन बाकी कैलकुलेटर", "घटना तक दिन"]
+    es: ["cuántos días faltan", "días hasta una fecha", "contador de días restantes"],
+    en: ["days until calculator", "days till date calculator", "how many days until"],
+    hi: ["कितने दिन बाकी हैं", "तारीख तक दिन कैलकुलेटर", "इवेंट तक दिन"]
   },
   "unit-converter": {
     es: ["conversor de unidades online", "convertir kg a lb", "convertir kilómetros a millas"],
