@@ -69,8 +69,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["तिथियों के बीच दिन कैलकुलेटर", "दो तारीखों के बीच कितने दिन", "तिथि अवधि कैलकुलेटर"]
   },
   "exact-age": {
-    es: ["calculadora de edad exacta", "edad en años meses y días", "calcular edad por fecha de nacimiento"],
-    en: ["exact age calculator", "age in years months days", "calculate age from birth date"]
+    es: ["calculadora de edad exacta", "calcular edad por fecha de nacimiento", "edad en años meses y días"],
+    en: ["exact age calculator", "calculate age from birth date", "age in years months days"],
+    hi: ["सटीक आयु कैलकुलेटर", "जन्मतिथि से आयु निकालें", "साल महीने दिन में उम्र"]
   },
   "days-until-date": {
     es: ["cuántos días faltan para una fecha", "días hasta una fecha", "contador de días restantes"],

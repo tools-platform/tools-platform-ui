@@ -241,9 +241,9 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0938\u091F\u0940\u0915 \u0906\u092F\u0941 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Calcula edad en años, meses y días.",
-            en: "Calculate age in years, months, and days.",
-            hi: "\u0906\u092F\u0941 \u0915\u0940 \u0917\u0923\u0928\u093E \u0935\u0930\u094D\u0937\u094B\u0902, \u092E\u0939\u0940\u0928\u094B\u0902 \u0914\u0930 \u0926\u093F\u0928\u094B\u0902 \u092E\u0947\u0902 \u0915\u0930\u0947\u0902\u0964"
+            es: "Calcula edad exacta por fecha de nacimiento.",
+            en: "Calculate exact age from a birth date.",
+            hi: "जन्मतिथि से सटीक आयु निकालें।"
         }
     },
     "days-until-date": {

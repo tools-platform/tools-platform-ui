@@ -1141,18 +1141,18 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "exact-age": {
         intro: {
-            es: "Calcula una edad exacta en años, meses y días a partir de una fecha de nacimiento.",
-            en: "Calculate an exact age in years, months, and days from a birth date.",
-            hi: "\u091C\u0928\u094D\u092E\u0924\u093F\u0925\u093F \u0938\u0947 \u0935\u0930\u094D\u0937\u094B\u0902, \u092E\u0939\u0940\u0928\u094B\u0902 \u0914\u0930 \u0926\u093F\u0928\u094B\u0902 \u092E\u0947\u0902 \u0938\u091F\u0940\u0915 \u0906\u092F\u0941 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
+            es: "Calcula la edad exacta desde una fecha de nacimiento y revisa años, meses, días, días totales y próximo cumpleaños.",
+            en: "Calculate exact age from a birth date and review years, months, days, total days, and the next birthday.",
+            hi: "जन्मतिथि से सटीक आयु निकालें और साल, महीने, दिन, कुल दिन तथा अगला जन्मदिन देखें।"
         },
         sections: [
             {
                 title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Muestra edad exacta, meses totales, días totales y cuánto falta para el próximo cumpleaños.",
-                        en: "It shows exact age, total months, total days, and how long until the next birthday.",
-                        hi: "\u092F\u0939 \u0938\u091F\u0940\u0915 \u0909\u092E\u094D\u0930, \u0915\u0941\u0932 \u092E\u0939\u0940\u0928\u0947, \u0915\u0941\u0932 \u0926\u093F\u0928 \u0914\u0930 \u0905\u0917\u0932\u0947 \u091C\u0928\u094D\u092E\u0926\u093F\u0928 \u0924\u0915 \u0915\u093F\u0924\u0928\u093E \u0938\u092E\u092F \u0936\u0947\u0937 \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948\u0964"
+                        es: "Muestra edad exacta en años, meses y días, además de meses totales, días totales y cuánto falta para el próximo cumpleaños.",
+                        en: "It shows exact age in years, months, and days, plus total months, total days, and how long until the next birthday.",
+                        hi: "यह साल, महीने और दिनों में सटीक आयु दिखाता है, साथ में कुल महीने, कुल दिन और अगले जन्मदिन तक बचा समय भी दिखाता है।"
                     },
                     {
                         es: "Puedes cambiar la fecha de cálculo si necesitas saber la edad en una fecha específica, no solo al día de hoy.",
@@ -1165,9 +1165,9 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Cuándo sirve", en: "When it helps", hi: "\u091C\u092C \u092F\u0939 \u092E\u0926\u0926 \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Es útil para formularios, trámites, requisitos de edad, documentos, colegios, viajes o simple curiosidad.",
-                        en: "It is useful for forms, paperwork, age requirements, documents, school, travel, or simple curiosity.",
-                        hi: "\u092F\u0939 \u092B\u0949\u0930\u094D\u092E, \u0915\u093E\u0917\u091C\u0940 \u0915\u093E\u0930\u094D\u0930\u0935\u093E\u0908, \u0906\u092F\u0941 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E\u0913\u0902, \u0926\u0938\u094D\u0924\u093E\u0935\u0947\u091C\u093C, \u0938\u094D\u0915\u0942\u0932, \u092F\u093E\u0924\u094D\u0930\u093E, \u092F\u093E \u0938\u093E\u0927\u093E\u0930\u0923 \u091C\u093F\u091C\u094D\u091E\u093E\u0938\u093E \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940 \u0939\u0948\u0964"
+                        es: "Es útil para formularios, trámites, requisitos de edad, documentos, colegios, viajes, cumpleaños o simple curiosidad.",
+                        en: "It is useful for forms, paperwork, age requirements, documents, school, travel, birthdays, or simple curiosity.",
+                        hi: "यह फॉर्म, कागजी काम, आयु आवश्यकताओं, दस्तावेज़, स्कूल, यात्रा, जन्मदिन या सामान्य जिज्ञासा के लिए उपयोगी है।"
                     },
                     {
                         es: "El resultado es calendario y puede variar frente a reglas administrativas específicas.",
@@ -1180,14 +1180,22 @@ export const toolContentById: Record<string, ToolContent> = {
         faqs: [
             {
                 question: {
-                    es: "¿Puedo calcular la edad en una fecha pasada?",
-                    en: "Can I calculate age on a past date?",
-                    hi: "\u0915\u094D\u092F\u093E \u092E\u0948\u0902 \u092A\u093F\u091B\u0932\u0940 \u0924\u093E\u0930\u0940\u0916 \u092A\u0930 \u0909\u092E\u094D\u0930 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930 \u0938\u0915\u0924\u093E \u0939\u0942\u0901?"
+                    es: "¿Cómo calcular mi edad exacta?",
+                    en: "How do I calculate my exact age?",
+                    hi: "मैं अपनी सटीक आयु कैसे निकालूँ?"
                 },
+                answer: {
+                    es: "Escribe tu fecha de nacimiento y deja la fecha de cálculo en hoy. La herramienta muestra tu edad exacta en años, meses y días.",
+                    en: "Enter your birth date and keep the calculation date as today. The tool shows your exact age in years, months, and days.",
+                    hi: "अपनी जन्मतिथि लिखें और गणना तिथि आज रहने दें। टूल आपकी सटीक आयु साल, महीने और दिनों में दिखाता है।"
+                }
+            },
+            {
+                question: { es: "¿Puedo calcular la edad en una fecha pasada?", en: "Can I calculate age on a past date?", hi: "क्या मैं पिछली तारीख पर आयु निकाल सकता हूँ?" },
                 answer: {
                     es: "Sí. Cambia la fecha de cálculo y la herramienta usará esa fecha como referencia.",
                     en: "Yes. Change the calculation date and the tool will use that date as the reference.",
-                    hi: "\u0939\u093E\u0901\u0964 \u0917\u0923\u0928\u093E \u0924\u093F\u0925\u093F \u092C\u0926\u0932\u0947\u0902 \u0914\u0930 \u0909\u092A\u0915\u0930\u0923 \u0909\u0938 \u0924\u093F\u0925\u093F \u0915\u094B \u0938\u0902\u0926\u0930\u094D\u092D \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0917\u093E\u0964"
+                    hi: "हाँ। गणना तिथि बदलें और टूल उस तारीख को संदर्भ के रूप में उपयोग करेगा।"
                 }
             },
             {

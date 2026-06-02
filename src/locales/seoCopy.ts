@@ -201,14 +201,14 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "exact-age": {
         title: {
-            es: "Calculadora de edad exacta online | Años, meses y días",
-            en: "Exact Age Calculator Online | Years, Months, Days",
-            hi: "\u0938\u091F\u0940\u0915 \u0906\u092F\u0941 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0938\u093E\u0932, \u092E\u0939\u0940\u0928\u0947, \u0926\u093F\u0928"
+            es: "Calculadora de edad exacta | Años, meses y días",
+            en: "Exact Age Calculator | Age in Years, Months and Days",
+            hi: "सटीक आयु कैलकुलेटर | साल, महीने और दिन"
         },
         description: {
-            es: "Calcula edad exacta desde una fecha de nacimiento en años, meses y días, con meses totales, días totales y próximo cumpleaños.",
-            en: "Calculate exact age from a birth date in years, months, and days, with total months, total days, and next birthday.",
-            hi: "\u091C\u0928\u094D\u092E\u0924\u093F\u0925\u093F \u0938\u0947 \u0935\u0930\u094D\u0937\u094B\u0902, \u092E\u0939\u0940\u0928\u094B\u0902 \u0914\u0930 \u0926\u093F\u0928\u094B\u0902 \u092E\u0947\u0902, \u0915\u0941\u0932 \u092E\u0939\u0940\u0928\u094B\u0902, \u0915\u0941\u0932 \u0926\u093F\u0928\u094B\u0902 \u0914\u0930 \u0905\u0917\u0932\u0947 \u091C\u0928\u094D\u092E\u0926\u093F\u0928 \u0915\u0947 \u0938\u093E\u0925 \u0938\u091F\u0940\u0915 \u0906\u092F\u0941 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
+            es: "Calcula tu edad exacta desde la fecha de nacimiento. Muestra años, meses, días, edad total en días y cuánto falta para el próximo cumpleaños.",
+            en: "Calculate exact age from a birth date. See age in years, months, days, total days, and how long until the next birthday.",
+            hi: "जन्मतिथि से सटीक आयु निकालें। साल, महीने, दिन, कुल दिन और अगले जन्मदिन तक बचा समय देखें।"
         }
     },
     "unit-converter": {
