@@ -375,8 +375,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "employment-settlement-colombia": {
         intro: {
-            es: "Esta calculadora de liquidación laboral en Colombia estima cuánto podría corresponderte cuando termina una relación de trabajo o quieres saber a cuánto equivale la liquidación.",
-            en: "This Colombia employment settlement calculator estimates what may be owed when a work relationship ends.",
+            es: "Esta calculadora de liquidación laboral en Colombia estima cuánto podría corresponderte al salir de un trabajo, incluyendo prestaciones e indemnización si aplica.",
+            en: "This Colombia final pay calculator estimates what may be owed when leaving a job, including benefits and compensation when applicable.",
             hi: "\u092F\u0939 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E \u0930\u094B\u091C\u0917\u093E\u0930 \u0928\u093F\u092A\u091F\u093E\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0924\u093E \u0939\u0948 \u0915\u093F \u0915\u093E\u0930\u094D\u092F \u0938\u0902\u092C\u0902\u0927 \u0938\u092E\u093E\u092A\u094D\u0924 \u0939\u094B\u0928\u0947 \u092A\u0930 \u0915\u093F\u0924\u0928\u093E \u092C\u0915\u093E\u092F\u093E \u0939\u094B \u0938\u0915\u0924\u093E \u0939\u0948\u0964"
         },
         sections: [
@@ -385,12 +385,12 @@ export const toolContentById: Record<string, ToolContent> = {
                 body: [
                     {
                         es: "Calcula cesantías, intereses de cesantías, prima de servicios, vacaciones pendientes, salario pendiente y otros pagos o deducciones que ingreses.",
-                        en: "It calculates severance, severance interest, service bonus, unused vacation, pending salary, and any extra earnings or deductions you enter.",
+                        en: "It calculates severance pay, severance interest, service bonus, unused vacation, pending salary, and any extra earnings or deductions you enter.",
                         hi: "\u092F\u0939 \u0935\u093F\u091A\u094D\u091B\u0947\u0926, \u0935\u093F\u091A\u094D\u091B\u0947\u0926 \u092C\u094D\u092F\u093E\u091C, \u0938\u0947\u0935\u093E \u092C\u094B\u0928\u0938, \u0905\u092A\u094D\u0930\u092F\u0941\u0915\u094D\u0924 \u0905\u0935\u0915\u093E\u0936, \u0932\u0902\u092C\u093F\u0924 \u0935\u0947\u0924\u0928 \u0914\u0930 \u0906\u092A\u0915\u0947 \u0926\u094D\u0935\u093E\u0930\u093E \u0926\u0930\u094D\u091C \u0915\u0940 \u0917\u0908 \u0915\u093F\u0938\u0940 \u092D\u0940 \u0905\u0924\u093F\u0930\u093F\u0915\u094D\u0924 \u0915\u092E\u093E\u0908 \u092F\u093E \u0915\u091F\u094C\u0924\u0940 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
-                        es: "También sirve para preguntas comunes como calcular liquidación laboral, liquidación 2025, liquidación 2026 o cuánto equivale la liquidación al salir de un empleo.",
-                        en: "It also helps with common questions such as calculating an employment settlement, estimating a past-year settlement, or understanding what a final payout may represent.",
+                        es: "También sirve para preguntas comunes como calcular liquidación laboral Colombia, liquidación 2026 o cuánto me toca de liquidación al salir de un empleo.",
+                        en: "It also helps with common questions such as calculating final pay in Colombia, estimating a 2026 settlement, or understanding how much may be owed when employment ends.",
                         hi: "\u092F\u0939 \u0938\u093E\u092E\u093E\u0928\u094D\u092F \u092A\u094D\u0930\u0936\u094D\u0928\u094B\u0902 \u092E\u0947\u0902 \u092D\u0940 \u092E\u0926\u0926 \u0915\u0930\u0924\u093E \u0939\u0948 \u091C\u0948\u0938\u0947 \u0915\u093F \u0930\u094B\u091C\u0917\u093E\u0930 \u0928\u093F\u092A\u091F\u093E\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0928\u093E, \u092A\u093F\u091B\u0932\u0947 \u0935\u0930\u094D\u0937 \u0915\u0947 \u0928\u093F\u092A\u091F\u093E\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u093E, \u092F\u093E \u092F\u0939 \u0938\u092E\u091D\u0928\u093E \u0915\u093F \u0905\u0902\u0924\u093F\u092E \u092D\u0941\u0917\u0924\u093E\u0928 \u0915\u094D\u092F\u093E \u0926\u0930\u094D\u0936\u093E\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
@@ -404,8 +404,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Datos importantes", en: "Important inputs", hi: "\u092E\u0939\u0924\u094D\u0935\u092A\u0942\u0930\u094D\u0923 \u0907\u0928\u092A\u0941\u091F" },
                 body: [
                     {
-                        es: "Usa la fecha de inicio, fecha de finalización, salario base, tipo de contrato y motivo de terminación.",
-                        en: "It uses the employment start date, end date, base salary, contract type, and termination reason.",
+                        es: "Usa fecha de inicio, fecha de finalización, salario mensual bruto, tipo de contrato y motivo de terminación para estimar cada concepto.",
+                        en: "It uses start date, end date, gross monthly salary, contract type, and termination reason to estimate each item.",
                         hi: "\u092F\u0939 \u0930\u094B\u091C\u0917\u093E\u0930 \u0906\u0930\u0902\u092D \u0924\u093F\u0925\u093F, \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0924\u093F\u0925\u093F, \u0906\u0927\u093E\u0930 \u0935\u0947\u0924\u0928, \u0905\u0928\u0941\u092C\u0902\u0927 \u092A\u094D\u0930\u0915\u093E\u0930 \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0915\u093E\u0930\u0923 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
@@ -434,13 +434,13 @@ export const toolContentById: Record<string, ToolContent> = {
         faqs: [
             {
                 question: {
-                    es: "¿A cuánto equivale la liquidación laboral?",
-                    en: "What does an employment settlement include?",
+                    es: "¿Cuánto me toca de liquidación laboral?",
+                    en: "How much final pay am I owed in Colombia?",
                     hi: "\u0930\u094B\u091C\u0917\u093E\u0930 \u0938\u092E\u091D\u094C\u0924\u0947 \u092E\u0947\u0902 \u0915\u094D\u092F\u093E \u0936\u093E\u092E\u093F\u0932 \u0939\u0948?"
                 },
                 answer: {
-                    es: "Depende de salario, fechas, prestaciones pendientes, vacaciones, motivo de terminación y si aplica indemnización. La calculadora separa esos conceptos para darte una estimación.",
-                    en: "It depends on salary, dates, pending benefits, vacation, termination reason, and whether dismissal compensation applies. The calculator separates those items to estimate the payout.",
+                    es: "Depende de salario, fechas, prestaciones pendientes, vacaciones, motivo de terminación y si aplica indemnización. La calculadora separa esos conceptos para estimar el total.",
+                    en: "It depends on salary, dates, pending benefits, vacation, termination reason, and whether dismissal compensation applies. The calculator separates those items to estimate the total.",
                     hi: "\u092F\u0939 \u0935\u0947\u0924\u0928, \u0924\u093E\u0930\u0940\u0916\u094B\u0902, \u0932\u0902\u092C\u093F\u0924 \u0932\u093E\u092D\u094B\u0902, \u091B\u0941\u091F\u094D\u091F\u093F\u092F\u094B\u0902, \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0915\u0947 \u0915\u093E\u0930\u0923 \u0914\u0930 \u0915\u094D\u092F\u093E \u092C\u0930\u094D\u0916\u093E\u0938\u094D\u0924\u0917\u0940 \u092E\u0941\u0906\u0935\u091C\u093E \u0932\u093E\u0917\u0942 \u0939\u094B\u0924\u093E \u0939\u0948, \u092A\u0930 \u0928\u093F\u0930\u094D\u092D\u0930 \u0915\u0930\u0924\u093E \u0939\u0948\u0964 \u092D\u0941\u0917\u0924\u093E\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0909\u0928 \u0935\u0938\u094D\u0924\u0941\u0913\u0902 \u0915\u094B \u0905\u0932\u0917 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                 }
             },

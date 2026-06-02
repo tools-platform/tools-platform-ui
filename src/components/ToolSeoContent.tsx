@@ -17,8 +17,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["Colombia gross salary calculator", "net salary to gross pay", "biweekly net to gross salary"]
   },
   "employment-settlement-colombia": {
-    es: ["calculadora de liquidación laboral", "a cuánto equivale la liquidación", "calcular liquidación Colombia"],
-    en: ["Colombia employment settlement calculator", "final pay calculator Colombia", "severance and vacation payout"]
+    es: ["calculadora de liquidación laboral Colombia", "calcular liquidación Colombia 2026", "cuánto me toca de liquidación"],
+    en: ["Colombia severance pay calculator", "final pay calculator Colombia", "employment settlement Colombia"]
   },
   "social-benefits-colombia": {
     es: ["calculadora prestaciones sociales Colombia", "calcular cesantías y prima", "vacaciones causadas Colombia"],

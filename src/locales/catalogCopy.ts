@@ -85,8 +85,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0930\u094B\u091C\u0917\u093E\u0930 \u0928\u093F\u092A\u091F\u093E\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 (\u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E)"
         },
         description: {
-            es: "Cesantías, prima y vacaciones al salir del trabajo.",
-            en: "Estimate severance, service bonus, and unused vacation at the end of employment.",
+            es: "Calcula cesantías, prima, vacaciones e indemnización.",
+            en: "Calculate severance, service bonus, vacation, and compensation.",
             hi: "\u0930\u094B\u091C\u0917\u093E\u0930 \u0915\u0947 \u0905\u0902\u0924 \u092E\u0947\u0902 \u0935\u093F\u091A\u094D\u091B\u0947\u0926, \u0938\u0947\u0935\u093E \u092C\u094B\u0928\u0938 \u0914\u0930 \u0905\u092A\u094D\u0930\u092F\u0941\u0915\u094D\u0924 \u091B\u0941\u091F\u094D\u091F\u0940 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u090F\u0902\u0964"
         }
     },

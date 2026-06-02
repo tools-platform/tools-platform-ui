@@ -69,13 +69,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "employment-settlement-colombia": {
         title: {
-            es: "Calculadora de liquidación laboral Colombia 2026 | Liquidación",
-            en: "Colombia Employment Settlement Calculator 2026 | Final Pay",
+            es: "Calculadora de liquidación laboral Colombia | 2026",
+            en: "Colombia Severance and Final Pay Calculator | 2026",
             hi: "\u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E \u0930\u094B\u091C\u0917\u093E\u0930 \u0928\u093F\u092A\u091F\u093E\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 2026 | \u0905\u0902\u0924\u093F\u092E \u0935\u0947\u0924\u0928"
         },
         description: {
-            es: "Calcula cuánto equivale tu liquidación laboral en Colombia con cesantías, prima, vacaciones, salario pendiente e indemnización si aplica.",
-            en: "Estimate a Colombia employment settlement with severance, service bonus, vacation, pending salary, and dismissal compensation when applicable.",
+            es: "Calcula liquidación laboral en Colombia 2026: cesantías, intereses, prima, vacaciones, salario pendiente e indemnización si aplica.",
+            en: "Calculate Colombia final pay and severance for 2026, including severance, interest, service bonus, vacation, pending salary, and compensation.",
             hi: "\u091C\u092C \u092D\u0940 \u0932\u093E\u0917\u0942 \u0939\u094B, \u0935\u093F\u091A\u094D\u091B\u0947\u0926, \u0938\u0947\u0935\u093E \u092C\u094B\u0928\u0938, \u0905\u0935\u0915\u093E\u0936, \u0932\u0902\u092C\u093F\u0924 \u0935\u0947\u0924\u0928 \u0914\u0930 \u092C\u0930\u094D\u0916\u093E\u0938\u094D\u0924\u0917\u0940 \u092E\u0941\u0906\u0935\u091C\u0947 \u0915\u0947 \u0938\u093E\u0925 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u0930\u094B\u091C\u0917\u093E\u0930 \u0938\u092E\u091D\u094C\u0924\u0947 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u090F\u0902\u0964"
         }
     },
