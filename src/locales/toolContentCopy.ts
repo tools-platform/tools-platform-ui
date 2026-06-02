@@ -881,8 +881,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "freelance-rate": {
         intro: {
-            es: "Calcula una tarifa freelance estimada a partir de tu ingreso mensual deseado y tus horas de trabajo.",
-            en: "Calculate an estimated freelance rate based on your target monthly income and working hours.",
+            es: "Calcula cuánto cobrar freelance por hora, día o semana a partir de tu meta mensual, horas de trabajo y margen.",
+            en: "Use this freelance rate calculator to estimate hourly, daily, and weekly rates from your monthly goal, work hours, and margin.",
             hi: "\u0905\u092A\u0928\u0940 \u0932\u0915\u094D\u0937\u093F\u0924 \u092E\u093E\u0938\u093F\u0915 \u0906\u092F \u0914\u0930 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u094B\u0902 \u0915\u0947 \u0906\u0927\u093E\u0930 \u092A\u0930 \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u092B\u094D\u0930\u0940\u0932\u093E\u0902\u0938 \u0926\u0930 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
         },
         sections: [
@@ -890,13 +890,13 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué pide", en: "What it asks for", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u092E\u093E\u0902\u0917\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Ingresa cuánto quieres ganar al mes, cuántos días trabajas por semana, cuántas horas al día y un margen de seguridad opcional.",
-                        en: "Enter how much you want to earn per month, how many days you work per week, how many hours per day, and an optional safety margin.",
+                        es: "Ingresa cuánto quieres ganar al mes, cuántos días trabajas por semana, cuántas horas al día y un margen de seguridad opcional para calcular tu tarifa freelance.",
+                        en: "Enter how much you want to earn per month, how many days you work per week, how many hours per day, and an optional safety margin to calculate your freelance rate.",
                         hi: "\u092F\u0939 \u0926\u0930\u094D\u091C \u0915\u0930\u0947\u0902 \u0915\u093F \u0906\u092A \u092A\u094D\u0930\u0924\u093F \u092E\u093E\u0939 \u0915\u093F\u0924\u0928\u093E \u0915\u092E\u093E\u0928\u093E \u091A\u093E\u0939\u0924\u0947 \u0939\u0948\u0902, \u0906\u092A \u092A\u094D\u0930\u0924\u093F \u0938\u092A\u094D\u0924\u093E\u0939 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u0915\u093E\u092E \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u092A\u094D\u0930\u0924\u093F \u0926\u093F\u0928 \u0915\u093F\u0924\u0928\u0947 \u0918\u0902\u091F\u0947 \u0914\u0930 \u090F\u0915 \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0938\u0941\u0930\u0915\u094D\u0937\u093E \u092E\u093E\u0930\u094D\u091C\u093F\u0928\u0964"
                     },
                     {
-                        es: "Con esos datos estima tarifa por hora, por día, por semana y el ingreso mensual objetivo.",
-                        en: "With that information, it estimates an hourly, daily, and weekly rate plus the target monthly revenue.",
+                        es: "Con esos datos estima tarifa por hora, por día, por semana y el ingreso mensual objetivo para cotizar proyectos con una base clara.",
+                        en: "With that information, it estimates an hourly, daily, and weekly freelance rate plus the target monthly revenue for clearer project quotes.",
                         hi: "\u0909\u0938 \u091C\u093E\u0928\u0915\u093E\u0930\u0940 \u0915\u0947 \u0938\u093E\u0925, \u092F\u0939 \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E, \u0926\u0948\u0928\u093F\u0915 \u0914\u0930 \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u0926\u0930 \u0914\u0930 \u0932\u0915\u094D\u0937\u094D\u092F \u092E\u093E\u0938\u093F\u0915 \u0930\u093E\u091C\u0938\u094D\u0935 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0924\u093E \u0939\u0948\u0964"
                     }
                 ]
@@ -905,8 +905,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Cómo usar el resultado", en: "How to use the result", hi: "\u092A\u0930\u093F\u0923\u093E\u092E \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0948\u0938\u0947 \u0915\u0930\u0947\u0902" },
                 body: [
                     {
-                        es: "Úsalo como punto de partida para cotizar proyectos o comparar si una oferta freelance te conviene.",
-                        en: "Use it as a starting point to quote projects or compare whether a freelance offer works for you.",
+                        es: "Úsalo como punto de partida para cotizar proyectos, negociar con clientes o comparar si una oferta freelance te conviene.",
+                        en: "Use it as a starting point to quote projects, negotiate with clients, or compare whether a freelance offer works for you.",
                         hi: "\u0907\u0938\u0947 \u092A\u0930\u093F\u092F\u094B\u091C\u0928\u093E\u0913\u0902 \u0915\u094B \u0909\u0926\u094D\u0927\u0943\u0924 \u0915\u0930\u0928\u0947 \u092F\u093E \u0924\u0941\u0932\u0928\u093E \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0936\u0941\u0930\u0941\u0906\u0924\u0940 \u092C\u093F\u0902\u0926\u0941 \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902 \u0915\u093F \u0915\u094B\u0908 \u092B\u094D\u0930\u0940\u0932\u093E\u0902\u0938 \u0911\u092B\u0930 \u0906\u092A\u0915\u0947 \u0932\u093F\u090F \u0915\u093E\u092E \u0915\u0930\u0924\u093E \u0939\u0948 \u092F\u093E \u0928\u0939\u0940\u0902\u0964"
                     },
                     {
@@ -919,10 +919,10 @@ export const toolContentById: Record<string, ToolContent> = {
         ],
         faqs: [
             {
-                question: { es: "¿La herramienta descuenta impuestos?", en: "Does the tool subtract taxes?", hi: "\u0915\u094D\u092F\u093E \u0909\u092A\u0915\u0930\u0923 \u0915\u0930 \u0918\u091F\u093E\u0924\u093E \u0939\u0948?" },
+                question: { es: "¿Esta tarifa freelance incluye impuestos?", en: "Does the freelance rate include taxes?", hi: "\u0915\u094D\u092F\u093E \u0909\u092A\u0915\u0930\u0923 \u0915\u0930 \u0918\u091F\u093E\u0924\u093E \u0939\u0948?" },
                 answer: {
-                    es: "No. Calcula una tarifa base estimada. Cada persona debe revisar sus obligaciones reales.",
-                    en: "No. It calculates an estimated base rate. Each person should review their own tax obligations.",
+                    es: "No. Calcula una tarifa base estimada. Cada freelancer debe revisar impuestos, comisiones de plataforma y obligaciones reales.",
+                    en: "No. It calculates an estimated base freelance rate. Each freelancer should review taxes, platform fees, and real obligations.",
                     hi: "\u0928\u0939\u0940\u0902, \u092F\u0939 \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u0906\u0927\u093E\u0930 \u0926\u0930 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948\u0964 \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u0935\u094D\u092F\u0915\u094D\u0924\u093F \u0915\u094B \u0905\u092A\u0928\u0947 \u0915\u0930 \u0926\u093E\u092F\u093F\u0924\u094D\u0935\u094B\u0902 \u0915\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0915\u0930\u0928\u0940 \u091A\u093E\u0939\u093F\u090F\u0964"
                 }
             },

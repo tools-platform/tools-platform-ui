@@ -153,13 +153,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "freelance-rate": {
         title: {
-            es: "Calculadora de cuánto cobrar freelance | Tarifa por hora",
-            en: "Freelance Rate Calculator | Hourly Rate",
+            es: "Calculadora de tarifa freelance | Cuánto cobrar por hora",
+            en: "Freelance Rate Calculator | Hourly and Project Rates",
             hi: "\u092B\u094D\u0930\u0940\u0932\u093E\u0902\u0938 \u0930\u0947\u091F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 | \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u0926\u0930"
         },
         description: {
-            es: "Calcula cuánto cobrar como freelance por hora, día, semana o mes según tu ingreso deseado, días y horas de trabajo.",
-            en: "Calculate how much to charge as a freelancer per hour, day, week, or month based on income target, work days, and hours.",
+            es: "Calcula cuánto cobrar como freelance por hora, día, semana o mes. Define tu meta mensual, horas de trabajo y margen para cotizar mejor.",
+            en: "Use this freelance rate calculator to estimate hourly, daily, weekly, and monthly rates from your income goal, work hours, and margin.",
             hi: "\u0906\u092F \u0932\u0915\u094D\u0937\u094D\u092F, \u0915\u093E\u0930\u094D\u092F \u0926\u093F\u0935\u0938 \u0914\u0930 \u0918\u0902\u091F\u094B\u0902 \u0915\u0947 \u0906\u0927\u093E\u0930 \u092A\u0930 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u090F\u0915 \u092B\u094D\u0930\u0940\u0932\u093E\u0902\u0938\u0930 \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u0947, \u0926\u093F\u0928, \u0938\u092A\u094D\u0924\u093E\u0939 \u092F\u093E \u092E\u0939\u0940\u0928\u0947 \u092E\u0947\u0902 \u0915\u093F\u0924\u0928\u093E \u0936\u0941\u0932\u094D\u0915 \u0932\u093F\u092F\u093E \u091C\u093E\u090F\u0917\u093E\u0964"
         }
     },

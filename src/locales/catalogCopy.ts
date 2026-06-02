@@ -197,8 +197,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u092B\u094D\u0930\u0940\u0932\u093E\u0902\u0938 \u0926\u0930 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Sugiere una tarifa según tu meta mensual y horas de trabajo.",
-            en: "Suggest a freelance rate based on your monthly income goal.",
+            es: "Calcula tarifa por hora, día y semana freelance.",
+            en: "Calculate hourly, daily, and weekly freelance rates.",
             hi: "\u0905\u092A\u0928\u0947 \u092E\u093E\u0938\u093F\u0915 \u0906\u092F \u0932\u0915\u094D\u0937\u094D\u092F \u0915\u0947 \u0906\u0927\u093E\u0930 \u092A\u0930 \u092B\u094D\u0930\u0940\u0932\u093E\u0902\u0938 \u0926\u0930 \u0915\u093E \u0938\u0941\u091D\u093E\u0935 \u0926\u0947\u0902\u0964"
         }
     },

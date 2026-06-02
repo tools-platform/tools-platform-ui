@@ -61,7 +61,7 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
   },
   "freelance-rate": {
     es: ["cuánto cobrar freelance", "tarifa freelance por hora", "calcular precio freelance"],
-    en: ["freelance rate calculator", "hourly freelance rate", "how much to charge freelance"]
+    en: ["freelance rate calculator", "freelance hourly rate calculator", "how much to charge freelance"]
   },
   "days-between-dates": {
     es: ["contador de días entre fechas", "calculador de días calendario", "cuántos días hay entre dos fechas"],
