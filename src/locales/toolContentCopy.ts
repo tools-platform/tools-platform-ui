@@ -1371,8 +1371,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "duplicate-counter": {
         intro: {
-            es: "Cuenta duplicados online en una lista, columna o bloque de texto y genera una vista con valores únicos, repetidos y ocurrencias.",
-            en: "Count duplicates online in a list, column, or text block and generate a view with unique values, duplicate lines, and occurrences.",
+            es: "Pega una lista, columna o bloque de texto y cuenta duplicados online con valores únicos, repetidos y ocurrencias.",
+            en: "Paste a list, column, or text block and count duplicates online with unique values, repeated lines, and occurrences.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0914\u0930 \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928\u094B\u0902 \u0914\u0930 \u0909\u0928\u0915\u0940 \u0918\u091F\u0928\u093E\u0913\u0902 \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0926\u0943\u0936\u094D\u092F \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\u0964"
         },
         sections: [
@@ -1380,8 +1380,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Toma cada línea como un valor y muestra cuántas líneas hay, cuántos valores únicos existen y qué valores aparecen más de una vez.",
-                        en: "It treats each line as one value and shows total lines, how many unique values exist, and which values appear more than once.",
+                        es: "Toma cada línea como un valor y muestra líneas totales, valores únicos, valores repetidos y cuántas veces aparece cada elemento.",
+                        en: "It treats each line as one value and shows total lines, unique values, repeated values, and how many times each item appears.",
                         hi: "\u092F\u0939 \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u092A\u0902\u0915\u094D\u0924\u093F \u0915\u094B \u090F\u0915 \u092E\u093E\u0928 \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u092E\u093E\u0928\u0924\u093E \u0939\u0948 \u0914\u0930 \u0915\u0941\u0932 \u092A\u0902\u0915\u094D\u0924\u093F\u092F\u094B\u0902 \u0915\u094B \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948, \u0915\u093F\u0924\u0928\u0947 \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928 \u092E\u094C\u091C\u0942\u0926 \u0939\u0948\u0902, \u0914\u0930 \u0915\u094C\u0928 \u0938\u0947 \u092E\u093E\u0928 \u090F\u0915 \u0938\u0947 \u0905\u0927\u093F\u0915 \u092C\u093E\u0930 \u0926\u093F\u0916\u093E\u0908 \u0926\u0947\u0924\u0947 \u0939\u0948\u0902\u0964"
                     },
                     {
@@ -1417,10 +1417,10 @@ export const toolContentById: Record<string, ToolContent> = {
                 }
             },
             {
-                question: { es: "¿Qué significa lista de resultados?", en: "What does distinct list mean?", hi: "\u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0938\u0942\u091A\u0940 \u0915\u093E \u0915\u094D\u092F\u093E \u0905\u0930\u094D\u0925 \u0939\u0948?" },
+                question: { es: "¿Puedo contar valores únicos online?", en: "Can I count unique values online?", hi: "\u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0938\u0942\u091A\u0940 \u0915\u093E \u0915\u094D\u092F\u093E \u0905\u0930\u094D\u0925 \u0939\u0948?" },
                 answer: {
-                    es: "Una lista de resultados contiene cada valor una sola vez. Si un valor aparece varias veces en la entrada, en esa lista solo se muestra una vez.",
-                    en: "A distinct list contains each value only once. If a value appears several times in the input, the distinct list shows it only once.",
+                    es: "Sí. La herramienta calcula cuántos valores únicos hay y también genera una lista donde cada valor aparece una sola vez.",
+                    en: "Yes. The tool counts how many unique values exist and also creates a list where each value appears only once.",
                     hi: "\u090F\u0915 \u0905\u0932\u0917 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u092E\u093E\u0928 \u0915\u0947\u0935\u0932 \u090F\u0915 \u092C\u093E\u0930 \u0939\u094B\u0924\u093E \u0939\u0948\u0964 \u092F\u0926\u093F \u0915\u094B\u0908 \u092E\u093E\u0928 \u0907\u0928\u092A\u0941\u091F \u092E\u0947\u0902 \u0915\u0908 \u092C\u093E\u0930 \u0926\u093F\u0916\u093E\u0908 \u0926\u0947\u0924\u093E \u0939\u0948, \u0924\u094B \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0938\u0942\u091A\u0940 \u0907\u0938\u0947 \u0915\u0947\u0935\u0932 \u090F\u0915 \u092C\u093E\u0930 \u0926\u093F\u0916\u093E\u0924\u0940 \u0939\u0948\u0964"
                 }
             },

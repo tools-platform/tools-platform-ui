@@ -285,8 +285,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0921\u0941\u092A\u094D\u0932\u0940\u0915\u0947\u091F \u0915\u093E\u0909\u0902\u091F\u0930"
         },
         description: {
-            es: "Cuenta duplicados, únicos y repetidos en listas o columnas.",
-            en: "Count duplicates, unique values, and repeated lines in lists.",
+            es: "Pega una lista y encuentra duplicados, únicos y repetidos.",
+            en: "Paste a list and find duplicates, unique values, and repeats.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0926\u094B\u0939\u0930\u093E\u090F \u0917\u090F \u092E\u093E\u0928\u094B\u0902, \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928\u094B\u0902 \u0914\u0930 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u092A\u0902\u0915\u094D\u0924\u093F\u092F\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
         }
     },
