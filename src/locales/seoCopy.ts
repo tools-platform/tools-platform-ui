@@ -453,13 +453,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "resignation-letter-generator": {
         title: {
-            es: "Generador de carta de renuncia online | Borrador editable",
-            en: "Resignation Letter Generator Online | Editable Draft",
+            es: "Generador de carta de renuncia | Plantilla editable",
+            en: "Resignation Letter Generator | Editable Template",
             hi: "\u0911\u0928\u0932\u093E\u0907\u0928 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u091C\u0928\u0930\u0947\u091F\u0930 | \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0921\u094D\u0930\u093E\u092B\u094D\u091F"
         },
         description: {
-            es: "Genera una carta de renuncia formal, breve o agradecida con nombre, cargo, empresa, fechas y motivo opcional. Copia y edita el borrador.",
-            en: "Generate a formal, brief, or grateful resignation letter with name, role, company, dates, and optional reason. Copy and edit the draft.",
+            es: "Genera una carta de renuncia formal con nombre, cargo, empresa, fechas y motivo opcional. Edita, copia o descarga la plantilla.",
+            en: "Generate a formal resignation letter with name, role, company, dates, and optional reason. Edit, copy, or download the template.",
             hi: "\u0928\u093E\u092E, \u092A\u0926, \u0915\u0902\u092A\u0928\u0940, \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0914\u0930 \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0915\u093E\u0930\u0923 \u0915\u0947 \u0938\u093E\u0925 \u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u090F\u0901\u0964 \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u0915\u0949\u092A\u0940 \u0914\u0930 \u0938\u0902\u092A\u093E\u0926\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
     },
