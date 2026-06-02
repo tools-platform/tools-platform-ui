@@ -129,14 +129,14 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "cop-usd": {
         title: {
-            es: "Conversor COP a USD | Pesos colombianos a dólares",
-            en: "COP to USD Converter with Reference Rate | Tools Platforms",
-            hi: "\u0938\u0902\u0926\u0930\u094D\u092D \u0926\u0930 \u0915\u0947 \u0938\u093E\u0925 \u0938\u0940\u0913\u092A\u0940 \u0938\u0947 \u092F\u0942\u090F\u0938\u0921\u0940 \u0915\u0928\u0935\u0930\u094D\u091F\u0930 | \u0909\u092A\u0915\u0930\u0923 \u092A\u094D\u0932\u0947\u091F\u092B\u093E\u0930\u094D\u092E"
+            es: "Conversor COP a USD | Dólares a pesos colombianos",
+            en: "COP to USD Converter | Colombian Peso to Dollar",
+            hi: "COP से USD कनवर्टर | कोलंबियाई पेसो से डॉलर"
         },
         description: {
-            es: "Convierte pesos colombianos a dólares y dólares a pesos con tasa de referencia. Calcula COP a USD, USD a COP y el valor aproximado de cambio.",
-            en: "Convert Colombian pesos to US dollars and back with a reference rate. Calculate COP to USD, USD to COP, and estimated exchange value.",
-            hi: "\u0938\u0902\u0926\u0930\u094D\u092D \u0935\u093F\u0928\u093F\u092E\u092F \u0926\u0930 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0915\u0947 \u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E\u0908 \u092A\u0947\u0938\u094B\u0938 \u0915\u094B \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u0914\u0930 \u0935\u093E\u092A\u0938 \u092E\u0947\u0902 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
+            es: "Convierte COP a USD y USD a COP con tasa de referencia. Calcula pesos colombianos a dólares para compras, viajes, pagos y valores aproximados.",
+            en: "Convert COP to USD and USD to COP with a reference rate. Estimate Colombian pesos to dollars for purchases, travel, payments, and exchange values.",
+            hi: "संदर्भ दर के साथ COP से USD और USD से COP में बदलें। खरीदारी, यात्रा, भुगतान और अनुमानित विनिमय मूल्य के लिए कोलंबियाई पेसो को डॉलर में बदलें।"
         }
     },
     "worked-hours": {

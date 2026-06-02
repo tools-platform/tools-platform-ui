@@ -133,9 +133,9 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0938\u0940\u0913\u092A\u0940 \u0938\u0947 \u092F\u0942\u090F\u0938\u0921\u0940 \u0915\u0928\u0935\u0930\u094D\u091F\u0930"
         },
         description: {
-            es: "Convierte pesos colombianos a dólares de forma rápida.",
-            en: "Convert Colombian pesos to US dollars quickly.",
-            hi: "\u0915\u094B\u0932\u092E\u094D\u092C\u093F\u092F\u093E\u0908 \u092A\u0947\u0938\u094B\u0938 \u0915\u094B \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u092E\u0947\u0902 \u091C\u0932\u094D\u0926\u0940 \u0938\u0947 \u092C\u0926\u0932\u0947\u0902\u0964"
+            es: "Convierte COP a USD y USD a COP con tasa de referencia.",
+            en: "Convert COP to USD and USD to COP with a reference rate.",
+            hi: "संदर्भ दर के साथ COP से USD और USD से COP में बदलें।"
         }
     },
     "salary-increase": {

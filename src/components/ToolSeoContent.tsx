@@ -33,8 +33,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["loan payment calculator", "monthly loan payment", "loan installment calculator"]
   },
   "cop-usd": {
-    es: ["conversor COP a USD", "pesos colombianos a dólares", "dólares a pesos colombianos"],
-    en: ["COP to USD converter", "Colombian pesos to dollars", "USD to COP converter"],
+    es: ["conversor COP a USD", "pesos colombianos a dólares", "USD a pesos colombianos"],
+    en: ["COP to USD converter", "Colombian peso to USD", "USD to Colombian peso"],
     hi: ["COP से USD कनवर्टर", "कोलंबियाई पेसो से डॉलर", "USD से COP कनवर्टर"]
   },
   "salary-increase": {

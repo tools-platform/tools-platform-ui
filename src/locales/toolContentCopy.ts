@@ -679,18 +679,18 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "cop-usd": {
         intro: {
-            es: "Convierte pesos colombianos a dólares o dólares a pesos usando una tasa de referencia para calcular COP a USD y USD a COP.",
-            en: "Convert Colombian pesos to US dollars or dollars to pesos with a reference rate for COP to USD and USD to COP estimates.",
-            hi: "\u0938\u0902\u0926\u0930\u094D\u092D \u0935\u093F\u0928\u093F\u092E\u092F \u0926\u0930 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0915\u0947 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E\u0908 \u092A\u0947\u0938\u094B\u0938 \u0915\u094B \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u092F\u093E \u0921\u0949\u0932\u0930 \u0915\u094B \u092A\u0947\u0938\u094B\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
+            es: "Convierte COP a USD o USD a COP usando una tasa de referencia para estimar pesos colombianos, dólares y valores de cambio.",
+            en: "Convert COP to USD or USD to COP with a reference rate to estimate Colombian pesos, dollars, and exchange values.",
+            hi: "संदर्भ दर के साथ COP से USD या USD से COP में बदलें और कोलंबियाई पेसो, डॉलर तथा विनिमय मूल्य का अनुमान लगाएँ।"
         },
         sections: [
             {
                 title: { es: "Cuándo usarlo", en: "When to use it", hi: "\u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u092C \u0915\u0930\u0928\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Sirve para estimar compras internacionales, pagos, viajes, ahorros, facturas o valores expresados en dólares y pesos colombianos.",
-                        en: "Use it to estimate international purchases, payments, travel, savings, invoices, or values expressed in Colombian pesos and US dollars.",
-                        hi: "\u0905\u0902\u0924\u0930\u094D\u0930\u093E\u0937\u094D\u091F\u094D\u0930\u0940\u092F \u0916\u0930\u0940\u0926\u093E\u0930\u0940, \u092D\u0941\u0917\u0924\u093E\u0928, \u092F\u093E\u0924\u094D\u0930\u093E, \u092C\u091A\u0924, \u091A\u093E\u0932\u093E\u0928, \u092F\u093E \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u092E\u0947\u0902 \u0935\u094D\u092F\u0915\u094D\u0924 \u092E\u0942\u0932\u094D\u092F\u094B\u0902 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902\u0964"
+                        es: "Sirve para estimar compras internacionales, pagos en dólares, viajes, ahorros, facturas o precios que necesitas pasar de COP a USD o de USD a COP.",
+                        en: "Use it to estimate international purchases, dollar payments, travel, savings, invoices, or prices you need to convert from COP to USD or USD to COP.",
+                        hi: "इसे अंतरराष्ट्रीय खरीदारी, डॉलर में भुगतान, यात्रा, बचत, चालान या उन कीमतों के लिए उपयोग करें जिन्हें COP से USD या USD से COP में बदलना है।"
                     },
                     {
                         es: "La conversión usa una tasa de referencia y evita redondeos agresivos para conservar precisión.",
@@ -730,6 +730,14 @@ export const toolContentById: Record<string, ToolContent> = {
                     es: "Sí. Cambia la dirección de conversión y escribe el monto en dólares.",
                     en: "Yes. Change the conversion direction and enter the amount in US dollars.",
                     hi: "\u0939\u093E\u0901\u0964 \u0930\u0942\u092A\u093E\u0902\u0924\u0930\u0923 \u0926\u093F\u0936\u093E \u092C\u0926\u0932\u0947\u0902 \u0914\u0930 \u0905\u092E\u0947\u0930\u093F\u0915\u0940 \u0921\u0949\u0932\u0930 \u092E\u0947\u0902 \u0930\u093E\u0936\u093F \u0926\u0930\u094D\u091C \u0915\u0930\u0947\u0902\u0964"
+                }
+            },
+            {
+                question: { es: "¿Cómo convertir pesos colombianos a dólares?", en: "How do I convert Colombian pesos to dollars?", hi: "कोलंबियाई पेसो को डॉलर में कैसे बदलें?" },
+                answer: {
+                    es: "Escribe el monto en COP, elige COP a USD y revisa el resultado con la tasa de referencia. También puedes cambiar la dirección para calcular dólares a pesos colombianos.",
+                    en: "Enter the amount in COP, choose COP to USD, and review the result with the reference rate. You can also switch direction to calculate dollars to Colombian pesos.",
+                    hi: "COP में राशि लिखें, COP से USD चुनें और संदर्भ दर के साथ परिणाम देखें। आप डॉलर से कोलंबियाई पेसो की गणना के लिए दिशा भी बदल सकते हैं।"
                 }
             }
         ]
