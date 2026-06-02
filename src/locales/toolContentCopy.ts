@@ -793,8 +793,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "worked-hours": {
         intro: {
-            es: "Esta calculadora de horas trabajadas suma jornadas por día, semana o periodo para saber cuánto tiempo trabajaste en total y cómo calcular horas de trabajo.",
-            en: "This worked hours calculator adds daily, weekly, or period work entries so you can see the total time worked.",
+            es: "Esta calculadora de horas trabajadas suma jornadas por día, turno, semana o periodo para saber cuánto tiempo trabajaste en total y cómo calcular horas de trabajo.",
+            en: "This worked hours calculator adds daily, shift, weekly, or period work entries so you can see the total time worked.",
             hi: "\u092F\u0939 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0926\u0948\u0928\u093F\u0915, \u0938\u093E\u092A\u094D\u0924\u093E\u0939\u093F\u0915 \u092F\u093E \u0905\u0935\u0927\u093F \u0915\u093E\u0930\u094D\u092F \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0924\u093E \u0939\u0948 \u0924\u093E\u0915\u093F \u0906\u092A \u0915\u093E\u092E \u0915\u093F\u090F \u0917\u090F \u0915\u0941\u0932 \u0938\u092E\u092F \u0915\u094B \u0926\u0947\u0916 \u0938\u0915\u0947\u0902\u0964"
         },
         sections: [
@@ -802,8 +802,8 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Qué puedes calcular", en: "What you can calculate", hi: "\u0906\u092A \u0915\u094D\u092F\u093E \u0917\u0923\u0928\u093E \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902" },
                 body: [
                     {
-                        es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización para sumar horas trabajadas, horas laborales o turnos sin hacer cuentas manuales.",
-                        en: "Add one or more work entries with date, start time, and end time to add worked hours, labor hours, or shifts without manual math.",
+                        es: "Agrega una o varias jornadas con fecha, hora de inicio y hora de finalización para sumar horas trabajadas, horas laborales, turnos y descansos sin hacer cuentas manuales.",
+                        en: "Add one or more work entries with date, start time, and end time to add worked hours, labor hours, shifts, and breaks without manual math.",
                         hi: "\u092E\u0948\u0928\u094D\u092F\u0941\u0905\u0932 \u0917\u0923\u093F\u0924 \u0915\u0947 \u092C\u093F\u0928\u093E \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u0936\u094D\u0930\u092E \u0918\u0902\u091F\u0947 \u092F\u093E \u0936\u093F\u092B\u094D\u091F \u091C\u094B\u0921\u093C\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0926\u093F\u0928\u093E\u0902\u0915, \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0938\u092E\u092F \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0938\u092E\u092F \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u092F\u093E \u0905\u0927\u093F\u0915 \u0915\u093E\u0930\u094D\u092F \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F\u092F\u093E\u0901 \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
                     },
                     {
@@ -818,7 +818,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 body: [
                     {
                         es: "Es útil para calcular mis horas de trabajo, sumar horas trabajadas, preparar reportes, cobrar por hora, controlar tiempo y revisar jornadas laborales.",
-                        en: "It is useful for calculating my work hours, reports, hourly billing, personal time tracking, and work shift reviews.",
+                        en: "Use it as a work hours calculator for reports, hourly billing, time card review, personal time tracking, and work shift checks.",
                         hi: "\u092F\u0939 \u092E\u0947\u0930\u0947 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947, \u0930\u093F\u092A\u094B\u0930\u094D\u091F, \u092A\u094D\u0930\u0924\u093F \u0918\u0902\u091F\u093E \u092C\u093F\u0932\u093F\u0902\u0917, \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0917\u0924 \u0938\u092E\u092F \u091F\u094D\u0930\u0948\u0915\u093F\u0902\u0917 \u0914\u0930 \u0915\u093E\u0930\u094D\u092F \u0936\u093F\u092B\u094D\u091F \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940 \u0939\u0948\u0964"
                     },
                     {
@@ -848,8 +848,8 @@ export const toolContentById: Record<string, ToolContent> = {
             {
                 question: { es: "¿Cómo sumar horas trabajadas?", en: "How do I add worked hours?", hi: "\u092E\u0948\u0902 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0938\u0947 \u091C\u094B\u0921\u093C\u0942\u0901?" },
                 answer: {
-                    es: "Crea una jornada por cada día o turno con hora de inicio y finalización. La calculadora suma todos los rangos y muestra el total acumulado.",
-                    en: "Create one entry for each day or shift with start and end time. The calculator adds all ranges and shows the accumulated total.",
+                    es: "Crea una jornada por cada día o turno con hora de inicio y finalización. La calculadora suma todos los rangos y muestra horas, minutos y total acumulado.",
+                    en: "Create one entry for each day or shift with start and end time. The calculator adds all ranges and shows hours, minutes, and the accumulated total.",
                     hi: "\u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u0926\u093F\u0928 \u092F\u093E \u0936\u093F\u092B\u094D\u091F \u0915\u0947 \u0932\u093F\u090F \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0938\u092E\u092F \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u092A\u094D\u0930\u0935\u093F\u0937\u094D\u091F\u093F \u092C\u0928\u093E\u090F\u0902\u0964 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0938\u092D\u0940 \u0936\u094D\u0930\u0947\u0923\u093F\u092F\u094B\u0902 \u0915\u094B \u091C\u094B\u0921\u093C\u0924\u093E \u0939\u0948 \u0914\u0930 \u0938\u0902\u091A\u093F\u0924 \u0915\u0941\u0932 \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948\u0964"
                 }
             },

@@ -161,8 +161,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Calcula horas entre fechas o rangos para trabajo y freelancing.",
-            en: "Add up worked hours across dates and shifts.",
+            es: "Suma horas trabajadas por turno, día o semana.",
+            en: "Add worked hours by shift, day, or week.",
             hi: "\u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0914\u0930 \u0936\u093F\u092B\u094D\u091F\u094B\u0902 \u092E\u0947\u0902 \u0915\u093E\u092E \u0915\u0947 \u0918\u0902\u091F\u0947 \u091C\u094B\u0921\u093C\u0947\u0902\u0964"
         }
     },
