@@ -238,12 +238,12 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     "duplicate-counter": {
         title: {
             es: "Contador de duplicados online | Valores repetidos",
-            en: "Count Duplicates Online | Duplicate Counter",
+            en: "Count Duplicates Online | Duplicate & Unique Counter",
             hi: "\u0921\u0941\u092A\u094D\u0932\u0940\u0915\u0947\u091F \u0915\u093E\u0909\u0902\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0926\u094B\u0939\u0930\u093E\u090F \u0917\u090F \u092E\u093E\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902"
         },
         description: {
-            es: "Cuenta valores duplicados en una lista, obtiene valores únicos, lista de resultados, total de líneas y ocurrencias por cada valor.",
-            en: "Count duplicates online from any list. Get repeated values, unique values, a distinct result list, total lines, and occurrences for each item.",
+            es: "Cuenta duplicados online en listas, columnas o textos. Encuentra valores repetidos, únicos, total de líneas y ocurrencias por cada valor.",
+            en: "Count duplicates online from any list, column, or text. Find repeated values, count unique values online, total lines, and occurrences for each item.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u092E\u093E\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902, \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u092E\u093E\u0928 \u0915\u0947 \u0932\u093F\u090F \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928, \u090F\u0915 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0938\u0942\u091A\u0940, \u0915\u0941\u0932 \u092A\u0902\u0915\u094D\u0924\u093F\u092F\u093E\u0901 \u0914\u0930 \u0918\u091F\u0928\u093E\u090F\u0901 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
     },

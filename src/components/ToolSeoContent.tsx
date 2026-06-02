@@ -86,8 +86,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["लोअरकेस से अपरकेस", "कैपिटल लेटर कनवर्टर", "टेक्स्ट केस कनवर्टर"]
   },
   "duplicate-counter": {
-    es: ["contador de duplicados", "buscar valores repetidos", "contar repetidos en lista"],
-    en: ["count duplicates online", "duplicate counter", "find repeated values"],
+    es: ["contador de duplicados online", "buscar valores repetidos", "contar valores únicos"],
+    en: ["count duplicates online", "duplicate counter", "count unique values online"],
     hi: ["डुप्लीकेट गिनें", "दोहराए मान खोजें", "सूची में डुप्लीकेट"]
   },
   "remove-extra-spaces": {

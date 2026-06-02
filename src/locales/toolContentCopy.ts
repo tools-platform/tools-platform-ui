@@ -1355,8 +1355,8 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "duplicate-counter": {
         intro: {
-            es: "Cuenta duplicados en una lista y genera una vista de resultados con los valores únicos y sus ocurrencias.",
-            en: "Count duplicates online in a list and generate a distinct view with unique values and their occurrences.",
+            es: "Cuenta duplicados online en una lista, columna o bloque de texto y genera una vista con valores únicos, repetidos y ocurrencias.",
+            en: "Count duplicates online in a list, column, or text block and generate a view with unique values, duplicate lines, and occurrences.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0914\u0930 \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928\u094B\u0902 \u0914\u0930 \u0909\u0928\u0915\u0940 \u0918\u091F\u0928\u093E\u0913\u0902 \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0926\u0943\u0936\u094D\u092F \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\u0964"
         },
         sections: [
@@ -1380,7 +1380,7 @@ export const toolContentById: Record<string, ToolContent> = {
                 body: [
                     {
                         es: "Sirve para revisar correos, códigos, IDs, URLs, nombres, SKUs o columnas copiadas desde Excel cuando necesitas detectar repetidos rápido.",
-                        en: "Use it to review emails, codes, IDs, URLs, names, SKUs, or columns copied from Excel when you need to detect repeated values quickly.",
+                        en: "Use this duplicate counter to review emails, codes, IDs, URLs, names, SKUs, or columns copied from Excel when you need to detect repeated values quickly.",
                         hi: "\u091C\u092C \u0906\u092A\u0915\u094B \u0926\u094B\u0939\u0930\u093E\u090F \u0917\u090F \u092E\u093E\u0928\u094B\u0902 \u0915\u093E \u0924\u0941\u0930\u0902\u0924 \u092A\u0924\u093E \u0932\u0917\u093E\u0928\u0947 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0939\u094B \u0924\u094B \u090F\u0915\u094D\u0938\u0947\u0932 \u0938\u0947 \u0915\u0949\u092A\u0940 \u0915\u093F\u090F \u0917\u090F \u0908\u092E\u0947\u0932, \u0915\u094B\u0921, \u0906\u0908\u0921\u0940, \u092F\u0942\u0906\u0930\u090F\u0932, \u0928\u093E\u092E, \u090F\u0938\u0915\u0947\u092F\u0942 \u092F\u093E \u0915\u0949\u0932\u092E \u0915\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0907\u0938\u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902\u0964"
                     },
                     {
@@ -1395,8 +1395,8 @@ export const toolContentById: Record<string, ToolContent> = {
             {
                 question: { es: "¿Cómo contar duplicados en una lista?", en: "How do I count duplicates online in a list?", hi: "\u092E\u0948\u0902 \u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u093F\u0928\u0924\u0940 \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
                 answer: {
-                    es: "Pega una lista con un valor por línea y pulsa contar duplicados. La herramienta muestra cuántas veces aparece cada valor y separa los valores únicos.",
-                    en: "Paste a list with one value per line and press count duplicates. The tool shows how many times each value appears and separates unique values.",
+                    es: "Pega una lista con un valor por línea y pulsa contar duplicados. La herramienta muestra cuántas veces aparece cada valor y separa valores únicos, repetidos y duplicados.",
+                    en: "Paste a list with one value per line and press count duplicates. The tool shows how many times each value appears and separates unique, repeated, and duplicate values.",
                     hi: "\u092A\u094D\u0930\u0924\u093F \u092A\u0902\u0915\u094D\u0924\u093F \u090F\u0915 \u092E\u093E\u0928 \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u0938\u0942\u091A\u0940 \u091A\u093F\u092A\u0915\u093E\u090F\u0901 \u0914\u0930 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u0915\u0940 \u0917\u093F\u0928\u0924\u0940 \u0926\u092C\u093E\u090F\u0901\u0964 \u0909\u092A\u0915\u0930\u0923 \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948 \u0915\u093F \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u092E\u093E\u0928 \u0915\u093F\u0924\u0928\u0940 \u092C\u093E\u0930 \u092A\u094D\u0930\u0915\u091F \u0939\u094B\u0924\u093E \u0939\u0948 \u0914\u0930 \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928\u094B\u0902 \u0915\u094B \u0905\u0932\u0917 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                 }
             },
