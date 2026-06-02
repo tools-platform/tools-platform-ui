@@ -64,8 +64,9 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["freelance rate calculator", "freelance hourly rate calculator", "how much to charge freelance"]
   },
   "days-between-dates": {
-    es: ["contador de días entre fechas", "calculador de días calendario", "cuántos días hay entre dos fechas"],
-    en: ["days between dates calculator", "date counter", "calendar days between dates"]
+    es: ["calculadora de días entre fechas", "cuántos días hay entre dos fechas", "contador de días calendario"],
+    en: ["days between dates calculator", "how many days between two dates", "date duration calculator"],
+    hi: ["तिथियों के बीच दिन कैलकुलेटर", "दो तारीखों के बीच कितने दिन", "तिथि अवधि कैलकुलेटर"]
   },
   "exact-age": {
     es: ["calculadora de edad exacta", "edad en años meses y días", "calcular edad por fecha de nacimiento"],

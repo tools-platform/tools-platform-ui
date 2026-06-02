@@ -165,14 +165,14 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "days-between-dates": {
         title: {
-            es: "Contador de días entre fechas | Calculador de días calendario",
-            en: "Days Between Dates Calculator Online | Date Counter",
-            hi: "\u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u0947 \u0926\u093F\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0926\u093F\u0928\u093E\u0902\u0915 \u0915\u093E\u0909\u0902\u091F\u0930"
+            es: "Calculadora de días entre fechas | Contador calendario",
+            en: "Days Between Dates Calculator | Date Duration Counter",
+            hi: "तिथियों के बीच दिन कैलकुलेटर | तिथि अवधि काउंटर"
         },
         description: {
-            es: "Cuenta días calendario entre dos fechas para trámites, viajes, entregas o planeación. Incluye semanas completas y días restantes.",
-            en: "Count calendar days between two dates for paperwork, trips, deliveries, or planning. Includes full weeks and remaining days.",
-            hi: "\u0915\u093E\u0917\u091C\u0940 \u0915\u093E\u0930\u094D\u0930\u0935\u093E\u0908, \u092F\u093E\u0924\u094D\u0930\u093E\u0913\u0902, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u092F\u094B\u091C\u0928\u093E \u0915\u0947 \u0932\u093F\u090F \u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964 \u0907\u0938\u092E\u0947\u0902 \u092A\u0942\u0930\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928 \u0936\u093E\u092E\u093F\u0932 \u0939\u0948\u0902\u0964"
+            es: "Calcula cuántos días hay entre dos fechas. Cuenta días calendario, semanas completas y días restantes para viajes, entregas o planeación.",
+            en: "Calculate how many days are between two dates. Count calendar days, full weeks, and remaining days for travel, deadlines, or planning.",
+            hi: "दो तारीखों के बीच कितने दिन हैं, यह गणना करें। यात्रा, समय सीमा या योजना के लिए कैलेंडर दिन, पूरे सप्ताह और बचे दिन देखें।"
         }
     },
     "weeks-between-dates": {

@@ -216,14 +216,14 @@ export const toolCopy: Record<string, CatalogText> = {
     },
     "days-between-dates": {
         name: {
-            es: "Contador de días entre fechas",
+            es: "Calculadora de días entre fechas",
             en: "Days Between Dates Calculator",
             hi: "\u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u0947 \u0926\u093F\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Cuenta cuántos días hay entre dos fechas para trámites o planeación.",
-            en: "Count how many days are between two dates.",
-            hi: "\u0917\u093F\u0928\u0947\u0902 \u0915\u093F \u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u0939\u0948\u0902\u0964"
+            es: "Calcula días calendario, semanas y duración entre dos fechas.",
+            en: "Calculate calendar days, weeks, and duration between two dates.",
+            hi: "दो तारीखों के बीच कैलेंडर दिन, सप्ताह और अवधि की गणना करें।"
         }
     },
     "weeks-between-dates": {

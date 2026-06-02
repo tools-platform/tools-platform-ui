@@ -938,18 +938,18 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "days-between-dates": {
         intro: {
-            es: "Cuenta cuántos días calendario hay entre dos fechas para trámites, viajes, entregas, planeación o conteos rápidos en Colombia.",
-            en: "Count how many calendar days there are between two dates for paperwork, trips, deliveries, or planning.",
-            hi: "\u0917\u093F\u0928\u0947\u0902 \u0915\u093F \u0915\u093E\u0917\u091C\u0940 \u0915\u093E\u0930\u094D\u0930\u0935\u093E\u0908, \u092F\u093E\u0924\u094D\u0930\u093E\u0913\u0902, \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u092F\u093E \u092F\u094B\u091C\u0928\u093E \u0915\u0947 \u0932\u093F\u090F \u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u093F\u0924\u0928\u0947 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928 \u0939\u0948\u0902\u0964"
+            es: "Calcula cuántos días hay entre dos fechas y convierte el periodo en días calendario, semanas completas y días restantes.",
+            en: "Calculate how many days are between two dates and convert the period into calendar days, full weeks, and remaining days.",
+            hi: "दो तारीखों के बीच कितने दिन हैं, यह गणना करें और अवधि को कैलेंडर दिन, पूरे सप्ताह और बचे दिनों में बदलें।"
         },
         sections: [
             {
                 title: { es: "Qué muestra", en: "What it shows", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Entrega el total de días calendario, semanas completas y días restantes entre la fecha inicial y la final.",
-                        en: "It returns the total number of calendar days, full weeks, and remaining days between the start and end dates.",
-                        hi: "\u092F\u0939 \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928\u094B\u0902, \u092A\u0942\u0930\u0947 \u0938\u092A\u094D\u0924\u093E\u0939\u094B\u0902 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0915\u0941\u0932 \u0938\u0902\u0916\u094D\u092F\u093E \u0932\u094C\u091F\u093E\u0924\u093E \u0939\u0948\u0964"
+                        es: "Entrega el total de días calendario, semanas completas, días restantes y duración exacta entre la fecha inicial y la fecha final.",
+                        en: "It returns the total calendar days, full weeks, remaining days, and exact duration between the start and end dates.",
+                        hi: "यह प्रारंभ और समाप्ति तिथि के बीच कुल कैलेंडर दिन, पूरे सप्ताह, बचे दिन और सटीक अवधि दिखाता है।"
                     },
                     {
                         es: "Puedes elegir si quieres incluir la fecha final en el conteo, algo útil cuando necesitas contar ambos días.",
@@ -962,9 +962,9 @@ export const toolContentById: Record<string, ToolContent> = {
                 title: { es: "Usos comunes", en: "Common uses", hi: "\u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0909\u092A\u092F\u094B\u0917" },
                 body: [
                     {
-                        es: "Sirve como calculador de días para plazos personales, duración de viajes, periodos entre eventos, días calendario en Colombia o tiempo restante para una entrega.",
-                        en: "It is useful for personal deadlines, trip duration, time between events, calendar day counts, or the time left until a delivery.",
-                        hi: "\u092F\u0939 \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0917\u0924 \u0938\u092E\u092F \u0938\u0940\u092E\u093E, \u092F\u093E\u0924\u094D\u0930\u093E \u0915\u0940 \u0905\u0935\u0927\u093F, \u0918\u091F\u0928\u093E\u0913\u0902 \u0915\u0947 \u092C\u0940\u091A \u0915\u093E \u0938\u092E\u092F, \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928 \u0915\u0940 \u0917\u093F\u0928\u0924\u0940, \u092F\u093E \u0921\u093F\u0932\u0940\u0935\u0930\u0940 \u0924\u0915 \u092C\u091A\u0947 \u0938\u092E\u092F \u0915\u0947 \u0932\u093F\u090F \u0909\u092A\u092F\u094B\u0917\u0940 \u0939\u0948\u0964"
+                        es: "Sirve como contador de días para plazos personales, duración de viajes, periodos entre eventos, entregas, proyectos o conteos rápidos de calendario.",
+                        en: "Use it as a day counter for personal deadlines, trip duration, time between events, deliveries, projects, or quick calendar counts.",
+                        hi: "इसे व्यक्तिगत समय सीमा, यात्रा अवधि, घटनाओं के बीच समय, डिलीवरी, प्रोजेक्ट या तेज कैलेंडर गणना के लिए दिन गिनने वाले टूल की तरह उपयोग करें।"
                     },
                     {
                         es: "No interpreta días hábiles, festivos, vencimientos legales ni reglas de entidades.",
@@ -976,11 +976,11 @@ export const toolContentById: Record<string, ToolContent> = {
         ],
         faqs: [
             {
-                question: { es: "¿Cómo calcular días entre dos fechas?", en: "How do I calculate days between two dates?", hi: "\u092E\u0948\u0902 \u0926\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0948\u0938\u0947 \u0915\u0930\u0942\u0901?" },
+                question: { es: "¿Cómo saber cuántos días hay entre dos fechas?", en: "How many days are between two dates?", hi: "दो तारीखों के बीच कितने दिन हैं?" },
                 answer: {
-                    es: "Selecciona la fecha inicial y la fecha final. La herramienta calcula los días calendario entre ambas y puede incluir la fecha final si necesitas contar ambos extremos.",
-                    en: "Select the start date and end date. The tool calculates calendar days between them and can include the end date when both endpoints should count.",
-                    hi: "\u0906\u0930\u0902\u092D \u0924\u093F\u0925\u093F \u0914\u0930 \u0938\u092E\u093E\u092A\u094D\u0924\u093F \u0924\u093F\u0925\u093F \u091A\u0941\u0928\u0947\u0902. \u0909\u092A\u0915\u0930\u0923 \u0909\u0928\u0915\u0947 \u092C\u0940\u091A \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0924\u093E \u0939\u0948 \u0914\u0930 \u0905\u0902\u0924\u093F\u092E \u0924\u093F\u0925\u093F \u0936\u093E\u092E\u093F\u0932 \u0915\u0930 \u0938\u0915\u0924\u093E \u0939\u0948 \u091C\u092C \u0926\u094B\u0928\u094B\u0902 \u0938\u092E\u093E\u092A\u0928 \u092C\u093F\u0902\u0926\u0941\u0913\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0940 \u091C\u093E\u0928\u0940 \u091A\u093E\u0939\u093F\u090F\u0964"
+                    es: "Selecciona la fecha inicial y la fecha final. La calculadora muestra los días calendario entre ambas, semanas completas y días restantes. Activa incluir fecha final si necesitas contar ambos extremos.",
+                    en: "Select the start date and end date. The calculator shows calendar days between them, full weeks, and remaining days. Enable include end date if both endpoints should count.",
+                    hi: "आरंभ और समाप्ति तिथि चुनें। कैलकुलेटर उनके बीच कैलेंडर दिन, पूरे सप्ताह और बचे दिन दिखाता है। दोनों सिरों को गिनना हो तो अंतिम तिथि शामिल करें।"
                 }
             },
             {
