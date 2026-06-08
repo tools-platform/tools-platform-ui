@@ -75,8 +75,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["सटीक आयु कैलकुलेटर", "जन्मतिथि से आयु निकालें", "साल महीने दिन में उम्र"]
   },
   "days-until-date": {
-    es: ["cuántos días faltan", "días hasta una fecha", "contador de días restantes"],
-    en: ["days until calculator", "days till date calculator", "how many days until"],
+    es: ["cuántos días faltan", "días restantes", "contador de días hasta una fecha"],
+    en: ["days until calculator", "days till calculator", "days left calculator"],
     hi: ["कितने दिन बाकी हैं", "तारीख तक दिन कैलकुलेटर", "इवेंट तक दिन"]
   },
   "unit-converter": {
@@ -85,13 +85,13 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     hi: ["ऑनलाइन यूनिट कन्वर्टर", "kg से lb कन्वर्टर", "km से मील कन्वर्टर"]
   },
   "text-case-converter": {
-    es: ["minúsculas a mayúsculas", "convertidor de mayúsculas", "mayúsculas a minúsculas"],
-    en: ["lower case to upper case", "uppercase converter", "capital letter converter"],
+    es: ["minúsculas a mayúsculas", "texto a mayúsculas", "mayúsculas a minúsculas"],
+    en: ["lower case to upper case", "lowercase to all caps", "capital letter converter"],
     hi: ["लोअरकेस से अपरकेस", "अपरकेस कनवर्टर", "टेक्स्ट केस कनवर्टर"]
   },
   "duplicate-counter": {
-    es: ["contador de duplicados online", "buscar valores repetidos", "contar valores únicos"],
-    en: ["count duplicates online", "duplicate counter", "count unique values online"],
+    es: ["contar duplicados online", "buscar valores repetidos", "contar valores únicos"],
+    en: ["count duplicates online", "duplicate counter", "check duplicate online"],
     hi: ["डुप्लीकेट गिनें", "दोहराए मान खोजें", "सूची में डुप्लीकेट"]
   },
   "remove-extra-spaces": {
@@ -107,8 +107,8 @@ const searchIntentsByToolId: Record<string, Partial<Record<Locale, string[]>>> =
     en: ["secure password generator", "random password generator", "strong password generator"]
   },
   "random-text-generator": {
-    es: ["texto aleatorio", "generador de texto aleatorio", "texto de prueba online"],
-    en: ["random text", "random text generator", "sample text generator"]
+    es: ["generador de texto aleatorio", "texto aleatorio online", "texto de prueba online"],
+    en: ["random text generator", "random text online", "sample text generator"]
   },
   "alphabetical-line-sorter": {
     es: ["ordenar líneas alfabéticamente", "ordenar lista A-Z", "ordenar texto online"],

@@ -117,13 +117,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "salary-increase": {
         title: {
-            es: "Calculadora de aumento salarial | Nuevo sueldo bruto y neto",
-            en: "Pay Increase Calculator | Salary Raise and New Pay",
+            es: "Calculadora de aumento salarial | Nuevo sueldo",
+            en: "Pay Increase Calculator | Pay Raise and New Salary",
             hi: "\u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 | \u0936\u0941\u0926\u094D\u0927 \u0914\u0930 \u0938\u0915\u0932 \u0935\u0943\u0926\u094D\u0927\u093F"
         },
         description: {
-            es: "Calcula tu nuevo sueldo después de un aumento porcentual. Estima aumento salarial, salario bruto, neto con descuentos Colombia y diferencia anual.",
-            en: "Use this pay increase calculator to estimate your new salary after a raise, including raise amount, gross pay, Colombia net pay, and annual difference.",
+            es: "Calcula un aumento salarial en segundos. Ingresa tu sueldo actual y porcentaje para ver nuevo salario, aumento, neto estimado y diferencia anual.",
+            en: "Calculate a pay increase or pay raise in seconds. Enter your current salary and raise percentage to see new pay, raise amount, net pay, and yearly difference.",
             hi: "\u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0947 \u092C\u093E\u0926 \u0905\u092A\u0928\u0947 \u0935\u0947\u0924\u0928 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964 \u0928\u090F \u0938\u0915\u0932 \u0935\u0947\u0924\u0928, \u0915\u091F\u094C\u0924\u093F\u092F\u094B\u0902, \u0935\u0943\u0926\u094D\u0927\u093F \u0930\u093E\u0936\u093F \u0914\u0930 \u0935\u093E\u0930\u094D\u0937\u093F\u0915 \u0905\u0902\u0924\u0930 \u0915\u0947 \u0938\u093E\u0925 \u0915\u094B\u0932\u0902\u092C\u093F\u092F\u093E \u0936\u0941\u0926\u094D\u0927 \u0935\u0947\u0924\u0928 \u0915\u093E \u0905\u0928\u0941\u092E\u093E\u0928 \u0932\u0917\u093E\u090F\u0902\u0964"
         }
     },
@@ -189,13 +189,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "days-until-date": {
         title: {
-            es: "Cuántos días faltan para una fecha | Días restantes",
-            en: "Days Until Calculator | Days Till Date Counter",
+            es: "Cuántos días faltan | Días restantes hasta una fecha",
+            en: "Days Until Calculator | Days Left and Days Till Date",
             hi: "\u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u093E\u0915\u0940 \u0939\u0948\u0902 | \u0924\u093E\u0930\u0940\u0916 \u0924\u0915 \u0926\u093F\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Cuenta cuántos días faltan desde hoy hasta una fecha, evento, cumpleaños, viaje o plazo. Muestra días calendario, semanas y días restantes.",
-            en: "Count days until any date from today. See calendar days left, full weeks, and remaining days for events, deadlines, trips, or birthdays.",
+            es: "Cuenta cuántos días faltan desde hoy hasta una fecha. Calcula días restantes para eventos, cumpleaños, viajes, plazos, semanas completas y días sobrantes.",
+            en: "Use this days until calculator to count days left from today to any date. See days till an event, deadline, trip, birthday, full weeks, and remaining days.",
             hi: "\u0906\u091C \u0938\u0947 \u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u0907\u0935\u0947\u0902\u091F, \u091C\u0928\u094D\u092E\u0926\u093F\u0928, \u092F\u093E\u0924\u094D\u0930\u093E \u092F\u093E \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u093E\u0915\u0940 \u0939\u0948\u0902 \u0917\u093F\u0928\u0947\u0902\u0964 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928, \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928 \u0926\u0947\u0916\u0947\u0902\u0964"
         }
     },
@@ -225,25 +225,25 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "text-case-converter": {
         title: {
-            es: "Minúsculas a mayúsculas | Convertidor de texto",
-            en: "Lower Case to Upper Case | Uppercase Converter",
+            es: "Minúsculas a mayúsculas online | Convertidor de texto",
+            en: "Lower Case to Upper Case Converter | Capital Letters",
             hi: "\u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0938\u0947 \u0905\u092A\u0930\u0915\u0947\u0938 | \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u0947\u0938 \u0915\u0928\u0935\u0930\u094D\u091F\u0930"
         },
         description: {
-            es: "Convierte minúsculas a mayúsculas, mayúsculas a minúsculas, capitalizado o tipo oración. Limpia títulos, frases y texto copiado rápido.",
-            en: "Convert lowercase to uppercase, uppercase to lowercase, title case, or sentence case. Use this uppercase converter and capital letter converter online.",
+            es: "Convierte texto de minúsculas a mayúsculas, mayúsculas a minúsculas, capitalizado, tipo oración y títulos en segundos.",
+            en: "Convert lower case to upper case, lowercase to all caps, upper case to lower case, title case, sentence case, and capital letters online.",
             hi: "\u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0905\u092A\u0930\u0915\u0947\u0938 \u0915\u094B \u0932\u094B\u0905\u0930\u0915\u0947\u0938, \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092F\u093E \u0938\u0947\u0902\u091F\u0947\u0902\u0938 \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964 \u0936\u0940\u0930\u094D\u0937\u0915, \u0935\u093E\u0915\u094D\u092F \u0914\u0930 \u0915\u0949\u092A\u0940 \u0915\u093F\u092F\u093E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0938\u093E\u092B \u0915\u0930\u0947\u0902\u0964"
         }
     },
     "duplicate-counter": {
         title: {
-            es: "Contar duplicados online | Contador de valores únicos",
-            en: "Count Duplicates Online | Duplicate Counter",
+            es: "Contar duplicados online | Valores únicos y repetidos",
+            en: "Count Duplicates Online | Duplicate and Unique Values",
             hi: "\u0921\u0941\u092A\u094D\u0932\u0940\u0915\u0947\u091F \u0915\u093E\u0909\u0902\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0926\u094B\u0939\u0930\u093E\u090F \u0917\u090F \u092E\u093E\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902"
         },
         description: {
-            es: "Pega una lista o columna y cuenta duplicados online. Encuentra valores repetidos, valores únicos, líneas totales y ocurrencias por elemento.",
-            en: "Paste a list or column and count duplicates online. Find repeated values, count unique values online, total lines, and occurrences per item.",
+            es: "Pega una lista o columna y cuenta duplicados online. Encuentra valores repetidos, únicos, líneas duplicadas y ocurrencias por elemento.",
+            en: "Count duplicates online from any list or column. Find repeated items, unique values, duplicate lines, occurrences, and copy or export the result.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0921\u0941\u092A\u094D\u0932\u093F\u0915\u0947\u091F \u092E\u093E\u0928\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902, \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u092E\u093E\u0928 \u0915\u0947 \u0932\u093F\u090F \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928, \u090F\u0915 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0938\u0942\u091A\u0940, \u0915\u0941\u0932 \u092A\u0902\u0915\u094D\u0924\u093F\u092F\u093E\u0901 \u0914\u0930 \u0918\u091F\u0928\u093E\u090F\u0901 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
     },
@@ -285,13 +285,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "random-text-generator": {
         title: {
-            es: "Generador de texto aleatorio | Texto de prueba online",
-            en: "Random Text Generator | Generate Random Text Online",
+            es: "Generador de texto aleatorio | Palabras y párrafos",
+            en: "Random Text Generator | Random Words and Paragraphs",
             hi: "\u0930\u0948\u0902\u0921\u092E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u091C\u0947\u0928\u0930\u0947\u091F\u0930 \u0911\u0928\u0932\u093E\u0907\u0928 | \u0928\u092E\u0942\u0928\u093E \u092A\u093E\u0920"
         },
         description: {
-            es: "Genera texto aleatorio online para pruebas, diseños, formularios o listas. Crea palabras, frases, párrafos y Lorem ipsum.",
-            en: "Generate random text online for tests, designs, forms, and lists. Create random words, sentences, paragraphs, and Lorem ipsum.",
+            es: "Genera texto aleatorio online para pruebas, diseños, formularios, SEO y contenido de ejemplo. Crea palabras, frases, párrafos, listas o Lorem ipsum.",
+            en: "Generate random text online for tests, mockups, forms, SEO drafts, and sample content. Create words, sentences, paragraphs, lists, or Lorem ipsum.",
             hi: "\u0936\u092C\u094D\u0926\u094B\u0902, \u0935\u093E\u0915\u094D\u092F\u094B\u0902, \u0905\u0928\u0941\u091A\u094D\u091B\u0947\u0926\u094B\u0902 \u092F\u093E \u0938\u0942\u091A\u093F\u092F\u094B\u0902 \u0915\u0947 \u0938\u093E\u0925 \u0911\u0928\u0932\u093E\u0907\u0928 \u092F\u093E\u0926\u0943\u091A\u094D\u091B\u093F\u0915 \u092A\u093E\u0920 \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\u0964 \u0905\u0902\u0917\u094D\u0930\u0947\u091C\u0940 \u0914\u0930 \u0938\u094D\u092A\u0947\u0928\u093F\u0936 \u092E\u0947\u0902 \u092A\u094D\u0930\u093E\u0915\u0943\u0924\u093F\u0915 \u092A\u093E\u0920 \u092F\u093E \u0932\u094B\u0930\u0947\u092E \u0907\u092A\u094D\u0938\u092E \u091A\u0941\u0928\u0947\u0902\u0964"
         }
     },
@@ -453,13 +453,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "resignation-letter-generator": {
         title: {
-            es: "Generador de carta de renuncia | Plantilla editable",
-            en: "Resignation Letter Generator | Editable Template",
+            es: "Generador de carta de renuncia | Modelo editable",
+            en: "Resignation Letter Generator | Template and Sample",
             hi: "\u0911\u0928\u0932\u093E\u0907\u0928 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u091C\u0928\u0930\u0947\u091F\u0930 | \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0921\u094D\u0930\u093E\u092B\u094D\u091F"
         },
         description: {
-            es: "Genera una carta de renuncia formal con nombre, cargo, empresa, fechas y motivo opcional. Edita, copia o descarga la plantilla.",
-            en: "Generate a formal resignation letter with name, role, company, dates, and optional reason. Edit, copy, or download the template.",
+            es: "Crea una carta de renuncia online con modelo formal, texto editable, último día de trabajo, destinatario, firma y descarga en PDF o Word.",
+            en: "Create a resignation letter online with a formal template, editable text, last working day, recipient, signature, PDF, and Word download.",
             hi: "\u0928\u093E\u092E, \u092A\u0926, \u0915\u0902\u092A\u0928\u0940, \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0914\u0930 \u0935\u0948\u0915\u0932\u094D\u092A\u093F\u0915 \u0915\u093E\u0930\u0923 \u0915\u0947 \u0938\u093E\u0925 \u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u092C\u0928\u093E\u090F\u0901\u0964 \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u0915\u0949\u092A\u0940 \u0914\u0930 \u0938\u0902\u092A\u093E\u0926\u093F\u0924 \u0915\u0930\u0947\u0902\u0964"
         }
     },

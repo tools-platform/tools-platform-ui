@@ -141,8 +141,8 @@ export const toolCopy: Record<string, CatalogText> = {
     "salary-increase": {
         name: { es: "Calculadora de aumento salarial", en: "Salary Increase Calculator", hi: "\u0935\u0947\u0924\u0928 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930" },
         description: {
-            es: "Calcula tu nuevo sueldo después de un aumento.",
-            en: "Calculate new pay after a salary increase.",
+            es: "Calcula aumento salarial, nuevo sueldo y diferencia anual.",
+            en: "Calculate a pay raise, new salary, and yearly difference.",
             hi: "\u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902 \u0915\u093F \u092A\u094D\u0930\u0924\u093F\u0936\u0924 \u0935\u0943\u0926\u094D\u0927\u093F \u0915\u0947 \u092C\u093E\u0926 \u0935\u0947\u0924\u0928 \u0915\u0948\u0938\u093E \u0926\u093F\u0916\u0947\u0917\u093E\u0964"
         }
     },
@@ -249,8 +249,8 @@ export const toolCopy: Record<string, CatalogText> = {
     "days-until-date": {
         name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator", hi: "\u0926\u093F\u0928\u093E\u0902\u0915 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0924\u0915 \u0915\u0947 \u0926\u093F\u0928" },
         description: {
-            es: "Cuenta días hasta una fecha, evento o plazo.",
-            en: "Count days until a date, event, or deadline.",
+            es: "Cuenta días restantes hasta una fecha, evento o plazo.",
+            en: "Count days left until a date, event, or deadline.",
             hi: "\u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u0907\u0935\u0947\u0902\u091F \u092F\u093E \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0926\u093F\u0928 \u0917\u093F\u0928\u0947\u0902\u0964"
         }
     },
@@ -273,8 +273,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0905\u092A\u0930\u0915\u0947\u0938 \u0914\u0930 \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0915\u0928\u0935\u0930\u094D\u091F\u0930"
         },
         description: {
-            es: "Cambia texto entre mayúsculas, minúsculas y capitalizado.",
-            en: "Switch text between uppercase, lowercase, and title case.",
+            es: "Convierte minúsculas, mayúsculas, todo en caps y títulos.",
+            en: "Convert lower case, upper case, all caps, and titles.",
             hi: "\u091F\u0947\u0915\u094D\u0938\u094D\u091F \u0915\u094B \u0905\u092A\u0930\u0915\u0947\u0938, \u0932\u094B\u0905\u0930\u0915\u0947\u0938 \u0914\u0930 \u091F\u093E\u0907\u091F\u0932 \u0915\u0947\u0938 \u092E\u0947\u0902 \u092C\u0926\u0932\u0947\u0902\u0964"
         }
     },
@@ -285,8 +285,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0921\u0941\u092A\u094D\u0932\u0940\u0915\u0947\u091F \u0915\u093E\u0909\u0902\u091F\u0930"
         },
         description: {
-            es: "Pega una lista y encuentra duplicados, únicos y repetidos.",
-            en: "Paste a list and find duplicates, unique values, and repeats.",
+            es: "Cuenta duplicados, valores únicos, repetidos y ocurrencias.",
+            en: "Count duplicates, unique values, repeats, and occurrences.",
             hi: "\u0915\u093F\u0938\u0940 \u0938\u0942\u091A\u0940 \u092E\u0947\u0902 \u0926\u094B\u0939\u0930\u093E\u090F \u0917\u090F \u092E\u093E\u0928\u094B\u0902, \u0905\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092E\u093E\u0928\u094B\u0902 \u0914\u0930 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u092A\u0902\u0915\u094D\u0924\u093F\u092F\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0930\u0947\u0902\u0964"
         }
     },
@@ -349,8 +349,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0930\u0948\u0902\u0921\u092E \u091F\u0947\u0915\u094D\u0938\u094D\u091F \u091C\u0947\u0928\u0930\u0947\u091F\u0930"
         },
         description: {
-            es: "Genera texto aleatorio con palabras, frases, párrafos o listas.",
-            en: "Generate random text with words, sentences, paragraphs, or lists.",
+            es: "Genera palabras, frases, párrafos o listas aleatorias.",
+            en: "Generate random words, sentences, paragraphs, or lists.",
             hi: "\u092A\u094D\u0930\u093E\u0915\u0943\u0924\u093F\u0915 \u092A\u093E\u0920 \u092F\u093E \u0932\u094B\u0930\u0947\u092E \u0907\u092A\u094D\u0938\u092E \u0915\u0947 \u0938\u093E\u0925 \u0936\u092C\u094D\u0926, \u0935\u093E\u0915\u094D\u092F, \u092A\u0948\u0930\u093E\u0917\u094D\u0930\u093E\u092B \u092F\u093E \u0938\u0942\u091A\u093F\u092F\u093E\u0901 \u092C\u0928\u093E\u090F\u0901\u0964"
         }
     },
@@ -465,8 +465,8 @@ export const toolCopy: Record<string, CatalogText> = {
             hi: "\u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u091C\u0928\u0930\u0947\u091F\u0930"
         },
         description: {
-            es: "Crea una plantilla editable de renuncia para copiar o descargar.",
-            en: "Create an editable resignation letter template to copy or download.",
+            es: "Crea una carta de renuncia formal y descárgala.",
+            en: "Create a formal resignation letter and download it.",
             hi: "\u0914\u092A\u091A\u093E\u0930\u093F\u0915, \u0938\u0902\u0915\u094D\u0937\u093F\u092A\u094D\u0924 \u092F\u093E \u0906\u092D\u093E\u0930\u0940 \u0936\u0948\u0932\u0940 \u092E\u0947\u0902 \u0938\u0902\u092A\u093E\u0926\u0928 \u092F\u094B\u0917\u094D\u092F \u0924\u094D\u092F\u093E\u0917\u092A\u0924\u094D\u0930 \u0921\u094D\u0930\u093E\u092B\u094D\u091F \u092C\u0928\u093E\u090F\u0901\u0964"
         }
     },
