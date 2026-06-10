@@ -1084,38 +1084,53 @@ export const toolContentById: Record<string, ToolContent> = {
     },
     "days-until-date": {
         intro: {
-            es: "Cuenta cuántos días faltan desde hoy para una fecha futura, evento, entrega, cumpleaños, viaje o plazo personal.",
-            en: "Use this days until calculator to count how many days are left from today until a future date, event, delivery, birthday, trip, or deadline.",
+            es: "Cuenta cuántos días faltan desde hoy para una fecha futura. Úsalo como contador de días restantes para eventos, entregas, cumpleaños, viajes, exámenes o plazos personales.",
+            en: "Use this days until calculator to count how many days are left from today until a future date. It works as a days left counter for events, deliveries, birthdays, trips, exams, or personal deadlines.",
             hi: "\u0906\u091C \u0938\u0947 \u092D\u0935\u093F\u0937\u094D\u092F \u0915\u0940 \u0924\u093E\u0930\u0940\u0916, \u0907\u0935\u0947\u0902\u091F, \u0921\u093F\u0932\u0940\u0935\u0930\u0940, \u091C\u0928\u094D\u092E\u0926\u093F\u0928, \u092F\u093E\u0924\u094D\u0930\u093E \u092F\u093E \u0921\u0947\u0921\u0932\u093E\u0907\u0928 \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u093E\u0915\u0940 \u0939\u0948\u0902 \u0917\u093F\u0928\u0947\u0902\u0964"
         },
         sections: [
             {
-                title: { es: "Qué muestra", en: "What it shows", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948" },
+                title: { es: "Qué calcula", en: "What it calculates", hi: "\u092F\u0939 \u0915\u094D\u092F\u093E \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948" },
                 body: [
                     {
-                        es: "Muestra días calendario restantes, semanas aproximadas, semanas completas y días sobrantes hasta la fecha objetivo.",
-                        en: "It shows calendar days left, approximate weeks, full weeks, and remaining days until the target date.",
+                        es: "Muestra los días calendario que faltan hasta la fecha objetivo, además de semanas aproximadas, semanas completas y días sobrantes.",
+                        en: "It shows the calendar days left until the target date, plus approximate weeks, full weeks, and extra remaining days.",
                         hi: "\u092F\u0939 \u0932\u0915\u094D\u0937\u094D\u092F \u0924\u093E\u0930\u0940\u0916 \u0924\u0915 \u092C\u093E\u0915\u0940 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928, \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u0938\u092A\u094D\u0924\u093E\u0939, \u092A\u0942\u0930\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928 \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
-                        es: "Puedes elegir si quieres incluir el día de hoy dentro del conteo.",
-                        en: "You can choose whether today should count as part of the period.",
+                        es: "Puedes contar desde hoy sin incluir el día actual, o activar la opción para incluir hoy dentro del resultado.",
+                        en: "You can count from today without including the current day, or enable the option to include today in the result.",
                         hi: "\u0906\u092A \u091A\u0941\u0928 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902 \u0915\u093F \u0906\u091C \u0915\u094B \u0905\u0935\u0927\u093F \u0915\u0947 \u092D\u093E\u0917 \u0915\u0947 \u0930\u0942\u092A \u092E\u0947\u0902 \u0917\u093F\u0928\u093E \u091C\u093E\u0928\u093E \u091A\u093E\u0939\u093F\u090F \u092F\u093E \u0928\u0939\u0940\u0902\u0964"
                     }
                 ]
             },
             {
-                title: { es: "Usos comunes", en: "Common uses", hi: "\u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0909\u092A\u092F\u094B\u0917" },
+                title: { es: "Cuándo usarlo", en: "When to use it", hi: "\u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0909\u092A\u092F\u094B\u0917" },
                 body: [
                     {
-                        es: "Sirve para saber cuántos días faltan para una fecha, viaje, cumpleaños, entrega, examen, lanzamiento o evento importante.",
-                        en: "It helps you know how many days are left until a date, trip, birthday, delivery, exam, launch, or important event.",
+                        es: "Sirve para responder rápido preguntas como cuántos días faltan para Navidad, un viaje, una cita médica, una entrega, un examen, un lanzamiento o una fecha límite.",
+                        en: "It helps answer questions like how many days until Christmas, a trip, a medical appointment, a delivery, an exam, a launch, or a deadline.",
                         hi: "\u092F\u0939 \u0924\u093E\u0930\u0940\u0916, \u092F\u093E\u0924\u094D\u0930\u093E, \u091C\u0928\u094D\u092E\u0926\u093F\u0928, \u0921\u093F\u0932\u0940\u0935\u0930\u0940, \u092A\u0930\u0940\u0915\u094D\u0937\u093E, \u0932\u0949\u0928\u094D\u091A \u092F\u093E \u092E\u0939\u0924\u094D\u0935\u092A\u0942\u0930\u094D\u0923 \u0907\u0935\u0947\u0902\u091F \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u093E\u0915\u0940 \u0939\u0948\u0902 \u091C\u093E\u0928\u0928\u0947 \u092E\u0947\u0902 \u092E\u0926\u0926 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
                     },
                     {
                         es: "No interpreta días hábiles, festivos, vencimientos legales ni reglas de entidades.",
                         en: "It does not interpret business days, holidays, legal deadlines, or institution-specific rules.",
                         hi: "\u092F\u0939 \u0935\u094D\u092F\u093E\u0935\u0938\u093E\u092F\u093F\u0915 \u0926\u093F\u0928\u094B\u0902, \u091B\u0941\u091F\u094D\u091F\u093F\u092F\u094B\u0902, \u0915\u093E\u0928\u0942\u0928\u0940 \u0938\u092E\u092F-\u0938\u0940\u092E\u093E \u092F\u093E \u0938\u0902\u0938\u094D\u0925\u093E\u0928-\u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0928\u093F\u092F\u092E\u094B\u0902 \u0915\u0940 \u0935\u094D\u092F\u093E\u0916\u094D\u092F\u093E \u0928\u0939\u0940\u0902 \u0915\u0930\u0924\u093E \u0939\u0948\u0964"
+                    }
+                ]
+            },
+            {
+                title: { es: "Días hasta una fecha vs días entre fechas", en: "Days until a date vs days between dates", hi: "\u0924\u093E\u0930\u0940\u0916 \u0924\u0915 \u0926\u093F\u0928 \u092C\u0928\u093E\u092E \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0926\u093F\u0928" },
+                body: [
+                    {
+                        es: "Esta calculadora siempre parte desde hoy. Si necesitas elegir dos fechas manualmente, usa la calculadora de días entre fechas.",
+                        en: "This calculator always starts from today. If you need to choose two custom dates, use the days between dates calculator.",
+                        hi: "\u092F\u0939 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0939\u092E\u0947\u0936\u093E \u0906\u091C \u0938\u0947 \u0936\u0941\u0930\u0942 \u0939\u094B\u0924\u093E \u0939\u0948\u0964 \u092F\u0926\u093F \u0906\u092A\u0915\u094B \u0926\u094B \u0915\u0938\u094D\u091F\u092E \u0924\u093F\u0925\u093F\u092F\u093E\u0901 \u091A\u0941\u0928\u0928\u0940 \u0939\u0948\u0902, \u0924\u094B \u0924\u093F\u0925\u093F\u092F\u094B\u0902 \u0915\u0947 \u092C\u0940\u091A \u0926\u093F\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902\u0964"
+                    },
+                    {
+                        es: "El resultado puede variar si comparas herramientas que incluyen el día inicial, el día final o ambos. Revisa la opción de incluir hoy cuando necesites ese ajuste.",
+                        en: "The result may differ from tools that include the start day, the end day, or both. Check the include today option when you need that adjustment.",
+                        hi: "\u092A\u0930\u093F\u0923\u093E\u092E \u0909\u0928 \u091F\u0942\u0932\u094D\u0938 \u0938\u0947 \u092D\u093F\u0928\u094D\u0928 \u0939\u094B \u0938\u0915\u0924\u093E \u0939\u0948 \u091C\u094B \u0936\u0941\u0930\u0941\u0906\u0924\u0940 \u0926\u093F\u0928, \u0905\u0902\u0924\u093F\u092E \u0926\u093F\u0928 \u092F\u093E \u0926\u094B\u0928\u094B\u0902 \u0915\u094B \u0936\u093E\u092E\u093F\u0932 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902\u0964"
                     }
                 ]
             }
@@ -1135,6 +1150,22 @@ export const toolContentById: Record<string, ToolContent> = {
                     es: "No. Cuenta días calendario. Si necesitas días hábiles, festivos o reglas legales, revisa la norma correspondiente.",
                     en: "No. It counts calendar days. If you need business days, holidays, or legal rules, check the relevant rule.",
                     hi: "\u0928\u0939\u0940\u0902, \u092F\u0939 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928\u094B\u0902 \u0915\u0940 \u0917\u093F\u0928\u0924\u0940 \u0915\u0930\u0924\u093E \u0939\u0948\u0964 \u092F\u0926\u093F \u0906\u092A\u0915\u094B \u0935\u094D\u092F\u093E\u0935\u0938\u093E\u092F\u093F\u0915 \u0926\u093F\u0928\u094B\u0902, \u091B\u0941\u091F\u094D\u091F\u093F\u092F\u094B\u0902 \u092F\u093E \u0915\u093E\u0928\u0942\u0928\u0940 \u0928\u093F\u092F\u092E\u094B\u0902 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0939\u0948, \u0924\u094B \u0938\u0902\u092C\u0902\u0927\u093F\u0924 \u0928\u093F\u092F\u092E \u0915\u0940 \u091C\u093E\u0901\u091A \u0915\u0930\u0947\u0902\u0964"
+                }
+            },
+            {
+                question: { es: "¿La calculadora incluye el día de hoy?", en: "Does the calculator include today?", hi: "\u0915\u094D\u092F\u093E \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0906\u091C \u0915\u094B \u0936\u093E\u092E\u093F\u0932 \u0915\u0930\u0924\u093E \u0939\u0948?" },
+                answer: {
+                    es: "Por defecto cuenta los días que faltan después de hoy. Si quieres contar también el día actual, activa la opción de incluir hoy.",
+                    en: "By default, it counts the days left after today. If you want to count the current day too, enable the include today option.",
+                    hi: "\u0921\u093F\u092B\u093C\u0949\u0932\u094D\u091F \u0930\u0942\u092A \u0938\u0947 \u092F\u0939 \u0906\u091C \u0915\u0947 \u092C\u093E\u0926 \u092C\u091A\u0947 \u0926\u093F\u0928\u094B\u0902 \u0915\u094B \u0917\u093F\u0928\u0924\u093E \u0939\u0948\u0964 \u0906\u091C \u0915\u094B \u092D\u0940 \u0917\u093F\u0928\u0928\u093E \u0939\u094B \u0924\u094B \u0906\u091C \u0936\u093E\u092E\u093F\u0932 \u0915\u0930\u0928\u0947 \u0915\u093E \u0935\u093F\u0915\u0932\u094D\u092A \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902\u0964"
+                }
+            },
+            {
+                question: { es: "¿Puedo ver cuántas semanas faltan?", en: "Can I see how many weeks are left?", hi: "\u0915\u094D\u092F\u093E \u092E\u0948\u0902 \u0926\u0947\u0916 \u0938\u0915\u0924\u093E \u0939\u0942\u0901 \u0915\u093F \u0915\u093F\u0924\u0928\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u092C\u091A\u0947 \u0939\u0948\u0902?" },
+                answer: {
+                    es: "Sí. Además del total de días, el resultado muestra semanas aproximadas, semanas completas y días sobrantes.",
+                    en: "Yes. Along with the total days, the result shows approximate weeks, full weeks, and leftover days.",
+                    hi: "\u0939\u093E\u0901\u0964 \u0915\u0941\u0932 \u0926\u093F\u0928\u094B\u0902 \u0915\u0947 \u0938\u093E\u0925, \u092A\u0930\u093F\u0923\u093E\u092E \u0905\u0928\u0941\u092E\u093E\u0928\u093F\u0924 \u0938\u092A\u094D\u0924\u093E\u0939, \u092A\u0942\u0930\u0947 \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928 \u0926\u093F\u0916\u093E\u0924\u093E \u0939\u0948\u0964"
                 }
             }
         ]

@@ -247,10 +247,10 @@ export const toolCopy: Record<string, CatalogText> = {
         }
     },
     "days-until-date": {
-        name: { es: "Cuántos días faltan para una fecha", en: "Days Until a Date Calculator", hi: "\u0926\u093F\u0928\u093E\u0902\u0915 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0924\u0915 \u0915\u0947 \u0926\u093F\u0928" },
+        name: { es: "Cuántos días faltan para una fecha", en: "Days Until Calculator", hi: "\u0926\u093F\u0928\u093E\u0902\u0915 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930 \u0924\u0915 \u0915\u0947 \u0926\u093F\u0928" },
         description: {
             es: "Cuenta días restantes hasta una fecha, evento o plazo.",
-            en: "Count days left until a date, event, or deadline.",
+            en: "See how many days are left until any date, event, or deadline.",
             hi: "\u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u0907\u0935\u0947\u0902\u091F \u092F\u093E \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0926\u093F\u0928 \u0917\u093F\u0928\u0947\u0902\u0964"
         }
     },

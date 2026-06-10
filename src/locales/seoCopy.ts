@@ -189,13 +189,13 @@ export const toolSeoById: Record<string, Omit<SeoCopy, "canonicalPath">> = {
     },
     "days-until-date": {
         title: {
-            es: "Cuántos días faltan | Días restantes hasta una fecha",
-            en: "Days Until Calculator | Days Left and Days Till Date",
+            es: "Cuántos días faltan para una fecha | Días restantes",
+            en: "Days Until Calculator | How Many Days Until a Date",
             hi: "\u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u093E\u0915\u0940 \u0939\u0948\u0902 | \u0924\u093E\u0930\u0940\u0916 \u0924\u0915 \u0926\u093F\u0928 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091F\u0930"
         },
         description: {
-            es: "Cuenta cuántos días faltan desde hoy hasta una fecha. Calcula días restantes para eventos, cumpleaños, viajes, plazos, semanas completas y días sobrantes.",
-            en: "Use this days until calculator to count days left from today to any date. See days till an event, deadline, trip, birthday, full weeks, and remaining days.",
+            es: "Calcula cuántos días faltan desde hoy hasta una fecha. Úsalo para eventos, cumpleaños, viajes, plazos, semanas completas y días restantes.",
+            en: "Calculate how many days until a date from today. Use this days until calculator for events, birthdays, trips, deadlines, full weeks, and days left.",
             hi: "\u0906\u091C \u0938\u0947 \u0915\u093F\u0938\u0940 \u0924\u093E\u0930\u0940\u0916, \u0907\u0935\u0947\u0902\u091F, \u091C\u0928\u094D\u092E\u0926\u093F\u0928, \u092F\u093E\u0924\u094D\u0930\u093E \u092F\u093E \u0938\u092E\u092F \u0938\u0940\u092E\u093E \u0924\u0915 \u0915\u093F\u0924\u0928\u0947 \u0926\u093F\u0928 \u092C\u093E\u0915\u0940 \u0939\u0948\u0902 \u0917\u093F\u0928\u0947\u0902\u0964 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u0926\u093F\u0928, \u0938\u092A\u094D\u0924\u093E\u0939 \u0914\u0930 \u0936\u0947\u0937 \u0926\u093F\u0928 \u0926\u0947\u0916\u0947\u0902\u0964"
         }
     },
