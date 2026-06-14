@@ -1,6 +1,76 @@
 {
   "redirects": [
     {
+      "source": "/en/tools/:slug/",
+      "destination": "/en/tools/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/hi/tools/:slug/",
+      "destination": "/hi/tools/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/tools/:slug/",
+      "destination": "/tools/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/categories/:category/",
+      "destination": "/en/categories/:category",
+      "permanent": true
+    },
+    {
+      "source": "/hi/categories/:category/",
+      "destination": "/hi/categories/:category",
+      "permanent": true
+    },
+    {
+      "source": "/categories/:category/",
+      "destination": "/categories/:category",
+      "permanent": true
+    },
+    {
+      "source": "/en/privacy/",
+      "destination": "/en/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/hi/privacy/",
+      "destination": "/hi/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/en/terms/",
+      "destination": "/en/terms",
+      "permanent": true
+    },
+    {
+      "source": "/hi/terms/",
+      "destination": "/hi/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/en/",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/hi/",
+      "destination": "/hi",
+      "permanent": true
+    },
+    {
       "source": "/tools/calculadora-salario-neto-colombia",
       "destination": "/tools/colombia-net-salary-calculator",
       "permanent": true

@@ -8,7 +8,7 @@ const projectRoot = path.resolve(__dirname, "..");
 const distRoot = path.join(projectRoot, "dist");
 const siteUrl = "https://toolsplatforms.com";
 const siteName = "Tools Platforms";
-const sitemapLastModified = "2026-05-18";
+const sitemapLastModified = "2026-06-14";
 
 async function loadTsModule(relativePath) {
   const source = await readFile(path.join(projectRoot, relativePath), "utf8");

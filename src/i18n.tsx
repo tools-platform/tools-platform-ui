@@ -35,6 +35,16 @@ export function stripLocalePrefix(pathname: string) {
   return pathname || "/";
 }
 
+export function normalizeCanonicalPathname(pathname: string) {
+  const normalizedPathname = pathname || "/";
+
+  if (normalizedPathname === "/") {
+    return "/";
+  }
+
+  return normalizedPathname.replace(/\/+$/, "") || "/";
+}
+
 export function getLocalizedText(value: LocalizedText | string, locale: Locale) {
   return typeof value === "string" ? value : value[locale];
 }
@@ -74,7 +84,7 @@ export function detectBrowserLocale(): Locale {
 export function localizePath(path: string, locale: Locale) {
   const [pathWithQuery = "/", hashPart = ""] = path.split("#");
   const [pathname = "/", queryPart = ""] = pathWithQuery.split("?");
-  const normalizedPath = pathname || "/";
+  const normalizedPath = normalizeCanonicalPathname(pathname);
 
   const basePath = stripLocalePrefix(normalizedPath);
   const localizedPathname =
