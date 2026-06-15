@@ -6,19 +6,29 @@ import {
   getLocaleFromPathname,
   getStoredLocalePreference,
   localizePath,
-  normalizeCanonicalPathname
+  normalizeCanonicalPathname,
+  setStoredLocalePreference
 } from "./i18n";
+import { defaultLocale, isSupportedLocale } from "./locales/config";
 import "./styles.css";
 
 const normalizedPathname = normalizeCanonicalPathname(window.location.pathname);
 const currentPath = `${normalizedPathname}${window.location.search}${window.location.hash}`;
 const currentLocale = getLocaleFromPathname(window.location.pathname);
-const preferredLocale = getStoredLocalePreference() ?? detectBrowserLocale();
+const firstPathSegment = window.location.pathname.split("/").filter(Boolean)[0] ?? "";
+const hasExplicitLocalePrefix = isSupportedLocale(firstPathSegment) && firstPathSegment !== defaultLocale;
+const preferredLocale = hasExplicitLocalePrefix ? currentLocale : getStoredLocalePreference() ?? detectBrowserLocale();
 const localizedPath = localizePath(currentPath, preferredLocale);
 
 if (normalizedPathname !== window.location.pathname) {
-  window.location.replace(currentPath);
-} else if (preferredLocale !== currentLocale && localizedPath !== currentPath) {
+  window.history.replaceState(null, "", currentPath);
+}
+
+if (hasExplicitLocalePrefix) {
+  setStoredLocalePreference(currentLocale);
+}
+
+if (preferredLocale !== currentLocale && localizedPath !== currentPath) {
   window.location.replace(localizedPath);
 } else {
   createRoot(document.getElementById("root")!).render(
